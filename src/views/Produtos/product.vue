@@ -114,6 +114,7 @@
 	import myItem from './Components/item.vue'
 	import myUnbind from './Components/unbind.vue'
 	import myDel from './Components/delete.vue'
+	
 	export default {
 		components: {
 			myMarket,
