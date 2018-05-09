@@ -1,7 +1,7 @@
 <template>
 	<div class="attribute-layout">
 		<div class="main_box">
-			<div class='title'>Variações Marketplaces-</div>
+			<div class='title'>{{$t(`product["属性库"]`)}}</div>
 			<div class="subTitle">Buscar</div>
 			<el-input type="text" placeholder='Pesquisar...'size='small' class='input'></el-input>
 			<span class="el-icon-search"></span>
@@ -66,15 +66,14 @@
 <style rel="stylesheet/scss" lang="scss">
 .attribute-layout{
 	.main_box{
-		width:80%;
-		height:100%;
+		padding:20px;
 		margin: 0 auto;
 		padding-bottom:30%;
 		.title{
-			color:#808080;
-			font-size:22rem;
-			padding:2% 0;
-			border-bottom:2px solid #e0e0e0;
+			 color:#808080;
+           font-size:20rem;
+           padding-bottom:1%;
+           border-bottom:1px solid #e0e0e0;
 		}
 		.subTitle{
 			color:#808080;

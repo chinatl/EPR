@@ -1,7 +1,7 @@
 <template>
     <div class="layout advertisement">
         <div class="product-header">
-            <div>Gerenciador de Produtos</div>
+            <div class="title">{{$t(`product["广告管理"]`)}}</div>
             <div>
                 <el-button size='small' round type='primary'   icon="el-icon-edit">Vínculo Automático</el-button>
                 <el-button size='small' round type='success'  icon="el-icon-star-on">Clonar Loja</el-button>
@@ -141,12 +141,16 @@
 		align-items: center;
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 10px;
+		.title{
+			 color:#808080;
+           font-size:20rem;
+		}
 	}
 	.table_font {
 		font-size: 16px
 	}
 	.advertisement {
-		padding: 40px 40px 0; 
+		padding: 20px; 
 	}
 /*
 		div.el-table--enable-row-transition .el-table__body td {

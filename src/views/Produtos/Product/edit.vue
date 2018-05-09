@@ -7,7 +7,7 @@
 		<div class="div1">Title</div>
 		<div class="div2">Selecione o marketplace:</div>
 		<div class="div3">
-			<el-select size='small' placeholder='Mercado Livre | MegaHariba...' style='width:240px'>
+			<el-select size='small' placeholder='Mercado Livre | MegaHariba...' style='width:240px'v-model="value">
 				<el-option value='1' label='Mercado Livre | MegaHariba...'></el-option>
 			</el-select>
 		</div>
@@ -164,6 +164,7 @@
 	export default {
 		data() {
 			return {
+				value:"value",
 				fileList: [],
 				img_list: [],
 				img_src: '',
