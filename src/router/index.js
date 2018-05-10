@@ -210,7 +210,22 @@ export const constantRouterMap = [
 				}
       }
     ]
-  }, {
+  },{
+		path: '/rastreamento',
+		component: Layout,
+		children: [
+			{
+				path: 'index',
+				name: 'Form',
+				component: () =>
+					import ('@/views/rastreamento/index'),
+				meta: {
+					title: '物流跟踪',
+					icon: 'form'
+				}
+      }
+	]	
+  },{
 		path: '/Logistica',
 		component: Layout,
 		meta: {
@@ -233,17 +248,57 @@ export const constantRouterMap = [
 		path: '/relatorios',
 		component: Layout,
 		meta: {
-			title: '调度',
+			title: '报表',
 			icon: 'example'
 		},
 		children: [
 			{
-				path: 'index',
-				name: '报告',
+				path: 'history',
+				name: '历史报表',
 				component: () =>
-					import ('@/views/Relatorios/index'),
+					import ('@/views/Relatorios/history'),
 				meta: {
-					title: '报告',
+					title: '历史报表',
+					icon: 'form'
+				}
+      },
+	  {
+				path: 'analyse',
+				name: '分析报表',
+				component: () =>
+					import ('@/views/Relatorios/analyse'),
+				meta: {
+					title: '分析报表',
+					icon: 'form'
+				}
+      },
+	   {
+				path: 'profit',
+				name: '利润报表',
+				component: () =>
+					import ('@/views/Relatorios/profit'),
+				meta: {
+					title: '利润报表',
+					icon: 'form'
+				}
+      },
+	   {
+				path: 'send',
+				name: '发货报表',
+				component: () =>
+					import ('@/views/Relatorios/send'),
+				meta: {
+					title: '发货报表',
+					icon: 'form'
+				}
+      },
+	   {
+				path: 'return',
+				name: '退货报表',
+				component: () =>
+					import ('@/views/Relatorios/return'),
+				meta: {
+					title: '退货报表',
 					icon: 'form'
 				}
       }
@@ -270,7 +325,7 @@ export const constantRouterMap = [
 //      }
 //    ]
 //  },
-
+	
 	{
 		path: '/config',
 		component: Layout,

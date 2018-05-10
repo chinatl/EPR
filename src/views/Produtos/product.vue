@@ -187,8 +187,8 @@
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 10px;
 		.h3 {
-			font-size: 18rem;
-			font-weight: bold
+			 color:#808080;
+           font-size:20rem;   
 		}
 		.header-button {
 			.el-button {

@@ -127,7 +127,7 @@
 	}
 
 	.edit-title {
-		padding: 15px 0;
+		padding: 20px 0;
 		margin: 0 30px;
 		border-bottom: 2px solid #ccc;
 		display: flex;

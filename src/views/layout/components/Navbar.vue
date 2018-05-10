@@ -4,8 +4,8 @@
 <!--    <breadcrumb></breadcrumb>-->
     <div class="left-item">
       <div class="times">
-        <h3>Plano Gratuito</h3>
-        <h6 @click='open' style="text-decoration: underline;cursor:pointer">Alterar Plano</h6>
+        <h3>{{$t(`layout["免费试用版"]`)}}</h3>
+        <h6 @click='open' style="text-decoration: underline;cursor:pointer">{{$t(`layout["更换套餐"]`)}}</h6>
       </div>
       <div class="line"></div>
       <div class="GRTIS">
@@ -24,7 +24,7 @@
      <button @click='select_lang'>切换语言</button>
       <img :src="require('@/assets/img/vc.png')" alt="">
       <img :src="require('@/assets/img/hand.png')" alt="">
-      <img :src="require('@/assets/img/photo.png')" alt="">
+      <a class='link'target="_blank" href="https://www.youtube.com/channel/UC6AAQNUU67NcsB5mlPlABCg"><img class='img' :src="require('@/assets/img/photo.png')" alt=""></a>
       <img :src="require('@/assets/img/naozhong.png')" alt="">
     </div>
     <el-dropdown class="avatar-container" trigger="click">
@@ -71,7 +71,7 @@
 			])
 		},
 		created() {
-			console.log(this.$store.state.title)
+			
 		},
 		methods: {
 			select_lang(){
@@ -164,6 +164,20 @@
 			height: 50px;
 			float: left;
 			padding: 0 10px;
+		}
+		.link{
+			display:inline-block;
+			width:30px;
+			height:30px;
+			text-align:center;
+			
+			.img{
+				width:100%;
+				height:100%;
+				position:relative;
+				left:-12px;
+				top:0;
+			}
 		}
 		.screenfull {
 			position: absolute;
