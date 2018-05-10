@@ -210,7 +210,22 @@ export const constantRouterMap = [
 				}
       }
     ]
-  }, {
+  },{
+		path: '/rastreamento',
+		component: Layout,
+		children: [
+			{
+				path: 'index',
+				name: 'Form',
+				component: () =>
+					import ('@/views/rastreamento/index'),
+				meta: {
+					title: '物流跟踪',
+					icon: 'form'
+				}
+      }
+	]	
+  },{
 		path: '/Logistica',
 		component: Layout,
 		meta: {
@@ -310,7 +325,7 @@ export const constantRouterMap = [
 //      }
 //    ]
 //  },
-
+	
 	{
 		path: '/config',
 		component: Layout,

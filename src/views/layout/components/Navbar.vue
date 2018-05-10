@@ -24,7 +24,7 @@
      <button @click='select_lang'>切换语言</button>
       <img :src="require('@/assets/img/vc.png')" alt="">
       <img :src="require('@/assets/img/hand.png')" alt="">
-      <a class='link'href="https://www.youtube.com/channel/UC6AAQNUU67NcsB5mlPlABCg"><img class='img' :src="require('@/assets/img/photo.png')" alt=""></a>
+      <a class='link'target="_blank" href="https://www.youtube.com/channel/UC6AAQNUU67NcsB5mlPlABCg"><img class='img' :src="require('@/assets/img/photo.png')" alt=""></a>
       <img :src="require('@/assets/img/naozhong.png')" alt="">
     </div>
     <el-dropdown class="avatar-container" trigger="click">
