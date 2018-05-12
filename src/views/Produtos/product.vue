@@ -1,7 +1,7 @@
 <template>
     <div class="layout product" v-loading='loading'>
         <div class="product-header">
-            <div class="h3">{{$t(`product["产品管理"]`)}}</div>
+            <div class="title">{{$t(`product["产品管理"]`)}}</div>
             <div class="header-button">
                 <el-button size='small' round type='primary'   icon="el-icon-edit">{{$t(`product["开启快捷编辑"]`)}}</el-button>
                 <el-button size='small' round type='info' @click='$store.commit("TOGGLE_ENTRDA")'>{{$t(`product["入库"]`)}}</el-button>
@@ -114,7 +114,7 @@
 	import myItem from './Components/item.vue'
 	import myUnbind from './Components/unbind.vue'
 	import myDel from './Components/delete.vue'
-	
+
 	export default {
 		components: {
 			myMarket,
@@ -187,8 +187,8 @@
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 10px;
 		.h3 {
-			 color:#808080;
-           font-size:20rem;   
+			color: #000;
+			font-size: 20rem;
 		}
 		.header-button {
 			.el-button {
@@ -263,7 +263,7 @@
 	/*--------------product-select------------*/
 
 	.product-select {
-		margin:20px 0;
+		margin: 20px 0;
 		.product-select-item {
 			display: flex;
 			align-items: center;

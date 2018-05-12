@@ -140,7 +140,7 @@
 		width: 500px;
 		box-sizing: border-box;
 		padding: 20px 30px 30px;
-		margin: 100px auto 0 auto;
+		margin: 5% auto 0 auto;
 		background-color: #fff
 	}
 
@@ -231,7 +231,6 @@
 	.login-register {
 		text-align: right;
 		padding-right: 8px;
-		margin-top: 20px
 	}
 
 	.login-register a {

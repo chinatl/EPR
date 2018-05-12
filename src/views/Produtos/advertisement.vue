@@ -142,7 +142,6 @@
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 10px;
 		.title{
-			 color:#808080;
            font-size:20rem;
 		}
 	}
