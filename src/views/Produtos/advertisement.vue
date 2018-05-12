@@ -133,8 +133,6 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
-	
-
 	.product-header {
 		display: flex;
 		justify-content: space-between;

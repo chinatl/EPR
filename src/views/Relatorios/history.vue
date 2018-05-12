@@ -42,25 +42,24 @@
            </div>
         </div>
         <el-table
-			ref="multipleTable"
-			:data="tableData"
-            stripe
-			tooltip-effect="dark"
-			style="width: 100%;margin-top:1%;"
-		 	stripe
-			@selection-change="handleSelectionChange">
-	     <el-table-column prop="name" label='ID de Entrada' clasa="col" align='center'>
+		ref="multipleTable"
+		:data="tableData"
+        stripe
+		tooltip-effect="dark"
+		style="width: 100%;margin-top:1%;"
+		@selection-change="handleSelectionChange">
+	     <el-table-column prop="name" label='ID de Entrada' align='center'>
          </el-table-column>
-         <el-table-column label='Data' clasa="col" prop="address" align='center'>
+         <el-table-column label='Data'prop="address" align='center'>
 
          </el-table-column>	 
-         <el-table-column label='Fornecedor' clasa="col" prop="name" align='center'>
+         <el-table-column label='Fornecedor'prop="name" align='center'>
 
          </el-table-column>	 
-         <el-table-column label='Qtd. de Produto' clasa="col" prop="name" align='center'>
+         <el-table-column label='Qtd. de Produto' prop="name" align='center'>
 
          </el-table-column>
-          <el-table-column label='Valor Total' clasa="col" prop="name" align='center'>
+          <el-table-column label='Valor Total'prop="name" align='center'>
 
          </el-table-column>
           
@@ -172,22 +171,7 @@
 				}
 			}
 		}
-        .page_box{
-            text-align:right;
-            margin-top:2%;
-             .page{
-                display:inline-block;
-                width:30px;
-                height:30px;
-                text-align:center;
-                line-height:30px;
-                font-size:15rem;
-                color:#808080;
-            }
-            .bj{
-                background:#e0e0e0;
-            }
-        }
+        
        
     }
 </style>

@@ -56,9 +56,9 @@ export const constantRouterMap = [
 					title: '主页',
 					icon: 'form'
 				}
-      }
-    ]
-  },
+            }
+       ]
+     },
 	{
 		path: '/produtos',
 		component: Layout,
@@ -329,22 +329,39 @@ export const constantRouterMap = [
 	{
 		path: '/config',
 		component: Layout,
+		meta:{
+			title:'设置',
+			icon:'example'
+		},
 		children: [
 			{
-				path: 'index',
-				name: 'Form',
-				component: () =>
-					import ('@/views/Config/index'),
-				meta: {
-					title: '设置',
-					icon: 'form'
-				}
-      }
-    ]
-  },
+					
+					path:'perfil',
+					name:'用户资料',
+					component:()=>
+						import ('@/views/layout/components/perfil'),
+					meta:{
+						title:'用户资料',
+						icon:'form'
+					},
+			},
+			{
+					
+					path:'setting',
+					name:'配置',
+					component:()=>
+						import ('@/views/layout/components/setting'),
+					meta:{
+						title:'配置',
+						icon:'form'
+					},
+			},
+		]
+    }]
+
 
 //  { path: '*', redirect: '/404', hidden: true }
-]
+
 
 export default new Router({
 	// mode: 'history', //后端支持可开

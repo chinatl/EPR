@@ -13,7 +13,9 @@
 	import {
 		Navbar,
 		Sidebar,
-		AppMain
+		AppMain,
+		myPerfil,
+		mySetting
 	} from '@/views/layout/components'
 	import myChange from '@/components/Change'
 	export default {
@@ -22,7 +24,9 @@
 			Navbar,
 			Sidebar,
 			AppMain,
-			myChange
+			myChange,	
+			myPerfil,
+			mySetting
 		},
 		computed: {
 			sidebar() {
