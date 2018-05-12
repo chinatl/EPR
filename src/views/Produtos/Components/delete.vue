@@ -1,4 +1,4 @@
-m<template>
+<template>
 	<el-dialog
 		:visible.sync="$store.state.product.show_delete"
 		  width="40%"

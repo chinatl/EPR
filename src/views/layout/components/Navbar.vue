@@ -3,10 +3,15 @@
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
 <!--    <breadcrumb></breadcrumb>-->
     <div class="left-item">
-      <div class="times">
+      <div class="times" v-show="!isShow">
         <h3>{{$t(`layout["免费试用版"]`)}}</h3>
-        <h6 @click='open' style="text-decoration: underline;cursor:pointer">{{$t(`layout["更换套餐"]`)}}</h6>
+        <h6 @click='open' style="text-decoration:underline;cursor:pointer;text-align:center">{{$t(`layout["更换套餐"]`)}}</h6>
       </div>
+			<div class="times" v-show="isShow">
+        <h3>{{$t(`layout["04／22／2018年到期"]`)}}</h3>
+        <h6 @click='open' style="text-decoration: underline;cursor:pointer;text-align:center">{{$t(`layout["使用 Pagamento"]`)}}|$39.00</h6>
+      </div>
+
       <div class="line"></div>
       <div class="GRTIS">
         <p class="p">{{$t(`layout["分享可获得1周免费"]`)}}</p>
@@ -33,17 +38,25 @@
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class="inlineBlock" to="/">
           <el-dropdown-item>
-            Home
+            <div @click='$store.commit("TOGGLE_TRAN_USER")'>
+							<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>	Perfil
+						</div>
           </el-dropdown-item>
-        </router-link>
         <el-dropdown-item divided>
-          <span @click="logout" style="display:block;">LogOut</span>
+						<div @click='$store.commit("TOGGLE_TRAN_SET")'>
+								<svg-icon icon-class='set' style='font-size:26px;'></svg-icon>Configurações
+						</div>
         </el-dropdown-item>
+				 <el-dropdown-item>
+            <div @click='$store.commit("TOGGLE_TRAN_ENTER")'>
+							<svg-icon icon-class='enter' style='font-size:26px;'></svg-icon>Sair
+						</div>
+          </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </el-menu>
+	
 </template>
 
 <script>
@@ -52,17 +65,19 @@
 	} from 'vuex'
 	import Breadcrumb from '@/components/Breadcrumb'
 	import Hamburger from '@/components/Hamburger'
+
 	//  import bgc from '@/s'
 
 	export default {
 		data() {
 			return {
-
+				isShow:true,
 			}
 		},
 		components: {
 			Breadcrumb,
-			Hamburger
+			Hamburger,
+	
 		},
 		computed: {
 			...mapGetters([
@@ -70,8 +85,11 @@
 				'avatar'
 			])
 		},
-		created() {
-			
+		created(){
+			setInterval(res=>{
+				this.isShow=!this.isShow;
+				console.log(1)
+			},2000)
 		},
 		methods: {
 			select_lang(){
@@ -105,16 +123,20 @@
 			float: left;
 		}
 		.times {
-			padding: 0 20px;
+			padding: 0 10px;
+			width:180px;
+			text-align:center;
 			h3 {
 				line-height: 50px;
-				margin-top: 10px
+				margin-top:10px;
 			}
+			
 			h6 {
 				text-align: right;
 				line-height: 0px;
 			}
 		}
+		
 		.line {
 			width: 2px;
 			height: 70px;
@@ -122,6 +144,7 @@
 			margin: 15px 20px
 		}
 		.GRTIS {
+			margin-top:10px;
 			.p {
 				display: block;
 				height: 20px;
@@ -169,6 +192,7 @@
 			display:inline-block;
 			width:30px;
 			height:30px;
+			margin:0 15px;
 			text-align:center;
 			
 			.img{
@@ -204,6 +228,10 @@
 					top: 25px;
 					font-size: 12px;
 				}
+			}
+			.icon{
+				font-size:16px;
+				color:#808080;
 			}
 		}
 	}
