@@ -55,7 +55,7 @@ export const constantRouterMap = [
 					import ('@/views/Dashboard/index'),
 				meta: {
 					title: '主页',
-					icon: 'form'
+					icon: 'menu'
 				}
             },
 			{
@@ -79,7 +79,7 @@ export const constantRouterMap = [
 		component: Layout,
 		meta: {
 			title: '产品',
-			icon: 'example'
+			icon: 'box'
 		},
 		children: [
 			{
@@ -126,7 +126,7 @@ export const constantRouterMap = [
 					import ('@/views/Estoque/index'),
 				meta: {
 					title: '订单管理',
-					icon: 'form'
+					icon: 'menu3'
 				}
       }
     ]
@@ -145,7 +145,7 @@ export const constantRouterMap = [
 					import ('@/views/Fornecedor/index'),
 				meta: {
 					title: '供应商',
-					icon: 'form'
+					icon: 'woshou'
 				}
       }
     ]
@@ -154,7 +154,7 @@ export const constantRouterMap = [
 		component: Layout,
 		meta: {
 			title: '打包',
-			icon: 'example'
+			icon: 'wl'
 		},
 		children: [
 			{
@@ -183,7 +183,7 @@ export const constantRouterMap = [
 		component: Layout,
 		meta: {
 			title: 'SAC',
-			icon: 'example'
+			icon: 'erji'
 		},
 		children: [
 			{
@@ -226,7 +226,7 @@ export const constantRouterMap = [
 		component: Layout,
 		meta: {
 			title: '报表',
-			icon: 'example'
+			icon: 'list'
 		},
 		children: [
 			{
@@ -311,12 +311,12 @@ export const constantRouterMap = [
 			{
 					
 					path:'index',
-					name:'对接管理',
+					name:'账号',
 					component:()=>
 						import ('@/views/integral/index'),
 					meta:{
-						title:'对接管理',
-						icon:'form'
+						title:'账号',
+						icon:'computer'
 					},
 			}
 

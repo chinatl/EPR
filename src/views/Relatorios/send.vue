@@ -3,7 +3,7 @@
         <p class='title'>{{$t(`relatorios["发货报表"]`)}}</p>
         <div class='th_box'>
             <div class='select-input col'>
-                <el-input  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
+                <el-input  size='small'  type='text' placeholder='Nome / SKU' v-model='value'></el-input>
                 <span class='el-icon-search'></span> 
             </div>
            <div class="col">
@@ -49,18 +49,24 @@
 			style="width: 100%;margin-top:1%;"
 		 	stripe
 			@selection-change="handleSelectionChange">
-	     <el-table-column prop="name" label='Imagem' clasa="col" align='center'>
+	     <el-table-column label='Imagem' clasa="col" align='center'>
+            <template slot-scope="scope">
+                <img :src="require('@/assets/img/yashua.png')" alt="" style='width:80px;height:80px;'>
+            </template>
          </el-table-column>
+         <el-table-column label='SKU' clasa="col" prop="name" align='center'>
+
+         </el-table-column>	 
          <el-table-column label='Nome' clasa="col" prop="address" align='center'>
 
          </el-table-column>	 
-         <el-table-column label='Quantidade' clasa="col" prop="Estoque" align='center'>
-
-         </el-table-column>	 
-         <el-table-column label='Valor Total' clasa="col" prop="name" align='center'>
+         <el-table-column label='Vendas' clasa="col" prop="Estoque" align='center'>
 
          </el-table-column>
-          <el-table-column label='Data' clasa="col" prop="name" align='center'>
+          <el-table-column label='Nota de Potencial' clasa="col" prop="sss" align='center'>
+
+         </el-table-column>
+         <el-table-column  clasa="col" prop="Marca" :render-header='render_icon' align='center'>
 
          </el-table-column>
         </el-table>
@@ -71,7 +77,8 @@
     </div>
 </template>
 <script>
-    export default{
+
+       export default{
         data(){
             return{
                 value:"value",
@@ -79,26 +86,33 @@
                 tableData: [{
 					name: '1000103-00',
 					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
+					Marca: 'R$ 700,00',
 					Estoque: '200',
-					sss: '',
+					sss: 'R$ 440,00',
 				}, {
 					name: '1000103-00',
 					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
+					Marca: 'R$ 700,00',
 					Estoque: '200',
-					sss: '',
+					sss: 'R$ 440,00',
 				}, {
 					name: '1000103-00',
 					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
+					Marca: 'R$ 700,00',
 					Estoque: '200',
-					sss: '',
+					sss: 'R$ 440,00',
 				}, ]
             }
         },
         methods:{
+            render_icon(){
+                return <i class='el-icon-question'style='color:#0aa1ed'></i>
+            },
+            pickerOptions2(){
 
+            },
+            handleSelectionChange(){}
+            
         }
     }
 </script>
@@ -118,6 +132,7 @@
             align-items:center;
             .select-input {
                 display:flex;
+                 width:15%;
             }
             .input{
                 width:15%;
