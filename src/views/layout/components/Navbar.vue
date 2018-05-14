@@ -39,19 +39,23 @@
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
           <el-dropdown-item>
-            <div @click='$store.commit("TOGGLE_TRAN_USER")'>
-				<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>	Perfil
+            <div @click='user'>
+				<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>{{$t(`layout["用户资料"]`)}}
 			</div>
           </el-dropdown-item>
-        <el-dropdown-item divided>
-						<div @click='$store.commit("TOGGLE_TRAN_SET")'>
-								<svg-icon icon-class='set' style='font-size:26px;'></svg-icon>Configurações
-						</div>
+        <el-dropdown-item divided >
+			<div @click='set'>
+				<span>
+					<svg-icon icon-class='set' style='font-size:26px;'></svg-icon>{{$t(`layout["配置"]`)}}
+				</span>				
+			</div>
         </el-dropdown-item>
-				 <el-dropdown-item>
-            <div @click='$store.commit("TOGGLE_TRAN_ENTER")'>
-							<svg-icon icon-class='enter' style='font-size:26px;'></svg-icon>Sair
-						</div>
+		<el-dropdown-item divided @click='logout'>
+				<div @click='logout'>
+					<span>
+						<svg-icon icon-class='enter' style='font-size:26px;'></svg-icon>{{$t(`layout["退出"]`)}}
+					</span>		
+				</div>   
           </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -65,7 +69,7 @@
 	} from 'vuex'
 	import Breadcrumb from '@/components/Breadcrumb'
 	import Hamburger from '@/components/Hamburger'
-
+	
 	//  import bgc from '@/s'
 
 	export default {
@@ -77,6 +81,7 @@
 		components: {
 			Breadcrumb,
 			Hamburger,
+			
 	
 		},
 		computed: {
@@ -107,9 +112,16 @@
 			},
 			open(){
 				this.$store.state.title = true;
-				console.log(1)
+			},
+			user(){
+				this.$router.push({path:'/dashboard/perfil'});
+			},
+			set(){
+				this.$router.push({path:'/dashboard/setting'});
+			},
+			logout(){
+				this.$router.push({path:'/login'});
 			}
-			
 		}
 	}
 

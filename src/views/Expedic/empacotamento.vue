@@ -3,7 +3,10 @@
         
         <div class='header_box'>
             <span  class='title'>Empacotamento</span>
-            <span style='margin-left:30px;'><img :src="require('@/assets/img/Rastreamento_12.gif')" alt=""></span>
+            <span style='margin-left:30px;'>
+            <img
+            style='width:20px;height:20px;'
+            :src="require('@/assets/img/mark.jpg')" alt=""></span>
             <div class='btn_box'>
                 <el-button size='small' class='btn bj' round>Relatório de Saída</el-button>
                 <el-button size='small' class='btn' round>Imprimir Etiquetas</el-button>
@@ -51,22 +54,26 @@
 		@selection-change="handleSelectionChange">
             <el-table-column type="selection" align='center' width="55">
             </el-table-column>
-            <el-table-column label='Loja' prop="address" align='center'>
+            <el-table-column label='Loja' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Cód. do Pedido' prop="address" align='center'>
+            <el-table-column label='Cód. do Pedido' prop="phone" align='center'>
             </el-table-column>
-            <el-table-column label='Cliente (Apelido)' prop="address" align='center'>
+            <el-table-column label='Cliente (Apelido)' prop="Mar" align='center'>
             </el-table-column>
-            <el-table-column label='Rastreio' prop="address" align='center'>
+            <el-table-column label='Rastreio' prop="ss" align='center'>
             </el-table-column>
-            <el-table-column label='Data de Pag.' prop="address" align='center'>
+            <el-table-column label='Data de Pag.' prop="Estoque" align='center'>
             </el-table-column>
             <el-table-column label='Status' prop="address" align='center'>
             </el-table-column>
             <el-table-column label='Operação' prop="address" align='center'>
             <template slot-scope="scope">
-                <span class="table_font"><img :src="require('@/assets/img/Rastreamento_12.gif')" alt=""></span>
-                <span class="table_font"><img :src="require('@/assets/img/Rastreamento_12.gif')" alt=""></span>
+                <span class="table_font">
+                    <svg-icon icon-class='mask' style='font-size:26px;'></svg-icon>
+                </span>
+                <span class="table_font">
+                    <svg-icon icon-class='box' style='font-size:26px;'></svg-icon>
+                </span>
             </template>
             </el-table-column>
         </el-table>
@@ -91,25 +98,28 @@
                 value:'value',
                 total:10,
                 tableData: [{
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: ''
+					name: 'Americanas.com',
+					address: 'Pronto',
+					Mar: 'Ricardo de Paula (RPSilva159)',
+					Estoque: '06/02/2018',
+					phone:'15235368645',
+                    ss:'12345678912BR'
 				},
                 {
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: ''
+					name: 'Americanas.com',
+					address: 'Pronto',
+					Mar: 'Ricardo de Paula (RPSilva159)',
+					Estoque: '06/02/2018',
+					phone:'152292665425',
+                    ss:'12345678912BR'
 				},
                 {
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: ''
+					name: 'Submarino',
+					address: 'Cancelado',
+					Mar: 'Ricardo de Paula (RPSilva159)',
+					Estoque: '06/02/2018',
+					phone:'15252358645',
+                    ss:'12345678912BR'
 				}]
             }
         },

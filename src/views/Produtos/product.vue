@@ -178,6 +178,9 @@
 <style rel="stylesheet/scss" lang="scss">
 	.product {
 		padding: 20px;
+		.title{
+			font-size:18rem;
+		}
 	}
 
 	.product-header {

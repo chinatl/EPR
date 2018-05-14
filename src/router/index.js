@@ -43,20 +43,35 @@ export const constantRouterMap = [
 		path: '/dashboard',
 		component: Layout,
 		meta: {
-			title: '产品',
+			title: '主页',
 			icon: 'example'
 		},
 		children: [
 			{
 				path: '',
 				name: '主页',
+				
 				component: () =>
 					import ('@/views/Dashboard/index'),
 				meta: {
 					title: '主页',
 					icon: 'form'
 				}
-            }
+            },
+			{
+		  path:'perfil',
+		  hidden:true,
+		  component:()=>
+			  import ('@/views/layout/components/perfil'),
+		  
+	  },
+	   {
+		  path:'setting',
+		  hidden:true,
+		  component:()=>
+			  import ('@/views/layout/components/setting'),
+	  }
+
        ]
      },
 	{
@@ -106,11 +121,11 @@ export const constantRouterMap = [
 		children: [
 			{
 				path: 'index',
-				name: '库存',
+				name: '订单管理',
 				component: () =>
 					import ('@/views/Estoque/index'),
 				meta: {
-					title: '库存',
+					title: '订单管理',
 					icon: 'form'
 				}
       }
@@ -138,7 +153,7 @@ export const constantRouterMap = [
 		path: '/expedic',
 		component: Layout,
 		meta: {
-			title: '调度',
+			title: '打包',
 			icon: 'example'
 		},
 		children: [
@@ -263,7 +278,8 @@ export const constantRouterMap = [
 					title: '退货报表',
 					icon: 'form'
 				}
-      }
+      },
+	  
     ]
   },
 //  {
@@ -289,37 +305,25 @@ export const constantRouterMap = [
 //  },
 	
 	{
-		path: '/config',
+		path: '/integral',
 		component: Layout,
-		meta:{
-			title:'设置',
-			icon:'example'
-		},
 		children: [
 			{
 					
-					path:'perfil',
-					name:'用户资料',
+					path:'index',
+					name:'对接管理',
 					component:()=>
-						import ('@/views/layout/components/perfil'),
+						import ('@/views/integral/index'),
 					meta:{
-						title:'用户资料',
+						title:'对接管理',
 						icon:'form'
 					},
-			},
-			{
-					
-					path:'setting',
-					name:'配置',
-					component:()=>
-						import ('@/views/layout/components/setting'),
-					meta:{
-						title:'配置',
-						icon:'form'
-					},
-			},
+			}
+
 		]
-    }]
+    }
+	
+	]
 
 
 //  { path: '*', redirect: '/404', hidden: true }

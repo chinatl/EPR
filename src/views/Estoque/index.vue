@@ -1,7 +1,7 @@
 <template>
     <div class='main_box'>
         <div class='h_input'>
-            <p class='input'>
+            <p class='input' v-show='show'>
                 <el-input type='text'size='small' style='width:200px' placeholder='lnsira a senha'></el-input>
                 <el-button size='small'style='background:#DC044D;color:#fff;position:relative;right:6px;top:-1px;height:33px'>ok</el-button>
             </p>
@@ -122,6 +122,7 @@
             return{
                 value:'value',
                 total:10,
+                show:false,
                 tableData: [{
 					name: '1000103-00',
 					address: 'Escova Alisadora',

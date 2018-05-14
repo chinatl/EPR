@@ -1,106 +1,65 @@
 <template>
 	<el-dialog
-		:visible.sync="$store.state.fornecedor.show_menu"
-        title='Editar Fornecedor'
+		:visible.sync="$store.state.integral.show_tran"
+        title='Configurações Transportadora | Correios'
 		width="60%"
 	>
- <div class='perfil_box'>
-        
+ <div class='tran_box'> 
         <div class='main_box'>
-            <span class='head_text'>Identificação</span>
+            <span class='head_text'>Dados de Autenticação</span>
             <div class='box sty'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Nome de Contato</p>
+                    <p class='msg_name'>Contratoo</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>CNPJ/CPF</p>
+                    <p class='msg_name'>Cartão de Postagem</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>Razão Social (Opcional)</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>Nome Fantasic</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>  
             </div>
-            
-        </div>
-        <div class='main_box'>
-            <span class='head_text'>Endereço</span>
-            <div class='box sty'>
+            <div class='box sty' style='margin-top:20px;'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Logradouro</p>
+                    <p class='msg_name'>Usuário</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Número</p>
+                    <p class='msg_name'>Senha</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>Complemento</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div> 
-                
-            </div>
-            <div class='box mar sty'>
-                <div class='msg_box'>
-                    <p class='msg_name'>Bairro</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>Cidade</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>Estado</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>  
-            </div>
-        </div>
-        <div class='main_box'>
-            <span class='head_text'>Contato</span>
-            <div class='box'>
-                <div class='msg_box'>
-                    <p class='msg_name'>E-Mail</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small' :disabled="true" value='cadodepaulasilva159@gmail.com'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box left'>
-                    <p class='msg_name'>Celular</p>
-                    <p class='msg'>
-                       <el-input type='text' size='small' :disabled="true" value='(xx) xxxxxxxxx'></el-input>
                     </p>
                 </div>
             </div>
             
         </div>
-        <p class='btn_box'>
-            <el-button type='primary' round>Salvar</el-button>
-        </p>
+        <div class='main_box'>
+            <span class='head_text'>Serviços de Entrega</span>
+            <div class='box sty'>
+                <div class='msg_box' style='width:30%;'>
+                    <p class='msg_name'>Serviços</p>
+                    <p class='msg'>
+                        <el-input type='text' size='small'></el-input>
+                    </p>
+                </div>
+                <div class='msg_box' style='width:30%;'>
+                    <p class='msg_name'>Códigos</p>
+                    <p class='msg'>
+                        <el-input type='text' size='small'></el-input>
+                    </p>
+                </div>
+                <div class='msg_box' style='width:30%;'>
+                    <p class='msg_name'>Tipo de Serviço</p>
+                    <p class='msg'>
+                        <el-input type='text' size='small'></el-input>
+                    </p>
+                </div>    
+            </div>  
+        </div>
     </div>
 </el-dialog>
 </template>
@@ -177,9 +136,9 @@
 
 </script>
 <style rel='stylesheet/scss' lang='scss'>
-    .perfil_box{
+    .tran_box{
         padding:20px;
-        border-bottom:1px solid #808080;
+        border-top:1px solid #808080;
         .main_box{
             border:2px solid #e0e0e0;
             border-radius:3px;
@@ -200,7 +159,7 @@
                 display:flex;
                 flex-wrap:wrap;
                 .msg_box{
-                    width:22%;
+                    width:40%;
                     .msg{
                         margin-top:10px;
                     }
@@ -216,9 +175,5 @@
                 justify-content:space-between;
             }   
         }
-        .btn_box{
-                text-align:right;
-                margin-top:20px;
-            } 
     }
 </style>
