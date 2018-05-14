@@ -1,0 +1,29 @@
+<template>
+    <el-dialog
+     title='Error'
+    :visible.sync="$store.state.expedic.show_inform"
+    width="50%"
+    center    
+    >
+    <div class='error_box'>
+        <div class='error_msg'>
+            Tivemos uma falha de comunicaçao na impressão da etiqueta, Favor conferir no marketplace.
+        </div>
+        <p style='text-align:center'><el-button size='small' type='primary' round> ok </el-button></p>
+    </div>
+    </el-dialog>
+</template>
+<script>
+    
+</script>
+<style rel='stylesheet/scss' lang='scss'>
+    .error_box{
+        padding:20px;
+        .error_msg{
+            padding:0 50px;
+            
+            margin-bottom:30px;
+            
+        }
+    }
+</style>

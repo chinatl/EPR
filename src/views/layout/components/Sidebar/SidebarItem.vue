@@ -34,7 +34,6 @@
 
 <script>
 import { generateTitle } from '@/utils/i18n'
-	console.log(generateTitle)
 
 export default {
   name: 'SidebarItem',

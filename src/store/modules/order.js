@@ -2,7 +2,7 @@ const app={
     state:{
         show_order:true,
         show_new:true,
-        show_detail:false
+        show_detail:true
     },
     mutations:{
         TOGGLE_ORDER_ORDER:state=>{

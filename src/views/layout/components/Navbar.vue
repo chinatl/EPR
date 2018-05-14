@@ -40,8 +40,8 @@
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
           <el-dropdown-item>
             <div @click='$store.commit("TOGGLE_TRAN_USER")'>
-							<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>	Perfil
-						</div>
+				<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>	Perfil
+			</div>
           </el-dropdown-item>
         <el-dropdown-item divided>
 						<div @click='$store.commit("TOGGLE_TRAN_SET")'>

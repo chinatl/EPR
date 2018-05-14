@@ -113,12 +113,12 @@
            border-bottom:1px solid #e0e0e0;
         }
         .subtitle{
-            margin-top:50px;
+            margin-top:20px;
             border:none;
             padding-left:50px;
         }
         .message_box{
-            padding: 20px 100px 60px;
+            padding: 20px 100px 40px;
             border-bottom:1px solid #808080;
             .input_box{
                 display:flex;
@@ -134,14 +134,14 @@
                 }
                 .el-icon-edit-outline,
                 .el-icon-refresh{
-                    font-size:40rem;
+                    font-size:30rem;
                     color:#808080;
                     cursor:pointer;
                 }
                 .empty{
                     display:inline-block;
-                    width:48px;
-                    height:36px;
+                    width:37px;
+                    height:30px;
                 }
                 .desc{
                     width:10px;

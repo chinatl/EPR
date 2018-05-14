@@ -1,0 +1,187 @@
+<template>
+    <div class='index_box'>
+        <div class='header_box'>
+            <span  class='title'>Saida</span>
+            <el-button size='small' class='btn' round>Expedir Pedidos</el-button>  
+        </div>
+        <div class='input'>
+            <div class='select'>
+                <el-input size='small' type='text' placeholder='CNPJ / CPF / Nome Fantasia'style='width:75%'></el-input>
+                <span class='el-icon-search'></span>
+            </div>
+            <div class='h_box'>
+                <div class='page'>
+                    <span class='page_text'>Data</span>
+                    <el-select size='small' style='width:100px'>
+                        <el-option value='20'>20</el-option>
+                        <el-option value=''>50</el-option>
+                        <el-option value=''>100</el-option>
+                        <el-option value=''>500</el-option>
+                    </el-select>
+                </div>
+                <div style='width:300px'  class="col">
+                    <span class='tle'>Período </span>
+                    <el-date-picker
+                    class="date"
+                    size='small'
+                    v-model="value7"
+                    type="daterange"
+                    align="right"
+                    unlink-panels
+                    range-separator=" "
+                    start-placeholder="1/12/2017"
+                    end-placeholder="30/12/2017"
+                    :picker-options="pickerOptions2">
+                    </el-date-picker>
+                </div>
+            </div>   
+        </div>
+        <el-table
+        ref="multipleTable"
+		:data="tableData"
+        stripe
+		tooltip-effect="dark"
+		style="width:100%;margin-top:2%;"
+		stripe
+		@selection-change="handleSelectionChange">
+            <el-table-column type="selection" align='center' width="55">
+            </el-table-column>
+            <el-table-column label='Loja' prop="address" align='center'>
+            </el-table-column>
+            <el-table-column label='Cód. do Pedido' prop="address" align='center'>
+            </el-table-column>
+            <el-table-column label='Cliente (Apelido)' prop="address" align='center'>
+            </el-table-column>
+            <el-table-column label='Rastreio' prop="address" align='center'>
+            </el-table-column>
+            <el-table-column label='Data de Empa.' prop="address" align='center'>
+            </el-table-column>
+            <el-table-column label='Status' prop="address" align='center'>
+            </el-table-column>
+        </el-table>
+        <div class="product-pagination" style="text-align:right;margin-top:20px">
+            <div class='num'>
+                <span class='pro_title'>*Total de pedidos expedidos:</span>
+                <span>20</span>
+            </div>
+            <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
+            </el-pagination>
+        </div>
+    </div>
+</template>
+<script>
+    export default{
+         
+        data(){
+            return{
+                value:'value',
+                total:10,
+                tableData: [{
+					name: '1000103-00',
+					address: 'Escova Alisadora',
+					Marca: 'Pmcell',
+					Estoque: '200',
+					sss: ''
+				},
+                {
+					name: '1000103-00',
+					address: 'Escova Alisadora',
+					Marca: 'Pmcell',
+					Estoque: '200',
+					sss: ''
+				},
+                {
+					name: '1000103-00',
+					address: 'Escova Alisadora',
+					Marca: 'Pmcell',
+					Estoque: '200',
+					sss: ''
+				}]
+            }
+        },
+        methods:{
+
+        }
+    }
+</script>
+<style rel='stylesheet/scss' lang="scss">
+    .index_box{
+        padding:20px;
+        position:relative;
+        .header_box{
+            border-bottom:1px solid #e0e0e0;
+            height:40px;
+            .title{
+                color:#000;
+                font-size:20rem;
+                padding-bottom:20px;
+            }
+            .btn{
+                color:#fff;
+                background:green;
+                float:right;
+            }
+        }
+        .input{
+            padding-top:40px;
+            display:flex;
+            justify-content:space-between;
+            .select{
+                width:30%;
+                height:32px;
+                .el-icon-search{
+                    display:inline-block;
+                    width:32px;
+                    height:33px;
+                    background:#0aa1ed;
+                    line-height:32px;
+                    text-align:center;
+                    position:relative;
+                    left:-5px;
+                    font-size:18rem;
+                    color:#fff;
+                    cursor:pointer;
+                }
+            }
+            .h_box{
+               width:50%;
+               display:flex;
+               justify-content:space-between;
+                .page{
+                    .page_text{
+                        font-weight:bold;
+                        color:#808080;
+                        margin-right:30px;
+                    }
+                }
+                .col{
+                    display:flex;
+                    .tle{
+                        line-height:32px;
+                        margin-right:5px;
+                        font-size:13rem;
+                        font-weight:bold;
+                        color:#808080;
+                    }
+                } 
+            }
+            
+
+        } 
+        .num{
+            width:30%;
+            height:30px;
+            line-height:30px;
+            font-weight:bold;
+            text-align:left;
+            color:#808080;
+            padding-left:45px;
+            position:absolute;
+            left:0;
+            .pro_title{
+                margin-right:50px;
+
+            }
+        }  
+    }
+</style>

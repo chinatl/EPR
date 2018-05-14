@@ -1,9 +1,12 @@
 <template>
     <div class='main_box'>
-        <p class='input'>
-            <el-input type='text'size='small' style='width:200px' placeholder='lnsira a senha'></el-input>
-            <el-button size='small'style='background:#DC044D;color:#fff;position:relative;right:6px;top:-1px;height:33px'>ok</el-button>
-        </p> 
+        <div class='h_input'>
+            <p class='input'>
+                <el-input type='text'size='small' style='width:200px' placeholder='lnsira a senha'></el-input>
+                <el-button size='small'style='background:#DC044D;color:#fff;position:relative;right:6px;top:-1px;height:33px'>ok</el-button>
+            </p>
+        </div>
+         
         <p class='header_box'>
             <span class='header_title'>Pedidos</span>
             <span  class='header_title' style='border:none'>*Mantemos as mensagens arquivados por 3 meses.</span>
@@ -150,10 +153,21 @@
 <style rel='stylesheet/scss' lang='scss'>
     .main_box{
         padding:20px;
-        .input{
-            text-align:right;
+        .h_input{
+            height:33px;
+            position:relative;
+            padding:0;
+             .input{
+                  width:250px;
+                 position:absolute;
+                 right:0px;
+                 text-align:right;
+                display:inline-block;
+                
+            }
         }
-        .header_box{
+       
+       .header_box{
         margin-top:10px;
         padding-bottom:20px;
         border-bottom:1px solid #808080;

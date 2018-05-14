@@ -1,9 +1,9 @@
 <template>
     <div class="main_box">
         <div class='title'>Rastreamento</div>
-        <div class='th_box'>
-             <div class='select-input col'>
-                <el-input  size='small' placeholder='ID do pedido / Nome / Rastreio'class="input" v-model='value'></el-input>
+        <div class='h_box'>
+             <div class='select_input col'>
+                <el-input  size='small' placeholder='ID do pedido / Nome / Rastreio' v-model='value'></el-input>
                 <span class='el-icon-search'></span> 
             </div>
             <div class="col">
@@ -154,12 +154,12 @@
            padding-bottom:1%;
            border-bottom:1px solid #e0e0e0;
         }
-        .th_box{
+        .h_box{
            margin-top:20px;
             display:flex;
             justify-content:space-between;
             align-items:center;
-            .select-input {
+            .select_input {
                  width:22%;
                 display:flex;
             }
@@ -173,7 +173,7 @@
                 text-align:center;
                 line-height:32px;
                 position:relative;
-                left:-6px;
+                left:-2px;
                 margin:0;
                 margin-right:4%;
             }

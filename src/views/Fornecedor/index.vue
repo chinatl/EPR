@@ -90,7 +90,7 @@ import myFornecsdor from './components/fornecedor'
     .main_box{
         padding:20px;
         .head_title{
-             color:#808080;
+           color:#000;
            font-size:20rem;
            padding-bottom:20px;
            border-bottom:1px solid #e0e0e0;

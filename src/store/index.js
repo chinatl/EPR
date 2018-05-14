@@ -5,6 +5,8 @@ import user from './modules/user'
 import product from './modules/product'
 import tran from './modules/tran'
 import order from './modules/order'
+import expedic from './modules/expedic'
+import sac from './modules/sac'
 import getters from './getters'
 import fornecedor from './modules/fornecedor'
 
@@ -21,7 +23,9 @@ const store = new Vuex.Store({
 		product,
 		tran,
 		order,
-		fornecedor
+		fornecedor,
+		expedic,
+		sac
 	},
 	getters
 })

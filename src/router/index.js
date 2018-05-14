@@ -135,44 +135,6 @@ export const constantRouterMap = [
       }
     ]
   }, {
-		path: '/clientes',
-		component: Layout,
-		meta: {
-			title: '客户',
-			icon: 'example'
-		},
-		children: [
-			{
-				path: 'index',
-				name: '客户',
-				component: () =>
-					import ('@/views/Clientes/index'),
-				meta: {
-					title: '客户',
-					icon: 'form'
-				}
-      }
-    ]
-  }, {
-		path: '/clientes',
-		component: Layout,
-		meta: {
-			title: '应用',
-			icon: 'example'
-		},
-		children: [
-			{
-				path: 'index',
-				name: '应用',
-				component: () =>
-					import ('@/views/Pedido/index'),
-				meta: {
-					title: '应用',
-					icon: 'form'
-				}
-      }
-    ]
-  }, {
 		path: '/expedic',
 		component: Layout,
 		meta: {
@@ -181,16 +143,26 @@ export const constantRouterMap = [
 		},
 		children: [
 			{
-				path: 'index',
-				name: '调度',
-				component: () =>
-					import ('@/views/Expedic/index'),
+				path: 'empacotamento',
+				name:'包装',
+				component:()=>
+				import('@/views/Expedic/empacotamento'),
 				meta: {
-					title: '调度',
+					title: '包装',
 					icon: 'form'
-				}
-      }
-    ]
+				},		
+      		},
+			  {
+				path: 'send ',
+				name:'发货',
+				component:()=>
+				import('@/views/Expedic/send'),
+				meta: {
+					title: '发货',
+					icon: 'form'
+				},		
+      		},
+    	]
   }, {
 		path: '/SAC',
 		component: Layout,
@@ -200,12 +172,21 @@ export const constantRouterMap = [
 		},
 		children: [
 			{
-				path: 'index',
-				name: 'SAC',
+				path: 'question',
+				name: '用户问题',
 				component: () =>
-					import ('@/views/SAC/index'),
+					import ('@/views/SAC/question'),
 				meta: {
-					title: 'SAC',
+					title: '用户问题',
+					icon: 'form'
+				}
+      },{
+				path: 'massage',
+				name: '商家回复',
+				component: () =>
+					import ('@/views/SAC/massage'),
+				meta: {
+					title: '商家回复',
 					icon: 'form'
 				}
       }
@@ -225,25 +206,6 @@ export const constantRouterMap = [
 				}
       }
 	]	
-  },{
-		path: '/Logistica',
-		component: Layout,
-		meta: {
-			title: '调度',
-			icon: 'example'
-		},
-		children: [
-			{
-				path: 'index',
-				name: '物流和退货',
-				component: () =>
-					import ('@/views/Logistica/index'),
-				meta: {
-					title: '物流和退货',
-					icon: 'form'
-				}
-      }
-    ]
   }, {
 		path: '/relatorios',
 		component: Layout,
