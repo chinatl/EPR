@@ -1,13 +1,5 @@
 <template>
     <div class='main_box'>
-<!--
-        <div class='h_input'>
-            <p class='input' v-show='show'>
-                <el-input type='text'size='small' style='width:200px' placeholder='lnsira a senha'></el-input>
-                <el-button size='small'style='background:#DC044D;color:#fff;position:relative;right:6px;top:-1px;height:33px'>ok</el-button>
-            </p>
-        </div>
--->
        	<div class="erp-header">
        		<h3>Pedidos <span class="else-con ">*Mantemos as mensagens arquivados por 3 meses.</span></h3>
        		<div>
@@ -66,7 +58,6 @@
                 range-separator=" "
                 start-placeholder="1/12/2017"
                 end-placeholder="30/12/2017"
-                
                 :picker-options="pickerOptions2">
                 </el-date-picker>
            </div>
@@ -165,7 +156,7 @@
 
 </script>
 <style rel='stylesheet/scss' lang='scss'>
-	.main_box {
+	.main_box{
 		.h_input {
 			height: 33px;
 			position: relative;
@@ -180,15 +171,8 @@
 			}
 		}
 		.th_box {
-			margin-top: 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
 			.select-input {
 				display: flex;
-			}
-			.input {
-				width: 15%;
 			}
 			.el-icon-search {
 				display: inline-block;
@@ -200,7 +184,6 @@
 				text-align: center;
 				line-height: 32px;
 				position: relative;
-
 				left: -6px;
 				margin: 0;
 				margin-right: 4%;

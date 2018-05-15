@@ -1,14 +1,15 @@
 <template>
-    <div class='msg_main'>
-        <div class='msg_box'>
-            <span class='msg_title'>Auto Pós-Compra</span>
-            <span class='msg_subtitle'>*Mantemos as mensagens arquivados por 3 meses.</span>
-            <el-button size='small'type='primary' round style='float:right'>
-            <div @click='$store.commit("TOGGLE_TRAN_PLANE")'>
-                    <svg-icon icon-class='user' style='font-size:20px;'></svg-icon> 
-                    <span style='position:relative;top:-3px '>Auto Pós-Compra </span>
-            </div>
-            </el-button>
+    <div class='main-box'> 
+        <div class='erp-header'>
+            <h3>Auto Pós-Compra<span class="else-con">*Mantemos as mensagens arquivados por 3 meses.</span></h3>
+            <div>
+                <el-button size='small'type='primary' round style='float:right'>
+                <div @click='$store.commit("TOGGLE_TRAN_PLANE")'>
+                        <svg-icon icon-class='user' style='font-size:20px;'></svg-icon> 
+                        <span style='position:relative;top:-3px '>Auto Pós-Compra </span>
+                </div>
+                </el-button>
+            </div>        
         </div>
         <div class='msg'>
             <div style='margin-right:40px;line-height:50px;'>
@@ -120,18 +121,7 @@
     }
 </script>
 <style rel='stylesheet/scss'lang="scss">
-    .msg_main{
-        padding:20px;
-        .msg_box{
-            height:50px;
-            padding-bottom:10px;
-            border-bottom:1px solid #808080;
-            .msg_title{
-                font-size:18rem;
-                padding-right:5px;
-                border-right:1px solid #000;
-            }
-        }
+    .main-box{
         .msg{
             padding-top:20px;
             font-weight:bold;

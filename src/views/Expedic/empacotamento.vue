@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='main_box'>
 		<div class="erp-header">
        		<h3>Empacotamento <span class="else-con" style="border:none"> <img
             style='width:20px;height:20px;'
@@ -9,7 +9,7 @@
                 <el-button size='small' round type='primary'>Imprimir Etiquetas</el-button>
        		</div>
        	</div>
-        <div class='input'>
+        <div class='th_box'>
             <div class='select'>
                 <el-input size='small' type='text' placeholder='CNPJ / CPF / Nome Fantasia'style='width:75%'></el-input>
                 <span class='el-icon-search'></span>
@@ -127,31 +127,9 @@
 
 </script>
 <style rel='stylesheet/scss' lang="scss">
-	.header_box {
-		border-bottom: 1px solid #e0e0e0;
-		height: 40px;
-		.title {
-			color: #000;
-			font-size: 20rem;
-			padding-bottom: 20px;
-		}
-		.btn_box {
-			float: right;
-			position: relative;
-			.btn {
-				color: #fff;
-				background: green;
-			}
-			.bj {
-				background: #E72460;
-			}
-		}
-	}
-
-	.input {
-		padding-top: 40px;
-		display: flex;
-		justify-content: space-between;
+	
+.main_box{
+	.th_box{
 		.select {
 			width: 30%;
 			height: 32px;
@@ -191,8 +169,22 @@
 				}
 			}
 		}
-
-
 	}
+	.btn_box {
+			float: right;
+			position: relative;
+			.btn {
+				color: #fff;
+				background: green;
+			}
+			.bj {
+				background: #E72460;
+			}
+		}
+}		
+		
+
+
+	
 
 </style>

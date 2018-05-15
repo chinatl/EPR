@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class='main_box'>
        <div class="erp-header">
        		<h3>Saida</h3>
        		<div>
 			 	<el-button size='small' type="success" round>Expedir Pedidos</el-button>  
        		</div>
        	</div>
-        <div class='input'>
+        <div class='th_box'>
             <div class='select'>
                 <el-input size='small' type='text' placeholder='CNPJ / CPF / Nome Fantasia'style='width:75%'></el-input>
                 <span class='el-icon-search'></span>
@@ -109,27 +109,9 @@
     }
 </script>
 <style rel='stylesheet/scss' lang="scss">
-    .index_box{
-        padding:20px;
+    .main_box{
         position:relative;
-        .header_box{
-            border-bottom:1px solid #e0e0e0;
-            height:40px;
-            .title{
-                color:#000;
-                font-size:20rem;
-                padding-bottom:20px;
-            }
-            .btn{
-                color:#fff;
-                background:green;
-                float:right;
-            }
-        }
-        .input{
-            padding-top:40px;
-            display:flex;
-            justify-content:space-between;
+        .th_box{
             .select{
                 width:30%;
                 height:32px;

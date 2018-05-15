@@ -171,7 +171,6 @@
 	}
 
 	.main-box {
-/*		padding: 20px;*/
 		.title {
 			color: #808080;
 			font-size: 20rem;

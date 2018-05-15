@@ -1,5 +1,5 @@
 <template>
-    <div class='main-box'>
+    <div class='main_box'>
         <div class="erp-header">
             <h3>{{$t(`relatorios["分析报表"]`)}}</h3>
         </div>
@@ -44,42 +44,42 @@
            </div>
         </div>
         <div class="table-bgc">
-        <el-table
-			ref="multipleTable"
-			:data="tableData"
-            stripe
-			tooltip-effect="dark"
-			style="width: 100%;margin-top:1%;"
-		 	stripe
-			@selection-change="handleSelectionChange">
-	     <el-table-column label='Imagem' clasa="col" align='center'>
-            <template slot-scope="scope">
-                <img :src="require('@/assets/img/yashua.png')"class='table-img'>
-            </template>
-</el-table-column>
-<el-table-column label='SKU' clasa="col" prop="name" align='center'>
+			<el-table
+				ref="multipleTable"
+				:data="tableData"
+				stripe
+				tooltip-effect="dark"
+				style="width: 100%;"
+				stripe
+				@selection-change="handleSelectionChange">
+				<el-table-column label='Imagem' clasa="col" align='center'>
+					<template slot-scope="scope">
+						<img :src="require('@/assets/img/yashua.png')"class='table-img'>
+					</template>
+				</el-table-column>
+				<el-table-column label='SKU' clasa="col" prop="name" align='center'>
 
-</el-table-column>
-<el-table-column label='Nome' clasa="col" prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Nome' clasa="col" prop="address" align='center'>
 
-</el-table-column>
-<el-table-column label='Vendas' clasa="col" prop="Estoque" align='center'>
+				</el-table-column>
+				<el-table-column label='Vendas' clasa="col" prop="Estoque" align='center'>
 
-</el-table-column>
-<el-table-column label='Nota de Potencial' clasa="col" prop="sss" align='center'>
+				</el-table-column>
+				<el-table-column label='Nota de Potencial' clasa="col" prop="sss" align='center'>
 
-</el-table-column>
-<el-table-column clasa="col" prop="Marca" :render-header='render_icon' align='center'>
+				</el-table-column>
+				<el-table-column clasa="col" prop="Marca" :render-header='render_icon' align='center'>
 
-</el-table-column>
-</el-table>
-</div>
-<div class="product-pagination" style="text-align:right;margin-top:20px">
-	<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-	</el-pagination>
-</div>
+				</el-table-column>
+			</el-table>
+		</div>
+		<div class="product-pagination" style="text-align:right;margin-top:20px">
+			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
+			</el-pagination>
+		</div>
 
-</div>
+	</div>
 </template>
 <script>
 	export default {
@@ -122,17 +122,10 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
-	.main-box {
+	.main_box {
 		.th_box {
-			margin-top: 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
 			.select-input {
 				display: flex;
-				width: 15%;
-			}
-			.input {
 				width: 15%;
 			}
 			.el-icon-search {

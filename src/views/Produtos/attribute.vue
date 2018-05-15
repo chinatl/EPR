@@ -4,8 +4,8 @@
 			<div class='erp-header'>
 				<h3>{{$t(`product["属性库"]`)}}</h3>
 			</div>
-			<div style="margin-top:20px;">
-				<el-input type="text" placeholder='Pesquisar...'size='small' class='input'></el-input>
+			<div style='margin: 20px 0'>
+				<el-input type="text" placeholder='Pesquisar...'size='small'style='width:15%;'></el-input>
 				<span class="el-icon-search"></span>
 			</div>
 			<div class='module_box'>
@@ -69,24 +69,7 @@
 <style rel="stylesheet/scss" lang="scss">
 	.attribute-layout {
 		.main_box {
-			margin: 0 auto;
-			padding-bottom: 30%;
-			.title {
-				color: #000;
-				font-size: 20rem;
-				padding-bottom: 1%;
-				border-bottom: 1px solid #e0e0e0;
-			}
-			.subTitle {
-				color: #808080;
-				font-size: 15rem;
-				margin-top: 2%;
-				margin-bottom: 1%;
-			}
-			.input {
-				width: 30%;
-
-			}
+		
 			.el-icon-search {
 				display: inline-block;
 				width: 30px;

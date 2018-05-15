@@ -1,5 +1,5 @@
 <template>
-    <div class='main-box'>
+    <div class='main_box'>
 		<div class="erp-header">
             <h3>{{$t(`relatorios["利润报表"]`)}}</h3>
         </div>
@@ -49,7 +49,7 @@
 			:data="tableData"
             stripe
 			tooltip-effect="dark"
-			style="width: 100%;margin-top:1%;"
+			style="width: 100%;"
 		 	stripe
 			>
 	     <el-table-column label='Imagem' clasa="col" align='center'>
@@ -122,25 +122,13 @@
     }
 </script>
 <style rel="stylesheet/scss" lang="scss">
-     .main-box{
-        .title{
-            color:#808080;
-           font-size:20rem;
-           padding-bottom:1%;
-           border-bottom:1px solid #e0e0e0;
-        }
+     .main_box{
         .th_box{
-            margin-top:20px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
             .select-input {
                 display:flex;
                  width:15%;
             }
-            .input{
-                width:15%;
-            }
+            
             .el-icon-search{
                 display:inline-block;
                 width:32px;

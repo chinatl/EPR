@@ -1,12 +1,12 @@
 <template>
-    <div class='main-box'>
+    <div class='main_box'>
 	  	<div class="erp-header">
             <h3>Fornecedores</h3>
             <div>
                 <el-button size='small' round type='danger'>Novo Fornecedor</el-button>
             </div>
         </div>
-        <div class='input'>
+        <div class='th_box'>
             <div class='select'>
                 <el-input size='small' type='text' placeholder='CNPJ / CPF / Nome Fantasia'style='width:75%' v-model='value'></el-input>
                 <span class='el-icon-search'></span>
@@ -99,11 +99,8 @@
 
 </script>
 <style rel='stylesheet/scss' lang="scss">
-	.main-box {
-		.input {
-			padding-top: 40px;
-			display: flex;
-			justify-content: space-between;
+	.main_box {
+		.th_box{
 			.select {
 				width: 30%;
 				height: 32px;

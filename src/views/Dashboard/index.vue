@@ -1,7 +1,7 @@
 <template>
-	<div class="dashboard-layout">
-		<div class="header">
-			<div class="h3">Dashboard | Novidades</div>
+	<div class="main-box">
+		<div class="erp-header">
+			<h3>Dashboard | Novidades</h3>
 			<div class="date">25/04/2018</div>
 		</div>
 		<div class="card">
@@ -41,8 +41,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="header">
-			<div class="h3">Estatísticas</div>
+		<div class="erp-header">
+			<h3>Estatísticas</h3>
 		</div>
 		<div class="card">
 			<div class="item card2">
@@ -95,8 +95,8 @@
 			</div>
 		</div>
 		<pie-chart class='pie'></pie-chart>
-		<div class="header">
-			<div class="h3">Ranking</div>
+		<div class="erp-header">
+			<h3>Ranking</h3>
 		</div>
 		<div class="card">
 			<div class="card3"  @mouseenter='mouseenter(index)' @mouseleave='mouseleave(index)' v-for='(item,index) in [1,2,3,4]'>
@@ -197,8 +197,7 @@
 <style rel="stylesheet/scss" lang="scss">
 	$link-size: 30px;
 	$bgc:#0F6E93;
-	.dashboard-layout {
-		padding: 40px;
+	.main-box {
 		.header {
 			display: flex;
 			justify-content: space-between;
@@ -206,9 +205,6 @@
 			border-bottom: 2px solid #ccc;
 			padding-bottom: 20px;
 			padding-right: 20px;
-			.h3 {
-				font-size: 24px
-			}
 			.date {
 				font-size: 14px
 			}

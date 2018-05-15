@@ -1,6 +1,9 @@
 <template>
     <div class='q_box'>
-        <div class='q_title'>Perguntas</div>
+        <div class='erp-header'>
+            <h3>Perguntas</h3>
+        </div>
+        
        <div class='msg'>
             <div class='input_box'>
                 <el-input style='width:80%;'size='small' type='text' placeholder='Produto / Título'></el-input>

@@ -1,6 +1,8 @@
 <template>
 <div class='main_box'>
-    <p class='title'>Marketplaces</p>
+    <div class='erp-header'>
+        <h3>Marketplaces</h3>
+    </div>
     <div class='section_box'>
         <div class='section_item'>
             <p>Mercado Livre</p>
@@ -178,7 +180,6 @@
 </script>
 <style rel='stylesheet/scss' lang="scss">
     .main_box{
-        padding:20px;
         .title{
             font-size:18rem;
             padding-bottom:10px;

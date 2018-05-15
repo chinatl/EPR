@@ -1,5 +1,5 @@
 <template>
-    <div class='main-box'>
+    <div class='main_box'>
         
 		<div class="erp-header">
             <h3>{{$t(`relatorios["退货报表"]`)}}</h3>
@@ -51,7 +51,7 @@
 			:data="tableData"
             stripe
 			tooltip-effect="dark"
-			style="width: 100%;margin-top:1%;"
+			style="width: 100%;"
 		 	stripe
 			@selection-change="handleSelectionChange">
 	    <el-table-column label='Imagem' clasa="col" align='center'>
@@ -127,16 +127,9 @@
 <style rel="stylesheet/scss" lang="scss">
      .main_box{
         .th_box{
-            margin-top:20px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
             .select-input {
                 display:flex;
                  width:15%;
-            }
-            .input{
-                width:15%;
             }
             .el-icon-search{
                 display:inline-block;
@@ -148,7 +141,6 @@
                 text-align:center;
                 line-height:32px;
                 position:relative;
-                
                 left:-6px;
                 margin:0;
                 margin-right:4%;
