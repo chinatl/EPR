@@ -4,7 +4,7 @@
     :visible.sync="$store.state.integral.show_walmart"
     width="50%"
     >
-    <div class='conva_box'>
+    <div class='walmart_box'>
         <div class='input_box'>
             <div class='input'>
                 <p>Login</p>
@@ -50,7 +50,7 @@
 </script>
 
 <style rel='stylesheet/scss'lang="scss">
-    .conva_box{
+    .walmart_box{
         padding:20px;
         border-top:1px solid #808080;
         .input_box{
@@ -58,7 +58,7 @@
             justify-content:space-between;
             margin-bottom:50px;
             .input{
-                width:30%;
+                width:25%;
             }
         }
         .choose{

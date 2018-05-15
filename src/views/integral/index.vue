@@ -159,7 +159,7 @@
     import myTiny from './components/tiny'
     import myTran from './components/transport'
     import myJadlog from './components/jadlog'
-     import myBra from './components/braspress'
+    import myBra from './components/braspress'
     export default{
         components:{
             myConva,
@@ -229,7 +229,7 @@
                 .el-icon-delete{
                     background:#0aa1ed;
                     float:right;
-                    margin-top:8px;
+                    margin-top:11px;
                     
                 }
                 .el-icon-delete,

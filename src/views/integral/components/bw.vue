@@ -4,7 +4,7 @@
     :visible.sync="$store.state.integral.show_bw"
     width="50%"
     >
-    <div class='conva_box'>
+    <div class='bw_box'>
         <div class='input'>
             <p>Chave de API</p>
             <el-input type='text' size='small' style='margin-top:20px'></el-input>
@@ -76,7 +76,7 @@
 </script>
 
 <style rel='stylesheet/scss'lang="scss">
-    .conva_box{
+    .bw_box{
         padding:20px;
         border-top:1px solid #808080;
         .input_box{

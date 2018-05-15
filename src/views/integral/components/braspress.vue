@@ -4,7 +4,7 @@
         title='Configurações Transportadora | Braspress'
 		width="60%"
 	>
- <div class='jad_box'> 
+ <div class='bra_box'> 
         <div class='main_box'>
             <span class='head_text'>Dados de Autenticação</span>
             <div class='box sty'>
@@ -136,7 +136,7 @@
 
 </script>
 <style rel='stylesheet/scss' lang='scss'>
-    .jad_box{
+    .bra_box{
         padding:20px;
         border-top:1px solid #808080;
         .main_box{
