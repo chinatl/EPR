@@ -1,13 +1,13 @@
 const app={
     state:{
-        show_conva:false,
-        show_walmart:false,
-        show_bw:false,
-        show_loga:false,
-        show_tiny:false,
-        show_tran:false,
-        show_jadlog:false,
-        show_bra:false
+        show_conva:true,
+        show_walmart:true,
+        show_bw:true,
+        show_loga:true,
+        show_tiny:true,
+        show_tran:true,
+        show_jadlog:true,
+        show_bra:true
     },
     mutations:{
         TOOGLE_INTEGRAL_CONVA:state=>{

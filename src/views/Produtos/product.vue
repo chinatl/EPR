@@ -1,8 +1,8 @@
 <template>
-    <div class="layout product" v-loading='loading'>
-        <div class="product-header">
-            <div class="title">{{$t(`product["产品管理"]`)}}</div>
-            <div class="header-button">
+    <div v-loading='loading'>
+        <div class="erp-header">
+            <h3>{{$t(`product["产品管理"]`)}}</h3>
+            <div>
                 <el-button size='small' round type='primary'   icon="el-icon-edit">{{$t(`product["开启快捷编辑"]`)}}</el-button>
                 <el-button size='small' round type='info' @click='$store.commit("TOGGLE_ENTRDA")'>{{$t(`product["入库"]`)}}</el-button>
                 <el-button size='small' round type='success'  icon="el-icon-star-on">{{$t(`product["复制店铺"]`)}}</el-button>
@@ -26,7 +26,7 @@
 				</div>
             </div>
         </div>
-        <div class="product-table">
+        <div class="table-bgc">
           <el-table
 			ref="multipleTable"
 			:data="tableData"
@@ -51,7 +51,7 @@
 </el-table-column>
 <el-table-column align='center' :label='$t(`product["图片"]`)'>
 	<template slot-scope="prop">
-		<img :src="require('@/assets/img/yashua.png')" alt="" style='height:50px;display:block;margin:0 auto;text-align:center' />
+		<img :src="require('@/assets/img/yashua.png')" class='table-img' />
   </template>
 </el-table-column>
 <el-table-column prop='name' align='center' label="SKU">
@@ -76,14 +76,14 @@
 </el-table-column>
 <el-table-column label="Operação" align='center'>
 	<template slot-scope="scope">
-		<div class="scope-div">
-			<span class="scope-btn">
+		<div class="table-icon">
+			<span>
 				<svg-icon icon-class='doc' ></svg-icon>
 			</span>
-			<span class="scope-btn" @click='$store.commit("TOGGLE_EDIT")'>
+			<span @click='$store.commit("TOGGLE_EDIT")'>
 				<svg-icon icon-class='edit' ></svg-icon>
 			</span>
-			<span class="scope-btn">
+			<span >
 				<svg-icon icon-class='del' ></svg-icon>
 			</span>
 		</div>
@@ -176,30 +176,6 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
-	.product {
-		padding: 20px;
-		.title{
-			font-size:18rem;
-		}
-	}
-
-	.product-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 1px solid #ccc;
-		padding-bottom: 10px;
-		.h3 {
-			color: #000;
-			font-size: 20rem;
-		}
-		.header-button {
-			.el-button {
-				font-size: 12rem;
-			}
-		}
-	}
-
 	.procudt-btn {
 		width: 32px;
 		height: 32px;
@@ -214,27 +190,7 @@
 	}
 
 	.product-table {
-		.scope-div {
-			display: flex;
-			justify-content: center;
-			.scope-btn {
-				width: 24px;
-				color: #000;
-				font-weight: bold;
-				background-color: #eee;
-				font-size: 18rem;
-				height: 32px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				cursor: pointer;
-				margin: 0 10px;
-				&:hover {
-					background-color: #DC044D;
-					color: #fff;
-				}
-			}
-		}
+		
 		margin-top: 10px;
 		.el-table--enable-row-transition .el-table__body td {
 			padding: 0;
@@ -252,17 +208,6 @@
 			padding: 20px;
 		}
 	}
-
-	.table_font {
-		font-size: 16rem
-	}
-
-	/*
-		div.el-table--enable-row-transition .el-table__body td {
-			padding: 0
-		}
-*/
-
 	/*--------------product-select------------*/
 
 	.product-select {
@@ -286,13 +231,9 @@
 		justify-content: space-between;
 		align-items: center
 	}
-
 	.my-item {
 		width: 18%;
 	}
 
-	.el-table--enable-row-transition .el-table__body td {
-		padding: 20px 10px;
-	}
 
 </style>

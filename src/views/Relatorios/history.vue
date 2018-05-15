@@ -1,6 +1,8 @@
 <template>
-    <div class='main_box'>
-        <p class='title'>{{$t(`relatorios["历史报表"]`)}}</p>
+    <div class='main-box'>
+	  	<div class="erp-header">
+            <h3>{{$t(`relatorios["历史报表"]`)}}</h3>
+        </div>
         <div class='th_box'>
             <div class='select-input col'>
                 <el-input   type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
@@ -41,6 +43,7 @@
                 <el-button type="success" size='small' round  class="btn"><span class="text"><i class='el-icon-share'></i> Exportar CSV</span></el-button>
            </div>
         </div>
+        <div class="table-bgc">
         <el-table
 			ref="multipleTable"
 			:data="tableData"
@@ -51,7 +54,7 @@
 			@selection-change="handleSelectionChange">
 	     <el-table-column label='Imagem' clasa="col" align='center'>
             <template slot-scope="scope">
-                <img :src="require('@/assets/img/yashua.png')" alt="" style='width:80px;height:80px;'>
+                <img :src="require('@/assets/img/yashua.png')"class='table-img' >
             </template>
          </el-table-column>
          <el-table-column label='SKU' clasa="col" prop="name" align='center'>
@@ -75,12 +78,14 @@
             </el-pagination>
         </div>
     </div>
+    </div>
 </template>
 <script>
     export default{
         data(){
             return{
-                value:"value",
+                value:"",
+				value7:'',
                 total:10,
                 tableData: [{
 					name: '1000103-00',
@@ -116,8 +121,7 @@
     }
 </script>
 <style rel="stylesheet/scss" lang="scss">
-    .main_box{
-        padding:20px;
+    .main-box{
         .title{
            color:#808080;
            font-size:20rem;
@@ -174,15 +178,7 @@
             text-align:center;
             border:none;
         }
-        .has-gutter {
-			tr,
-			th {
-				background-color: #e8e8e8;
-				th>.cell {
-					font-size: 18rem;
-				}
-			}
-		}
+
         
        
     }

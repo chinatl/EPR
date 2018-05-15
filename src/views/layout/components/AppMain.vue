@@ -21,6 +21,7 @@
 <style>
 	.app-main {
 		margin: 16px 16px;
+		padding: 20px;
 		border-radius: 16px;
 		background-color: #fff
 	}

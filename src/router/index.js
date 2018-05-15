@@ -89,7 +89,6 @@ export const constantRouterMap = [
 					import ('@/views/Produtos/product'),
 				meta: {
 					title: '产品管理',
-					icon: ''
 				}
       },	{
 				path: 'advertisement',
@@ -98,7 +97,6 @@ export const constantRouterMap = [
 					import ('@/views/Produtos/advertisement'),
 				meta: {
 					title: '广告管理',
-					icon: ''
 				}
       },	{
 				path: 'attribute',
@@ -107,12 +105,11 @@ export const constantRouterMap = [
 					import ('@/views/Produtos/attribute'),
 				meta: {
 					title: '属性库',
-					icon: ''
 				}
       },
     ]
   }, {
-		path: '/estoque',
+		path: '/pedido',
 		component: Layout,
 		meta: {
 			title: '产品',
@@ -120,36 +117,17 @@ export const constantRouterMap = [
 		},
 		children: [
 			{
-				path: 'index',
+				path: '',
 				name: '订单管理',
 				component: () =>
-					import ('@/views/Estoque/index'),
+					import ('@/views/Pedido/index'),
 				meta: {
 					title: '订单管理',
 					icon: 'menu3'
 				}
       }
     ]
-  }, {
-		path: '/fornecedor',
-		component: Layout,
-		meta: {
-			title: '供应商',
-			icon: 'example'
-		},
-		children: [
-			{
-				path: 'index',
-				name: '供应商',
-				component: () =>
-					import ('@/views/Fornecedor/index'),
-				meta: {
-					title: '供应商',
-					icon: 'woshou'
-				}
-      }
-    ]
-  }, {
+  },  {
 		path: '/expedic',
 		component: Layout,
 		meta: {
@@ -164,7 +142,6 @@ export const constantRouterMap = [
 				import('@/views/Expedic/empacotamento'),
 				meta: {
 					title: '包装',
-					icon: ''
 				},		
       		},
 			  {
@@ -174,7 +151,6 @@ export const constantRouterMap = [
 				import('@/views/Expedic/send'),
 				meta: {
 					title: '发货',
-					icon: ''
 				},		
       		},
     	]
@@ -193,7 +169,6 @@ export const constantRouterMap = [
 					import ('@/views/SAC/question'),
 				meta: {
 					title: '用户问题',
-					icon: ''
 				}
       },{
 				path: 'massage',
@@ -202,7 +177,6 @@ export const constantRouterMap = [
 					import ('@/views/SAC/massage'),
 				meta: {
 					title: '商家回复',
-					icon: ''
 				}
       }
     ]
@@ -222,6 +196,25 @@ export const constantRouterMap = [
       }
 	]	
   }, {
+		path: '/fornecedor',
+		component: Layout,
+		meta: {
+			title: '供应商',
+			icon: 'example'
+		},
+		children: [
+			{
+				path: 'index',
+				name: '供应商',
+				component: () =>
+					import ('@/views/Fornecedor/index'),
+				meta: {
+					title: '供应商',
+					icon: 'woshou'
+				}
+      }
+    ]
+  },{
 		path: '/relatorios',
 		component: Layout,
 		meta: {
@@ -236,7 +229,6 @@ export const constantRouterMap = [
 					import ('@/views/Relatorios/history'),
 				meta: {
 					title: '历史报表',
-					icon: ''
 				}
       },
 	  {
@@ -246,7 +238,6 @@ export const constantRouterMap = [
 					import ('@/views/Relatorios/analyse'),
 				meta: {
 					title: '分析报表',
-					icon: ''
 				}
       },
 	   {
@@ -256,7 +247,6 @@ export const constantRouterMap = [
 					import ('@/views/Relatorios/profit'),
 				meta: {
 					title: '利润报表',
-					icon: ''
 				}
       },
 	   {
@@ -266,7 +256,6 @@ export const constantRouterMap = [
 					import ('@/views/Relatorios/send'),
 				meta: {
 					title: '发货报表',
-					icon: ''
 				}
       },
 	   {
@@ -276,7 +265,6 @@ export const constantRouterMap = [
 					import ('@/views/Relatorios/return'),
 				meta: {
 					title: '退货报表',
-					icon: ''
 				}
       },
 	  

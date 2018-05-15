@@ -6,8 +6,8 @@
           :show-timeout="200"
           :default-active="$route.path"
           :collapse="isCollapse"
-          background-color="#304156"
-          text-color="#bfcbd9"
+          background-color="#2D2D2D"
+          text-color="#fff"
           active-text-color="#409EFF"
         >
            <div class='logo' v-show='!isCollapse'>

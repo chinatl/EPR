@@ -21,6 +21,9 @@ const cn = {
 		"历史报表":"Histórico de Compras",
 		"分析报表":"Desempenho",
 		"发货报表":"Expedição",
+		"积分":"Integrações",
+		"订单管理":"Pedido",
+
 		"账号":"Integrações",
 	},
 	"layout": {

@@ -1,6 +1,9 @@
 <template>
-    <div class='main_box'>
-        <p class='title'>{{$t(`relatorios["退货报表"]`)}}</p>
+    <div class='main-box'>
+        
+		<div class="erp-header">
+            <h3>{{$t(`relatorios["退货报表"]`)}}</h3>
+        </div>
         <div class='th_box'>
             <div class='select-input col'>
                 <el-input  type='text'  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
@@ -41,6 +44,8 @@
                 <el-button type="success" size='small' round  class="btn"><span class="text"><i class='el-icon-share'></i> Exportar CSV</span></el-button>
            </div>
         </div>
+        <div class="table-bgc">
+        <div class="table-bgc">
         <el-table
 			ref="multipleTable"
 			:data="tableData"
@@ -51,7 +56,7 @@
 			@selection-change="handleSelectionChange">
 	    <el-table-column label='Imagem' clasa="col" align='center'>
             <template slot-scope="scope">
-                <img :src="require('@/assets/img/yashua.png')" alt="" style='width:80px;height:80px;'>
+                <img :src="require('@/assets/img/yashua.png')" class='table-img'>
             </template>
          </el-table-column>
          <el-table-column label='SKU' clasa="col" prop="name" align='center'>
@@ -70,6 +75,8 @@
 
          </el-table-column>
         </el-table>
+        </div>
+        </div>
         <div class="product-pagination" style="text-align:right;margin-top:20px">
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
             </el-pagination>
@@ -81,7 +88,8 @@
        export default{
         data(){
             return{
-                value:"value",
+                value:"",
+                value7:"",
                 total:10,
                 tableData: [{
 					name: '1000103-00',
@@ -118,13 +126,6 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
      .main_box{
-        padding:20px;
-        .title{
-            color:#808080;
-           font-size:20rem;
-           padding-bottom:1%;
-           border-bottom:1px solid #e0e0e0;
-        }
         .th_box{
             margin-top:20px;
             display:flex;

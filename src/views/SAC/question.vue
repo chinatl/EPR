@@ -272,6 +272,14 @@
         }
         .li{
             padding:20px 0;
+/*
+			&:nth-child(even){
+				background-color: red
+			}
+			&:nth-child(odd){
+				background-color: yellow
+			}
+*/
         }
     }
 </style>
