@@ -1,7 +1,7 @@
 <template>
     <el-dialog
     title='Informações do Pedido | 123456789123'
-    :visible.sync="$store.state.tran.show_dropdown"
+    :visible.sync="$store.state.rastreamento.show_dropdown"
     width="70%"
     >
     <div class="section">

@@ -90,22 +90,23 @@
 		},
 		methods: {
 			login() {
-				const loading = this.$loading({
-					lock: true,
-					text: '登陆中',
-					spinner: 'el-icon-loading',
-					background: 'rgba(0, 0, 0, 0.7)'
-				});
-				setTimeout(res => {
-					this.$router.push({
-						path: '/dashboard/'
-					})
-					this.$message({
-						message: '恭喜您，登录成功',
-						type: 'success'
-					});
-					loading.close();
-				}, 2000)
+//				const loading = this.$loading({
+//					lock: true,
+//					text: '登陆中',
+//					spinner: 'el-icon-loading',
+//					background: 'rgba(0, 0, 0, 0.7)'
+//				});
+				this.$router.push({
+					path: '/dashboard'
+				})
+//				setTimeout(res => {
+//
+//					this.$message({
+//						message: '恭喜您，登录成功',
+//						type: 'success'
+//					});
+//					loading.close();
+//				}, 2000)
 
 			}
 		}

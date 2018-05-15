@@ -1,9 +1,11 @@
 <template>
-    <div class='index_box'>
-        <div class='header_box'>
-            <span  class='title'>Saida</span>
-            <el-button size='small' class='btn' round>Expedir Pedidos</el-button>  
-        </div>
+    <div>
+       <div class="erp-header">
+       		<h3>Saida</h3>
+       		<div>
+			 	<el-button size='small' type="success" round>Expedir Pedidos</el-button>  
+       		</div>
+       	</div>
         <div class='input'>
             <div class='select'>
                 <el-input size='small' type='text' placeholder='CNPJ / CPF / Nome Fantasia'style='width:75%'></el-input>
@@ -36,29 +38,31 @@
                 </div>
             </div>   
         </div>
-        <el-table
-        ref="multipleTable"
-		:data="tableData"
-        stripe
-		tooltip-effect="dark"
-		style="width:100%;margin-top:2%;"
-		stripe
-		@selection-change="handleSelectionChange">
-            <el-table-column type="selection" align='center' width="55">
-            </el-table-column>
-            <el-table-column label='Loja' prop="address" align='center'>
-            </el-table-column>
-            <el-table-column label='Cód. do Pedido' prop="address" align='center'>
-            </el-table-column>
-            <el-table-column label='Cliente (Apelido)' prop="address" align='center'>
-            </el-table-column>
-            <el-table-column label='Rastreio' prop="address" align='center'>
-            </el-table-column>
-            <el-table-column label='Data de Empa.' prop="address" align='center'>
-            </el-table-column>
-            <el-table-column label='Status' prop="address" align='center'>
-            </el-table-column>
-        </el-table>
+        <div class="table-bgc">
+			<el-table
+			ref="multipleTable"
+			:data="tableData"
+			stripe
+			tooltip-effect="dark"
+			style="width:100%;margin-top:2%;"
+			stripe
+			@selection-change="handleSelectionChange">
+				<el-table-column type="selection" align='center' width="55">
+				</el-table-column>
+				<el-table-column label='Loja' prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Cód. do Pedido' prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Cliente (Apelido)' prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Rastreio' prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Data de Empa.' prop="address" align='center'>
+				</el-table-column>
+				<el-table-column label='Status' prop="address" align='center'>
+				</el-table-column>
+			</el-table>
+        </div>
         <div class="product-pagination" style="text-align:right;margin-top:20px">
             <div class='num'>
                 <span class='pro_title'>*Total de pedidos expedidos:</span>

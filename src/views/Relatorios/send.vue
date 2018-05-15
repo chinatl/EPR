@@ -1,6 +1,8 @@
 <template>
-    <div class='main_box'>
-        <p class='title'>{{$t(`relatorios["发货报表"]`)}}</p>
+    <div class='main-box'>
+	 	<div class="erp-header">
+            <h3>{{$t(`relatorios["发货报表"]`)}}</h3>
+        </div>
         <div class='th_box'>
             <div class='select-input col'>
                 <el-input  size='small'  type='text' placeholder='Nome / SKU' v-model='value'></el-input>
@@ -41,6 +43,7 @@
                 <el-button type="success" size='small' round  class="btn"><span class="text"><i class='el-icon-share'></i> Exportar CSV</span></el-button>
            </div>
         </div>
+        <div class="table-bgc">
         <el-table
 			ref="multipleTable"
 			:data="tableData"
@@ -51,39 +54,40 @@
 			@selection-change="handleSelectionChange">
 	     <el-table-column label='Imagem' clasa="col" align='center'>
             <template slot-scope="scope">
-                <img :src="require('@/assets/img/yashua.png')" alt="" style='width:80px;height:80px;'>
+                <img :src="require('@/assets/img/yashua.png')"class='table-img'>
             </template>
-         </el-table-column>
-         <el-table-column label='SKU' clasa="col" prop="name" align='center'>
+</el-table-column>
+<el-table-column label='SKU' clasa="col" prop="name" align='center'>
 
-         </el-table-column>	 
-         <el-table-column label='Nome' clasa="col" prop="address" align='center'>
+</el-table-column>
+<el-table-column label='Nome' clasa="col" prop="address" align='center'>
 
-         </el-table-column>	 
-         <el-table-column label='Vendas' clasa="col" prop="Estoque" align='center'>
+</el-table-column>
+<el-table-column label='Vendas' clasa="col" prop="Estoque" align='center'>
 
-         </el-table-column>
-          <el-table-column label='Nota de Potencial' clasa="col" prop="sss" align='center'>
+</el-table-column>
+<el-table-column label='Nota de Potencial' clasa="col" prop="sss" align='center'>
 
-         </el-table-column>
-         <el-table-column  clasa="col" prop="Marca" :render-header='render_icon' align='center'>
+</el-table-column>
+<el-table-column clasa="col" prop="Marca" :render-header='render_icon' align='center'>
 
-         </el-table-column>
-        </el-table>
-        <div class="product-pagination" style="text-align:right;margin-top:20px">
-            <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-            </el-pagination>
-        </div>
-    </div>
+</el-table-column>
+</el-table>
+<div class="product-pagination" style="text-align:right;margin-top:20px">
+	<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
+	</el-pagination>
+</div>
+</div>
+</div>
 </template>
 <script>
-
-       export default{
-        data(){
-            return{
-                value:"value",
-                total:10,
-                tableData: [{
+	export default {
+		data() {
+			return {
+				value: "",
+				value7: "",
+				total: 10,
+				tableData: [{
 					name: '1000103-00',
 					address: 'Escova Alisadora',
 					Marca: 'R$ 700,00',
@@ -102,73 +106,69 @@
 					Estoque: '200',
 					sss: 'R$ 440,00',
 				}, ]
-            }
-        },
-        methods:{
-            render_icon(){
-                return <i class='el-icon-question'style='color:#0aa1ed'></i>
-            },
-            pickerOptions2(){
+			}
+		},
+		methods: {
+			render_icon() {
+				return <i class = 'el-icon-question'
+				style = 'color:#0aa1ed' > < /i>
+			},
+			pickerOptions2() {
 
-            },
-            handleSelectionChange(){}
-            
-        }
-    }
+			},
+			handleSelectionChange() {}
+
+		}
+	}
+
 </script>
 <style rel="stylesheet/scss" lang="scss">
-     .main_box{
-         padding:20px;
-        .title{
-            color:#808080;
-           font-size:20rem;
-           padding-bottom:1%;
-           border-bottom:1px solid #e0e0e0;
-        }
-        .th_box{
-            margin-top:20px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            .select-input {
-                display:flex;
-                 width:15%;
-            }
-            .input{
-                width:15%;
-            }
-            .el-icon-search{
-                display:inline-block;
-                width:32px;
-                height:32px;
-                font-size:20rem;
-                color:#fff;
-                background:#0aa1ed;
-                text-align:center;
-                line-height:32px;
-                position:relative;
-                
-                left:-6px;
-                margin:0;
-                margin-right:4%;
-            }
-            .select{
-                font-size:5rem;
-            }
-            .Selecionar{
-                width:12%;
-            }
-           .col{
-               display:flex;
-               .tle{
-                   line-height:32px;
-                   margin-right:5px;
-                   font-size:13rem;
-                   font-weight:bold;
-                   color:#808080;
-               }
-           } 
-           
-        }
-     }
+	.main-box {
+		.th_box {
+			margin-top: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.select-input {
+				display: flex;
+				width: 15%;
+			}
+			.input {
+				width: 15%;
+			}
+			.el-icon-search {
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				font-size: 20rem;
+				color: #fff;
+				background: #0aa1ed;
+				text-align: center;
+				line-height: 32px;
+				position: relative;
+
+				left: -6px;
+				margin: 0;
+				margin-right: 4%;
+			}
+			.select {
+				font-size: 5rem;
+			}
+			.Selecionar {
+				width: 12%;
+			}
+			.col {
+				display: flex;
+				.tle {
+					line-height: 32px;
+					margin-right: 5px;
+					font-size: 13rem;
+					font-weight: bold;
+					color: #808080;
+				}
+			}
+
+		}
+	}
+
 </style>

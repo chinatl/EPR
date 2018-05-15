@@ -1,10 +1,13 @@
 <template>
 	<div class="attribute-layout">
 		<div class="main_box">
-			<div class='title'>{{$t(`product["属性库"]`)}}</div>
-			<div class="subTitle">Buscar</div>
-			<el-input type="text" placeholder='Pesquisar...'size='small' class='input'></el-input>
-			<span class="el-icon-search"></span>
+			<div class='erp-header'>
+				<h3>{{$t(`product["属性库"]`)}}</h3>
+			</div>
+			<div style="margin-top:20px;">
+				<el-input type="text" placeholder='Pesquisar...'size='small' class='input'></el-input>
+				<span class="el-icon-search"></span>
+			</div>
 			<div class='module_box'>
 				<p>
 					<span class='module'>Cores</span>
@@ -66,7 +69,6 @@
 <style rel="stylesheet/scss" lang="scss">
 	.attribute-layout {
 		.main_box {
-			padding: 20px;
 			margin: 0 auto;
 			padding-bottom: 30%;
 			.title {
@@ -88,7 +90,7 @@
 			.el-icon-search {
 				display: inline-block;
 				width: 30px;
-				height: 33px;
+				height: 32px;
 				background: #0aa1ed;
 				color: #fff;
 				font-size: 20rem;

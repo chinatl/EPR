@@ -22,6 +22,8 @@ const cn = {
 		"分析报表":"Desempenho",
 		"发货报表":"Expedição",
 		"积分":"Integrações",
+		"订单管理":"Pedido",
+		"账号":"Integrações",
 	},
 	"layout": {
 		"分享可获得1周免费": "Compartilhe e ganhe 1 semana GRÁTIS",

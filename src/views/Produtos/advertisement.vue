@@ -1,7 +1,7 @@
 <template>
-    <div class="layout advertisement">
-        <div class="product-header">
-            <div class="title">{{$t(`product["广告管理"]`)}}</div>
+    <div class="advertisement">
+        <div class="erp-header">
+            <h3>{{$t(`product["广告管理"]`)}}</h3>
             <div>
                 <el-button size='small' round type='primary'   icon="el-icon-edit">Vínculo Automático</el-button>
                 <el-button size='small' round type='success'  icon="el-icon-star-on">Clonar Loja</el-button>
@@ -147,7 +147,7 @@
 		font-size: 16px
 	}
 	.advertisement {
-		padding: 20px; 
+/*		padding: 20px; */
 	}
 /*
 		div.el-table--enable-row-transition .el-table__body td {

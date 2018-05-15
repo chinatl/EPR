@@ -97,3 +97,77 @@ li {
 .app-container {
 	padding: 20px;
 }
+
+/*通用样式*/
+
+.table-bgc {
+	.has-gutter {
+		tr,
+		th {
+			background-color: #e8e8e8;
+			th > .cell {
+				font-size: 15rem;
+				color: #222
+			}
+		}
+		/*table里面的背景灰色*/
+	}
+}
+
+.table-img {
+	height: 40px;
+}
+
+/*table 里面的图片高度*/
+
+.erp-header {
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 15px;
+	position: relative;
+	h3 {
+		font-size: 18rem;
+		color: #000; //		font-weight: normal
+		.else-con {
+			border-left: 2px solid #808080;
+			padding-left: 20px;
+			margin-left: 20px;
+			color: #808080;
+			font-weight: normal;
+		}
+	}
+	> div {
+		position: absolute;
+		top: 10px;
+		right: 0;
+		overflow: hidden;
+		transform: translate(0, -50%);
+		.el-button {
+			font-size: 12rem;
+		}
+
+	}
+}
+
+/*所有的头部导航*/
+
+.table-icon {
+	display: flex;
+	justify-content: center;
+	> span {
+		width: 24px;
+		color: #000;
+		font-weight: bold;
+//		background-color: #eee;
+		font-size: 18rem;
+		height: 32px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		margin: 0 10px;
+		&:hover {
+			background-color: #DC044D;
+			color: #fff;
+		}
+	}
+}

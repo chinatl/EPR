@@ -6,7 +6,6 @@ const app = {
 		show_user:false,
 		show_set:false,
 		show_enter:false,
-
 	},
 	mutations: {
 		TOGGLE_TRAN_DETAIL: state => {
