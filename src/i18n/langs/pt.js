@@ -54,7 +54,18 @@ const cn = {
 		"图片": "Imagem",
 		"名字": "Nome",
 		"品牌": "Marca",
-
+		'Paginação':'Paginação',
+		'Estoqu':'Estoqu',
+		'Operação':'Operação',
+	},
+	"advertisement":{
+		'Vínculo Automático':'Vínculo Automático',
+		'Clonar Loja':'Clonar Loja',
+		'Novo Anúncio':'Novo Anúncio',
+		'Busca':'Busca',
+		'Status':'Status',
+		'Situação':'Situação',
+		'Marketplace':'Marketplace',
 	},
 	"relatorios": {
 		"历史报表": "Relatório de Lucratividade e Faturamento",
@@ -62,8 +73,23 @@ const cn = {
 		"发货报表": "Relatório de Expedição",
 		"退货报表": "Relatório de devolução",
 		"分析报表": "Potencial de Produtos",
-
-
+	},
+	"Dashboard":{
+		'Dashboard':'Dashboard',
+		'Novidades':'Novidades',
+		'Novos Pedidos':'Novos Pedidos',
+		'Detalhes':'Detalhes',
+		'Estatísticas':'Estatísticas',
+		'PRODUTOS':'PRODUTOS',
+		'CADASTRADOS':'CADASTRADOS',
+		'anúncios':'anúncios',
+		'publicados':'publicados',
+		'pedidos':'pedidos',
+		'em trânsito':'em trânsito',
+		'Ranking':'Ranking',
+		'Faturamento':'Faturamento',
+		'Mini Caixinha de Som':'Mini Caixinha de Som',
+		'Ver mais':'Ver mais',
 	},
 	...zhLocale
 }

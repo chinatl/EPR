@@ -1,169 +1,169 @@
 <template>
 	<div class="main-box">
 		<div class="erp-header">
-			<h3>Dashboard | Novidades</h3>
+			<h3>{{$t('Dashboard["Dashboard"]')}} | {{$t('Dashboard["Novidades"]')}}</h3>
 			<div class="date">25/04/2018</div>
 		</div>
 		<div class="card">
 			<div class="item card1">
 				<img :src="require('@/assets/img/car.png')" alt="" class="img">
-				<div class="title">Novos Pedidos</div>
+				<div class="title">{{$t('Dashboard["Novos Pedidos"]')}}</div>
 				<div class="price">
 					<span class="bignumber">30</span>
 					<span class='line'></span>
 					<span class="rt">R$ 125,00</span>
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 			<div class="item card1">
 				<img :src="require('@/assets/img/wx.png')" alt="" class="xinxi">
-				<div class="title">Novos Pedidos</div>
+				<div class="title">{{$t('Dashboard["Novos Pedidos"]')}}</div>
 				<div class="price">
 					<span class="bignumber">30</span>
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 			<div class="item card1">
 				<img :src="require('@/assets/img/xinxi.png')" alt="" class="xinxi">
-				<div class="title">Novos Pedidos</div>
+				<div class="title">{{$t('Dashboard["Novos Pedidos"]')}}</div>
 				<div class="price">
 					<span class="bignumber">30</span>
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 		</div>
 		<div class="erp-header">
-			<h3>Estatísticas</h3>
+			<h3>{{$t('Dashboard["Estatísticas"]')}}</h3>
 		</div>
 		<div class="card">
 			<div class="item card2">
 				<div class="card2-content">
-					<p>PRODUTOS</p>
-					<p>CADASTRADOS</p>
+					<p>{{$t('Dashboard["PRODUTOS"]')}}</p>
+					<p>{{$t('Dashboard["CADASTRADOS"]')}}</p>
 					<span class='num30'>30</span>
 					<img :src="require('@/assets/img/zhengfangxin.png')" alt="" class="showimg">
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 			<div class="item card2">
 				<div class="card2-content">
-					<p>PRODUTOS</p>
-					<p>CADASTRADOS</p>
+					<p>{{$t('Dashboard["PRODUTOS"]')}}</p>
+					<p>{{$t('Dashboard["CADASTRADOS"]')}}</p>
 					<span class='num30'>30</span>
 					<img :src="require('@/assets/img/laba.png')" alt="" class="showimg">
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 			<div class="item card2">
 				<div class="card2-content">
-					<p>anúncios </p>
-					<p>publicados</p>
+					<p>{{$t('Dashboard["anúncios"]')}}</p>
+					<p>{{$t('Dashboard["publicados"]')}}</p>
 					<span class='num30'>30</span>
 					<img :src="require('@/assets/img/qianbao.png')" alt="" class="showimg">
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 			<div class="item card2">
 				<div class="card2-content">
-					<p>pedidos</p>
-					<p>em trânsito</p>
+					<p>{{$t('Dashboard["pedidos"]')}}</p>
+					<p>{{$t('Dashboard["em trânsito"]')}}</p>
 					<span class='num30'>30</span>
 					<img :src="require('@/assets/img/che.png')" alt="" class="showimg">
 				</div>
 				<div class="action">
-					<span class="Detalhes">Detalhes</span>
+					<span class="Detalhes">{{$t('Dashboard["Detalhes"]')}}</span>
 					<img :src="require('@/assets/img/arrow.png')" alt="">
 				</div>
 			</div>
 		</div>
 		<pie-chart class='pie'></pie-chart>
 		<div class="erp-header">
-			<h3>Ranking</h3>
+			<h3>{{$t('Dashboard["Ranking"]')}}</h3>
 		</div>
 		<div class="card">
 			<div class="card3"  @mouseenter='mouseenter(index)' @mouseleave='mouseleave(index)' v-for='(item,index) in [1,2,3,4]'>
 				<div class="card3-title">
-					Faturamento
+					{{$t('Dashboard["Faturamento"]')}}
 				</div>
 				<div class="card3-con">
 					<ul>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 						<li>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
-							<span class="address">Mini Caixinha de Som</span>
+							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 					</ul>
 					<div class="card3-btn" v-show='index == current'>
 						<el-button type="primary">
-							<span class="span">Ver mais</span><img :src="require('@/assets/img/arrow.png')" alt="" class="span-img">
+							<span class="span">{{$t('Dashboard["Ver mais"]')}}</span><img :src="require('@/assets/img/arrow.png')" alt="" class="span-img">
 						</el-button>
 					</div>
 				</div>

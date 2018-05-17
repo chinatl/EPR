@@ -7,7 +7,7 @@
         <h3>{{$t(`layout["免费试用版"]`)}}</h3>
         <h6 @click='open' style="text-decoration:underline;cursor:pointer;text-align:center">{{$t(`layout["更换套餐"]`)}}</h6>
       </div>
-			<div class="times" v-show="isShow">
+	  <div class="times" v-show="isShow">
         <h3>{{$t(`layout["04／22／2018年到期"]`)}}</h3>
         <h6 @click='open' style="text-decoration: underline;cursor:pointer;text-align:center">{{$t(`layout["使用 Pagamento"]`)}}|$39.00</h6>
       </div>
@@ -139,12 +139,15 @@
 			width:180px;
 			text-align:center;
 			h3 {
+				height:50px;
+				font-size:5rem;
 				line-height: 50px;
 				margin-top:10px;
 			}
 			
 			h6 {
 				text-align: right;
+				font-size:5rem;
 				line-height: 0px;
 			}
 		}

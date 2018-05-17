@@ -18,7 +18,6 @@ const app = {
 			state.show_market = !state.show_market
 		},
 		TOGGLE_DELETE: state => {
-			console.log(!state.show_delete)
 			state.show_delete = !state.show_delete
 		},
 		TOGGLE_ENTRDA: state => {

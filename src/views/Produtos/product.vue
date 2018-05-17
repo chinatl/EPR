@@ -16,7 +16,7 @@
 						<button class="procudt-btn"><i class="el-icon-search" style="color:#fff;font-size:14px"></i></button>
 			   </div>
 				<div  style='display:flex;align-items:center'>
-					<label for="" style="margin-right:20px;font-size:16rem">Paginação</label>	
+					<label for="" style="margin-right:20px;font-size:16rem">{{$t('product["Paginação"]')}}</label>	
 					<el-select v-model="form.number" style='width:80px' size='small'>
 						<el-option label="20" value="20"></el-option>
 						<el-option label="50" value="50"></el-option>
@@ -69,12 +69,12 @@
 		<span class="table_font">{{scope.row.Marca}}</span>
 		</template>
 </el-table-column>
-<el-table-column prop='Estoque' align='center' label="Estoqu ">
+<el-table-column prop='Estoque' align='center' :label='$t(`product["Estoqu"]`)'>
 	<template slot-scope="scope">
 		<span class="table_font">{{scope.row.Estoque}}</span>
 		</template>
 </el-table-column>
-<el-table-column label="Operação" align='center'>
+<el-table-column :label='$t(`product["Operação"]`)' align='center'>
 	<template slot-scope="scope">
 		<div class="table-icon">
 			<span>
