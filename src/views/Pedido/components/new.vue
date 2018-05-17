@@ -2,7 +2,6 @@
    <el-dialog
     title="titleXXX"
     :visible.sync="$store.state.order.show_new"
-    width="70%"
     :before-close="handleClose">
         <div class='new_box'>
             <div class='input_box'>

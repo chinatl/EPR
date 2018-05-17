@@ -2,7 +2,6 @@
 	<el-dialog
 		:visible.sync="$store.state.integral.show_bra"
         title='Configurações Transportadora | Braspress'
-		width="60%"
 	>
  <div class='bra_box'> 
         <div class='main_box'>

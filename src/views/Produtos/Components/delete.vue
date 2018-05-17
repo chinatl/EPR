@@ -1,7 +1,6 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.product.show_delete"
-		  width="40%"
 		  center
 		>
 		<div slot='title' class="del-title-large">Atenção</div>

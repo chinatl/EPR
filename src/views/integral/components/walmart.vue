@@ -2,7 +2,6 @@
     <el-dialog
     title="Configurações Walmart"
     :visible.sync="$store.state.integral.show_walmart"
-    width="50%"
     >
     <div class='walmart_box'>
         <div class='input_box'>

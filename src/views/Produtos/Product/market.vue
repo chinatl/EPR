@@ -1,7 +1,6 @@
 <template>
 <el-dialog
 	:visible.sync="$store.state.product.show_market"
-  width="60%"
   @close='closeDialog'
 >
 	<div slot='title' class="market-title">Precificação <span class="span"><el-switch v-model="delivery"></el-switch></span></div>

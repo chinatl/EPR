@@ -2,7 +2,6 @@
 	<el-dialog
 		:visible.sync="$store.state.integral.show_tran"
         title='Configurações Transportadora | Correios'
-		width="60%"
 	>
  <div class='tran_box'> 
         <div class='main_box'>

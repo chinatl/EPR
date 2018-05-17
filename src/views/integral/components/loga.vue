@@ -2,7 +2,6 @@
     <el-dialog
     title="Loja Virtual"
     :visible.sync="$store.state.integral.show_loga"
-    width="30%"
     >
     <div class='loga_box'>
         <div class='input_line'>

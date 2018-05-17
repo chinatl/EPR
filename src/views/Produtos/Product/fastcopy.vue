@@ -1,7 +1,6 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.product.show_copy"
-		width="60%"
 	>
 	<div slot='title' class="edit-title">
 		<div class="div1">Clonar Produto em Massa</div>

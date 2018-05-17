@@ -2,7 +2,6 @@
 	<el-dialog
 		:visible.sync="$store.state.fornecedor.show_menu"
         title='Editar Fornecedor'
-		width="60%"
 	>
  <div class='perfil_box'>
         

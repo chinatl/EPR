@@ -2,7 +2,6 @@
     <el-dialog
     title="Configurações CNOVA"
     :visible.sync="$store.state.integral.show_conva"
-    width="50%"
     >
     <div class='conva_box'>
         <div class='input_box'>

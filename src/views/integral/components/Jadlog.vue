@@ -2,7 +2,7 @@
 	<el-dialog
 		:visible.sync="$store.state.integral.show_jadlog"
         title='Configurações Transportadora | Jadlog'
-		width="60%"
+		
 	>
  <div class='jad_box'> 
         <div class='main_box'>

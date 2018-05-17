@@ -2,7 +2,6 @@
     <el-dialog
     title='Informações do Pedido | 123456789123'
     :visible.sync="$store.state.expedic.show_order"
-    width="70%"
     >
     <div class="section">
         <div class='section_header bottom'>

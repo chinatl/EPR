@@ -183,7 +183,7 @@ li {
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
-		margin: 0 10px;
+		margin: 0 6px;
 		&:hover {
 			background-color: #DC044D;
 			color: #fff;
@@ -219,7 +219,13 @@ li {
 		text-align: center;
 		li {
 			height: 100%;
-			flex: 1;
+			flex: 2;
+		}
+		li.flex1 {
+			flex: 1.2;
+		}
+		li.flex3 {
+			flex: 3;
 		}
 	}
 	> .title {

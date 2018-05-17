@@ -2,7 +2,6 @@
     <el-dialog
     title="Configurações B2W"
     :visible.sync="$store.state.integral.show_bw"
-    width="50%"
     >
     <div class='bw_box'>
         <div class='input'>

@@ -2,7 +2,6 @@
    <el-dialog
    title="Rastreamento do Pedido | 1234567891BR"
   :visible.sync="$store.state.order.show_detail"
-  width="60%" 
  >
     <div class="main">
         <div class='header'>

@@ -2,7 +2,6 @@
     <el-dialog
     title="Configurações Tiny"
     :visible.sync="$store.state.integral.show_tiny"
-    width="50%"
     >
     <div class='tiny_box'>
         <p class='tiny_title'>Token de Acesso</p>

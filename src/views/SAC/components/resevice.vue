@@ -2,7 +2,6 @@
     <el-dialog
     title="Configuração de Mensagem de Auto Pós-Compra"
     :visible.sync="$store.state.sac.show_resevice"
-    width="70%" 
     >
     <div class='re_box'>
         <div style='margin-bottom:15px;'>

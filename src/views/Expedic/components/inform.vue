@@ -2,7 +2,6 @@
     <el-dialog
      title='Error'
     :visible.sync="$store.state.expedic.show_inform"
-    width="50%"
     center    
     >
     <div class='error_box'>

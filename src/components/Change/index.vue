@@ -2,7 +2,6 @@
     <el-dialog
       :title="$t(`layout['修改']`)+'|'+$t(`layout['免费使用版']`)"
       :visible.sync="$store.state.title"
-      width="70%"
     >
     <div class="ms-content">
       <div class="item" v-for='(item,index) in data' @mouseenter='mouseenter(index)' @mouseleave='mouseleave(index)'>

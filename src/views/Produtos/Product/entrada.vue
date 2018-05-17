@@ -1,7 +1,6 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.product.show_entrda"
-		width="80%"
 	>
 	<div slot='title' class="entrada-title">Entrada de Produtos </div>
 	<div class="entrada-con">

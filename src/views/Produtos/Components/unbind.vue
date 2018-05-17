@@ -1,7 +1,6 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.product.show_unbind"
-		  width="40%"
 		  center
 		>
 		<div slot='title' class="bind-title">Anúncio Desvinculado com Sucesso</div>

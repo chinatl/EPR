@@ -1,7 +1,6 @@
 <template>
 <el-dialog
   :visible.sync="$store.state.product.show_ml"
-  width="60%"
 >
 	<div slot='title' class="market-title">Precificação Mercado Livre <span class="span"><el-switch v-model="delivery"></el-switch></span></div>
 	<div class="market-content">

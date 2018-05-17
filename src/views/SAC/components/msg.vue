@@ -2,7 +2,6 @@
     <el-dialog
     title="Resposta Rápida | @"
     :visible.sync="$store.state.sac.show_msg"
-    width="40%"
     >
     <div class='msg_box'>
         <p class='msg_header'>
