@@ -3,32 +3,32 @@
 		:visible.sync="$store.state.product.show_edit"
 	>
 	<div slot='title' class="edit-title">
-		<div class="div1">Title</div>
-		<div class="div2">Selecione o marketplace:</div>
+		<div class="div1">{{$t('product["Title"]')}}</div>
+		<div class="div2">{{$t('product["Selecione o marketplace"]')}}:</div>
 		<div class="div3">
-			<el-select size='small' placeholder='Mercado Livre | MegaHariba...' style='width:240px'v-model="value">
-				<el-option value='1' label='Mercado Livre | MegaHariba...'></el-option>
+			<el-select size='small' placeholder="Mercado Livre | MegaHariba..." style='width:240px'v-model="value">
+				<el-option value='1' label="Mercado Livre | MegaHariba..."></el-option>
 			</el-select>
 		</div>
 	</div>
 	<div class="entrada-con">
 		<div class="entrada-h3">
-			<div :class=" current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>Dados Gerais</div>
-			<div :class=" !current ? 'item': 'item current'"  @click='current=0'><span class="span">2</span>Video e Imagens</div>
+			<div :class=" current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>{{$t('product["Dados Gerais"]')}}</div>
+			<div :class=" !current ? 'item': 'item current'"  @click='current=0'><span class="span">2</span>{{$t('product["Video e Imagens"]')}}</div>
 		</div>
 		<div v-show='current'>
 			<div class="edit-form">
-				<p class="label">Clonar <i class="el-icon-star-on"></i></p>
+				<p class="label">{{$t('product["Clonar"]')}}<i class="el-icon-star-on"></i></p>
 				<el-input placeholder='URL do anúncio Mercado Livre / ID do anúncio Mercado Livre / SKU B2W ' size='small' v-model='value'></el-input>
 			</div>
 			<div class="edit-form">
-				<p class="label">Titulo</p>
+				<p class="label">{{$t('product["Titulo"]')}}</p>
 				<el-input placeholder='Escova Alisadora Magic Hair' size='small' v-model='value'></el-input>
 			</div>
 			<div class="edit-item">
-				<div class="entrada-item-title">Descrição</div>
+				<div class="entrada-item-title">{{$t('product["Descrição"]')}}</div>
 				<div class="edit-input-item">
-					<div class="label"><label for="">Marketplace</label></div>
+					<div class="label"><label for="">{{$t('product["Marketplace"]')}}</label></div>
 					<div>
 						<el-select size='small' :model='form.a'>
 							<el-option value='1' label='Texto'></el-option>
@@ -45,55 +45,55 @@
 			</div>
 			<div class="edit-abled">
 				<div class="edit-form">
-					<p class="label">Garantia</p>
+					<p class="label">{{$t('product["Garantia"]')}}</p>
 					<el-input  v-model='Garantia' disabled size='small'></el-input>
 				</div>
 				<div class="edit-form">
-					<p class="label">Categoria</p>
+					<p class="label">{{$t('product["Categoria"]')}}</p>
 					<el-input  v-model='Categoria' disabled size='small' style='width:300px'></el-input>
 				</div>
 			</div>	
 			<div class="edit-item">
-				<div class="entrada-item-title">Precificação</div>
+				<div class="entrada-item-title">{{$t('product["Precificação"]')}}</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Exposição</label></div>
+					<div class="label"><label for="">{{$t('product["Exposição"]')}}</label></div>
 					<div>
 						<el-input size='small' v-model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Custo</label></div>
+					<div class="label"><label for="">{{$t('product["Custo"]')}}</label></div>
 					<div>
 						<el-input size='small'v-model='form.Custo' palceholader='R$ 22,00' disabled></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Lucratividade</label></div>
+					<div class="label"><label for="">{{$t('product["Lucratividade"]')}}</label></div>
 					<div>
 						<el-input size='small' v-model='form.Lucratividade' disabled></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Preço de Venda</label></div>
+					<div class="label"><label for="">{{$t('product["Preço de Venda"]')}}</label></div>
 					<div>
 						<el-input size='small' v-model='form.a' placeholder='R$ 22,00'></el-input>
 					</div>
 				</div>
 			</div>	
 			<div class="edit-item1">
-				<div class="entrada-item-title">Frete</div>
+				<div class="entrada-item-title">{{$t('product["Frete"]')}}</div>
 				<div class="edit-checkbox">
-					<p><el-checkbox v-model="checked1"><span style='margin-left:20px'>Frete Grátis</span></el-checkbox></p>
-					<p><el-checkbox v-model="checked"><span style='margin-left:20px'>Por conta do Cliente</span></el-checkbox></p>
+					<p><el-checkbox v-model="checked1"><span style='margin-left:20px'>{{$t('product["Frete Grátis"]')}}</span></el-checkbox></p>
+					<p><el-checkbox v-model="checked"><span style='margin-left:20px'>{{$t('product["Por conta do Cliente"]')}}</span></el-checkbox></p>
 				</div>
 			</div>
 			<div class="entrada-btn">
-				<el-button type='primary' round @click='submit'><span class="span">Concluir</span></el-button>
+				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
 			</div>
 		</div>
 		<div v-show='!current'>
 			<div class="entrada-select">
-				<h3>Produtos</h3>
+				<h3>{{$t('product["Produtos"]')}}</h3>
 				<div class="entrada-t">
 					<el-select v-model='select' style='width:400px' size='medium'>
 						<el-option value='1' label='Originais do anúncio'></el-option>
@@ -108,8 +108,8 @@
 					</div>
 					<div class="text-edit" v-show='!img_src'>
 						<svg-icon icon-class='xiangji' style='font-size:120px'></svg-icon>
-						<p>Adicionar Foto</p>
-						<p>Principal</p>
+						<p>{{$t('product["Adicionar Foto"]')}}</p>
+						<p>{{$t('product["Principal"]')}}</p>
 					</div>
 				</div>
 				<el-upload
@@ -122,16 +122,16 @@
 				  :file-list="fileList"
 				  multiple>
 				  <i class="el-icon-upload"></i>
-				  <div class="el-upload__text">Arraste e solte sua imagem aqui ou c lique nesta área</div>
+				  <div class="el-upload__text">{{$t('product["Principal"]')}}Arraste e solte sua imagem aqui ou c lique nesta área</div>
 				</el-upload>
 			</div>
 			<div class="edit-nav">
 				<ul class="nav-item">
-					<li>Principal</li>
-					<li>Preto</li>
-					<li>Branco</li>
-					<li>Vermelho</li>
-					<li>Azul</li>
+					<li>{{$t('product["Principal"]')}}</li>
+					<li>{{$t('product["Preto"]')}}</li>
+					<li>{{$t('product["Branco"]')}}</li>
+					<li>{{$t('product["Vermelho"]')}}</li>
+					<li>{{$t('product["Azul"]')}}</li>
 				</ul>
 				<ul class="block-img">
 					<li v-for='(item,index) in img_list' @mouseenter='mouseenter(item.url)'>
@@ -141,17 +141,17 @@
 				</ul>
 			</div>
 			<div class="edit-item">
-				<div class="entrada-item-title">Descrição</div>
+				<div class="entrada-item-title">{{$t('product["Descrição"]')}}</div>
 				<div class="edit-input-item">
 				<div class="edit-form">
-					<p class="label">Adicionar URL do Youtube</p>
+					<p class="label">{{$t('product["Adicionar URL do Youtube"]')}}</p>
 					<el-input  v-model='form.a'  size='small'></el-input>
 				</div>
 				
 				</div>
 			</div>
 			<div class="entrada-btn part2">
-				<el-button type='primary' round @click='submit'><span class="span">Concluir</span></el-button>
+				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
 			</div>
 </div>
 </div>

@@ -10,52 +10,52 @@
 			</div>
 			<div class='module_box'>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura</span>
-					<span class='module'>Material</span>
-					<span class='module'>Aro</span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura</span>
-					<span class='module'>Material</span>
-					<span class='module'>Aro</span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura</span>
-					<span class='module'>Material</span>
-					<span class='module'>Aro</span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura</span>
-					<span class='module'>Material</span>
-					<span class='module'>Aro</span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura</span>
-					<span class='module'>Material</span>
-					<span class='module'>Aro</span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 				<p>
-					<span class='module'>Cores</span>
-					<span class='module'>Voltagem</span>
-					<span class='module'>Tamanho</span>
-					<span class='module'>Textura <i class='ds'></i></span>
-					<span class='module'>Material <i class='ds'></i></span>
-					<span class='module'>Aro <i class='ds'></i></span>
+					<span class='module'>{{$t('product["Cores"]')}}</span>
+					<span class='module'>{{$t('product["Voltagem"]')}}</span>
+					<span class='module'>{{$t('product["Tamanho"]')}}</span>
+					<span class='module'>{{$t('product["Textura"]')}}</span>
+					<span class='module'>{{$t('product["Material"]')}}</span>
+					<span class='module'>{{$t('product["Aro"]')}}</span>
 				</p>
 			</div>
 			<div class="page_box">

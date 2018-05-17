@@ -2,108 +2,108 @@
 	<el-dialog
 		:visible.sync="$store.state.product.show_entrda"
 	>
-	<div slot='title' class="entrada-title">Entrada de Produtos </div>
+	<div slot='title' class="entrada-title">{{$t('product["Entrada de Produtos"]')}} </div>
 	<div class="entrada-con">
 		<div class="entrada-h3">
-			<div :class=" !current ? 'item' : 'item current'" @click='current=0'><span class="span">1</span>Fornecedor</div>
-			<div :class=" current ? 'item': 'item current'"  @click='current=1'><span class="span">2</span>Produtos</div>
+			<div :class=" !current ? 'item' : 'item current'" @click='current=0'><span class="span">1</span>{{$t('product["Fornecedor"]')}}</div>
+			<div :class=" current ? 'item': 'item current'"  @click='current=1'><span class="span">2</span>{{$t('product["Produtos"]')}}</div>
 		</div>
 		<div v-show='!current'>
 			<div class="entrada-select">
-				<h3>Fornecedor</h3>
+				<h3>{{$t('product["Fornecedor"]')}}</h3>
 				<div class="entrada-t">
 					<el-input v-model="user" size='small' placeholder='SKU / Nome / Marca/ ID do Anúncio'></el-input>
 					<el-button type="primary" size='mini'><i class="el-icon-search ic" style="font-weight:bold"></i></el-button> 
 				</div>
 			</div>
 			<div class="entrada-item">
-				<div class="entrada-item-title">Identificação</div>
+				<div class="entrada-item-title">{{$t('product["Identificação"]')}}</div>
 				<div class="entrada-input-item">
-					<div class="label"><label for="">Marketplace</label></div>
+					<div class="label"><label for="">{{$t('product["Azul"]')}}</label></div>
 					<div>
 						<el-input size='small' :model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item">
-					<div class="label"><label for="">CNPJ/CPF</label></div>
+					<div class="label"><label for="">{{$t('product["CNPJ/CPF"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item">
-					<div class="label"><label for="">Razão Social (Opcional)</label></div>
+					<div class="label"><label for="">{{$t('product["Razão Social (Opcional)"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item">
-					<div class="label"><label for="">Nome Fantasia</label></div>
+					<div class="label"><label for="">{{$t('product["Nome Fantasia"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 			</div>	
 			<div class="entrada-item">
-				<div class="entrada-item-title">Endereço</div>
+				<div class="entrada-item-title">{{$t('product["Endereço"]')}}</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Logradouro</label></div>
+					<div class="label"><label for="">{{$t('product["Logradouro"]')}}</label></div>
 					<div>
 						<el-input size='small' :model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Número</label></div>
+					<div class="label"><label for="">{{$t('product["Número"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Complemento</label></div>
+					<div class="label"><label for="">{{$t('product["Complemento"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Bairro</label></div>
+					<div class="label"><label for="">{{$t('product["Bairro"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Cidade</label></div>
+					<div class="label"><label for="">{{$t('product["Cidade"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Estado</label></div>
+					<div class="label"><label for="">{{$t('product["Estado"]')}}</label></div>
 					<div>
 						<el-input size='small':model='form.a'></el-input>
 					</div>
 				</div>
 			</div>	
 			<div class="entrada-item1">
-				<div class="entrada-item-title">Contato</div>
+				<div class="entrada-item-title">{{$t('product["Contato"]')}}</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">E-Mail</label></div>
+					<div class="label"><label for="">{{$t('product["E-Mail"]')}}</label></div>
 					<div>
 						<el-input size='small' v-model='email' disabled autosize></el-input>
 					</div>
 				</div>
 				<div class="entrada-input-item1">
-					<div class="label"><label for="">Celular</label></div>
+					<div class="label"><label for="">{{$t('product["Celular"]')}}</label></div>
 					<div>
 						<el-input size='small'v-model='phone' disabled></el-input>
 					</div>
 				</div>
 			</div>
 			<div class="entrada-btn">
-				<el-button type='primary' round @click='submit'><span class="span">Concluir</span></el-button>
+				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
 			</div>
 		</div>
 		<div v-show='current'>
 			<div class="entrada-select">
-				<h3>Produtos</h3>
+				<h3>{{$t('product["Produtos"]')}}</h3>
 				<div class="entrada-t">
 					<el-input v-model="user" size='small' placeholder='Nome / SKU'></el-input>
 					<el-button type="danger"  size='mini'><i class="el-icon-plus ic" style="font-weight:bold"></i></el-button> 
@@ -115,7 +115,7 @@
 			style="width: 100%"
 		 	stripe
 			>
-				<el-table-column align='center' label="Imagem">
+				<el-table-column align='center' :label='$t(`product["Imagem"]`)'>
 					<template slot-scope="prop">
 								<img :src="require('@/assets/img/yashua.png')" alt="" style='height:60px'>
 					  </template>
@@ -125,31 +125,31 @@
 						<span class="table_font">{{scope.row.name}}</span>
 						</template>
 				</el-table-column>
-				<el-table-column prop='address' align='center' label="Nome ">
+				<el-table-column prop='address' align='center' :label='$t(`product["Nome"]`)'>
 					<template slot-scope="scope">
 						<span class="table_font">{{scope.row.address}}</span>
 						</template>
 				</el-table-column>
-				<el-table-column prop='Marca' align='center' label="Quantidade">
+				<el-table-column prop='Marca' align='center' :label='$t(`product["Quantidade"]`)'>
 					<template slot-scope="scope">
 						<el-input style='width:100px' size='small'></el-input>
 					</template>
 				</el-table-column>
-				<el-table-column prop='Marca' align='center' label="Preço de Venda">
+				<el-table-column prop='Marca' align='center' :label='$t(`product["Preço de Venda"]`)'>
 					<template slot-scope="scope">
 						<el-input style='width:100px' size='small'></el-input>
 					</template>
 				</el-table-column>
-				<el-table-column  align='center' label="Estoqu ">
+				<el-table-column  align='center' :label='$t(`product["Estoqu"]`)'>
 					<template slot-scope="scope">
 						<i class="el-icon-delete" style="font-size:20px"></i>
 					</template>
 				</el-table-column>
 			</el-table>
 			<div class="entrada-btn part2">
-				<span class="span">Total Quantidade: 3000</span>
-				<span class="span">Total Valor: R$ 9,00</span>
-				<el-button type='primary' round @click='submit'><span class="span">Concluir</span></el-button>
+				<span class="span">{{$t('product["Total Quantidade"]')}}: 3000</span>
+				<span class="span">{{$t('product["Total Valor"]')}}: R$ 9,00</span>
+				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
 			</div>
 		</div>
 	</div>

@@ -2,48 +2,48 @@
 <el-dialog
   :visible.sync="$store.state.product.show_ml"
 >
-	<div slot='title' class="market-title">Precificação Mercado Livre <span class="span"><el-switch v-model="delivery"></el-switch></span></div>
+	<div slot='title' class="market-title">{{$t('product["Precificação"]')}} Mercado Livre <span class="span"><el-switch v-model="delivery"></el-switch></span></div>
 	<div class="market-content">
 		<div class="sku">
 			<span class="span">MLB13245678</span>
-			<span class="span">Escova Alisadora Magic Hair</span>
-			<span class="span">Custo </span>
+			<span class="span">{{$t('product["Escova Alisadora Magic Hair"]')}}</span>
+			<span class="span">{{$t('product["Custo"]')}} </span>
 			<span class="span">R$ 25,00</span>
 		</div>
 		<div class="search">
 			<div class="fleft">
 				<div class="item">
-					<div class="item-span">Preço Mínimo</div>
+					<div class="item-span">{{$t('product["Preço Mínimo"]')}}</div>
 					<el-input v-model="input"  size='small'></el-input>
 				</div>
 				<div class="item">
-					<div class="item-span">Reduzir em</div>
+					<div class="item-span">{{$t('product["Reduzir em"]')}}</div>
 					<el-input v-model="input1"  size='small'></el-input>
 				</div>
 			</div>
 			<div class="fright">
-				<input type="text" class="input" placeholder="ID/URL do Anúncio"><button class="button">Adicionar Concorrente</button>
+				<input type="text" class="input" placeholder="ID/URL do Anúncio"><button class="button">{{$t('product["Adicionar Concorrente"]')}}</button>
 			</div>
 		</div>
 		<el-table
 			:data="tableData"
 			style="width: 100%">
-			<el-table-column align='center' label="Vendedor">
+			<el-table-column align='center' :label='$t(`product["Vendedor"]`)'>
 				<template slot-scope="scope">
 								<span>{{scope.row.name}}</span>
 							</template>
 			</el-table-column>
-			<el-table-column align='center' width='140' label="Avaliação">
+			<el-table-column align='center' width='140' :label='$t(`product["Avaliação"]`)'>
 				<template slot-scope="scope">
 								<el-rate v-model="scope.row.evaluate"  disabled  :colors="['#3470C6', '#3470C6', '#3470C6']">></el-rate>
 							</template>
 			</el-table-column>
-			<el-table-column align='center' label="Preço">
+			<el-table-column align='center' :label='$t(`product["Preço"]`)'>
 				<template slot-scope="scope">
 								<span>{{scope.row.price}}</span>
 							</template>
 			</el-table-column>
-			<el-table-column align='center' label="Operação">
+			<el-table-column align='center' :label='$t(`product["Operação"]`)'>
 				<template slot-scope="scope">
 								<i class="el-icon-delete"></i>
 							</template>

@@ -22,14 +22,15 @@
 					<el-option value='15' label='15'></el-option>
 				</el-select>
 			</div>
-			<div >d
-				<span>Período </span>
+			<div>
+				<span>Período</span>
 				<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
 				</el-date-picker>
 			</div>
 		</div>
         <div class="erp-list" v-loading='loading'>
 			<ul class="title">
+				<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
 				<li>Loja</li>
 				<li>Cód. do Pedido</li>
 				<li class="flex3">Cliente (Apelido)</li>
@@ -40,6 +41,7 @@
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index">
+					<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
 					<li>{{item.name}}</li>
 					<li>{{item.phone}}</li>
 					<li class="flex3">{{item.Mar}}</li>
@@ -73,7 +75,7 @@
 		},
 		data() {
 			return {
-				value: '',
+				value:'',
 				loading: false,
 				pageSize: '5',
 				value7: '',
@@ -93,7 +95,7 @@
 						Estoque: '06/02/2018',
 						phone: '152292665425',
 						ss: '12345678912BR'
-					},d
+					},
 					{
 						name: 'Submarino',
 						address: 'Cancelado',
@@ -102,12 +104,37 @@
 						phone: '15252358645',
 						ss: '12345678912BR'
 					}
-				]
+				],
+			checkAll:false,	
+
+				
 			}
 		},
 		methods: {
+			all(e){
+				console.log(e);
+				this.tableData.forEach(res=>res.checked = e )
+			},
+			choose(e,i){
+				if(e){
+					var flag = false;
+					this.tableData.forEach(res=>{
+						if(!res.checked){
+							flag = true;
+						}
+					});
+					this.checkAll = !flag;
+				}else {
+					var flag = true;
+					this.tableData.forEach(res=>{
+						if(!res.checked){
+							flag =false;
+						}
+					});
+					this.checkAll = flag;
+				}
+			},
 			pickerOptions2() {
-
 			}
 		}
 	}

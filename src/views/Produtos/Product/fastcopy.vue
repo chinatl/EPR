@@ -3,36 +3,36 @@
 		:visible.sync="$store.state.product.show_copy"
 	>
 	<div slot='title' class="edit-title">
-		<div class="div1">Clonar Produto em Massa</div>
+		<div class="div1">{{$t('product["Clonar Produto em Massa"]')}}</div>
 		<div class="div3">
-			Você ainda possui 5 clonagens disponíveis</div>
+			{{$t('product["Você ainda possui 5 clonagens disponíveis"]')}}</div>
 		</div>
 	</div>
 	<div class="entrada-con">
 		<div class="entrada-h3">
-			<div :class=" !current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>Selecionar Loja</div>
-			<div :class=" current ? 'item': 'item current'"  @click='current=0'><span class="span">2</span>Importar Produtos</div>
+			<div :class=" !current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>{{$t('product["Selecionar Loja"]')}}</div>
+			<div :class=" current ? 'item': 'item current'"  @click='current=0'><span class="span">2</span>{{$t('product["Importar Produtos"]')}}</div>
 		</div>
 		<div v-show='current'>
 			<div class="edit-form">
-				<p class="label">Loja que deseja importar:</p>
-                <p class="label2">Conta que receberá os anúncios</p>
+				<p class="label">{{$t('Loja que deseja importar"]')}}:</p>
+                <p class="label2">{{$t('product["Conta que receberá os anúncios"]')}}</p>
 				<el-input placeholder='Nome da loja Mercado Livre' size='small' v-model='value' class="input"></el-input>
                 <span class="el-icon-loading icons"></span>
                 <span class="el-icon-check icons"></span>
                 <span class="el-icon-close  icons"></span>
                 <el-button type='primary'class='btn icons' @click=''><span>ok</span></el-button>
                  <el-select name="" size='small' class="input" placeholder="Selecionar">
-                    <el-option value="">Mercado Livre | rafatech</el-option>
-                    <el-option value="">Mercado Livre | MegaHaribaba</el-option>
+                    <el-option value="">Mercado Livre | {{$t('product["rafatech"]')}}</el-option>
+                    <el-option value="">Mercado Livre | {{$t('product["MegaHaribaba"]')}}</el-option>
                 </el-select>
 			</div>	
         </div>
         <div class="text_box">
-            <div>MEGAHARIBABA <span class='small_text'>1000 Anúncios</span></div>
-            <p>1 Ano vendendo no Mercado Livre</p>
-            <p>Reputação</p>
-            <p>987 vendas nos últimos 4 mesestação</p>
+            <div>{{$t('product["MEGAHARIBABA"]')}} <span class='small_text'>1000 {{$t('product["Anúncios"]')}}</span></div>
+            <p>1 {{$t('product["Ano vendendo no"]')}} Mercado Livre</p>
+            <p>{{$t('product["Reputação"]')}}</p>
+            <p>{{$t('product["987 vendas nos últimos 4 mesestação"]')}}</p>
             <p class="mark_box">
                 <span class="mark frist"></span>
                 <span class="mark second"></span>
@@ -41,9 +41,9 @@
                 <span class="mark fifth"></span>
             </p>
         </div>
-        <p><el-checkbox id='choose1'></el-checkbox> <label for='choose1' class="choose">Estou ciente sobre a responsabilidade de uso desta ferramenta</label></p>
-        <p><el-checkbox id='choose2'></el-checkbox> <label for='choose2' class="choose">Duplicar os anúncios importados em produtos.</label></p>
-        <p class="btn_box"><el-button type='primary' round size='small' class='btn'>Iniciar importação</el-button></p>
+        <p><el-checkbox id='choose1'></el-checkbox> <label for='choose1' class="choose">{{$t('product["Estou ciente sobre a responsabilidade de uso desta ferramenta"]')}}</label></p>
+        <p><el-checkbox id='choose2'></el-checkbox> <label for='choose2' class="choose">{{$t('product["Duplicar os anúncios importados em produtos"]')}}.</label></p>
+        <p class="btn_box"><el-button type='primary' round size='small' class='btn'>{{$t('product["Iniciar importação"]')}}</el-button></p>
     </div>
     
 </el-dialog>

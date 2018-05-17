@@ -3,21 +3,21 @@
 	:visible.sync="$store.state.product.show_market"
   @close='closeDialog'
 >
-	<div slot='title' class="market-title">Precificação <span class="span"><el-switch v-model="delivery"></el-switch></span></div>
+	<div slot='title' class="market-title">{{$t('product["Precificação"]')}} <span class="span"><el-switch v-model="delivery"></el-switch></span></div>
 	<div class="market-content">
 		<div class="sku">
 			<span class="span">SKU 103100</span>
-			<span class="span">Escova Alisadora Magic Hair</span>
+			<span class="span">{{$t('product["Escova Alisadora Magic Hair"]')}}</span>
 			<span class="span"><el-button type='primary' size='mini' round>1</el-button></span>
 		</div>
 		<div class="search">
 			<div class="fleft">
 				<div class="item">
-					<span class="item-span">Custo</span>
+					<span class="item-span">{{$t('product["Custo"]')}}</span>
 					<span class="item-span">R$ 25,00</span>
 				</div>
 				<div class="item">
-					<div class="item-span" style="margin-right:50px">Preço Mínimo 
+					<div class="item-span" style="margin-right:50px">{{$t('product["Preço Mínimo"]')}} 
 						<el-tooltip class="item" effect="dark" content="Valor mínimo atingido na precificação
 buybox automático."placement="bottom">
 						 	<i class="el-icon-question"></i>
@@ -37,32 +37,32 @@ buybox automático."placement="bottom">
 			style="width: 100%">
 			<el-table-column
 			align='center'
-			label="图片">
+			:label='$t(`product["图片"]`)'>
 				<template slot-scope="scope">
 					<img :src="require('@/assets/img/pmc.png')" style="height:70px">
 				</template>
 </el-table-column>
-<el-table-column align='center' label="Nome">
+<el-table-column align='center' :label='$t(`product["Nome"]`)'>
 	<template slot-scope="scope">
 					<span>{{scope.row.name}}</span>
 				</template>
 </el-table-column>
-<el-table-column align='center' width='140' label="Avaliação">
+<el-table-column align='center' width='140' :label='$t(`product["Avaliação"]`)'>
 	<template slot-scope="scope">
 					<el-rate v-model="scope.row.evaluate"  disabled></el-rate>
 				</template>
 </el-table-column>
-<el-table-column align='center' label="Preço">
+<el-table-column align='center' :label='$t(`product["Preço"]`)'>
 	<template slot-scope="scope">
 					<span>{{scope.row.price}}</span>
 				</template>
 </el-table-column>
-<el-table-column align='center' label="Frete">
+<el-table-column align='center' :label='$t(`product["Frete"]`)'>
 	<template slot-scope="scope">
 					<span>{{scope.row.price1}}</span>
 				</template>
 </el-table-column>
-<el-table-column align='center' label="Preço + Frete">
+<el-table-column align='center' :label='$t(`product["Preço + Frete"]`)'>
 	<template slot-scope="scope">
 					<span>{{scope.row.price2}}</span>
 				</template>

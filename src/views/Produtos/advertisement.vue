@@ -3,18 +3,18 @@
         <div class="erp-header">
             <h3>{{$t(`product["广告管理"]`)}}</h3>
             <div>
-                <el-button size='small' round type='primary'   icon="el-icon-edit">{{$t("advertisement['Vínculo Automático']")}}</el-button>
-                <el-button size='small' round type='success'  icon="el-icon-star-on">{{$t("advertisement['Clonar Loja']")}}</el-button>
-                <el-button size='small' round type='danger' >{{$t("advertisement['Novo Anúncio']")}}</el-button>
+                <el-button size='small' round type='primary'   icon="el-icon-edit">{{$t('product["Vínculo Automático"]')}}</el-button>
+                <el-button size='small' round type='success'  icon="el-icon-star-on">{{$t('product["Clonar Loja"]')}}</el-button>
+                <el-button size='small' round type='danger' >{{$t('product["Novo Anúncio"]')}}</el-button>
             </div>
         </div>
         <div class="advertisement-select">
 			<div class="select-item">
-				<div class="label"><label for="">{{$t("advertisement['Busca']")}}</label></div>
+				<div class="label"><label for="">{{$t('product["Busca"]')}}</label></div>
 				<div><el-input size='small'></el-input></div>
 			</div>
 			<div class="select-item">
-				<div class="label"><label for="">{{$t("advertisement['Status']")}}</label></div>
+				<div class="label"><label for="">{{$t('product["Status"]')}}</label></div>
 				<div>
 					<el-select v-model="value" placeholder="请选择" size='small' style='width:100%'>
 						<el-option value='1' label='1'></el-option>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="select-item">
-				<div class="label"><label for="">{{$t("advertisement['Situação']")}}</label></div>
+				<div class="label"><label for="">{{$t("product['Situação']")}}</label></div>
 				<div>
 					<el-select v-model="value" placeholder="请选择" size='small' style='width:100%'>
 						<el-option value='1' label='1'></el-option>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="select-item">
-				<div class="label"><label for="">{{$t("advertisement['Marketplace']")}}</label></div>
+				<div class="label"><label for="">{{$t("product['Marketplace']")}}</label></div>
 				<div>
 					<el-select v-model="value" placeholder="请选择" size='small'style='width:100%'>
 						<el-option value='1' label='1'></el-option>
@@ -44,7 +44,7 @@
 				</div>
 			</div>
 			<div class="select-item">
-				<div class="label"><label for="">{{$t("advertisement['Precificação']")}}</label></div>
+				<div class="label"><label for="">{{$t("product['Precificação']")}}</label></div>
 				<div>
 					<el-select v-model="value" placeholder="请选择" size='small'style='width:100%'>
 						<el-option value='1' label='1'></el-option>

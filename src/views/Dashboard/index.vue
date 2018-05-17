@@ -155,13 +155,13 @@
 							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
-						<li>
+						<li v-show='index != current'>
 							<img :src="require('@/assets/img/shouyinji.png')" alt="" class="card3-img">
 							<span class="address">{{$t('Dashboard["Mini Caixinha de Som"]')}}</span>
 							<span class="blues">R$ 225,00</span>
 						</li>
 					</ul>
-					<div class="card3-btn" v-show='index == current'>
+					<div class="card3-btn"  v-show='index == current'>
 						<el-button type="primary">
 							<span class="span">{{$t('Dashboard["Ver mais"]')}}</span><img :src="require('@/assets/img/arrow.png')" alt="" class="span-img">
 						</el-button>
@@ -176,7 +176,7 @@
 	export default {
 		data() {
 			return {
-				current:5
+				current:5,
 			}
 		},
 		components: {
@@ -184,8 +184,8 @@
 		},
 		methods: {
 			mouseenter(index) {
-				console.log(index)
 				this.current = index;
+
 			},
 			mouseleave(index) {
 				this.current = 5;
@@ -331,6 +331,7 @@
 				font-size: 18px;
 			}
 			.card3-con {
+				height:700px;
 				border: 2px solid #ccc;
 				border-top: none;
 				padding: 20px 15px 40px 15px;

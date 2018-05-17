@@ -1,25 +1,22 @@
 <template>
 <div class="card-item" v-loading.fullscreen="fullscreenLoading">
-	<div class="card-item-title"
-	
-		:style='{backgroundColor: getBgc($props.name) }'
-	>
+	<div class="card-item-title" :style="{backgroundColor: getBgc($props.name) }">
 		<img :src="require('@/assets/img/mg.png')" v-if='$props.name === "mg" '>
 		<img :src="require('@/assets/img/b2w.png')" v-if='$props.name === "b2w" '>
 		<img :src="require('@/assets/img/wrm.png')" v-if='$props.name === "wrm" '>
 		<div class="line"></div>
 		<div class="intr" :style='{color: getColor($props.name)}'>
 			<p >
-				{{$props.name === 'mg'? 'MegaHaribaba' : 'Pmcell'}}
+				{{$props.name ==='mg'? 'MegaHaribaba' : 'Pmcell'}}
 			</p>
 			<p>MLB12345678</p>
 		</div>
 	</div>
 	<div class='card-item-body'>
-		<p class="hair">Escova Alisadora Magic Hair</p>
+		<p class="hair">{{$t('product["Escova Alisadora Magic Hair"]')}}</p>
 		<div class="card-item-con">
 			<div class="vendas">
-				<p class="p1">Vendas</p>
+				<p class="p1">{{$t('product["Vendas"]')}}</p>
 				<p class="p2">1275</p>
 			</div>
 			<div class="line"></div>
@@ -34,21 +31,21 @@
 			<ul>
 				<li>
 					<span>1º</span>
-					<span>Pmcell</span>
+					<span>{{$t('product["Pmcell"]')}}</span>
 					<span>R$ 26,00</span>
 				</li>
 				<li>
 					<span>2º</span>
-					<span>Pmcell</span>
+					<span>{{$t('product["Pmcell"]')}}</span>
 					<span>R$ 26,00</span>
 				</li>
 				<li>
 					<span>3º</span>
-					<span>Pmcell</span>
+					<span>{{$t('product["Pmcell"]')}}</span>
 					<span>R$ 26,00</span>
 				</li>
 			</ul>
-			<p class='ranking_more'><span @click='open_dialog($props.name)' class='ranking_more' v-if='$props.name !== "wrm"'>Mais...</span></p>
+			<p class='ranking_more'><span @click='open_dialog($props.name)' class='ranking_more' v-if='$props.name !== "wrm"'>{{$t('product["Mais..."]')}}</span></p>
 		</div>
 		<div class="card-item-icon">
 			<div @click='pause'>

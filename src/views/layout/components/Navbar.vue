@@ -136,7 +136,7 @@
 		}
 		.times {
 			padding: 0 10px;
-			width:180px;
+			width:200px;
 			text-align:center;
 			h3 {
 				height:50px;
@@ -209,7 +209,6 @@
 			height:30px;
 			margin:0 15px;
 			text-align:center;
-			
 			.img{
 				width:100%;
 				height:100%;

@@ -4,11 +4,11 @@
 		  center
 		>
 		<div slot='title' class="del-title-large">Atenção</div>
-		<p class="del-title del-h3">Ao executar a ação de exclusão do produto, todos os anúncios </p>
-		<p class="del-title">ligados a ele serão desvínculados.</p>
+		<p class="del-title del-h3">{{$t('product["Ao executar a ação de exclusão do produto, todos os anúncios"]')}}</p>
+		<p class="del-title">{{$t('product["ligados a ele serão desvínculados."]')}}</p>
 		<p class="del-button">
-			<el-button size='small' round type="primary" @click='agree'>Sim</el-button>
-			<el-button size='small' round type="info" @click='cancel'>Não</el-button>
+			<el-button size='small' round type="primary" @click='agree'>{{$t('product["Sim"]')}}</el-button>
+			<el-button size='small' round type="info" @click='cancel'>{{$t('product["Não"]')}}</el-button>
 		</p>
 	</el-dialog>
 </template>

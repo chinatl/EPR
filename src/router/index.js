@@ -164,19 +164,19 @@ export const constantRouterMap = [
 		children: [
 			{
 				path: 'question',
-				name: '用户问题',
+				name: '售前问题',
 				component: () =>
 					import ('@/views/SAC/question'),
 				meta: {
-					title: '用户问题',
+					title: '售前问题',
 				}
       },{
 				path: 'massage',
-				name: '商家回复',
+				name: '售后问题',
 				component: () =>
 					import ('@/views/SAC/massage'),
 				meta: {
-					title: '商家回复',
+					title: '售后问题',
 				}
       }
     ]

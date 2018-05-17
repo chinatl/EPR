@@ -3,7 +3,7 @@
 		:visible.sync="$store.state.product.show_unbind"
 		  center
 		>
-		<div slot='title' class="bind-title">Anúncio Desvinculado com Sucesso</div>
+		<div slot='title' class="bind-title">{{$t('product["Anúncio Desvinculado com Sucesso"]')}}</div>
 		<p class="bind-img">
 			<img :src="require('@/assets/img/unbind.png')" style="height:70px">
 		</p>

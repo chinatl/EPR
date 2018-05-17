@@ -182,8 +182,7 @@
     .main_box{
         .title{
             font-size:18rem;
-            padding-bottom:10px;
-            border-bottom:1px solid #808080;
+            font-weight:bold;
         }
         .section_box{
             padding:20px;

@@ -35,6 +35,7 @@
 	</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
+			<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
 			<li>Imagem</li>
 			<li>SKU</li>
 			<li>Nome</li>
@@ -44,6 +45,7 @@
 		</ul>
 		<transition-group  tag='div'>
 			<ul class="content" v-for='(item,index) in list' v-bind:key="index">
+				<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'></el-checkbox></li>
 				<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
 				<li>{{item.address}}</li>
 				<li>{{item.Marca}}</li>
@@ -68,18 +70,38 @@
 				value: "",
 				value7: '',
 				total: 10,
-				list: []
+				list: [],
+				checkAll:false,	
 			}
 		},
 		methods: {
 			render_icon() {
 				return <i class = 'el-icon-question'
-				style = 'color:#0aa1ed' > < /i>
+				style = 'color:#0aa1ed' > </i>
 			},
-			pickerOptions2() {
-
+			pickerOptions2(){},
+			all(e){
+				this.list.forEach(res=>res.checked = e )
 			},
-			handleSelectionChange() {}
+			choose(e,i){
+				if(e){
+					var flag = false;
+					this.list.forEach(res=>{
+						if(!res.checked){
+							flag = true;
+						}
+					});
+					this.checkAll = !flag;
+				}else {
+					var flag = true;
+					this.list.forEach(res=>{
+						if(!res.checked){
+							flag =false;
+						}
+					});
+					this.checkAll = flag;
+				}
+			},
 		},
 		created() {
 				this.loading = false;
@@ -104,7 +126,10 @@
 					sss: 'R$ 440,00',
 				}]
 			}, 1000)
-		}
+		},
+	
+		
+		
 	}
 
 </script>
