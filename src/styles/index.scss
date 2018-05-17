@@ -13,7 +13,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+	font-family: "微软雅黑", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
 html {
@@ -69,6 +69,11 @@ li {
 	body {
 		font-size: 12px;
 	}
+	.app-main {
+		margin: 10px 10px;
+		padding: 0px;
+		border-radius: 8px;
+	}
 }
 
 @media screen and (min-width:960px) and (max-width:1368px) {
@@ -77,6 +82,11 @@ li {
 	}
 	body {
 		font-size: 12px;
+	}
+	.app-main {
+		margin: 16px 16px;
+		padding: 20px;
+		border-radius: 12px;
 	}
 }
 
@@ -87,6 +97,15 @@ li {
 	body {
 		font-size: 12px;
 	}
+	.app-main {
+		margin: 30px 30px;
+		padding: 30px 40px;
+		border-radius: 16px;
+	} //	.app-main {
+	//		margin: 16px 16px;
+	//		padding: 20px;
+	//		border-radius: 12px;
+	//	}
 }
 
 //main-container全局样式
@@ -147,15 +166,7 @@ li {
 
 	}
 }
-.main_box{
-	.th_box{
-		margin: 20px 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-family:'Microsoft yahei';			
-	}
-}
+
 
 /*所有的头部导航*/
 
@@ -165,8 +176,7 @@ li {
 	> span {
 		width: 24px;
 		color: #000;
-		font-weight: bold;
-//		background-color: #eee;
+		font-weight: bold; //		background-color: #eee;
 		font-size: 18rem;
 		height: 32px;
 		display: flex;
@@ -177,6 +187,108 @@ li {
 		&:hover {
 			background-color: #DC044D;
 			color: #fff;
+		}
+	}
+}
+
+.main_box {
+	.th_box {
+		margin: 20px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: '微软雅黑';
+	}
+}
+
+/*分页*/
+
+.erp-page {
+	text-align: right;
+	margin-top: 20px
+}
+
+/*动画列表*/
+
+.erp-list {
+	width: 100%;
+	ul {
+		width: 100%;
+		align-items: center;
+		display: flex;
+		text-align: center;
+		li {
+			height: 100%;
+			flex: 1;
+		}
+	}
+	> .title {
+		background-color: #e8e8e8;
+		height: 48px;
+		line-height: 48px;
+		transition: backgroundColor 1s;
+		li {
+			font-size: 16rem;
+			font-weight: bold;
+			color: #222;
+			white-space: nowrap;
+		}
+	}
+	> div > .content {
+		&:nth-of-type(odd) {
+			background-color: #fff;
+		}
+		&:nth-of-type(even) {
+			background-color: #f5f7fa;
+		}
+		&:last-of-type {}
+		&:hover {
+			background-color: #efefef;
+		}
+		height: 60px;
+		line-height: 60px;
+		li {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			white-space: nowrap;
+			font-size: 14rem;
+		}
+	}
+}
+
+/*搜索框和按钮连在一起*/
+
+.erp-search-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.el-button--mini {
+		padding: 7px;
+		border-radius: 0 4px 4px 0;
+	}
+	.el-input__inner {
+		border-radius: 4px 0 0 4px;
+	}
+	.el-icon-search {
+		font-size: 16px;
+	}
+}
+
+/*通用搜索栏*/
+
+.erp-bar {
+	display: flex;
+	align-items: center;
+	margin: 20px 0;
+	justify-content: space-between;
+	> div {
+		display: flex;
+		align-items: center;
+		> span {
+			font-size: 14rem;
+			font-weight: bold;
+			margin-right: 12px
 		}
 	}
 }
