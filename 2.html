@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		window.fbAsyncInit = function() {　　
+			FB.init({　　
+				appId: '602563373440088',
+				　　xfbml: true,
+				　　version: 'v2.6' //facebook登录版本
+				　　
+			});
+		};
+
+	</script>
+
+</head>
+
+<body>
+
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+	<script>
+		var fbToken;
+
+		function checkLoginState() {
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+		}
+
+		function statusChangeCallback(response) {
+			if (response.status === 'connected') { //登陆状态已连接
+				fbToken = response.authResponse.accessToken;
+				getUserInfo();
+			} else if (response.status === 'not_authorized') { //未经授权
+				console.log('facebook未经授权');
+			} else {
+				console.log('不是登陆到Facebook;不知道是否授权');
+			}
+		}
+		//获取用户信息
+		function getUserInfo() {
+			FB.api('/me', function(response) {
+				//response.id / response.name
+				console.log('Successful login for: ' + response.name);
+				//把用户token信息交给后台
+				self.location = '/home/login.fbLogin.do?accessToken=' + fbToken;
+			});
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
