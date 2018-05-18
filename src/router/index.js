@@ -191,7 +191,7 @@ export const constantRouterMap = [
 					import ('@/views/rastreamento/index'),
 				meta: {
 					title: '物流跟踪',
-					icon: 'form'
+					icon: 'rastreamento'
 				}
       }
 	]	

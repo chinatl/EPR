@@ -229,6 +229,7 @@ const cn = {
 	},
 	"expedic": {
 		'Error': 'Error',
+		'Imagem': 'Imagem',
 		'Tivemos uma falha de comunicaçao na impressão da etiqueta, Favor conferir no marketplace': 'Tivemos uma falha de comunicaçao na impressão da etiqueta, Favor conferir no marketplace',
 		'Informações do Pedido': 'Informações do Pedido',
 		'Cliente': 'Cliente',
