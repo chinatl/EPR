@@ -71,7 +71,7 @@
 				tooltip-effect="dark"
 				@row-click='row_click'
 				style="width: 100%"
-				>
+			>
 			 <el-table-column type="selection" align='center' width="55">
 			 </el-table-column>
 			 <el-table-column prop="name" :label='$t(`pedido["Loja"]`)' align='center'>
