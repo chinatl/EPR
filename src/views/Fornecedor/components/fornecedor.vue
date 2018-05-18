@@ -1,115 +1,77 @@
 <template>
-	<el-dialog
-		:visible.sync="$store.state.fornecedor.show_menu"
-        :title='$t(`fornecedor["Editar Fornecedor"]`)'
-	>
- <div class='perfil_box'>
-        
-        <div class='main_box'>
-            <span class='head_text'>{{$t('fornecedor["Identificação"]')}}</span>
-            <div class='box sty'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Nome de Contato"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["CNPJ/CPF"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Razão Social (Opcional)"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Nome Fantasic"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>  
-            </div>
-            
+	<el-dialog :visible.sync="$store.state.fornecedor.show_menu">
+		<div slot='title' class="erp-dialog_title">
+			{{$t(`fornecedor["Editar Fornecedor"]`)}}
+		</div>
+ 		<div class='erp-dialog-item'>
+       		<div class="erp-dialog-head">{{$t('fornecedor["Identificação"]')}}</div>
+       		<div>
+       			<p>{{$t('fornecedor["Nome de Contato"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div>
+       			<p>{{$t('fornecedor["CNPJ/CPF"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div>
+       			<p>{{$t('fornecedor["Razão Social (Opcional)"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div>
+       			<p>{{$t('fornecedor["Nome Fantasic"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
         </div>
-        <div class='main_box'>
-            <span class='head_text'>{{$t('fornecedor["Endereço"]')}}</span>
-            <div class='box sty'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Logradouro"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Número"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Complemento"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div> 
-                
-            </div>
-            <div class='box mar sty'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Bairro"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["Cidade"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor[""]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>  
-            </div>
+ 		<div class='erp-dialog-item'>
+       		<div class="erp-dialog-head">{{$t('fornecedor["Endereço"]')}}</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["Logradouro"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["Número"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div  class="width30">
+       			<p>{{$t('fornecedor["Complemento"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["Bairro"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div >
+       		<div  class="width30">
+       			<p>{{$t('fornecedor["Cidade"]')}}</p>
+       			<el-input type='text' size='small'></el-input>
+       		</div>
+			<div class="width30">
+				<p>{{$t('fornecedor["Estado"]')}}</p>
+				<el-input type='text' size='small'></el-input>
+			</div>
         </div>
-        <div class='main_box'>
-            <span class='head_text'>{{$t('fornecedor["Contato"]')}}</span>
-            <div class='box'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('fornecedor["E-Mail"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small' :disabled="true" value='cadodepaulasilva159@gmail.com'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box left'>
-                    <p class='msg_name'>{{$t('fornecedor["Celular"]')}}</p>
-                    <p class='msg'>
-                       <el-input type='text' size='small' :disabled="true" value='(xx) xxxxxxxxx'></el-input>
-                    </p>
-                </div>
-            </div>
-            
+ 		<div class='erp-dialog-item just-start'>
+       		<div class="erp-dialog-head">{{$t('fornecedor["Contato"]')}}</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["E-Mail"]')}}</p>
+       			<el-input type='text' size='small' :disabled="true" value='cadodepaulasilva159@gmail.com'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["Celular"]')}}</p>
+       			<el-input type='text' size='small' :disabled="true" value='(xx) xxxxxxxxx'></el-input>
+       		</div>
         </div>
-        <p class='btn_box'>
-            <el-button type='primary' round>{{$t('fornecedor["Salvar"]')}}</el-button>
+        <p class='erp-dialog-button'>
+            <el-button type='success' round @click='submit'>{{$t('fornecedor["Salvar"]')}}</el-button>
         </p>
-    </div>
+    
 </el-dialog>
 </template>
 
 <script>
-	
 	export default {
 		data() {
 			return {
-				value:"value",
+				value: "value",
 				fileList: [],
 				img_list: [],
 				img_src: '',
@@ -160,64 +122,18 @@
 					message: '恭喜你，操作成功',
 					type: 'success'
 				});
+				this.$store.commit("TOGGLE_FORNECEDOR_MENU");
 			},
 			changeImg(e, i) {
 				this.img_src = e.url;
 				this.img_list = i;
 			},
-			del(index){
-				this.img_list.splice(index,1);
-				if(this.img_list.length === 0){
+			del(index) {
+				this.img_list.splice(index, 1);
+				if (this.img_list.length === 0) {
 					this.img_src = ''
 				}
 			}
 		}
 	}
-
 </script>
-<style rel='stylesheet/scss' lang='scss'>
-    .perfil_box{
-        padding:20px;
-        border-bottom:1px solid #808080;
-        .main_box{
-            border:2px solid #e0e0e0;
-            border-radius:3px;
-            padding:40px;
-            color:#808080;
-            position:relative;
-            font-size:bold;
-            margin-top:20px;
-            font-size:15rem;
-            .head_text{
-                position:absolute;
-                padding:0 20px;
-                top:-10px;
-                left:100px;
-                background:#fff;
-            }
-            .box{
-                display:flex;
-                flex-wrap:wrap;
-                .msg_box{
-                    width:22%;
-                    .msg{
-                        margin-top:10px;
-                    }
-                }
-                .left{
-                    margin-left:20px;
-                }
-            }
-           .mar{
-                margin-top:20px;
-            }
-            .sty{
-                justify-content:space-between;
-            }   
-        }
-        .btn_box{
-                text-align:right;
-                margin-top:20px;
-            } 
-    }
-</style>

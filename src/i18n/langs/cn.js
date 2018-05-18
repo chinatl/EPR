@@ -1,5 +1,12 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const cn = {
+	"table": {
+		"Nome Fantasia": "用户昵称  ",
+		"CNPJ/CPF": "  社会安全号码/证监会  ",
+		"Contato": "  联系方式  ",
+		"Telefone": "  电话  ",
+		"Operação": "  操作"
+	},
 	"route": {
 		"主页": "主页",
 		"产品": "产品",
@@ -27,6 +34,7 @@ const cn = {
 		"打包": "打包",
 		"账号": "账号",
 	},
+
 	"login": {
 		"用户名": "用户名",
 		"账号密码": "账号密码",

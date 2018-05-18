@@ -3,7 +3,7 @@
 	  	<div class="erp-header">
             <h3>{{$t('fornecedor["Fornecedores"]')}}</h3>
             <div>
-                <el-button size='small' round type='danger'>{{$t('fornecedor["Novo Fornecedor"]')}}</el-button>
+                <el-button size='small' round type='danger' @click='$store.commit("TOGGLE_FORNECEDOR_MENU");'>{{$t('fornecedor["Novo Fornecedor"]')}}</el-button>
             </div>
         </div>
 		<div class='erp-bar'>
@@ -22,20 +22,18 @@
 		</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
-			<li>{{$t('fornecedor["Imagem"]')}}</li>
-			<li>SKU</li>
-			<li>{{$t('fornecedor["Nome"]')}}</li>
-			<li>{{$t('fornecedor["Vendas"]')}}</li>
-			<li>{{$t('fornecedor["Nota de Potencial"]')}}</li>
-			<li></li>
+			<li>{{$t('table["Nome Fantasia"]')}}</li>
+			<li>{{$t('table["CNPJ/CPF"]')}}</li>
+			<li>{{$t('table["Contato"]')}}</li>
+			<li>{{$t('table["Telefone"]')}}</li>
+			<li>{{$t('table["Operação"]')}}</li>
 		</ul>
 		<transition-group name="fade" tag='div'>
 			<ul class="content" v-for='(item,index) in list' v-bind:key="index">
-				<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
-				<li>{{item.address}}</li>
-				<li>{{item.Marca}}</li>
-				<li>{{item.Estoque}}</li>
-				<li>{{item.sss}}</li>
+				<li>{{item.name}}</li>
+				<li>{{item.name1}}</li>
+				<li>{{item.name2}}</li>
+				<li>{{item.name3}}</li>
 				<li>
 					<div class="table-icon">
 						<span><i class='el-icon-edit-outline' @click='$store.commit("TOGGLE_FORNECEDOR_MENU")'></i></span>
@@ -49,14 +47,14 @@
 		<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
 		</el-pagination>
 	</div>
-<my-fornecsdor></my-fornecsdor>
-<my-del></my-del>
+	<my-fornecsdor></my-fornecsdor>
+	<my-del></my-del>
 </div>
 
 </template>
 <script>
-	import myFornecsdor from './components/fornecedor'
-	import myDel from '@/views/Produtos/Components/delete'
+	import myFornecsdor from './components/fornecedor';
+	import myDel from '@/components/Del'
 	export default {
 		components: {
 			myFornecsdor,
@@ -65,29 +63,27 @@
 		data() {
 			return {
 				pageSize: '5',
+				loading: false,
 				value: '',
 				total: 10,
 				list: [{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
+						name: 'Nome Fantasia',
+						name1: '92.543.757/0001-40',
+						name2: 'Ricardo de Paula',
+						name3: '(xx) xxxx-xxxx',
 					},
 					{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
+						name: 'Nome Fantasia',
+						name1: '92.543.757/0001-40',
+						name2: 'Ricardo de Paula',
+						name3: '(xx) xxxx-xxxx',
 					},
 					{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
-					}
+						name: 'Nome Fantasia',
+						name1: '92.543.757/0001-40',
+						name2: 'Ricardo de Paula',
+						name3: '(xx) xxxx-xxxx',
+					},
 				]
 			}
 		},
@@ -95,4 +91,5 @@
 
 		}
 	}
+
 </script>
