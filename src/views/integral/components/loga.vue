@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`integral["Loja Virtual"]`)'
     :visible.sync="$store.state.integral.show_loga"
     >
+    <div slot='title' class="erp-dialog_title">
+        {{$t('integral["Loja Virtual"]')}}
+    </div>
     <div class='loga_box'>
         <div class='input_line'>
             <p>DNS</p>
@@ -35,7 +37,6 @@
 <style rel='stylesheet/scss' lang="scss">
     .loga_box{
         padding:20px;
-        border-top:1px solid #808080;
         padding-top:30px;
         .input_line{
             margin-top:20px;

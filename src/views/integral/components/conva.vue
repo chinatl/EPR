@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`integral["Configurações CNOVA"]`)'
     :visible.sync="$store.state.integral.show_conva"
     >
+    <div slot='title' class="erp-dialog_title">
+        {{$t('integral["Configurações CNOVA"]')}}
+    </div>
     <div class='conva_box'>
         <div class='input_box'>
             <div class='input'>
@@ -47,7 +49,6 @@
 <style rel='stylesheet/scss'lang="scss">
     .conva_box{
         padding:20px;
-        border-top:1px solid #808080;
         .input_box{
             display:flex;
             justify-content:space-between;

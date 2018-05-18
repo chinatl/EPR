@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`integral["Configurações"]`)+" B2W"'
     :visible.sync="$store.state.integral.show_bw"
     >
+    <div slot='title' class="erp-dialog_title">
+        {{$t('integral["Configurações"]')}}B2W
+    </div>
     <div class='bw_box'>
         <div class='input'>
             <p>{{$t('integral["Chave de API"]')}}</p>
@@ -77,7 +79,6 @@
 <style rel='stylesheet/scss'lang="scss">
     .bw_box{
         padding:20px;
-        border-top:1px solid #808080;
         .input_box{
             display:flex;
             justify-content:space-between;

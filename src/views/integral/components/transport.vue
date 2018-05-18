@@ -1,64 +1,44 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.integral.show_tran"
-        :title='$t(`integral["Configurações Transportadora"]`) +"|"+$t(`integral["Correios"]`)'
 	>
- <div class='tran_box'> 
-        <div class='main_box'>
-            <span class='head_text'>{{$t('integral["Dados de Autenticação"]')}}</span>
-            <div class='box sty'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('integral["Contratoo"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('integral["Cartão de Postagem"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
+        <div slot='title' class="erp-dialog_title">
+            {{$t('integral["Configurações Transportadora"]')}} | {{$t('integral["Correios"]')}}
+        </div>
+        <div class='erp-dialog-item'>
+            <div class='erp-dialog-head'>{{$t('integral["Dados de Autenticação"]')}}</div>
+            <div class='width40'>
+                <p>{{$t('integral["Contratoo"]')}}</p>
+                <el-input type='text' size='small'></el-input>
             </div>
-            <div class='box sty' style='margin-top:20px;'>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('integral["Usuário"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box'>
-                    <p class='msg_name'>{{$t('integral["Senha"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
+            <div class='width40'>
+                <p>{{$t('integral["Cartão de Postagem"]')}}</p>
+                <el-input type='text' size='small'></el-input>
+            </div>
+            <div class='width40'>
+                <p>{{$t('integral["Usuário"]')}}</p>
+                <el-input type='text' size='small'></el-input>
+            </div>
+            <div class='width40'>
+                <p>{{$t('integral["Senha"]')}}</p>
+                <el-input type='text' size='small'></el-input>
             </div>
         </div>
-        <div class='main_box'>
-            <span class='head_text'>{{$t('integral["Serviços de Entrega"]')}}</span>
-            <div class='box sty'>
-                <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>{{$t('integral["Serviços"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>{{$t('integral["Códigos"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>
-                <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>{{$t('integral["Tipo de Serviço"]')}}</p>
-                    <p class='msg'>
-                        <el-input type='text' size='small'></el-input>
-                    </p>
-                </div>    
-            </div>  
+        <div class='erp-dialog-item'>
+            <div class='erp-dialog-head'>{{$t('integral["Serviços de Entrega"]')}}</div>
+            <div class='width30'>
+                <p>{{$t('integral["Serviços"]')}}</p>
+                <el-input type='text' size='small'></el-input>
+            </div>
+            <div class='width30'>
+                <p>{{$t('integral["Códigos"]')}}</p>
+                <el-input type='text' size='small'></el-input>
+            </div>
+            <div class='width30'>
+                <p>{{$t('integral["Tipo de Serviço"]')}}</p>
+                <el-input type='text' size='small'></el-input>
+            </div>    
         </div>
-    </div>
 </el-dialog>
 </template>
 
@@ -133,45 +113,3 @@
 	}
 
 </script>
-<style rel='stylesheet/scss' lang='scss'>
-    .tran_box{
-        padding:20px;
-        border-top:1px solid #808080;
-        .main_box{
-            border:2px solid #e0e0e0;
-            border-radius:3px;
-            padding:40px;
-            color:#808080;
-            position:relative;
-            font-size:bold;
-            margin-top:20px;
-            font-size:15rem;
-            .head_text{
-                position:absolute;
-                padding:0 20px;
-                top:-10px;
-                left:100px;
-                background:#fff;
-            }
-            .box{
-                display:flex;
-                flex-wrap:wrap;
-                .msg_box{
-                    width:40%;
-                    .msg{
-                        margin-top:10px;
-                    }
-                }
-                .left{
-                    margin-left:20px;
-                }
-            }
-           .mar{
-                margin-top:20px;
-            }
-            .sty{
-                justify-content:space-between;
-            }   
-        }
-    }
-</style>

@@ -1,21 +1,23 @@
 <template>
     <el-dialog
-    :title='$t(`integral["Configurações Walmart"]`)'
     :visible.sync="$store.state.integral.show_walmart"
     >
+    <div  slot='title' class="erp-dialog_title">
+        {{$t('integral["Configurações Walmart"]')}}
+    </div>
     <div class='walmart_box'>
         <div class='input_box'>
-            <div class='input'>
+            <div class='width30'>
                 <p>{{$t('integral["Login"]')}}</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
+                <el-input type='text' size='small'></el-input>
             </div>
-            <div class='input'>
+            <div class='width30'>
                 <p>{{$t('integral["Senha"]')}}</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
+                <el-input type='text' size='small'></el-input>
             </div>
-            <div class='input'>
+            <div class='width30'>
                 <p>{{$t('integral["Prazo de Entrega"]')}}</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
+                <el-input type='text' size='small'></el-input>
             </div>
         </div>
         <p class='choose'>
@@ -51,14 +53,10 @@
 <style rel='stylesheet/scss'lang="scss">
     .walmart_box{
         padding:20px;
-        border-top:1px solid #808080;
         .input_box{
             display:flex;
             justify-content:space-between;
             margin-bottom:50px;
-            .input{
-                width:25%;
-            }
         }
         .choose{
             margin-top:20px;
