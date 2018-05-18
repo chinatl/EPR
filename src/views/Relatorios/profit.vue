@@ -70,7 +70,7 @@
 				value: "",
 				value7: '',
 				total: 10,
-				list: [],
+				list:[],
 				checkAll:false
 			}
 		},

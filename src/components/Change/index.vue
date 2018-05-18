@@ -4,7 +4,7 @@
       :visible.sync="$store.state.title"
     >
     <div class="ms-content">
-      <div class="item" v-for='(item,index) in data' @mouseenter='mouseenter(index)' @mouseleave='mouseleave(index)'>
+      <div class="item" v-for='(item,index) in data'@mouseenter='mouseenter(index)' @mouseleave='mouseleave(index)'>
            <h3>{{item.title}}</h3>
            <div class="content">
                <h4>优势</h4>
@@ -24,8 +24,10 @@
                    <span>39</span>
                    <span class="small">00</span>
                </div>
-               <div class="btn" v-show='index == current'>
-                   <el-button type='info'>CONTRATAR</el-button>
+               <div class="btn" >
+				 <transition name='fade'>
+					<el-button type='info' v-show='index == current'>CONTRATAR</el-button>
+				 </transition>
                </div>
            </div>
        </div>
@@ -87,6 +89,7 @@
 		methods: {
 			mouseenter(index) {
 				this.current = index;
+				
 			},
 			mouseleave(index) {
 				this.current = 5;
@@ -96,14 +99,12 @@
 			}
 		}
 	}
-
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
 	.tips {
 		padding-left:20px
 	}
-
 	.ms-content {
 		border-top: 2px solid #ccc;
 		padding: 20px 10px;
@@ -124,6 +125,7 @@
 						color: #fff;
 						background-color: #1AA758;
 						border-color: #1AA758;
+						transition:opacity 0.5s linear;
 					}
 				}
 			}
@@ -157,11 +159,11 @@
 					}
 				}
 				.btn {
-					margin-top: 10px
+					height:40px;
+					margin-top: 10px;	
 				}
 			}
-			
-		}
+		}	
 	}
 
 </style>
