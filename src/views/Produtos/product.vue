@@ -37,9 +37,9 @@
 			 <el-table-column type="expand">
 			  <template slot-scope="props">
 				<el-carousel :interval="4000" :autoplay='false' @change='change($event)' trigger='click' height='404px'>
-					<el-carousel-item v-for="(item_list,i) in [1,2,3]">
+					<el-carousel-item v-for="(item_list,i) in [1,2,3]"  :key='Math.random()'>
 						<div class="carousel-item">
-							<div  v-for='(item,index) in [1,2,3,4,5]' class="my-item">
+							<div  v-for='(item,index) in [1,2,3,4,5]' class="my-item" :key='Math.random()'>
 								<my-item :name='["b2w","mg","wrm","b2w","wrm"][index]'></my-item>
 							</div>
 						</div>

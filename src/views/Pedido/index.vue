@@ -84,7 +84,7 @@
 			 </el-table-column>
 			</el-table>
         </div>
-        <div class="product-pagination" style="text-align:right;margin-top:20px">
+        <div class="erp-page">
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
             </el-pagination>
         </div>
@@ -145,63 +145,4 @@
 		}
 	}
 
-<<<<<<< HEAD
 </script>
-<style rel='stylesheet/scss' lang='scss'>
-	.main_box{
-		.h_input {
-			height: 33px;
-			position: relative;
-			padding: 0;
-			.input {
-				width: 250px;
-				position: absolute;
-				right: 0px;
-				text-align: right;
-				display: inline-block;
-
-			}
-		}
-		.th_box {
-			.select-input {
-				display: flex;
-			}
-			.el-icon-search {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				font-size: 20rem;
-				color: #fff;
-				background: #0aa1ed;
-				text-align: center;
-				line-height: 32px;
-				position: relative;
-				left: -6px;
-				margin: 0;
-				margin-right: 4%;
-			}
-			.select {
-				font-size: 5rem;
-			}
-			.Selecionar {
-				width: 12%;
-			}
-			.col {
-				display: flex;
-				.tle {
-					line-height: 32px;
-					margin-right: 5px;
-					font-size: 13rem;
-					font-weight: bold;
-					color:#808080;
-				}
-			}
-
-		}
-	
-	}
-
-</style>
-=======
-</script>
->>>>>>> 9b8d75484cf20698a2a1a0c401605988b8c92ea9
