@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="text" id="input">
+	<button id="btn">点击生成js</button>
+	<script>
+		var input = document.getElementById('input');
+		var btn = document.getElementById('btn');
+		var newObj = {};
+		var all_arr = [];
+		const cn = {
+			"rastreamento": {
+				'rastreamento["Rastreamento do Pedido': 'Rastreamento do Pedido',
+				'Informações do Pedido': 'Informações do Pedido',
+				'Reportar Erro': 'Reportar Erro',
+				'Postagem': 'Postagem',
+				'Em Trânsito': 'Em Trânsito',
+				'Entregue': 'Entregue',
+				'Objeto aguardando retirada no endereço indicado': 'Objeto aguardando retirada no endereço indicado',
+				'02/12/2017 17:45 PORTO ALEGRE / RS': '02/12/2017 17:45 PORTO ALEGRE / RS',
+				'Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto': 'Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto',
+				'Cliente': 'Cliente',
+				'CEP': 'CEP',
+				'Telefone': 'Telefone',
+				'Celular': 'Celular',
+				'E-Mail': 'E-Mail',
+				'contato@pmcell.com.br': 'contato@pmcell.com.br',
+				'CNPJ': 'CNPJ',
+				'Endereço': 'Endereço',
+				'Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento': 'Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento',
+				'Nome': 'Nome',
+				'Variação': 'Variação',
+				'Atributo': 'Atributo',
+				'Quantidade': 'Quantidade',
+				'Valor': 'Valor',
+				'Total Quantidade': 'Total Quantidade',
+				'Total Valor': 'Total Valor',
+				'Pedido': 'Pedido',
+				'Observação': 'Observação',
+				'Enviar': 'Enviar',
+				'Rastreamento': 'Rastreamento',
+				'Paginação': 'Paginação',
+				'Etiqueta Gerada': 'Etiqueta Gerada',
+				'Postados': 'Postados',
+				'Em Trânsito': 'Em Trânsito',
+				'Retirada': 'Retirada',
+				'Entregue': 'Entregue',
+				'Erro': 'Erro',
+				'Id do Pedido': 'Id do Pedido',
+				'Data Pedido': 'Data Pedido',
+				'Codigo de Rastreio': 'Codigo de Rastreio',
+				'Estados': 'Estados',
+				'Operação': 'Operação',
+
+
+			},
+			"fornecedor": {
+				'Editar Fornecedor': 'Editar Fornecedor',
+				'Identificação': 'Identificação',
+				'Nome de Contato': 'Nome de Contato',
+				'CNPJ/CPF': 'CNPJ/CPF',
+				'Razão Social (Opcional)': 'Razão Social (Opcional)',
+				'Nome Fantasic': 'Nome Fantasic',
+				'Endereço': 'Endereço',
+				'Logradouro': 'Logradouro',
+				'Número': 'Número',
+				'Complemento': 'Complemento',
+				'Bairro': 'Bairro',
+				'Cidade': 'Cidade',
+				'Estado': 'Estado',
+				'Contato': 'Contato',
+				'E-Mail': 'E-Mail',
+				'Celular': 'Celular',
+				'Salvar': 'Salvar',
+				'Fornecedores': 'Fornecedores',
+				'Novo Fornecedor': 'Novo Fornecedor',
+				'Paginação': 'Paginação',
+				'Imagem': 'Imagem',
+				'Nome': 'Nome',
+				'Vendas': 'Vendas',
+				'Nota de Potencial': 'Nota de Potencial',
+
+
+			},
+			"relatorios": {
+				"历史报表": "Relatório de Lucratividade e Faturamento",
+				"利润报表": "Relatório de Lucratividade e Faturamento",
+				"发货报表": "Relatório de Expedição",
+				"退货报表": "Relatório de devolução",
+				"分析报表": "Potencial de Produtos",
+				'Paginação': 'Paginação',
+				'Ordernar por': 'Ordernar por',
+				'Período': 'Período',
+				'Exportar CSV': 'Exportar CSV',
+				'Imagem': 'Imagem',
+				'Nome': 'Nome',
+				'Vendas': 'Vendas',
+				'Nota de Potencial': 'Nota de Potencial',
+			},
+			"Dashboard": {
+				'Dashboard': 'Dashboard',
+				'Novidades': 'Novidades',
+				'Novos Pedidos': 'Novos Pedidos',
+				'Detalhes': 'Detalhes',
+				'Estatísticas': 'Estatísticas',
+				'PRODUTOS': 'PRODUTOS',
+				'CADASTRADOS': 'CADASTRADOS',
+				'anúncios': 'anúncios',
+				'publicados': 'publicados',
+				'pedidos': 'pedidos',
+				'em trânsito': 'em trânsito',
+				'Ranking': 'Ranking',
+				'Faturamento': 'Faturamento',
+				'Mini Caixinha de Som': 'Mini Caixinha de Som',
+				'Ver mais': 'Ver mais',
+			},
+			"integral": {
+				'Marketplaces': 'Marketplaces',
+				'MegaHaribaba': 'MegaHaribaba',
+				'Ativo': 'Ativo',
+				'Walmart': 'Walmart',
+				'Desativo': 'Desativo',
+				'CNOVA': 'CNOVA',
+				'Tiny': 'Tiny',
+				'Desativo': 'Desativo',
+				'Correios': 'Correios',
+				'Jadlog': 'Jadlog',
+				'Braspress': 'Braspress',
+				'Configurações Transportadora': 'Configurações Transportadora',
+				'Braspress': 'Braspress',
+				'Configurações': 'Configurações',
+				'Configurações CNOVA': 'Configurações CNOVA',
+				'Dados de Autenticação': 'Dados de Autenticação',
+				'Contratoo': 'Contratoo',
+				'Cartão de Postagem': 'Cartão de Postagem',
+				'Usuário': 'Usuário',
+				'Senha': 'Senha',
+				'Serviços de Entrega': 'Serviços de Entrega',
+				'Serviços': 'Serviços',
+				'Códigos': 'Códigos',
+				'Tipo de Serviço': 'Tipo de Serviço',
+				'Token de Acesso': 'Token de Acesso',
+				'Prazo de Entrega': 'Prazo de Entrega',
+				'Envio do Produto': 'Envio do Produto',
+				'Oferecer envios pelo Mercado Envios': 'Oferecer envios pelo Mercado Envios',
+				'Oferecer envios pelo Correios': 'Oferecer envios pelo Correios',
+				'Retirada em mãos': 'Retirada em mãos',
+				'Chave de API': 'Chave de API',
+				'E-Mail': 'E-Mail',
+				'Accountmanager Key': 'Accountmanager Key',
+				'Login SkyHub': 'Login SkyHub',
+				'E-Mail': 'E-Mail',
+				'Login Portal B2W': 'Login Portal B2W',
+				'Prazo de Expedição': 'Prazo de Expedição',
+				'Loja Virtual': 'Loja Virtual',
+				'Dominio': 'Dominio',
+				'Salvar': 'Salvar',
+				'Configurações Tiny': 'Configurações Tiny',
+				'Token de Acesso': 'Token de Acesso',
+				'Configurações Transportadora': 'Configurações Transportadora',
+				'Correios': 'Correios',
+				'Dados de Autenticação': 'Dados de Autenticação',
+				'Contratoo': 'Contratoo',
+				'Configurações Walmart': 'Configurações Walmart',
+				'Login': 'Login',
+
+			},
+		}
+		var map = {};
+		for (var k in cn) {
+			map[k] = [];
+			newObj[k] = {};
+			for (var j in cn[k]) {
+				all_arr.push(cn[k][j]);
+				map[k].push(j);
+				newObj[k][j] = '';
+			}
+		}
+		var reg = '\n@\n'
+		console.log(all_arr.join(reg));
+		console.log(all_arr.length)
+		all_arr = all_arr.join(reg);
+		btn.onclick = function(res) {
+			var val = input.value;
+			var newarr = val.split('@');
+			console.log(newarr.length)
+			for (var j in map) {
+				var i = map[j].length;
+				var arrs = newarr.splice(0, i);
+				arrs.forEach((res, index) => {
+					newObj[j][map[j][index]] = res;
+				})
+			}
+			console.log(JSON.stringify(newObj))
+		}
+
+
+		var js = {}
+
+	</script>
+</body>
+
+</html>
