@@ -3,67 +3,63 @@
        	<div class="erp-header">
        		<h3>{{$t('pedido["Pedidos"]')}} <span class="else-con ">*{{$t('pedido["Mantemos as mensagens arquivados por 3 meses"]')}}.</span></h3>
        		<div>
-		  		<el-button style='background:#128AC6; color:#fff; float:right;' size='small' round>{{$t('pedido["Exportar Tiny"]')}}</el-button>
-            	<el-button style='background:#DC044D; color:#fff; float:right;margin-right:10px' size='small' round>{{$t('pedido["Novo Pedido"]')}}</el-button>
+		  		<el-button type='success' size='small' round>{{$t('pedido["Exportar Tiny"]')}}</el-button>
+            	<el-button type='danger' size='small' round>{{$t('pedido["Novo Pedido"]')}}</el-button>
        		</div>
        	</div>
-		<div class="erp_select"></div>
-        <div class='th_box'>
-            <div class='select-input col'>
-                <el-input  size='small' placeholder='Pedido / Rastreio / Cliente' v-model='value'></el-input>
-                <span class='el-icon-search'></span> 
-            </div>
-           <div class="col">
-                <span class='tle'>{{$t('pedido["Paginação"]')}} </span>
-                <el-select  size='small' v-model='value' placeholder=' ' style='width:80px'>
-                    <el-option value='1'>5</el-option>
-                    <el-option value='2'>10</el-option>
-                    <el-option value='3'>15</el-option>
+		
+		<div class='erp-bar'>
+			<div class='erp-search-button'>
+				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value' style='width:120px'></el-input>
+				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
+			</div>
+			<div>
+				 <span>{{$t('pedido["Paginação"]')}}</span>
+                <el-select  size='small' v-model='pageSize' style='width:80px'>
+                    <el-option value='5' label='5'></el-option>
+                    <el-option value='10' label='10'></el-option>
+                    <el-option value='15' label='15'></el-option>
                 </el-select>
-           </div>
-           <div class="col">
-                <span class='tle'>Status</span>
-                <el-select class='select Selecionar' size='small' v-model='value' placeholder='Todos' style='width:120px;'>
-                    <el-option value='1'>{{$t('pedido["Todos"]')}}</el-option>
-                    <el-option value='2'>{{$t('pedido["Incluído"]')}} (20)</el-option>
-                    <el-option value='3'>{{$t('pedido["Aprovado"]')}} (30)</el-option>
-                    <el-option value='4'>{{$t('pedido["Expedido"]')}} (18)</el-option>
-                    <el-option value='5'>{{$t('pedido["Postado"]')}} (18)</el-option>
-                    <el-option value='6'>{{$t('pedido["Concluido"]')}} (12)</el-option>
-                     <el-option value='7'>{{$t('pedido["Cancelados"]')}} (2)</el-option>
-                     <el-option value='8'>{{$t('pedido["Não vinculados"]')}} (5)</el-option>
-                     <el-option value='9'>{{$t('pedido["Reclamações"]')}} (5)</el-option>
-                     <el-option value='10'>{{$t('pedido["Erro"]')}} (0)</el-option>
+			</div>
+			<div>
+				<span>{{$t(`relatorios["Ordernar por"]`)}}</span>
+				<el-select class='select Selecionar' size='small' v-model='value' placeholder='Selecionar'  style='width:80px'>
+					<el-option value='5' label='5'></el-option>
+					<el-option value='10' label='10'></el-option>
+					<el-option value='15' label='15'></el-option>
+				</el-select>
+			</div>
+			<div>
+				<span >Status</span>
+                <el-select size='small' v-model='value' placeholder='Todos'  style='width:170px' >
+					<el-option value='1' :label='$t(`pedido["Todos"]`)'></el-option>
+					<el-option value='2' :label='$t(`pedido["Incluído"]`) + " (20)"'></el-option>
+					<el-option value='3' :label='$t(`pedido["Aprovado"]`) + " (30)"'></el-option>
+					<el-option value='4' :label='$t(`pedido["Expedido"]`) + " (18)"'></el-option>
+					<el-option value='5' :label='$t(`pedido["Postado"]`) + " (18)"'></el-option>
+					<el-option value='6' :label='$t(`pedido["Concluido"]`) + " (12)"'></el-option>
+					<el-option value='7' :label='$t(`pedido["Cancelados"]`) + " (2)"'></el-option>
+					<el-option value='8' :label='$t(`pedido["Não vinculados"]`) + " (5)"'></el-option>
+					<el-option value='9' :label='$t(`pedido["Reclamações"]`) + " (5)"'></el-option>
+					<el-option value='10'  :label='$t(`pedido["Erro"]`) + " (0)"'></el-option>
                 </el-select>
-           </div>
-           <div class="col">
-                <span class='tle'>Loja</span>
-                <el-select class='select Selecionar' size='small' v-model='value' placeholder='Todos' style='width:120px;'>
-                    <el-option value='1'>{{$t('pedido["Todos"]')}}</el-option>
-                    <el-option value='2'>{{$t('pedido["MegaHaribaba"]')}} | Mercado Livre</el-option>
-                    <el-option value='3'>B2W</el-option>
-                    <el-option value='3'>{{$t('pedido["Walmart"]')}}</el-option>
-                    <el-option value='3'>{{$t('pedido["Netshoes"]')}}</el-option>
-                </el-select>
-           </div>
-           <div style='width:300px'  class="col">
-            <span class='tle'>{{$t('pedido["Data"]')}}</span>
-            <el-date-picker
-            class="date"
-            size='small'
-                v-model="value7"
-                type="daterange"
-                align="right"
-                unlink-panels
-                range-separator=" "
-                start-placeholder="1/12/2017"
-                end-placeholder="30/12/2017"
-                :picker-options="pickerOptions2">
-                </el-date-picker>
-           </div>
-           <div>
-           </div>
-        </div>
+			</div>
+			<div>
+				<span>Loja</span>
+				<el-select size='small' v-model='value' placeholder='Todos'>
+				<el-option value='1' :label='$t(`pedido["Todos"]`)'></el-option>
+				<el-option value='2' :label='$t(`pedido["MegaHaribaba"]`) + "| "+" Mercado Livre" '></el-option>
+				<el-option value='3' label='B2W'></el-option>
+				<el-option value='3' :label='$t(`pedido["Walmart"]`)'></el-option>
+				<el-option value='3' :label='$t(`pedido["Netshoes"]`)'></el-option>
+				</el-select>
+			</div>
+			<div >
+				<span>{{$t(`relatorios["Período"]`)}} </span>
+				<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
+				</el-date-picker>
+			</div>
+		</div>
         <div class="table-bgc">
 			<el-table
 				:data="tableData"
@@ -71,7 +67,7 @@
 				tooltip-effect="dark"
 				@row-click='row_click'
 				style="width: 100%"
-				>
+			>
 			 <el-table-column type="selection" align='center' width="55">
 			 </el-table-column>
 			 <el-table-column prop="name" :label='$t(`pedido["Loja"]`)' align='center'>
@@ -113,6 +109,7 @@
 				value: '',
 				value7: '',
 				total: 10,
+				pageSize:'5',
 				show: false,
 				tableData: [{
 						name: '1000103-00',
@@ -148,6 +145,7 @@
 		}
 	}
 
+<<<<<<< HEAD
 </script>
 <style rel='stylesheet/scss' lang='scss'>
 	.main_box{
@@ -204,3 +202,6 @@
 	}
 
 </style>
+=======
+</script>
+>>>>>>> 9b8d75484cf20698a2a1a0c401605988b8c92ea9

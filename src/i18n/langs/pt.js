@@ -241,7 +241,6 @@ const cn = {
 		'Imprimir Etiquetas':'Imprimir Etiquetas',
 		'Data':'Data',
 		'Período':'Período',
-		'Loja':'Loja',
 		'Cód. do Pedido':'Cód. do Pedido',
 		'Cliente (Apelido)':'Cliente (Apelido)',
 		'Rastreio':'Rastreio',
@@ -346,8 +345,7 @@ const cn = {
 		'Codigo de Rastreio':'Codigo de Rastreio',
 		'Estados':'Estados',
 		'Operação':'Operação',
-		
-
+		'Loja':'Loja',
 	},
 	"fornecedor":{
 		'Editar Fornecedor':'Editar Fornecedor',

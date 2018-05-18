@@ -234,7 +234,7 @@ const cn = {
 		"Relatório de Saída": " 输出报告 ",
 		"Imprimir Etiquetas": " 打印标签 ",
 		"Data": " 日期 ",
-		"Período": " 期 ",
+		"Período": "日期 ",
 		"Loja": " 商店 ",
 		"Cód. do Pedido": " 代码的请求。 ",
 		"Cliente (Apelido)": " 客户（姓氏） ",
@@ -286,6 +286,7 @@ const cn = {
 		"Link para anúncios": " 链接的广告"
 	},
 	"rastreamento": {
+		"Loja": " 商店 ",
 		"rastreamento[\"Rastreamento do Pedido": "跟踪的应用 ",
 		"Informações do Pedido": " 的应用程序的信息 ",
 		"Reportar Erro": " 报告错误 ",
