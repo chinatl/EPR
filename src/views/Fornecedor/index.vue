@@ -1,9 +1,9 @@
 <template>
     <div class='main_box'>
 	  	<div class="erp-header">
-            <h3>Fornecedores</h3>
+            <h3>{{$t('fornecedor["Fornecedores"]')}}</h3>
             <div>
-                <el-button size='small' round type='danger'>Novo Fornecedor</el-button>
+                <el-button size='small' round type='danger'>{{$t('fornecedor["Novo Fornecedor"]')}}</el-button>
             </div>
         </div>
 		<div class='erp-bar'>
@@ -12,7 +12,7 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<span>Paginação</span>
+				<span>{{$t('fornecedor["Paginação"]')}}</span>
 				<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:100px;'>
 					<el-option value='5' label='5'></el-option>
 					<el-option value='10' label='10'></el-option>
@@ -22,11 +22,11 @@
 		</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
-			<li>Imagem</li>
+			<li>{{$t('fornecedor["Imagem"]')}}</li>
 			<li>SKU</li>
-			<li>Nome</li>
-			<li>Vendas</li>
-			<li>Nota de Potencial</li>
+			<li>{{$t('fornecedor["Nome"]')}}</li>
+			<li>{{$t('fornecedor["Vendas"]')}}</li>
+			<li>{{$t('fornecedor["Nota de Potencial"]')}}</li>
 			<li></li>
 		</ul>
 		<transition-group name="fade" tag='div'>

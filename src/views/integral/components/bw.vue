@@ -1,63 +1,63 @@
 <template>
     <el-dialog
-    title="Configurações B2W"
+    :title='$t(`integral["Configurações"]`)+" B2W"'
     :visible.sync="$store.state.integral.show_bw"
     >
     <div class='bw_box'>
         <div class='input'>
-            <p>Chave de API</p>
+            <p>{{$t('integral["Chave de API"]')}}</p>
             <el-input type='text' size='small' style='margin-top:20px'></el-input>
         </div>
         <div class='input_box top'>
             <div class='input'>
-                <p>E-Mail</p>
+                <p>{{$t('integral["E-Mail"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
             <div class='input'>
-                <p>Accountmanager Key</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
-            </div>
-        </div>
-        <p class='font'>Login SkyHub</p>
-        <div class='input_box top'>
-            <div class='input'>
-                <p>E-Mail</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
-            </div>
-            <div class='input'>
-                <p>Accountmanager Key</p>
+                <p>{{$t('integral["Accountmanager Key"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
         </div>
-        <p class='font'>Login Portal B2W</p>
+        <p class='font'>{{$t('integral["Login SkyHub"]')}}</p>
         <div class='input_box top'>
             <div class='input'>
-                <p>Usuário</p>
+                <p>{{$t('integral["E-Mail"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
             <div class='input'>
-                <p>Senha</p>
+                <p>{{$t('integral["Accountmanager Key"]')}}</p>
+                <el-input type='text' size='small' style='margin-top:20px'></el-input>
+            </div>
+        </div>
+        <p class='font'>{{$t('integral["Login Portal B2W"]')}}</p>
+        <div class='input_box top'>
+            <div class='input'>
+                <p>{{$t('integral["Usuário"]')}}</p>
+                <el-input type='text' size='small' style='margin-top:20px'></el-input>
+            </div>
+            <div class='input'>
+                <p>{{$t('integral["Senha"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
         </div>
         <p class='choose'>
             <el-checkbox v-model="checked"></el-checkbox>
-            <span class='span'>Envio do Produto</span>
+            <span class='span'>{{$t('integral["Envio do Produto"]')}}</span>
             <el-select size='small'>
-                <el-option>Oferecer envios pelo Mercado Envios</el-option>
-                <el-option>Oferecer envios pelo Correios</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
             </el-select>
         </p>
         <p class='choose'>
             <el-checkbox></el-checkbox>
-            <span  class='span'>Retirada em mãos</span>
+            <span  class='span'>{{$t('integral["Retirada em mãos"]')}}</span>
             <el-select size='small'>
-                <el-option>Oferecer envios pelo Mercado Envios</el-option>
-                <el-option>Oferecer envios pelo Correios</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
             </el-select>
         </p>
         <div class='input top'>
-            <p>Prazo de Expedição</p>
+            <p>{{$t('integral["Prazo de Expedição"]')}}</p>
             <el-input type='text' size='small' style='width:50%;margin-top:20px'></el-input>
         </div>
     </div>

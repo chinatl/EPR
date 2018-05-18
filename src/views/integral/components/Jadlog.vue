@@ -1,21 +1,21 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.integral.show_jadlog"
-        title='Configurações Transportadora | Jadlog'
+        :title='$t(`integral["Configurações Transportadora"]`) +"|" +$t(`integral["Jadlog"]`)'
 		
 	>
  <div class='jad_box'> 
         <div class='main_box'>
-            <span class='head_text'>Dados de Autenticação</span>
+            <span class='head_text'>{{$t('integral["Dados de Autenticação"]')}}</span>
             <div class='box sty'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Contratoo</p>
+                    <p class='msg_name'>{{$t('integral["Contratoo"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Cartão de Postagem</p>
+                    <p class='msg_name'>{{$t('integral["Cartão de Postagem"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
@@ -23,13 +23,13 @@
             </div>
             <div class='box sty' style='margin-top:20px;'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Usuário</p>
+                    <p class='msg_name'>{{$t('integral["Usuário"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Senha</p>
+                    <p class='msg_name'>{{$t('integral["Senha"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
@@ -38,22 +38,22 @@
             
         </div>
         <div class='main_box'>
-            <span class='head_text'>Serviços de Entrega</span>
+            <span class='head_text'>{{$t('integral["Serviços de Entrega"]')}}</span>
             <div class='box sty'>
                 <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>Serviços</p>
+                    <p class='msg_name'>{{$t('integral["Serviços"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>Códigos</p>
+                    <p class='msg_name'>{{$t('integral["Códigos"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box' style='width:30%;'>
-                    <p class='msg_name'>Tipo de Serviço</p>
+                    <p class='msg_name'>{{$t('integral["Tipo de Serviço"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>

@@ -1,7 +1,7 @@
 <template>
     <div class='q_box'>
         <div class='erp-header'>
-            <h3>Perguntas</h3>
+            <h3>{{$t('sac["Perguntas"]')}}</h3>
         </div>
         
        <div class='msg'>
@@ -10,7 +10,7 @@
                 <span class='el-icon-search'></span>
             </div>
             <div style='margin-right:40px;line-height:50px;'>
-                <span style='margin-right:10px'>Unificar</span>
+                <span style='margin-right:10px'>{{$t('sac["Unificar"]')}}</span>
                 <el-switch
                 v-model="value"
                >
@@ -21,21 +21,21 @@
                 <div class='title_block'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
                 <div class='title_block'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
                 <div class='title_block border'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
@@ -44,20 +44,19 @@
        </div>
        <div class='list_msg'>
             <div><img :src="require('@/assets/img/naozhong.png')" alt=""></div>
-            <div>Escova Alisadora</div>
+            <div>{{$t('sac["Escova Alisadora"]')}}</div>
             <div>250 | Peças</div>
-            <div>Lorem ipsum dolor sit amet , consectetur adipiscing elit. te. Sed in eros </div>
+            <div>{{$t('sac["Lorem ipsum dolor sit amet , consectetur adipiscing elit. te. Sed in eros"]')}} </div>
        </div>
        <div class='tb_title'>
-            <div style='width:38px'>RPSILVA159</div>
-            <div style='width:100px'>Escova Alisadora</div>
+            <div style='width:38px'>{{$t('sac["RPSILVA159"]')}}</div>
+            <div style='width:100px'>{{$t('sac["Escova Alisadora"]')}}</div>
             <div style='width:64px'>MLB12345678</div>
             <div style='width:407px'>R$ 25,00</div>
        </div>
        <div class='detail_box'>
             <div class='text'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum 
-                dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros  
+                {{$t('sac["Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros"]')}}  
             </div>
             <div class='btn'>
                 <span>#</span>
@@ -81,23 +80,22 @@
                     </el-select>
                     <el-button size='small' type='primary'>ok</el-button>
                 </div>
-                <p># - Respostas rapidas referentes ao produto.</p>
-                <p>@ - Respostas universais</p>
-                <p>$ - Link para anúncios</p>
+                <p># - {{$t('sac["Respostas rapidas referentes ao produto"]')}}.</p>
+                <p>@ - {{$t('sac["Respostas universais"]')}}</p>
+                <p>$ - {{$t('sac["Link para anúncios"]')}}</p>
             </div>
        </div>
        <ul style='margin-top:20px;'>
             <li v-for='item in list' class='li'>
                 <div class='tb_title'>
-                        <div style='width:38px'>RPSILVA159</div>
-                        <div style='width:100px'>Escova Alisadora</div>
+                        <div style='width:38px'>{{$t('sac["RPSILVA159"]')}}</div>
+                        <div style='width:100px'>{{$t('sac["Escova Alisadora"]')}}</div>
                         <div style='width:64px'>MLB12345678</div>
                         <div style='width:407px'>R$ 25,00</div>
                 </div>
                 <div class='detail_box'>
                         <div class='text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum 
-                            dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros  
+                            {{$t('sac["Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros"]')}}  
                         </div>
                         <div class='btn'>
                             <span>#</span>

@@ -1,7 +1,7 @@
 <template>
     <div class="main-box">
         <div class="erp-header">
-			<h3>Rastreamento</h3>
+			<h3>{{$t('rastreamento["Rastreamento"]')}}</h3>
        	</div>
         <div class='h_box'>
              <div class='select_input col'>
@@ -9,7 +9,7 @@
                 <span class='el-icon-search'></span> 
             </div>
             <div class="col">
-                <span class='tle'>Paginação </span>
+                <span class='tle'>{{$t('rastreamento["Paginação"]')}} </span>
                 <el-select  size='small' v-model='value' placeholder=' ' style='width:80px'>
                     <el-option value='1'>5</el-option>
                     <el-option value='2'>10</el-option>
@@ -19,42 +19,42 @@
            <div class='nav_box'>
                 <img :src="require('@/assets/img/Rastreamento_06.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Etiqueta Gerada</p>
+                    <p class="nav">{{$t('rastreamento["Etiqueta Gerada"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
            <div class='nav_box'>
                 <img :src="require('@/assets/img/Rastreamento_03.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Postados</p>
+                    <p class="nav">{{$t('rastreamento["Postados"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
            <div class='nav_box'>
                 <img :src="require('@/assets/img/Rastreamento_18.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Em Trânsito</p>
+                    <p class="nav">{{$t('rastreamento["Em Trânsito"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
            <div class='nav_box'>
                 <img :src="require('@/assets/img/Rastreamento_15.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Retirada</p>
+                    <p class="nav">{{$t('rastreamento["Retirada"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
            <div class='nav_box'>
                 <img :src="require('@/assets/img/Rastreamento_12.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Entregue</p>
+                    <p class="nav">{{$t('rastreamento["Entregue"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
            <div  class='nav_box' style='border:none'@click="$store.commit('TOGGLE_TRAN_ERROR')">
                 <img :src="require('@/assets/img/Rastreamento_09.gif')" alt="">
                 <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Erro</p>
+                    <p class="nav">{{$t('rastreamento["Erro"]')}}</p>
                     <p>(<span>0</span>)</p>
                 </div>
            </div>
@@ -71,19 +71,19 @@
 		>
             <el-table-column type="selection" align='center' width="55">
             </el-table-column>
-            <el-table-column label='Loja' prop="name" align='center'>
+            <el-table-column :label='$t(`rastreamento["Loja"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Id do Pedido' prop="id" align='center'>
+            <el-table-column :label='$t(`rastreamento["Id do Pedido"]`)' prop="id" align='center'>
             </el-table-column>
-            <el-table-column label='Data Pedido' prop="date" align='center'>
+            <el-table-column :label='$t(`rastreamento["Data Pedido"]`)' prop="date" align='center'>
             </el-table-column>
-            <el-table-column label='Nome' prop="Nome" align='center'>
+            <el-table-column :label='$t(`rastreamento["Nome"]`)' prop="Nome" align='center'>
             </el-table-column>
-            <el-table-column label='Codigo de Rastreio' prop="Estoque" align='center' width='160'>
+            <el-table-column :label='$t(`rastreamento["Codigo de Rastreio"]`)' prop="Estoque" align='center' width='160'>
             </el-table-column>
-            <el-table-column label='Estados' prop="Estados" align='center'>
+            <el-table-column :label='$t(`rastreamento["Estados"]`)' prop="Estados" align='center'>
             </el-table-column>
-            <el-table-column label='Operação' prop="address" align='center'>
+            <el-table-column :label='$t(`rastreamento["Operação"]`)' prop="address" align='center'>
             <template slot-scope="scope">
                <i class="el-icon-warning" ></i>
 <!--                <span class="table_font"><img :src="require('@/assets/img/Rastreamento_12.gif')" alt=""></span>-->

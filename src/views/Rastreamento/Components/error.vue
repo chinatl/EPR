@@ -1,13 +1,13 @@
 <template>
     <el-dialog
-    title="Reportar Erro"
+    :title='$t(`rastreamento["Reportar Erro"]`)'
 
     :visible.sync="$store.state.rastreamento.show_error"
     width="40%"
     >
         <div class="body">
-            <p class="line">Pedido: 13245678</p>
-            <p class="line">Observação</p>
+            <p class="line">{{$t('rastreamento["Pedido"]')}}: 13245678</p>
+            <p class="line">{{$t('rastreamento["Observação"]')}}</p>
             <el-input
             style='margin-top:10px'
             type='textarea'
@@ -16,7 +16,7 @@
             v-model="textarea">
             </el-input>
             <p style='text-align:right'>
-                <el-button type='primary' round @click='submit'>Enviar</el-button>
+                <el-button type='primary' round @click='submit'>{{$t('rastreamento["Enviar"]')}}</el-button>
             </p>
         </div>
     </el-dialog>

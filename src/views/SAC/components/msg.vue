@@ -1,6 +1,6 @@
 <template>
     <el-dialog
-    title="Resposta Rápida | @"
+    :title='$t(`sac["Resposta Rápida"]`)+"|"+"@"'
     :visible.sync="$store.state.sac.show_msg"
     >
     <div class='msg_box'>
@@ -10,30 +10,30 @@
         </p>
         <div class='msg_section'>
             <ul class='left_nav'>
-                <li class='nav_item'><span>Acompanhamento</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Voltagem</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Estoque</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Tamanho</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Descrição da Mensagem</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Descrição da Mensagem</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Saudações</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Disponível de Entrega</span><span class='el-icon-close'></span></li>
-                <li class='nav_item'><span>Garantia</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Acompanhamento"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Voltagem"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Estoque"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Tamanho"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Descrição da Mensagem"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Descrição da Mensagem"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Saudações"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Disponível de Entrega"]')}}</span><span class='el-icon-close'></span></li>
+                <li class='nav_item'><span>{{$t('sac["Garantia"]')}}</span><span class='el-icon-close'></span></li>
             </ul>
             <div class='right_list'>
                 <div class='list_item'>
-                    <p>Título</p>
+                    <p>{{$t('sac["Título"]')}}</p>
                     <el-input type='text' size='small'></el-input>
                 </div>
                 <div class='list_item'>
-                    <p>Palavra-Chave</p>
+                    <p>{{$t('sac["Palavra-Chave"]')}}</p>
                     <el-input type='text' size='small'></el-input><span class='el-icon-question'></span>
                 </div>
                 <div class='list_textarea'>
-                    <p>Resposta</p>
+                    <p>{{$t('sac["Resposta"]')}}</p>
                     <el-input  type="textarea" :rows="5"></el-input>
                 </div>
-                <p class='btn_box'><el-button type='primary' round size='small'>Adicionar</el-button></p>
+                <p class='btn_box'><el-button type='primary' round size='small'>{{$t('sac["Adicionar"]')}}</el-button></p>
             </div>
         </div>
     </div>

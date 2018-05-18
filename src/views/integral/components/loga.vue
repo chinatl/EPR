@@ -1,6 +1,6 @@
 <template>
     <el-dialog
-    title="Loja Virtual"
+    :title='$t(`integral["Loja Virtual"]`)'
     :visible.sync="$store.state.integral.show_loga"
     >
     <div class='loga_box'>
@@ -14,7 +14,7 @@
             ></el-input>
         </div>
         <div class='input_line'>
-            <p>Dominio</p>
+            <p>{{$t('integral["Dominio"]')}}</p>
             <el-input size='small'
             type='text'
             disabled
@@ -24,7 +24,7 @@
         </div>
         <p
         style='text-align:right;margin-top:10px;'
-        ><el-button type='primary' size='small' round>Salvar</el-button></p>
+        ><el-button type='primary' size='small' round>{{$t('integral["Salvar"]')}}</el-button></p>
     </div>
     
     </el-dialog>

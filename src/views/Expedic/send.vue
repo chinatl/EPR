@@ -1,9 +1,9 @@
 <template>
     <div class='main_box'>
        <div class="erp-header">
-       		<h3>Saida</h3>
+       		<h3>{{$t('expedic["Saida"]')}}</h3>
        		<div>
-			 	<el-button size='small' type="success" round>Expedir Pedidos</el-button>  
+			 	<el-button size='small' type="success" round>{{$t('expedic["Expedir Pedidos"]')}}</el-button>  
        		</div>
        	</div>
         <div class='th_box'>
@@ -13,7 +13,7 @@
             </div>
             <div class='h_box'>
                 <div class='page'>
-                    <span class='page_text'>Data</span>
+                    <span class='page_text'>{{$t('expedic["Data"]')}}</span>
                     <el-select size='small' style='width:100px'>
                         <el-option value='20'>20</el-option>
                         <el-option value=''>50</el-option>
@@ -22,7 +22,7 @@
                     </el-select>
                 </div>
                 <div style='width:300px'  class="col">
-                    <span class='tle'>Período </span>
+                    <span class='tle'>{{$t('expedic["Período"]')}} </span>
                     <el-date-picker
                     class="date"
                     size='small'
@@ -49,23 +49,23 @@
 			@selection-change="handleSelectionChange">
 				<el-table-column type="selection" align='center' width="55">
 				</el-table-column>
-				<el-table-column label='Loja' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Loja"]`)' prop="address" align='center'>
 				</el-table-column>
-				<el-table-column label='Cód. do Pedido' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Cód. do Pedido"]`)' prop="address" align='center'>
 				</el-table-column>
-				<el-table-column label='Cliente (Apelido)' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Cliente (Apelido)"]`)' prop="address" align='center'>
 				</el-table-column>
-				<el-table-column label='Rastreio' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Rastreio"]`)' prop="address" align='center'>
 				</el-table-column>
-				<el-table-column label='Data de Empa.' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Data de Empa."]`)' prop="address" align='center'>
 				</el-table-column>
-				<el-table-column label='Status' prop="address" align='center'>
+				<el-table-column :label='$t(`expedic["Status"]`)' prop="address" align='center'>
 				</el-table-column>
 			</el-table>
         </div>
         <div class="product-pagination" style="text-align:right;margin-top:20px">
             <div class='num'>
-                <span class='pro_title'>*Total de pedidos expedidos:</span>
+                <span class='pro_title'>*{{$t('expedic["Total de pedidos expedidos"]')}}:</span>
                 <span>20</span>
             </div>
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">

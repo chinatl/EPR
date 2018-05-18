@@ -5,7 +5,7 @@
     :before-close="handleClose">
         <div class='new_box'>
             <div class='input_box'>
-                <span class='new_title'>Duplicar Pedido</span>
+                <span class='new_title'>{{$t('pedido["Duplicar Pedido"]')}}</span>
                 <el-input type='text' size='small' style='width:250px;' placeholder='lnserir codigo de pedido'></el-input>
                 <span class='el-icon-loading font'></span>
                 <span class='el-icon-check font hand' style='color:green'></span>
@@ -13,9 +13,9 @@
                 <span class='search hand font'>ok</span>
             </div>
             <div class="entrada-h3">
-                <div :class=" current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>Cliente</div>
-                <div :class=" current ? 'item': 'item current'"  @click='current=1'><span class="span">2</span>Itens</div>
-                <div :class=" !current ? 'item': 'item current'"  @click='current=0'><span class="span">3</span>Transportador</div>
+                <div :class=" current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>{{$t('pedido["Cliente"]')}}</div>
+                <div :class=" current ? 'item': 'item current'"  @click='current=1'><span class="span">2</span>{{$t('pedido["Itens"]')}}</div>
+                <div :class=" !current ? 'item': 'item current'"  @click='current=0'><span class="span">3</span>{{$t('pedido["Transportador"]')}}</div>
             </div>
             <div class='new_detail'>
             </div>

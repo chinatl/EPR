@@ -9,7 +9,7 @@
 			<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 		</div>
 		<div>
-			<span>Paginação</span>
+			<span>{{$t(`relatorios["Paginação"]`)}}</span>
 			<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:60px;'>
 				<el-option value='5' label='5'></el-option>
 				<el-option value='10' label='10'></el-option>
@@ -17,7 +17,7 @@
 			</el-select>
 		</div>
 		<div>
-			<span>Ordernar por</span>
+			<span>{{$t(`relatorios["Ordernar por"]`)}}</span>
 			<el-select class='select Selecionar' size='small' v-model='value' placeholder='Selecionar' style='width:80px;'>
 				<el-option value='5' label='5'></el-option>
 				<el-option value='10' label='10'></el-option>
@@ -25,22 +25,22 @@
 			</el-select>
 		</div>
 		<div >
-			<span>Período </span>
+			<span>{{$t(`relatorios["Período"]`)}} </span>
 			<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
 			</el-date-picker>
 		</div>
 		<div>
-			<el-button type="success" size='small' round class="btn"><span class="text"><i class='el-icon-share'></i> Exportar CSV</span></el-button>
+			<el-button type="success" size='small' round class="btn"><span class="text"><i class='el-icon-share'></i> {{$t(`relatorios["Exportar CSV"]`)}}</span></el-button>
 		</div>
 	</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
 			<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
-			<li>Imagem</li>
-			<li>SKU</li>
-			<li>Nome</li>
-			<li>Vendas</li>
-			<li>Nota de Potencial</li>
+			<li>{{$t(`relatorios["Imagem"]`)}}</li>
+				<li>SKU</li>
+				<li>{{$t(`relatorios["Nome"]`)}}</li>
+				<li>{{$t(`relatorios["Vendas"]`)}}</li>
+				<li>{{$t(`relatorios["Nota de Potencial"]`)}}</li>
 			<li></li>
 		</ul>
 		<transition-group name="fade" tag='div'>

@@ -1,40 +1,40 @@
 <template>
     <el-dialog
-    title='Informações do Pedido | 123456789123'
+    :title='$t(`rastreamento["Informações do Pedido"]`)+ "|" +"123456789123"'
     :visible.sync="$store.state.rastreamento.show_dropdown"
     width="70%"
     >
     <div class="section">
         <div class='section_header bottom'>
             <div class='section_text'>
-                <p class="section_title">Cliente:</p>
+                <p class="section_title">{{$t('rastreamento["Cliente"]')}}:</p>
                 <p>75.161.435/0001-17</p>
             </div>
             <div class='section_text'>
-                <p class="section_title">CEP</p>
+                <p class="section_title">{{$t('rastreamento["CEP"]')}}</p>
                 <p>xxxxxx-xxx</p>
             </div>
             <div class='section_text'>
-                <p class="section_title">Telefone</p>
+                <p class="section_title">{{$t('rastreamento["Telefone"]')}}</p>
                 <p>(xx) xxxx-xxxx</p>
             </div>
             <div class='section_text'>
-                <p class="section_title">Celular</p>
+                <p class="section_title">{{$t('rastreamento["Celular"]')}}</p>
                 <p>(xx) xxxx-xxxx</p>
             </div>
              <div class='section_text'>
-                <p class="section_title">E-Mail</p>
-                <p>contato@pmcell.com.br</p>
+                <p class="section_title">{{$t('rastreamento["E-Mail"]')}}</p>
+                <p>{{$t('rastreamento["contato@pmcell.com.br"]')}}</p>
             </div>
         </div>
         <div class='section_header'>
               <div class='section_text'>
-                <p class="section_title">CNPJ</p>
+                <p class="section_title">{{$t('rastreamento["CNPJ"]')}}</p>
                 <p>75.161.435/0001-17</p>
             </div>
              <div class='section_text'>
-                <p class="section_title">Endereço</p>
-                <p>Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento</p>
+                <p class="section_title">{{$t('rastreamento["Endereço"]')}}</p>
+                <p>{{$t('rastreamento["Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento"]')}}</p>
             </div>
         </div>
         <el-table
@@ -52,20 +52,20 @@
             </el-table-column>
             <el-table-column label='SKU' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Nome' prop="name" align='center'>
+            <el-table-column :label='$t(`rastreamento["Nome"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Variação' prop="name" align='center'>
+            <el-table-column :label='$t(`rastreamento["Variação"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Atributo' prop="name" align='center'>
+            <el-table-column :label='$t(`rastreamento["Atributo"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Quantidade' prop="Estoque" align='center'>
+            <el-table-column :label='$t(`rastreamento["Quantidade"]`)' prop="Estoque" align='center'>
             </el-table-column>
-            <el-table-column label='Valor' prop="name" align='center'>
+            <el-table-column :label='$t(`rastreamento["Valor"]`)' prop="name" align='center'>
             </el-table-column>
         </el-table>
         <p class='total_box'>
-            <span class='total'>Total Quantidade: 3000</span>
-            <span class='total'>Total Valor: R$ 9,00</span>
+            <span class='total'>{{$t('rastreamento["Total Quantidade"]')}}: 3000</span>
+            <span class='total'>{{$t('rastreamento["Total Valor"]')}}: R$ 9,00</span>
         </p>
         <p class='total_box'>
             <el-button type='primary' round class='button'>ok</el-button>

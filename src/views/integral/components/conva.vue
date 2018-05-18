@@ -1,33 +1,33 @@
 <template>
     <el-dialog
-    title="Configurações CNOVA"
+    :title='$t(`integral["Configurações CNOVA"]`)'
     :visible.sync="$store.state.integral.show_conva"
     >
     <div class='conva_box'>
         <div class='input_box'>
             <div class='input'>
-                <p>Token de Acesso</p>
+                <p>{{$t('integral["Token de Acesso"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
             <div class='input'>
-                <p>Prazo de Entrega</p>
+                <p>{{$t('integral["Prazo de Entrega"]')}}</p>
                 <el-input type='text' size='small' style='margin-top:20px'></el-input>
             </div>
         </div>
         <p class='choose'>
             <el-checkbox v-model="checked"></el-checkbox>
-            <span class='span'>Envio do Produto</span>
+            <span class='span'>{{$t('integral["Envio do Produto"]')}}</span>
             <el-select size='small'>
-                <el-option>Oferecer envios pelo Mercado Envios</el-option>
-                <el-option>Oferecer envios pelo Correios</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
             </el-select>
         </p>
         <p class='choose'>
             <el-checkbox></el-checkbox>
-            <span class='span'>Retirada em mãos</span>
+            <span class='span'>{{$t('integral["Retirada em mãos"]')}}</span>
             <el-select size='small'>
-                <el-option>Oferecer envios pelo Mercado Envios</el-option>
-                <el-option>Oferecer envios pelo Correios</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
             </el-select>
         </p>
     </div>

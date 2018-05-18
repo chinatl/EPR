@@ -1,12 +1,12 @@
 <template>
     <el-dialog
-    title='Informações do Pedido | 123456789123'
+    :title='$t(`expedic["Informações do Pedido"]`) +"|"+ "123456789123"'
     :visible.sync="$store.state.expedic.show_order"
     >
     <div class="section">
         <div class='section_header bottom'>
             <div class='section_text'>
-                <p class="section_title">Cliente:</p>
+                <p class="section_title">{{$t('expedic["Cliente"]')}}:</p>
                 <p>75.161.435/0001-17</p>
             </div>
             <div class='section_text'>
@@ -14,26 +14,26 @@
                 <p>xxxxxx-xxx</p>
             </div>
             <div class='section_text'>
-                <p class="section_title">Telefone</p>
+                <p class="section_title">{{$t('expedic["Telefone"]')}}</p>
                 <p>(xx) xxxx-xxxx</p>
             </div>
             <div class='section_text'>
-                <p class="section_title">Celular</p>
+                <p class="section_title">{{$t('expedic["Celular"]')}}</p>
                 <p>(xx) xxxx-xxxx</p>
             </div>
              <div class='section_text'>
-                <p class="section_title">E-Mail</p>
-                <p>contato@pmcell.com.br</p>
+                <p class="section_title">{{$t('expedic["E-Mail"]')}}</p>
+                <p>{{$t('expedic["contato@pmcell.com.br"]')}}</p>
             </div>
         </div>
         <div class='section_header'>
               <div class='section_text'>
-                <p class="section_title">CNPJ</p>
+                <p class="section_title">{{$t('expedic["CNPJ"]')}}</p>
                 <p>75.161.435/0001-17</p>
             </div>
              <div class='section_text'>
-                <p class="section_title">Endereço</p>
-                <p>Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento</p>
+                <p class="section_title">{{$t('expedic["Endereço"]')}}</p>
+                <p>{{$t('expedic["Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento"]')}}</p>
             </div>
         </div>
         <el-table
@@ -42,7 +42,7 @@
 		tooltip-effect="dark"
 		style="width: 100%;margin-top:1%;"
         >
-            <el-table-column label='Imagem' align='center'>
+            <el-table-column :label='$t(`expedic["Imagem"]`)' align='center'>
                 <template slot-scope="scope">
                     <span>
                         <img :src="require('@/assets/img/hand.png')" alt="">
@@ -51,17 +51,17 @@
             </el-table-column>
             <el-table-column label='SKU' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Nome' prop="name" align='center'>
+            <el-table-column :label='$t(`expedic["Nome"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Variação' prop="name" align='center'>
+            <el-table-column :label='$t(`expedic["Variação"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Atributo' prop="name" align='center'>
+            <el-table-column :label='$t(`expedic["Atributo"]`)' prop="name" align='center'>
             </el-table-column>
-            <el-table-column label='Quantidade' prop="Estoque" align='center'>
+            <el-table-column :label='$t(`expedic["Quantidade"]`)' prop="Estoque" align='center'>
             </el-table-column>
         </el-table>
         <p class='total_box'>
-            <span class='total'>Total Quantidade: 3000</span>
+            <span class='total'>{{$t('expedic["Total Quantidade"]')}}: 3000</span>
             
         </p>
         <p class='total_box'>
