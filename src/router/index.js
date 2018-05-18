@@ -145,7 +145,7 @@ export const constantRouterMap = [
 				},		
       		},
 			  {
-				path: 'send ',
+				path: 'send',
 				name:'发货',
 				component:()=>
 				import('@/views/Expedic/send'),

@@ -30,25 +30,25 @@
 		</div>
         <div class="erp-list" v-loading='loading'>
 			<ul class="title">
-				<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
+				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
 				<li>Loja</li>
 				<li>Cód. do Pedido</li>
-				<li class="flex3">Cliente (Apelido)</li>
+				<li class="flex5">Cliente (Apelido)</li>
 				<li>Rastreio</li>
 				<li>Data de Pag.</li>
-				<li class='flex1'>Status</li>
-				<li class='flex1'>Operação</li>
+				<li class='flex3'>Status</li>
+				<li class='flex3'>Operação</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index">
-					<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
+					<li class='flex1'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
 					<li>{{item.name}}</li>
 					<li>{{item.phone}}</li>
-					<li class="flex3">{{item.Mar}}</li>
+					<li class="flex5">{{item.Mar}}</li>
 					<li>{{item.ss}}</li>
 					<li>{{item.Estoque}}</li>
-					<li class='flex1'>{{item.address}}</li>
-					<li class='flex1'>
+					<li class='flex3'>{{item.address}}</li>
+					<li class='flex3'>
 						<div class="table-icon">
 							<span><svg-icon icon-class='mask' style='font-size:26px;'></svg-icon></span>
 							<span><svg-icon icon-class='box' style='font-size:26px;'></svg-icon></span>
@@ -112,7 +112,6 @@
 		},
 		methods: {
 			all(e){
-				console.log(e);
 				this.tableData.forEach(res=>res.checked = e )
 			},
 			choose(e,i){

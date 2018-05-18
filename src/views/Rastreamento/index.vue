@@ -3,102 +3,90 @@
         <div class="erp-header">
 			<h3>Rastreamento</h3>
        	</div>
-        <div class='h_box'>
-             <div class='select_input col'>
-                <el-input  size='small' placeholder='ID do pedido / Nome / Rastreio' v-model='value'></el-input>
-                <span class='el-icon-search'></span> 
-            </div>
-            <div class="col">
-                <span class='tle'>Paginação </span>
-                <el-select  size='small' v-model='value' placeholder=' ' style='width:80px'>
-                    <el-option value='1'>5</el-option>
-                    <el-option value='2'>10</el-option>
-                    <el-option value='3'>15</el-option>
-                </el-select>
-           </div>
-           <div class='nav_box'>
-                <img :src="require('@/assets/img/Rastreamento_06.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Etiqueta Gerada</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
-           <div class='nav_box'>
-                <img :src="require('@/assets/img/Rastreamento_03.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Postados</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
-           <div class='nav_box'>
-                <img :src="require('@/assets/img/Rastreamento_18.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Em Trânsito</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
-           <div class='nav_box'>
-                <img :src="require('@/assets/img/Rastreamento_15.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Retirada</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
-           <div class='nav_box'>
-                <img :src="require('@/assets/img/Rastreamento_12.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Entregue</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
-           <div  class='nav_box' style='border:none'@click="$store.commit('TOGGLE_TRAN_ERROR')">
-                <img :src="require('@/assets/img/Rastreamento_09.gif')" alt="">
-                <div style='text-align:center;margin:5px 0 0 3px;'>
-                    <p class="nav">Erro</p>
-                    <p>(<span>0</span>)</p>
-                </div>
-           </div>
+        <div class="erp-bar">
+        	<div class="erp-search-button">
+        		<el-input  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
+				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
+        	</div>
+        	<div>
+        		<span>Paginação</span>
+				<el-select size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
+					<el-option value='5' label='5'></el-option>
+					<el-option value='10' label='10'></el-option>
+					<el-option value='15' label='15'></el-option>
+				</el-select>
+        	</div>
+        	<div>
+        		<div class="introduce-icon">
+        			<img :src="require('@/assets/img/Rastreamento_06.gif')"  alt="">
+        			<div>
+						<p class="border-line">Postados</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        		<div class="introduce-icon">
+        			<img :src="require('@/assets/img/Rastreamento_03.gif')"  alt="">
+        			<div>
+						<p class="border-line">Em Trânsito</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        		<div class="introduce-icon">
+        			<img :src="require('@/assets/img/Rastreamento_18.gif')"  alt="">
+        			<div>
+						<p class="border-line">Retirada</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        		<div class="introduce-icon">
+        			<img :src="require('@/assets/img/Rastreamento_15.gif')"  alt="">
+        			<div>
+						<p class="border-line">Entregue</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        		<div class="introduce-icon">
+        			<img :src="require('@/assets/img/Rastreamento_12.gif')"  alt="">
+        			<div>
+						<p class="border-line">Erro</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        	</div>
         </div>
-<div class="table-bgc">
-        <el-table
-        ref="multipleTable"
-		:data="tableData"
-        stripe
-		tooltip-effect="dark"
-		style="width:100%;margin-top:2%;"
-		stripe
-		@row-click='row_click'
-		>
-            <el-table-column type="selection" align='center' width="55">
-            </el-table-column>
-            <el-table-column label='Loja' prop="name" align='center'>
-            </el-table-column>
-            <el-table-column label='Id do Pedido' prop="id" align='center'>
-            </el-table-column>
-            <el-table-column label='Data Pedido' prop="date" align='center'>
-            </el-table-column>
-            <el-table-column label='Nome' prop="Nome" align='center'>
-            </el-table-column>
-            <el-table-column label='Codigo de Rastreio' prop="Estoque" align='center' width='160'>
-            </el-table-column>
-            <el-table-column label='Estados' prop="Estados" align='center'>
-            </el-table-column>
-            <el-table-column label='Operação' prop="address" align='center'>
-            <template slot-scope="scope">
-               <i class="el-icon-warning" ></i>
-<!--                <span class="table_font"><img :src="require('@/assets/img/Rastreamento_12.gif')" alt=""></span>-->
-            </template>
-</el-table-column>
-</el-table>
-</div>
-
-<div class="product-pagination" style="text-align:right;margin-top:20px">
-	<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-	</el-pagination>
-</div>
-<my-detail></my-detail>
-<my-error></my-error>
-<dropdown></dropdown>
+        <div class="erp-list" v-loading='loading'>
+			<ul class="title">
+				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
+				<li>Loja</li>
+				<li>Id do Pedido</li>
+				<li class="flex3">Data Pedido</li>
+				<li>Nome</li>
+				<li>Codigo de Rastreio</li>
+				<li class='flex3'>Estados</li>
+				<li class='flex3'>Operação</li>
+			</ul>
+			<transition-group name="fade" tag='div'>
+				<ul class="content" v-for='(item,index) in tableData' :key="index" @click='row_click($event,item,index)'>
+					<li class='flex1'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
+					<li>{{item.name}}</li>
+					<li>{{item.id}}</li>
+					<li  class="flex3">{{item.date}}</li>
+					<li>{{item.Nome}}</li>
+					<li>{{item.Estoque}}</li>
+					<li class='flex3'>{{item.Estados}}</li>
+					<li class='flex3'>
+						<i class="el-icon-warning" ></i>
+					</li>
+				</ul>
+			</transition-group>
+		</div>
+		<div class="erp-page">
+			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
+			</el-pagination>
+		</div>
+		<my-detail></my-detail>
+		<my-error></my-error>
+		<dropdown></dropdown>
 </div>
 </template>
 <script>
@@ -113,8 +101,11 @@
 		},
 		data() {
 			return {
-				value: 'value',
+				value: '',
+				loading: false,
+				pageSize: '5',
 				total: 10,
+				checkAll: false,
 				isShow: false,
 				tableData: [{
 					name: 'Mercado Livre',
@@ -150,10 +141,31 @@
 			handleSelectionChange() {
 
 			},
-			row_click(row, event, column) {
-				if (column.label == "Operação") {
+			all(e) {
+				this.tableData.forEach(res => res.checked = e)
+			},
+			choose(e, i) {
+				if (e) {
+					var flag = false;
+					this.tableData.forEach(res => {
+						if (!res.checked) {
+							flag = true;
+						}
+					});
+					this.checkAll = !flag;
+				} else {
+					var flag = true;
+					this.tableData.forEach(res => {
+						if (!res.checked) {
+							flag = false;
+						}
+					});
+					this.checkAll = flag;
+				}
+			},
+			row_click(event, item, index) {
+				if (event.target.className === 'el-icon-warning') {
 					this.$store.commit('TOGGLE_RASTREAMENTO_ERROR')
-					return
 				} else {
 					this.$store.commit('TOGGLE_RASTREAMENTO_DROPDOWN')
 				}
@@ -163,66 +175,31 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
+	.introduce-icon {
+		display: flex;
+		align-items: center;
+		border-right: 1px solid #ccc;
+		>img {
+			margin-right: 10px;
+		}
+		>div {
+			>p {
+				white-space: nowrap;
+				text-align: center;
+				line-height: 1.5
+			}
+			>.border-line {
+				border-bottom: 1px solid #000;
+			}
+		}
+
+	}
+
 	.el-icon-warning {
 		font-size: 18px;
 		&:hover {
 			color: #DC044D
 		}
-	}
-
-	.main-box {
-		.title {
-			color: #808080;
-			font-size: 20rem;
-			padding-bottom: 1%;
-			border-bottom: 1px solid #e0e0e0;
-		}
-		.h_box {
-			margin-top: 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			.select_input {
-				width: 22%;
-				display: flex;
-			}
-			.el-icon-search {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				font-size: 20rem;
-				color: #fff;
-				background: #0aa1ed;
-				text-align: center;
-				line-height: 32px;
-				position: relative;
-				left: -2px;
-				margin: 0;
-				margin-right: 4%;
-			}
-			.col {
-				display: flex;
-				.tle {
-					line-height: 32px;
-					margin-right: 5px;
-					font-size: 13rem;
-					font-weight: bold;
-					color: #808080;
-				}
-			}
-			.nav_box {
-				display: flex;
-				padding-right: 25px;
-				border-right: 1px solid #808080;
-				color: #808080;
-				.nav {
-					border-bottom: 1px solid #808080;
-					color: #808080;
-				}
-			}
-
-		}
-	
 	}
 
 </style>
