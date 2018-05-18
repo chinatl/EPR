@@ -1,7 +1,7 @@
 <template>
 <div class='main_box'>
     <div class='erp-header'>
-        <h3>Marketplaces</h3>
+        <h3>{{$t('integral["Marketplaces"]')}}</h3>
     </div>
     <div class='section_box'>
         <div class='section_item'>
@@ -9,10 +9,10 @@
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
-            <p>MegaHaribaba</p>
+            <p>{{$t('integral["MegaHaribaba"]')}}</p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
@@ -21,10 +21,10 @@
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
-            <p>MegaHaribaba</p>
+            <p>{{$t('integral["MegaHaribaba"]')}}</p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
@@ -33,10 +33,10 @@
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
-            <p>MegaHaribaba</p>
+            <p>{{$t('integral["MegaHaribaba"]')}}</p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
@@ -48,36 +48,36 @@
             <p></p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
         <div class='section_item'>
-            <p>Walmart</p>
+            <p>{{$t('integral["Walmart"]')}}</p>
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
-            <p>MegaHaribaba</p>
+            <p>{{$t('integral["MegaHaribaba"]')}}</p>
             <div class='btn_box dis'>
                 <span></span>
-               <span>Desativo</span>
+               <span>{{$t('integral["Desativo"]')}}</span>
                 <span></span> 
             </div>
         </div>
         <div class='section_item'>
-            <p>CNOVA</p>
+            <p>{{$t('integral["CNOVA"]')}}</p>
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
-            <p>MegaHaribaba</p>
+            <p>{{$t('integral["MegaHaribaba"]')}}</p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
     </div>
-   <p class='title'>Tiny</p>
+   <p class='title'>{{$t('integral["Tiny"]')}}</p>
    <div class='section_box'>
         <div class='section_item'>
             <p></p>
@@ -86,7 +86,7 @@
             </div>
             <p></p>
             <div class='btn_box dis'>
-                <span>Desativo</span>
+                <span>{{$t('integral["Desativo"]')}}</span>
             </div>
         </div>
         <div class='section_item'>
@@ -97,46 +97,46 @@
             <p></p>
             <div class='btn_box dis'>
                 <span></span>
-               <span>Desativo</span>
+               <span>{{$t('integral["Desativo"]')}}</span>
                 <span></span> 
             </div>
         </div>
    </div>
-   <p class='title'>Marketplaces</p>
+   <p class='title'>{{$t('integral["Marketplaces"]')}}</p>
     <div class='section_box'>
         <div class='section_item'>
-            <p>Correios</p>
+            <p>{{$t('integral["Correios"]')}}</p>
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
             <p></p>
             <div class='btn_box'>
                 <span class='el-icon-check'></span>
-                <span>Ativo</span>
+                <span>{{$t('integral["Ativo"]')}}</span>
                 <span class='el-icon-delete'></span>
             </div>
         </div>
         <div class='section_item'>
-            <p>Jadlog</p>
+            <p>{{$t('integral["Jadlog"]')}}</p>
             <div class='img'>
                <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
             <p></p>
             <div class='btn_box dis'>
                 <span></span>
-                <span>Desativo</span>
+                <span>{{$t('integral["Desativo"]')}}</span>
                 <span></span>
             </div>
         </div>
         <div class='section_item'>
-            <p>Braspress</p>
+            <p>{{$t('integral["Braspress"]')}}</p>
             <div class='img'>
                 <img :src="require('@/assets/img/img1.png')" alt="">
             </div>
             <p></p>
             <div class='btn_box dis'>
                 <span></span>
-               <span>Desativo</span>
+               <span>{{$t('integral["Desativo"]')}}</span>
                 <span></span> 
             </div>
         </div>

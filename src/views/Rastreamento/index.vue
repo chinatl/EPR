@@ -1,15 +1,16 @@
 <template>
     <div class="main-box">
         <div class="erp-header">
-			<h3>Rastreamento</h3>
+			<h3>{{$t('rastreamento["Rastreamento"]')}}</h3>
        	</div>
+<<<<<<< HEAD
         <div class="erp-bar">
         	<div class="erp-search-button">
         		<el-input  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
         	</div>
         	<div>
-        		<span>Paginação</span>
+        		<span>>{{$t('rastreamento["Paginação"]')}} </span>
 				<el-select size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
 					<el-option value='5' label='5'></el-option>
 					<el-option value='10' label='10'></el-option>
@@ -20,35 +21,42 @@
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_06.gif')"  alt="">
         			<div>
-						<p class="border-line">Postados</p>
+						<p class="border-line">{{$t('rastreamento["Etiqueta Gerada"]')}}</p>
 						<p>(0)</p>
         			</div>
         		</div>
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_03.gif')"  alt="">
         			<div>
-						<p class="border-line">Em Trânsito</p>
+						<p class="border-line">{{$t('rastreamento["Postados"]')}}</p>
 						<p>(0)</p>
         			</div>
         		</div>
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_18.gif')"  alt="">
         			<div>
-						<p class="border-line">Retirada</p>
+						<p class="border-line">{{$t('rastreamento["Em Trânsito"]')}}</p>
 						<p>(0)</p>
         			</div>
         		</div>
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_15.gif')"  alt="">
         			<div>
-						<p class="border-line">Entregue</p>
+						<p class="border-line">{{$t('rastreamento["Retirada"]')}}</p>
 						<p>(0)</p>
         			</div>
         		</div>
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_12.gif')"  alt="">
         			<div>
-						<p class="border-line">Erro</p>
+						<p class="border-line">{{$t('rastreamento["Entregue"]')}}</p>
+						<p>(0)</p>
+        			</div>
+        		</div>
+        		<div class="introduce-icon" @click="$store.commit('TOGGLE_TRAN_ERROR')">
+        			<img :src="require('@/assets/img/Rastreamento_09.gif')"  alt="">
+        			<div>
+						<p class="border-line">{{$t('rastreamento["Erro"]')}}</p>
 						<p>(0)</p>
         			</div>
         		</div>
@@ -57,13 +65,13 @@
         <div class="erp-list" v-loading='loading'>
 			<ul class="title">
 				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
-				<li>Loja</li>
-				<li>Id do Pedido</li>
-				<li class="flex3">Data Pedido</li>
-				<li>Nome</li>
-				<li>Codigo de Rastreio</li>
-				<li class='flex3'>Estados</li>
-				<li class='flex3'>Operação</li>
+				<li>{{$t(`rastreamento["Loja"]`)}}</li>
+				<li>{{$t(`rastreamento["Id do Pedido"]`)}}</li>
+				<li class="flex3">{{$t(`rastreamento["Data Pedido"]`)}}</li>
+				<li>{{$t(`rastreamento["Nome"]`)}}</li>
+				<li>{{$t(`rastreamento["Codigo de Rastreio"]`)}}</li>
+				<li class='flex3'>{{$t(`rastreamento["Estados"]`)}}</li>
+				<li class='flex3'>{{$t(`rastreamento["Operação"]`)}}</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in tableData' :key="index" @click='row_click($event,item,index)'>

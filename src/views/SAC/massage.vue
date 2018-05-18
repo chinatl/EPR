@@ -1,19 +1,19 @@
 <template>
     <div class='main-box'> 
         <div class='erp-header'>
-            <h3>Auto Pós-Compra<span class="else-con">*Mantemos as mensagens arquivados por 3 meses.</span></h3>
+            <h3>{{$t('sac["Auto Pós-Compra"]')}}<span class="else-con">*{{$t('sac["Mantemos as mensagens arquivados por 3 meses."]')}}</span></h3>
             <div>
                 <el-button size='small'type='primary' round style='float:right'>
                 <div @click='$store.commit("TOGGLE_TRAN_PLANE")'>
                         <svg-icon icon-class='user' style='font-size:20px;'></svg-icon> 
-                        <span style='position:relative;top:-3px '>Auto Pós-Compra </span>
+                        <span style='position:relative;top:-3px '>{{$t('sac["Auto Pós-Compra"]')}} </span>
                 </div>
                 </el-button>
             </div>        
         </div>
         <div class='msg'>
             <div style='margin-right:40px;line-height:50px;'>
-                <span style='margin-right:10px'>Unificar</span>
+                <span style='margin-right:10px'>{{$t('sac["Unificar"]')}}</span>
                 <el-switch
                 v-model="value"
                >
@@ -24,21 +24,21 @@
                 <div class='title_block'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
                 <div class='title_block'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
                 <div class='title_block border'>
                     <img :src="require('@/assets/img/naozhong.png')" alt="">
                     <div class='text_box'>
-                        <span class='underline'>MegaHaribaba1</span><br />
+                        <span class='underline'>{{$t('sac["MegaHaribaba1"]')}}</span><br />
                         <span class='underline'>(20)</span>
                     </div>
                 </div>
@@ -51,17 +51,14 @@
                 <img :src="require('@/assets/img/naozhong.png')" alt="">
             </div>
             <div class='p_title height'>
-                Headphone Exbom com Fio
+               {{$t('sac["Headphone Exbom com Fio"]')}}
             </div>
             <div class='p_num height'>
                 123456
             </div>
             <div class='p_detail'>
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at venenatis nulla. Nulla 
-                porttitor lacus quis neque molestie congue quis sed lorem. Pellentesque habitant morbi tristique 
-                senectus et netus et malesuada fames ac turpis egestas. Suspendisse varius scelerisque auctor. 
-                Nunc sollicitudin sem eget tortor egestas cursus id id ligula.
+                {{$t('sac["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at venenatis nulla. Nulla porttitor lacus quis neque molestie congue quis sed lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse varius scelerisque auctor. Nunc sollicitudin sem eget tortor egestas cursus id id ligula."]')}}
                 </p>
             </div>
             <div class='p_icon height'>
@@ -76,27 +73,27 @@
                 </p>
                 <p class='nav_item'>
                     <span class='new'></span>
-                    <span> RPSilva159</span>
+                    <span> {{$t('sac["RPSilva159"]')}}</span>
                     <span class='el-icon-delete'></span>
                     <span class='el-icon-delete'></span>
                 </p>
                 <p class='nav_item'>
                     <span class='new'></span>
-                    <span>RLuanTech</span>
+                    <span>{{$t('sac["RLuanTech"]')}}</span>
                     <span class='el-icon-delete'></span>
                     <span class='el-icon-delete'></span>
                 </p>
                 <p class='nav_item'>
                     <span class='new'></span>
-                    <span>RafaTech</span>
+                    <span>{{$t('sac["RafaTech"]')}}</span>
                 </p>
                 <p class='nav_item'>
                     <span class='new'></span>
-                    <span>AmandaTec...</span>
+                    <span>{{$t('sac["AmandaTec..."]')}}</span>
                 </p>
                 <p class='nav_item'>
                     <span class='new'></span>
-                    <span>HenriqueTech</span>
+                    <span>{{$t('sac["HenriqueTech"]')}}</span>
                 </p>
             </div>
         </div>

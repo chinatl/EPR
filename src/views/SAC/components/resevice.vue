@@ -1,6 +1,6 @@
 <template>
     <el-dialog
-    title="Configuração de Mensagem de Auto Pós-Compra"
+    :title='$t(`sac["Configuração de Mensagem de Auto Pós-Compra"]`)'
     :visible.sync="$store.state.sac.show_resevice"
     >
     <div class='re_box'>
@@ -8,7 +8,7 @@
             <el-switch
             v-model="value">
             </el-switch>
-            <span style='margin-left:50px;'>Enviar uma mensagem ao comprador quando o pagamento for concluído.</span>
+            <span style='margin-left:50px;'>{{$t('sac["Enviar uma mensagem ao comprador quando o pagamento for concluído"]')}}.</span>
         </div>
         <div style='text-align:right'>
             <el-input type="textarea"
@@ -19,13 +19,13 @@
             <el-switch
             v-model="value">
             </el-switch>
-            <span style='margin-left:50px;'>Enviar automaticamente código de rastreio ao comprador quando o pedido for postado.</span>
+            <span style='margin-left:50px;'>{{$t('sac["Enviar automaticamente código de rastreio ao comprador quando o pedido for postado"]')}}.</span>
         </div>
         <div style='margin-bottom:15px;'>
             <el-switch
             v-model="value">
             </el-switch>
-            <span style='margin-left:50px;'>Enviar uma mensagem ao comprador após o pedido entregue.</span>
+            <span style='margin-left:50px;'>{{$t('sac["Enviar uma mensagem ao comprador após o pedido entregue."]')}}</span>
         </div>
         <div style='text-align:right'>
             <el-input type="textarea"
@@ -33,7 +33,7 @@
             </el-input>
         </div>
         <div style='text-align:right;margin-top:20px;'>
-            <el-button size='small' type='primary' round>Concluir</el-button>
+            <el-button size='small' type='primary' round>{{$t('sac["Concluir"]')}}</el-button>
         </div>
     </div>
     

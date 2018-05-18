@@ -1,23 +1,23 @@
 <template>
    <el-dialog
-   title="Rastreamento do Pedido | 1234567891BR"
+   :title='$t(`pedido["Rastreamento do Pedido"]`) + "|" + "1234567891BR"'
   :visible.sync="$store.state.order.show_detail"
  >
     <div class="main">
         <div class='header'>
             <div class='subtitle'style='z-index:2'>
-                Postagem
+                {{$t('pedido["Postagem"]')}}
             </div>
              <div class='subtitle right mid'>
-               Em Trânsito
+               {{$t('pedido["Em Trânsito"]')}}
             </div>
              <div class='subtitle right' style="left:460px;">
-                Entregue
+               {{$t('pedido["Entregue"]')}} 
             </div>
         </div>
         <div style="margin-top:30px;">
-            <p class='text'>Objeto aguardando retirada no endereço indicado</p>
-            <p class='text'>02/12/2017 17:45 PORTO ALEGRE / RS</p>
+            <p class='text'>{{$t('pedido["Objeto aguardando retirada no endereço indicado"]')}}</p>
+            <p class='text'>{{$t('pedido["02/12/2017 17:45 PORTO ALEGRE / RS"]')}}</p>
         </div>
         <div class="border" v-for='item in list'>
             <div class="time">
@@ -25,7 +25,7 @@
                 <p class='text'>14:00</p>
             </div>
             <div class='report'>
-                <p>Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto. </p>
+                <p>{{$t('pedido["Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto."]')}} </p>
             </div>
         </div>
     </div>

@@ -1,33 +1,33 @@
 <template>
 	<el-dialog
 		:visible.sync="$store.state.fornecedor.show_menu"
-        title='Editar Fornecedor'
+        :title='$t(`fornecedor["Editar Fornecedor"]`)'
 	>
  <div class='perfil_box'>
         
         <div class='main_box'>
-            <span class='head_text'>Identificação</span>
+            <span class='head_text'>{{$t('fornecedor["Identificação"]')}}</span>
             <div class='box sty'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Nome de Contato</p>
+                    <p class='msg_name'>{{$t('fornecedor["Nome de Contato"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>CNPJ/CPF</p>
+                    <p class='msg_name'>{{$t('fornecedor["CNPJ/CPF"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Razão Social (Opcional)</p>
+                    <p class='msg_name'>{{$t('fornecedor["Razão Social (Opcional)"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Nome Fantasic</p>
+                    <p class='msg_name'>{{$t('fornecedor["Nome Fantasic"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
@@ -36,22 +36,22 @@
             
         </div>
         <div class='main_box'>
-            <span class='head_text'>Endereço</span>
+            <span class='head_text'>{{$t('fornecedor["Endereço"]')}}</span>
             <div class='box sty'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Logradouro</p>
+                    <p class='msg_name'>{{$t('fornecedor["Logradouro"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Número</p>
+                    <p class='msg_name'>{{$t('fornecedor["Número"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Complemento</p>
+                    <p class='msg_name'>{{$t('fornecedor["Complemento"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
@@ -60,19 +60,19 @@
             </div>
             <div class='box mar sty'>
                 <div class='msg_box'>
-                    <p class='msg_name'>Bairro</p>
+                    <p class='msg_name'>{{$t('fornecedor["Bairro"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Cidade</p>
+                    <p class='msg_name'>{{$t('fornecedor["Cidade"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
                 </div>
                 <div class='msg_box'>
-                    <p class='msg_name'>Estado</p>
+                    <p class='msg_name'>{{$t('fornecedor[""]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small'></el-input>
                     </p>
@@ -80,16 +80,16 @@
             </div>
         </div>
         <div class='main_box'>
-            <span class='head_text'>Contato</span>
+            <span class='head_text'>{{$t('fornecedor["Contato"]')}}</span>
             <div class='box'>
                 <div class='msg_box'>
-                    <p class='msg_name'>E-Mail</p>
+                    <p class='msg_name'>{{$t('fornecedor["E-Mail"]')}}</p>
                     <p class='msg'>
                         <el-input type='text' size='small' :disabled="true" value='cadodepaulasilva159@gmail.com'></el-input>
                     </p>
                 </div>
                 <div class='msg_box left'>
-                    <p class='msg_name'>Celular</p>
+                    <p class='msg_name'>{{$t('fornecedor["Celular"]')}}</p>
                     <p class='msg'>
                        <el-input type='text' size='small' :disabled="true" value='(xx) xxxxxxxxx'></el-input>
                     </p>
@@ -98,7 +98,7 @@
             
         </div>
         <p class='btn_box'>
-            <el-button type='primary' round>Salvar</el-button>
+            <el-button type='primary' round>{{$t('fornecedor["Salvar"]')}}</el-button>
         </p>
     </div>
 </el-dialog>
