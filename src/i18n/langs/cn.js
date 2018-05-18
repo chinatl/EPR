@@ -286,6 +286,7 @@ const cn = {
 		"Link para anúncios": " 链接的广告"
 	},
 	"rastreamento": {
+		"Loja": " 商店 ",
 		"rastreamento[\"Rastreamento do Pedido": "跟踪的应用 ",
 		"Informações do Pedido": " 的应用程序的信息 ",
 		"Reportar Erro": " 报告错误 ",
