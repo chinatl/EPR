@@ -84,7 +84,7 @@
 			 </el-table-column>
 			</el-table>
         </div>
-        <div class="product-pagination" style="text-align:right;margin-top:20px">
+        <div class="erp-page">
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
             </el-pagination>
         </div>
@@ -145,7 +145,6 @@
 		}
 	}
 
-<<<<<<< HEAD
 </script>
 <style rel='stylesheet/scss' lang='scss'>
 	.main_box{
@@ -202,6 +201,4 @@
 	}
 
 </style>
-
-</script>
 

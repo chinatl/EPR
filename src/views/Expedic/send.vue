@@ -1,11 +1,6 @@
 <template>
     <div>
 		<div class="erp-header">
-       		<h3>{{$t(`expedic["Empacotamento"]`)}}</h3>
-       		<div>
-			 	<el-button size='small' round type='success'>{{$t(`expedic["Relatório de Saída"]`)}}</el-button>
-                <el-button size='small' round type='primary'>{{$t(`expedic["Imprimir Etiquetas"]`)}}</el-button>
-			</div>
        		<h3>{{$t('expedic["Empacotamento"]')}}</h3>
        		<div>
 			 	<el-button size='small' round type='success'>{{$t('expedic["Relatório de Saída"]')}}</el-button>
@@ -115,7 +110,6 @@
 		},
 		methods: {
 			all(e) {
-				console.log(e);
 				this.tableData.forEach(res => res.checked = e)
 			},
 			choose(e, i) {
