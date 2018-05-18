@@ -3,7 +3,6 @@
         <div class="erp-header">
 			<h3>{{$t('rastreamento["Rastreamento"]')}}</h3>
        	</div>
-<<<<<<< HEAD
         <div class="erp-bar">
         	<div class="erp-search-button">
         		<el-input  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
