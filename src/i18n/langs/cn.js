@@ -234,7 +234,7 @@ const cn = {
 		"Relatório de Saída": " 输出报告 ",
 		"Imprimir Etiquetas": " 打印标签 ",
 		"Data": " 日期 ",
-		"Período": " 期 ",
+		"Período": "日期 ",
 		"Loja": " 商店 ",
 		"Cód. do Pedido": " 代码的请求。 ",
 		"Cliente (Apelido)": " 客户（姓氏） ",

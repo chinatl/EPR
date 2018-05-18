@@ -49,7 +49,7 @@
             <div>{{$t('sac["Lorem ipsum dolor sit amet , consectetur adipiscing elit. te. Sed in eros"]')}} </div>
        </div>
        <div class='tb_title'>
-            <div style='width:38px'>{{$t('sac["RPSILVA159"]')}}</div>
+            <div style='width:38px'>RPSILVA159</div>
             <div style='width:100px'>{{$t('sac["Escova Alisadora"]')}}</div>
             <div style='width:64px'>MLB12345678</div>
             <div style='width:407px'>R$ 25,00</div>
@@ -88,14 +88,14 @@
        <ul style='margin-top:20px;'>
             <li v-for='item in list' class='li'>
                 <div class='tb_title'>
-                        <div style='width:38px'>{{$t('sac["RPSILVA159"]')}}</div>
+                        <div style='width:38px'>RPSILVA159</div>
                         <div style='width:100px'>{{$t('sac["Escova Alisadora"]')}}</div>
                         <div style='width:64px'>MLB12345678</div>
                         <div style='width:407px'>R$ 25,00</div>
                 </div>
                 <div class='detail_box'>
                         <div class='text'>
-                            {{$t('sac["Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros"]')}}  
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. te. Sed in eros  consectetur adipiscing elit. te. Sed in eros 
                         </div>
                         <div class='btn'>
                             <span>#</span>

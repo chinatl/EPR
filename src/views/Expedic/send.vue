@@ -1,10 +1,10 @@
 <template>
     <div>
 		<div class="erp-header">
-       		<h3>Empacotamento</h3>
+       		<h3>{{$t('expedic["Empacotamento"]')}}</h3>
        		<div>
-			 	<el-button size='small' round type='success'>Relatório de Saída</el-button>
-                <el-button size='small' round type='primary'>Imprimir Etiquetas</el-button>
+			 	<el-button size='small' round type='success'>{{$t('expedic["Relatório de Saída"]')}}</el-button>
+                <el-button size='small' round type='primary'>{{$t('expedic["Imprimir Etiquetas"]')}}</el-button>
        		</div>
        	</div>
 		<div class='erp-bar'>
@@ -29,13 +29,13 @@
         <div class="erp-list" v-loading='loading'>
 			<ul class="title">
 				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
-				<li>$t(`expedic["Loja"]`)</li>
-				<li>$t(`expedic["Cód. do Pedido"]`)</li>
-				<li class="flex5">$t(`expedic["Cliente (Apelido)"]`)</li>
-				<li>$t(`expedic["Rastreio"]`)</li>
-				<li>$t(`expedic["Data de Empa."]`).</li>
-				<li class='flex3'>$t(`expedic["Status"]`)</li>
-				<li class='flex3'>Operação</li>
+				<li>{{$t(`expedic["Loja"]`)}}</li>
+				<li>{{$t(`expedic["Cód. do Pedido"]`)}}</li>
+				<li class="flex5">{{$t(`expedic["Cliente (Apelido)"]`)}}</li>
+				<li>{{$t(`expedic["Rastreio"]`)}}</li>
+				<li>{{$t(`expedic["Data de Empa."]`)}}</li>
+				<li class='flex3'>{{$t(`expedic["Status"]`)}}</li>
+				<li class='flex3'>{{$t(`expedic["Operação"]`)}}</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index">

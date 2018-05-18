@@ -9,7 +9,7 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
         	</div>
         	<div>
-        		<span>>{{$t('rastreamento["Paginação"]')}} </span>
+        		<span>{{$t('rastreamento["Paginação"]')}} </span>
 				<el-select size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
 					<el-option value='5' label='5'></el-option>
 					<el-option value='10' label='10'></el-option>
