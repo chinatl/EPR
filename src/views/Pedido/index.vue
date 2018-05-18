@@ -77,21 +77,15 @@
 			 <el-table-column prop="name" :label='$t(`pedido["Loja"]`)' align='center'>
 			 </el-table-column>
 			 <el-table-column :label='$t(`pedido["Cód. do Pedido"]`)'prop="address" align='center'>
-			 
 			 </el-table-column>	 
 			 <el-table-column :label='$t(`pedido["Rastreio"]`)'prop="name" align='center'>
-
 			 </el-table-column>	 
 			 <el-table-column :label='$t(`pedido["Cliente (Apelido)"]`)' prop="name" align='center'>
-
 			 </el-table-column>
 			  <el-table-column :label='$t(`pedido["Data Pag."]`)'prop="name" align='center'>
-
 			 </el-table-column>
 			 <el-table-column :label='$t(`pedido["Status"]`)'prop="name" align='center'>
-
 			 </el-table-column>
-
 			</el-table>
         </div>
         <div class="product-pagination" style="text-align:right;margin-top:20px">
@@ -201,7 +195,7 @@
 					margin-right: 5px;
 					font-size: 13rem;
 					font-weight: bold;
-					color: #808080;
+					color:#808080;
 				}
 			}
 

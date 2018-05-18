@@ -1,8 +1,8 @@
 const app = {
 	state: {
-		show_detail:true,
-		show_error:true,
-		show_dropdown:true,
+		show_detail:false,
+		show_error:false,
+		show_dropdown:false,
 		show_user:false,
 		show_set:false,
 		show_enter:false,
