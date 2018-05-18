@@ -1,7 +1,7 @@
 const app={
     state:{
         show_resevice:false,
-        show_msg:false,
+        show_msg:true,
     },
     mutations:{
         TOGGLE_SAC_RESEVICE:state=>{

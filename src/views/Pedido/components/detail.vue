@@ -1,9 +1,11 @@
 <template>
    <el-dialog
-   :title='$t(`pedido["Rastreamento do Pedido"]`) + "|" + "1234567891BR"'
   :visible.sync="$store.state.order.show_detail"
  >
-    <div class="main">
+    <div slot='title' class="erp-dialog_title">
+        {{$t('pedido["Rastreamento do Pedido"]')}} | 1234567891BR
+    </div>
+    <div class="detail_main">
         <div class='header'>
             <div class='subtitle'style='z-index:2'>
                 {{$t('pedido["Postagem"]')}}
@@ -11,7 +13,7 @@
              <div class='subtitle right mid'>
                {{$t('pedido["Em Trânsito"]')}}
             </div>
-             <div class='subtitle right' style="left:460px;">
+             <div class='subtitle right' style="left:560px;">
                {{$t('pedido["Entregue"]')}} 
             </div>
         </div>
@@ -49,14 +51,15 @@
 </template>
 
 <style rel="stylesheet/scss" lang="scss">
-     .main{
+     .detail_main{
         padding:0 20px;
-        border-top:1px solid #808080;
        .header{
-           margin-top:50px;
+           margin:50px auto 0;
            display:flex;
+           width:700px;
            padding-left:10px;
-            text-align:center; 
+            text-align:center;
+             position:realtive; 
            .subtitle{
                display:inline-block;
                width:250px;
@@ -71,7 +74,7 @@
            }
             .right{
                 position:absolute;
-                left:250px;
+                left:350px;
             }
             .mid{
                  background:#0aa1ed;

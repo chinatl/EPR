@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`sac["Configuração de Mensagem de Auto Pós-Compra"]`)'
     :visible.sync="$store.state.sac.show_resevice"
     >
+    <div  slot='title' class="erp-dialog_title">
+        {{$t('sac["Configuração de Mensagem de Auto Pós-Compra"]')}}
+    </div>
     <div class='re_box'>
         <div style='margin-bottom:15px;'>
             <el-switch
@@ -54,6 +56,5 @@
 <style rel='stylesheet/scss'lang="scss">
     .re_box{
         padding:20px;
-        border-top:1px solid #808080;
     }
 </style>

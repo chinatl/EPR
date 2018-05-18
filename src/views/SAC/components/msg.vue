@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`sac["Resposta Rápida"]`)+"|"+"@"'
     :visible.sync="$store.state.sac.show_msg"
     >
+    <div  slot='title' class="erp-dialog_title">
+        {{$t('sac["Resposta Rápida"]')}} | @
+    </div>
     <div class='msg_box'>
         <p class='msg_header'>
             <el-input size='small' type='text' placeholder='Pesquisar...' style='width:30%;'></el-input>
@@ -56,7 +58,6 @@
 <style rel='stylesheet/scss'lang="scss">
     .msg_box{
         padding:20px;
-        border-top:1px solid #808080;
         .msg_header{
             margin:20px 0;
             .el-icon-search{

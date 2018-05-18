@@ -1,9 +1,11 @@
 <template>
     <el-dialog
-     :title='$t(`expedic["Error"]`)'
     :visible.sync="$store.state.expedic.show_inform"
     center    
     >
+    <div slot='title' class="erp-dialog_title">
+        {{$t('expedic["Error"]')}}
+    </div>
     <div class='error_box'>
         <div class='error_msg'>
             {{$t('expedic["Tivemos uma falha de comunicaçao na impressão da etiqueta, Favor conferir no marketplace"]')}}.

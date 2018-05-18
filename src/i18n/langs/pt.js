@@ -313,7 +313,7 @@ const cn = {
 
 	},
 	"rastreamento": {
-		'rastreamento["Rastreamento do Pedido': 'rastreamento["Rastreamento do Pedido',
+		'Rastreamento do Pedido': 'Rastreamento do Pedido',
 		'Informações do Pedido': 'Informações do Pedido',
 		'Reportar Erro': 'Reportar Erro',
 		'Postagem': 'Postagem',

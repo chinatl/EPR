@@ -1,8 +1,10 @@
 <template>
    <el-dialog
-    title="titleXXX"
     :visible.sync="$store.state.order.show_new"
     :before-close="handleClose">
+        <div slot='title' class="erp-dialog_title">
+            titleXXX
+        </div>
         <div class='new_box'>
             <div class='input_box'>
                 <span class='new_title'>{{$t('pedido["Duplicar Pedido"]')}}</span>
@@ -76,7 +78,7 @@
 			align-items: center;
 			height: 40px;
 			line-height: 40px;
-            border-top:1px solid #808080;
+           
             padding-top:50px;
 			.item {
 				width: 33%;

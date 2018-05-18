@@ -89,9 +89,9 @@
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
             </el-pagination>
         </div>
-<!--         <my-detail></my-detail> -->
+         <my-detail></my-detail> 
          <my-order></my-order>
-<!--         <new-order></new-order>-->
+         <new-order></new-order>
     </div>
 </template>
 <script>

@@ -1,8 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`expedic["Informações do Pedido"]`) +"|"+ "123456789123"'
-    :visible.sync="$store.state.expedic.show_order"
+    :visible.sync="$store.state.expedic.show_order" 
     >
+    <div slot='title' class="erp-dialog_title">
+        {{$t('expedic["Informações do Pedido"]')}} | 123456789123
+    </div>
     <div class="section">
         <div class='section_header bottom'>
             <div class='section_text'>
@@ -108,7 +110,6 @@
 </script>
 <style rel='stylesheet/scss' lang='scss'>
     .section{
-        border-top:1px solid #808080;
         padding:20px 0;
         .section_header{
             display:flex;

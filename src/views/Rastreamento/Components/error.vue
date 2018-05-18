@@ -1,10 +1,10 @@
 <template>
     <el-dialog
-    :title='$t(`rastreamento["Reportar Erro"]`)'
-
     :visible.sync="$store.state.rastreamento.show_error"
-    width="40%"
     >
+		<div slot='title' class="erp-dialog_title">
+			{{$t('rastreamento["Reportar Erro"]')}}
+		</div>
         <div class="body">
             <p class="line">{{$t('rastreamento["Pedido"]')}}: 13245678</p>
             <p class="line">{{$t('rastreamento["Observação"]')}}</p>
@@ -49,7 +49,6 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
 	.body {
-		border-top: 1px solid #808080;
 		padding-top: 20px;
 		p {
 			padding: 5px 0;
