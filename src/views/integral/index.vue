@@ -1,146 +1,144 @@
 <template>
-<div class='main_box'>
+<div>
     <div class='erp-header'>
         <h3>{{$t('integral["Marketplaces"]')}}</h3>
     </div>
-    <div class='section_box'>
-        <div class='section_item'>
-            <p>Mercado Livre</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p>{{$t('integral["MegaHaribaba"]')}}</p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+    <div class="integral-item">
+    	<div>
+    		<h6>Mercado Livre</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-liver.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>Mercado Livre</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p>{{$t('integral["MegaHaribaba"]')}}</p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
+    	<div>
+    		<h6>Mercado Livre</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-liver.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>Mercado Livre</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p>{{$t('integral["MegaHaribaba"]')}}</p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+                <i class='el-icon-delete'  @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
+    	<div>
+    		<h6>Mercado Livre</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-liver.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>B2W</p>
-            <div class='img'>
-                B2W
-            </div>
-            <p></p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
+    	<div>
+    		<h6>B2W</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-b2w.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_B2W")'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>{{$t('integral["Walmart"]')}}</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p>{{$t('integral["MegaHaribaba"]')}}</p>
-            <div class='btn_box dis'>
-                <span></span>
-               <span>{{$t('integral["Desativo"]')}}</span>
-                <span></span> 
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>{{$t('integral["CNOVA"]')}}</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p>{{$t('integral["MegaHaribaba"]')}}</p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>   
+		<div class="filter-gray">
+    		<h6>Walmart</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/wmarket-woerma.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+                <span @click='$store.commit("TOOGLE_INTEGRAL_WALMART")'>{{$t('integral["Desativo"]')}}</span>
+    		</div>
+    	</div> 
+		<div>
+    		<h6>CNOVA</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-m.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_CONVA")'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
     </div>
-   <p class='title'>{{$t('integral["Tiny"]')}}</p>
-   <div class='section_box'>
-        <div class='section_item'>
-            <p></p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p></p>
-            <div class='btn_box dis'>
-                <span>{{$t('integral["Desativo"]')}}</span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p></p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p></p>
-            <div class='btn_box dis'>
-                <span></span>
-               <span>{{$t('integral["Desativo"]')}}</span>
-                <span></span> 
-            </div>
-        </div>
-   </div>
-   <p class='title'>{{$t('integral["Marketplaces"]')}}</p>
-    <div class='section_box'>
-        <div class='section_item'>
-            <p>{{$t('integral["Correios"]')}}</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p></p>
-            <div class='btn_box'>
-                <span class='el-icon-check'></span>
+    <div class='erp-header'>
+        <h3>{{$t('integral["Tiny"]')}}</h3>
+    </div>
+    <div class="integral-item">
+    	<div class="filter-gray">
+    		<h6>Tiny</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/tiny.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+                <span  @click='$store.commit("TOOGLE_INTEGRAL_TINY")'>{{$t('integral["Desativo"]')}}</span>
+    		</div>
+    	</div>
+    	<div>
+    		<h6>Loja Virtual</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/market/market-liver.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_LOGA")'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <span class='el-icon-delete'></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>{{$t('integral["Jadlog"]')}}</p>
-            <div class='img'>
-               <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p></p>
-            <div class='btn_box dis'>
-                <span></span>
-                <span>{{$t('integral["Desativo"]')}}</span>
-                <span></span>
-            </div>
-        </div>
-        <div class='section_item'>
-            <p>{{$t('integral["Braspress"]')}}</p>
-            <div class='img'>
-                <img :src="require('@/assets/img/img1.png')" alt="">
-            </div>
-            <p></p>
-            <div class='btn_box dis'>
-                <span></span>
-               <span>{{$t('integral["Desativo"]')}}</span>
-                <span></span> 
-            </div>
-        </div>
-    </div> 
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
+    </div>
+	<div class='erp-header'>
+		<h3>Transportadoras</h3>
+	</div>
+	<div class="integral-item">
+    	<div>
+    		<h6>Correios</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/img/Correios.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+                <i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_TRAN")'></i>
+                <span>{{$t('integral["Ativo"]')}}</span>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    	</div>
+    	<div class="filter-gray">
+    		<h6>Jadlog</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/img/jadlog.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+                <span @click='$store.commit("TOOGLE_INTEGRAL_JADLOG")'>{{$t('integral["Desativo"]')}}</span>
+    		</div>
+    	</div>
+    	<div class="filter-gray">
+    		<h6>Braspress</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/img/bra.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+                <span  @click='$store.commit("TOOGLE_INTEGRAL_BAR")'>{{$t('integral["Desativo"]')}}</span>
+    		</div>
+    	</div>
+	</div>
     <my-conva></my-conva>
     <my-walmart></my-walmart>
     <my-bw></my-bw>
@@ -149,97 +147,97 @@
     <my-tran></my-tran>
     <my-jadlog></my-jadlog>
     <my-bra></my-bra>
+    <my-del></my-del>
 </div>
 </template>
 <script>
-    import myConva from './components/conva'
-    import myWalmart from './components/walmart'
-    import myBw from './components/bw'
-    import myLoga from './components/loga'
-    import myTiny from './components/tiny'
-    import myTran from './components/transport'
-    import myJadlog from './components/jadlog'
-    import myBra from './components/braspress'
-    export default{
-        components:{
-            myConva,
-            myWalmart,
-            myBw,
-            myLoga,
-            myTiny,
-            myTran,
-            myJadlog,
-            myBra
-        },
-        data(){
-            return{
+	import myConva from './components/conva'
+	import myWalmart from './components/walmart'
+	import myBw from './components/bw'
+	import myLoga from './components/loga'
+	import myTiny from './components/tiny'
+	import myTran from './components/transport'
+	import myJadlog from './components/jadlog'
+	import myBra from './components/braspress'
+	import myDel from '@/components/Del'
+	export default {
+		components: {
+			myConva,
+			myWalmart,
+			myBw,
+			myLoga,
+			myTiny,
+			myTran,
+			myJadlog,
+			myBra,
+			myDel
+		},
+		data() {
+			return {
 
-            }
-        }
-    }
+			}
+		}
+	}
+
 </script>
 <style rel='stylesheet/scss' lang="scss">
-    .main_box{
-        .title{
-            font-size:18rem;
-            font-weight:bold;
-        }
-        .section_box{
-            padding:20px;
-            display:flex;
-            flex-wrap:wrap;
-            margin-bottom:50px;
-           .section_item{
-               width:15%;
-               margin-right:5%;
-               margin-top:20px;
-               text-align:center;
-               color:#808080;
-               font-weight:bold;
-               font-size:12rem;
-               border:1px solid #808080;
-               border-radius:15px;
-               padding-top:10px;
-               p{
-                   height:34px;
-                   padding:10px 0;
-               }
-               .img{
-                   height:102px;
-                   font-size:50rem;
-                   color:#0aa1ed;
-                   line-height:102px;
-                   text-align:center;
-               }
-               .btn_box{
-                   width:100%;
-                   height:35px;
-                   line-height:35px;
-                   background:#0aa1ed;
-                   border-bottom-left-radius:14px;
-                    border-bottom-right-radius:14px;
-                    color:#fff;
-                    position:relative;
-                    top:1px;
-                    
-                    span{
-                        margin-right:15px;
-                    }
-                .el-icon-delete{
-                    background:#0aa1ed;
-                    float:right;
-                    margin-top:11px;
-                    
-                }
-                .el-icon-delete,
-                .el-icon-check{
-                    cursor:pointer;
-                }
-               }
-               .dis{
-                   background:#808080;
-               }
-           }
-        }
-    }
+	.integral-item {
+		padding: 20px;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		align-items: center;
+		>div {
+			width: 200px;
+			border: 1px solid #ccc;
+			border-radius: 16px;
+			overflow: hidden;
+			margin-right: 40px;
+			margin-top: 20px;
+			h6 {
+				text-align: center;
+				font-size: 18px;
+				height: 80px;
+				line-height: 80px
+			}
+			.integral-item-img {
+				height: 100px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				img {
+					/*					width: 100px;*/
+				}
+			}
+			.integral-item-tip {
+				text-align: center;
+				height: 50px;
+				line-height: 40px;
+				font-size: 14px;
+				color: #000;
+			}
+			.integral-item-footer {
+				width: 100%;
+				background-color: #13AFAD;
+				display: flex;
+				padding: 16px 20px;
+				align-items: center;
+				justify-content: space-around;
+				font-size: 16px;
+				color: #fff;
+				text-align: center;
+				border-radius: 0 0 16px 16px;
+				.el-icon-check,
+				.el-icon-delete {
+					font-size: 18px;
+					cursor: pointer;
+					&:hover {
+/*						color: blue*/
+					}
+				}
+
+			}
+		}
+	}
+
 </style>

@@ -6,6 +6,28 @@ const cn = {
 		'Contato': 'Contato',
 		'Telefone': 'Telefone',
 		'Operação': 'Operação',
+		'Imagem': 'Imagem',
+		'Nome': 'Nome',
+		'Variação': 'Variação',
+		'Atributo': 'Atributo',
+		'Quantidade': 'Quantidade',
+		'Valor': 'Valor',
+		'Operação': 'Operação',
+		'Loja': 'Loja',
+		'Cód. do Pedido': 'Cód. do Pedido',
+		'Cliente (Apelido)': 'Cliente (Apelido)',
+		'Rastreio': 'Rastreio',
+		'Data de Empa': 'Data de Empa',
+		'Status': 'Status',
+		'Operação': 'Operação',
+	},
+	"button":{
+		"Empacotar":"Empacotar",
+		"ok":"Ok",
+		"Relatório de Saída":"Relatório de Saída",//货品转化列表映射
+	},
+	"select":{
+		"Paginação":"Paginação",
 	},
 	"route": {
 		"主页": "dashboard",

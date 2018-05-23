@@ -2,38 +2,33 @@
     <el-dialog
     :visible.sync="$store.state.integral.show_conva"
     >
-    <div slot='title' class="erp-dialog_title">
-        {{$t('integral["Configurações CNOVA"]')}}
-    </div>
-    <div class='conva_box'>
-        <div class='input_box'>
-            <div class='input'>
-                <p>{{$t('integral["Token de Acesso"]')}}</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
-            </div>
-            <div class='input'>
-                <p>{{$t('integral["Prazo de Entrega"]')}}</p>
-                <el-input type='text' size='small' style='margin-top:20px'></el-input>
-            </div>
-        </div>
-        <p class='choose'>
-            <el-checkbox v-model="checked"></el-checkbox>
-            <span class='span'>{{$t('integral["Envio do Produto"]')}}</span>
-            <el-select size='small'>
-                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
-                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
-            </el-select>
-        </p>
-        <p class='choose'>
-            <el-checkbox></el-checkbox>
-            <span class='span'>{{$t('integral["Retirada em mãos"]')}}</span>
-            <el-select size='small'>
-                <el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
-                <el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
-            </el-select>
-        </p>
-    </div>
-
+		<div slot='title' class="erp-dialog_title">
+			{{$t('integral["Configurações CNOVA"]')}}
+		</div>
+		<div class='erp-dialog-item just-start' style="padding:0px 0 10px 0;border:none;margin:0px;margin-bottm:10px">
+			<div>
+			<p>{{$t('integral["Token de Acesso"]')}}</p>
+			<el-input type='text' size='small'></el-input>
+			</div>
+			<div>
+			<p>{{$t('integral["Prazo de Entrega"]')}}</p>
+			<el-input type='text' size='small'></el-input>
+			</div>
+		</div>
+		<div class='erp-dialog-checkbox'>
+			<el-checkbox v-model="checked">{{$t('integral["Token de Acesso"]')}}</el-checkbox>
+			<el-select size='small'>
+			<el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+			<el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
+			</el-select>
+		</div>  
+		<div class='erp-dialog-checkbox'>
+			<el-checkbox v-model="checked1">{{$t('integral["Prazo de Entrega"]')}}</el-checkbox>
+			<el-select size='small'>
+			<el-option>{{$t('integral["Oferecer envios pelo Mercado Envios"]')}}</el-option>
+			<el-option>{{$t('integral["Oferecer envios pelo Correios"]')}}</el-option>
+			</el-select>
+		</div>
     </el-dialog>
 </template>
 <script>

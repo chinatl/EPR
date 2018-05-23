@@ -5,7 +5,9 @@
             style='width:20px;height:20px;'
             :src="require('@/assets/img/mark.jpg')" alt=""></span></h3>
        		<div>
-			 	<el-button size='small' round type='success'>{{$t('expedic["Relatório de Saída"]')}}</el-button>
+			 	<el-button size='small' round
+               	@click='$store.commit("TOOGLE_EXPEDIC_DETAIL")'
+                 type='success'>{{$t('button["Relatório de Saída"]')}}</el-button>
                 <el-button size='small' round type='primary'>{{$t('expedic["Imprimir Etiquetas"]')}}</el-button>
        		</div>
        	</div>
@@ -15,17 +17,19 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<span>{{$t('expedic["Data"]')}}</span>
-				<el-select class='select Selecionar' size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
-			</div>
-			<div>
-				<span>{{$t('expedic["Período"]')}}</span>
-				<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
-				</el-date-picker>
+				<div>
+					<span>{{$t('expedic["Data"]')}}</span>
+					<el-select class='select Selecionar' size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
+						<el-option value='5' label='5'></el-option>
+						<el-option value='10' label='10'></el-option>
+						<el-option value='15' label='15'></el-option>
+					</el-select>
+				</div>
+				<div>
+					<span>{{$t('expedic["Período"]')}}</span>
+					<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
+					</el-date-picker>
+				</div>
 			</div>
 		</div>
         <div class="erp-list" v-loading='loading'>
@@ -40,7 +44,7 @@
 				<li class='flex3'>{{$t('expedic["Operação"]')}}</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
-				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index">
+				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index" @click='show_item(item)'>
 					<li class='flex1'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
 					<li>{{item.name}}</li>
 					<li>{{item.phone}}</li>
@@ -50,8 +54,8 @@
 					<li class='flex3'>{{item.address}}</li>
 					<li class='flex3'>
 						<div class="table-icon">
-							<span><svg-icon icon-class='mask' style='font-size:26px;'></svg-icon></span>
-							<span><svg-icon icon-class='box' style='font-size:26px;'></svg-icon></span>
+							<span @click.stop='$store.commit("TOOGLE_EXPEDIC_ORDER")'><svg-icon icon-class='mask' style='font-size:26px;'></svg-icon></span>
+							<span><svg-icon icon-class='box' style='font-size:20px;'></svg-icon></span>
 						</div>
 					</li>
 				</ul>
@@ -62,20 +66,30 @@
 			</el-pagination>
 		</div>
 		<my-order></my-order>
-		<inform></inform>
+		<my-details></my-details>
+		<a-list></a-list>
+		<my-error
+			title='Erro'
+			message='Tivemos uma falha de comunicaçao na impressão 
+da etiqueta, Favor conferir no marketplace.'
+		></my-error>
 	</div>
 </template>
 <script>
-	import myOrder from './components/order'
-	import Inform from './components/inform'
+	import myOrder from './components/order' //打包
+	import myError from '@/components/Error' //删除提示
+	import myDetails from './components/details' //给按钮添加 展示所有详情
+	import aList from './components/alist' //显示每条列表的详情
 	export default {
 		components: {
+			aList,
+			myDetails,
 			myOrder,
-			Inform
+			myError
 		},
 		data() {
 			return {
-				value:'',
+				value: '',
 				loading: false,
 				pageSize: '5',
 				value7: '',
@@ -105,36 +119,41 @@
 						ss: '12345678912BR'
 					}
 				],
-			checkAll:false,	
+				checkAll: false,
 
-				
+
 			}
 		},
 		methods: {
-			all(e){
-				this.tableData.forEach(res=>res.checked = e )
+			show_item(item) {
+				this.$store.commit('TOOGLE_EXPEDIC_ALIST');
 			},
-			choose(e,i){
-				if(e){
+			all(e) {
+				this.tableData.forEach(res => res.checked = e)
+			},
+			choose(e, i) {
+				if (e) {
 					var flag = false;
-					this.tableData.forEach(res=>{
-						if(!res.checked){
+					this.tableData.forEach(res => {
+						if (!res.checked) {
 							flag = true;
 						}
 					});
 					this.checkAll = !flag;
-				}else {
+				} else {
 					var flag = true;
-					this.tableData.forEach(res=>{
-						if(!res.checked){
-							flag =false;
+					this.tableData.forEach(res => {
+						if (!res.checked) {
+							flag = false;
 						}
 					});
 					this.checkAll = flag;
 				}
 			},
-			pickerOptions2() {
-			}
+			pickerOptions2() {}
+		},
+		created() {
+			this.$store.commit('TOGGLE_ALL_ARROR')
 		}
 	}
 

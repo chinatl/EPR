@@ -1,8 +1,8 @@
 const app = {
 	state: {
-		show_order: true,
-		show_new: true,
-		show_detail: true
+		show_order: false,
+		show_new: false,
+		show_detail: false
 	},
 	mutations: {
 		TOGGLE_ORDER_ORDER: state => {

@@ -1,10 +1,12 @@
 <template>
-    <div class='main_box'>
+    <div>
        	<div class="erp-header">
        		<h3>{{$t('pedido["Pedidos"]')}} <span class="else-con ">*{{$t('pedido["Mantemos as mensagens arquivados por 3 meses"]')}}.</span></h3>
        		<div>
-		  		<el-button type='success' size='small' round>{{$t('pedido["Exportar Tiny"]')}}</el-button>
-            	<el-button type='danger' size='small' round>{{$t('pedido["Novo Pedido"]')}}</el-button>
+		  		<el-button type='success' size='small' round @click='$store.commit("TOGGLE_ORDER_DETAIL")'>{{$t('pedido["Exportar Tiny"]')}}</el-button>
+            	<el-button type='danger' size='small' round 
+            	@click='$store.commit("TOGGLE_ORDER_NEWORDER")'
+            	>{{$t('pedido["Novo Pedido"]')}}</el-button>
        		</div>
        	</div>
 		
@@ -15,19 +17,11 @@
 			</div>
 			<div>
 				 <span>{{$t('pedido["Paginação"]')}}</span>
-                <el-select  size='small' v-model='pageSize' style='width:80px'>
+                <el-select  size='small' v-model='pageSize' style='width:68px'>
                     <el-option value='5' label='5'></el-option>
                     <el-option value='10' label='10'></el-option>
                     <el-option value='15' label='15'></el-option>
                 </el-select>
-			</div>
-			<div>
-				<span>{{$t(`relatorios["Ordernar por"]`)}}</span>
-				<el-select class='select Selecionar' size='small' v-model='value' placeholder='Selecionar'  style='width:80px'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
 			</div>
 			<div>
 				<span >Status</span>
@@ -60,31 +54,34 @@
 				</el-date-picker>
 			</div>
 		</div>
-       
-        <div class="table-bgc">
-			<el-table
-				:data="tableData"
-				stripe
-				tooltip-effect="dark"
-				@row-click='row_click'
-				style="width: 100%"
-			>
-			 <el-table-column type="selection" align='center' width="55">
-			 </el-table-column>
-			 <el-table-column prop="name" :label='$t(`pedido["Loja"]`)' align='center'>
-			 </el-table-column>
-			 <el-table-column :label='$t(`pedido["Cód. do Pedido"]`)'prop="address" align='center'>
-			 </el-table-column>	 
-			 <el-table-column :label='$t(`pedido["Rastreio"]`)'prop="name" align='center'>
-			 </el-table-column>	 
-			 <el-table-column :label='$t(`pedido["Cliente (Apelido)"]`)' prop="name" align='center'>
-			 </el-table-column>
-			  <el-table-column :label='$t(`pedido["Data Pag."]`)'prop="name" align='center'>
-			 </el-table-column>
-			 <el-table-column :label='$t(`pedido["Status"]`)'prop="name" align='center'>
-			 </el-table-column>
-			</el-table>
-        </div>
+		<div class="erp-list" v-loading='loading'>
+			<ul class="title">
+				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
+				<li class="flex3">{{$t(`pedido["Loja"]`)}}</li>
+				<li>{{$t(`pedido["Cód. do Pedido"]`)}}</li>
+				<li>{{$t(`pedido["Rastreio"]`)}}</li>
+				<li>{{$t(`pedido["Cliente (Apelido)"]`)}}</li>
+				<li class="flex3">{{$t(`pedido["Data Pag."]`)}}</li>
+				<li class="flex3">{{$t(`pedido["Status"]`)}}</li>
+			</ul>
+			<transition-group name="fade" tag='div'>
+				<ul class="content" v-for='(item,index) in list' v-bind:key="index">
+					<li class='flex1'><el-checkbox v-model='item.checked' @change='choose($event,index)'></el-checkbox>
+					<li class="flex3">{{item.name}}</li>
+					<li>{{item.address}}</li>
+					<li>{{item.Marca}}</li>
+					<li>
+  						<span class="icon-message" @click='$store.commit("TOGGLE_ORDER_ORDER")'>
+  							<span class="icon-number">12</span>
+							<svg-icon icon-class='message'></svg-icon>
+  						</span>
+						{{item.Estoque}}
+					</li>
+					<li class="flex3">{{item.date}}</li>
+					<li class="flex3">{{item.status}}</li>
+				</ul>
+			</transition-group>
+		</div>
         <div class="erp-page">
             <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
             </el-pagination>
@@ -107,31 +104,44 @@
 		data() {
 
 			return {
+				loading: false,
 				value: '',
 				value7: '',
 				total: 10,
-				pageSize:'5',
+				pageSize: '5',
 				show: false,
-				tableData: [{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
+				checkAll: false,
+				list: [{
+						name: 'Americanas.com',
+						address: '132456789123',
+						Marca: '12345678912BR',
+						Estoque: 'Ricardo de Paula...',
+						date: '25/11/2017',
+						status: 'Incluido'
 					},
 					{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
+						name: 'Loja Física',
+						address: '132456789123',
+						Marca: '12345678912BR',
+						Estoque: 'Ricardo de Paula...',
+						date: '25/11/2017',
+						status: 'Aprovado'
 					},
 					{
-						name: '1000103-00',
-						address: 'Escova Alisadora',
-						Marca: 'Pmcell',
-						Estoque: '200',
-						sss: ''
+						name: 'Submarino',
+						address: '132456789123',
+						Marca: '12345678912BR',
+						Estoque: 'Ricardo de Paula...',
+						date: '25/11/2017',
+						status: 'Erro'
+					},
+					{
+						name: 'Submarino',
+						address: '132456789123',
+						Marca: '12345678912BR',
+						Estoque: 'Ricardo de Paula...',
+						date: '25/11/2017',
+						status: 'Cancelado'
 					}
 				]
 			}
@@ -142,64 +152,61 @@
 			},
 			pickerOptions2(e) {
 				console.log(e)
-			}
+			},
+			all(e) {
+				console.log(e);
+				this.list.forEach(res => res.checked = e)
+			},
+			choose(e, i) {
+				if (e) {
+					var flag = false;
+					this.list.forEach(res => {
+						if (!res.checked) {
+							flag = true;
+						}
+					});
+					this.checkAll = !flag;
+				} else {
+					var flag = true;
+					this.list.forEach(res => {
+						if (!res.checked) {
+							flag = false;
+						}
+					});
+					this.checkAll = flag;
+				}
+			},
 		}
 	}
 
 </script>
 <style rel='stylesheet/scss' lang='scss'>
-	.main_box{
-		.h_input {
-			height: 33px;
-			position: relative;
-			padding: 0;
-			.input {
-				width: 250px;
-				position: absolute;
-				right: 0px;
-				text-align: right;
-				display: inline-block;
-
+	.icon-message {
+		font-size: 24px;
+		margin-right: 20px;
+		color: #999;
+		position: relative;
+		cursor: pointer;
+		.icon-number {
+			position: absolute;
+			right: -10px;
+			top: 8px;
+			background-color: #999;
+			color: #fff;
+			height: 20px;
+			width: 20px;
+			line-height: 20px;
+			border-radius: 50%;
+			font-size: 11px;
+			display: inline-block;
+			text-align: center;
+		}
+		&:hover {
+			color: #B72C2C;
+			.icon-number {
+				background-color: #B72C2C;
 			}
 		}
-		.th_box {
-			.select-input {
-				display: flex;
-			}
-			.el-icon-search {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				font-size: 20rem;
-				color: #fff;
-				background: #0aa1ed;
-				text-align: center;
-				line-height: 32px;
-				position: relative;
-				left: -6px;
-				margin: 0;
-				margin-right: 4%;
-			}
-			.select {
-				font-size: 5rem;
-			}
-			.Selecionar {
-				width: 12%;
-			}
-			.col {
-				display: flex;
-				.tle {
-					line-height: 32px;
-					margin-right: 5px;
-					font-size: 13rem;
-					font-weight: bold;
-					color:#808080;
-				}
-			}
-
-		}
-	
 	}
 
 </style>
-

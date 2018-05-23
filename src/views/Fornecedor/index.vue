@@ -1,5 +1,5 @@
 <template>
-    <div class='main_box'>
+    <div>
 	  	<div class="erp-header">
             <h3>{{$t('fornecedor["Fornecedores"]')}}</h3>
             <div>

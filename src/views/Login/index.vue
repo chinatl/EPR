@@ -18,7 +18,7 @@
                  <router-link to='forget'>{{$t(`login["忘记密码"]`)}}</router-link>
             </div>
             <div class="login-post">
-                 <el-button type="success" round  v-waves @click='login'>{{loginmsg}}</el-button>
+                 <router-link to='/dashboard'><el-button type="success" round  v-waves >{{loginmsg}} </el-button></router-link>
                  <p>-----------&nbsp;&nbsp;Qu&nbsp;&nbsp;-------------</p>
                  <div class="login-img">
                      <div v-waves><img :src="require('@/assets/img/img1.png')" alt=""></div>

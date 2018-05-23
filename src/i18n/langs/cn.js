@@ -1,11 +1,33 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const cn = {
 	"table": {
-		"Nome Fantasia": "用户昵称  ",
-		"CNPJ/CPF": "  社会安全号码/证监会  ",
-		"Contato": "  联系方式  ",
-		"Telefone": "  电话  ",
-		"Operação": "  操作"
+		"table": {
+			"Nome Fantasia": "用户昵称 ",
+			"CNPJ/CPF": " 社会安全号码/证监会 ",
+			"Contato": " 接触 ",
+			"Telefone": " 电话 ",
+			"Operação": " 操作 ",
+			"Imagem": " 图像 ",
+			"Nome": " 名称 ",
+			"Variação": " 变化 ",
+			"Atributo": " 属性 ",
+			"Quantidade": " 数量 ",
+			"Valor": " 价值 ",
+			"Loja": " 商店 ",
+			"Cód. do Pedido": " 代码的请求。 ",
+			"Cliente (Apelido)": " 客户（姓氏） ",
+			"Rastreio": " 筛选 ",
+			"Data de Empa": " 分析日期 ",
+			"Status": "状态"
+		}
+	},
+	"button": {
+		"Empacotar": "打包",
+		"ok": "ok",
+		"Relatório de Saída": "货品转化列表映射", //货品转化列表映射
+	},
+	"select": {
+		"Paginação": "页数",
 	},
 	"route": {
 		"主页": "主页",

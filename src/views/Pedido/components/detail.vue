@@ -1,104 +1,140 @@
 <template>
    <el-dialog
-  :visible.sync="$store.state.order.show_detail"
- >
-    <div slot='title' class="erp-dialog_title">
-        {{$t('pedido["Rastreamento do Pedido"]')}} | 1234567891BR
-    </div>
-    <div class="detail_main">
-        <div class='header'>
-            <div class='subtitle'style='z-index:2'>
-                {{$t('pedido["Postagem"]')}}
-            </div>
-             <div class='subtitle right mid'>
-               {{$t('pedido["Em Trânsito"]')}}
-            </div>
-             <div class='subtitle right' style="left:560px;">
-               {{$t('pedido["Entregue"]')}} 
-            </div>
-        </div>
-        <div style="margin-top:30px;">
-            <p class='text'>{{$t('pedido["Objeto aguardando retirada no endereço indicado"]')}}</p>
-            <p class='text'>{{$t('pedido["02/12/2017 17:45 PORTO ALEGRE / RS"]')}}</p>
-        </div>
-        <div class="border" v-for='item in list'>
-            <div class="time">
-                <p class='text'>02/12/2017</p>
-                <p class='text'>14:00</p>
-            </div>
-            <div class='report'>
-                <p>{{$t('pedido["Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto."]')}} </p>
-            </div>
-        </div>
-    </div>
-</el-dialog>
+	  :visible.sync="$store.state.order.show_detail"
+	 >
+		<div slot='title' class="erp-dialog_title">
+			{{$t('pedido["Rastreamento do Pedido"]')}} | 1234567891BR
+		</div>
+		<div class='transport-header'>
+			<div >
+				{{$t('pedido["Postagem"]')}}
+			</div>
+			 <div class="current">
+			   {{$t('pedido["Em Trânsito"]')}}
+			</div>
+			 <div>
+			   {{$t('pedido["Entregue"]')}} 
+			</div>
+		</div>
+		
+		<div class='transport-text'>
+			<p>{{$t('pedido["Objeto aguardando retirada no endereço indicado"]')}}</p>
+			<p>{{$t('pedido["02/12/2017 17:45 PORTO ALEGRE / RS"]')}}</p>
+		</div>
+		<div class="transport-list">
+			<ul>
+				<li v-for='item in list'>
+					<div class="date">
+						<p>02/12/2017</p>
+						<p>14:00</p>
+					</div>
+					<div class="report">
+						<p>{{$t('pedido["Objeto aguardando retirada no endereço indicado Para retirá-lo, é precisoinformar o código do objeto."]')}}</p>
+					</div>
+				</li>
+				<li>
+					<div class="date">
+						<p>02/12/2017</p>
+						<p>14:00</p>
+					</div>
+					<div class="report">
+						<p>Objeto andereço iirá-lo, é precisoinformar o código do objeto.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+	</el-dialog>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-          list:[1,2,3,4,5,],
-      };
-    },
-   
-    created(){
-      
-    }
+	export default {
+		data() {
+			return {
+				list: [1, 2, 3, , 2, 2],
+			};
+		},
 
-  };
+		created() {
+
+		}
+
+	};
+
 </script>
 </template>
 
-<style rel="stylesheet/scss" lang="scss">
-     .detail_main{
-        padding:0 20px;
-       .header{
-           margin:50px auto 0;
-           display:flex;
-           width:700px;
-           padding-left:10px;
-            text-align:center;
-             position:realtive; 
-           .subtitle{
-               display:inline-block;
-               width:250px;
-               height:60px;
-              font-size:20rem;
-              color:#808080;
-              text-align:center;
-              line-height:60px;
-              border-radius:50px;
-              background:#e0e0e0;
-             position:realtive; 
-           }
-            .right{
-                position:absolute;
-                left:350px;
-            }
-            .mid{
-                 background:#0aa1ed;
-                 z-index:1;
-                 color:#fff;
-            }
-       }
-       .text{
-           text-align:center;
-           color:#808080;
-       }
-       .border{
-           border-bottom:1px solid #808080;
-           padding:30px 20px;
-           display:flex;
-           
-           .time{
-               width:100px;
-               margin-right:10%;
-           }
-           .report{
-               width:80%;
-               font-size:13rem;
-           }
-       }
-     }
+<style rel="stylesheet/scss" lang="scss" scoped="true">
+	$titleheight:60px;
+	.transport-header {
+		margin: 20px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		>div {
+			height: $titleheight;
+			border-radius: 80px;
+			width: 250px;
+			text-align: center;
+			background-color: #e0e0e0;
+			line-height: $titleheight;
+			font-size: 20rem;
+			position: relative;
+			&:nth-of-type(3) {
+				z-index: 1;
+				padding-left: 38px;
+			}
+			&:nth-of-type(2) {
+				z-index: 2;
+
+				margin-right: -50px;
+				padding-left: 38px;
+			}
+			&:nth-of-type(1) {
+				z-index: 3;
+				margin-right: -50px;
+			}
+			&.current {
+				color: #fff;
+				background-color: #40B4B1;
+			}
+		}
+	}
+
+	.transport-text {
+		text-align: center;
+		>p {
+			font-size: 16px;
+			margin-bottom: 6px;
+			font-weight: bold
+		}
+	}
+
+	.transport-list {
+		margin-top: 20px;
+		ul {
+			li {
+				display: flex;
+				margin: 0 100px;
+				height: 80px;
+				border-bottom: 2px solid #ccc;
+				align-items: center;
+				&:nth-last-child(1) {
+					border-bottom: none;
+				}
+				>.date {
+					color: #40B4B1;
+					font-size: 16px;
+					font-weight: bold;
+					line-height: 24px;
+					text-align: center;
+					margin-right: 100px;
+				}
+				>.report {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+
 </style>

@@ -1,34 +1,38 @@
 <template>
+<div class="error-page">
 	<el-dialog
-		:visible.sync="$store.state.product.show_delete"
+		:visible.sync="$store.state.all.show_del"
 		  center
 		>
-		<div slot='title' class="del-title-large">Atenção</div>
-		<p class="del-title del-h3">{{$t('product["Ao executar a ação de exclusão do produto, todos os anúncios"]')}}</p>
-		<p class="del-title">{{$t('product["ligados a ele serão desvínculados."]')}}</p>
-		<p class="del-button">
-			<el-button size='small' round type="primary" @click='agree'>{{$t('product["Sim"]')}}</el-button>
-			<el-button size='small' round type="info" @click='cancel'>{{$t('product["Não"]')}}</el-button>
-		</p>
+		<div slot='title' class="error-header">Atenção</div>
+		<div class="error-content">
+			<p class="error-message">Ao executar a ação de exclusão do produto, todos os anúncios</p>
+			<p class="error-message">ligados a ele serão desvínculados.</p>
+			<p class="error-button">
+				<el-button size='small' round type="primary" @click='agree'><span class="error-inner">{{$t('product["Sim"]')}}</span></el-button>
+				<el-button size='small' round type="info" @click='cancel'><span class="error-inner">{{$t('product["Não"]')}}</span></el-button>
+			</p>
+		</div>
 	</el-dialog>
+</div>
 </template>
 <script>
 	export default {
 		data() {
 			return {
-				dialog: true
+				dialog: true,
 			}
 		},
 		methods: {
 			agree() {
-				this.$store.commit("TOGGLE_DELETE");
+				this.$store.commit("TOGGLE_ALL_DEL");
 				this.$message({
 					message: '恭喜你，这是一条成功消息',
 					type: 'success'
 				});
 			},
 			cancel() {
-				this.$store.commit("TOGGLE_DELETE");
+				this.$store.commit("TOGGLE_ALL_DEL");
 				this.$message({
 					message: '恭喜你，操作失败',
 					type: 'warning'

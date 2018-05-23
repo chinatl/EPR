@@ -1,6 +1,6 @@
 <template>
     <el-dialog
-    :visible.sync="$store.state.order.show_order"
+    :visible.sync="$store.state.expedic.show_alist"
     >
 		<div slot='title' class="erp-dialog_title">
 			{{$t('pedido["Informações do Pedido"]')}} | 123456789123
@@ -43,7 +43,6 @@
 				<li class="flex3">{{$t(`table["Variação"]`)}}</li>
 				<li class="flex3">{{$t(`table["Atributo"]`)}}</li>
 				<li class="flex3">{{$t(`table["Quantidade"]`)}}</li>
-				<li class="flex3">{{$t(`table["Valor"]`)}}</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in list' v-bind:key="index">
@@ -53,10 +52,15 @@
 					<li class="flex3">{{item.value4}}</li>
 					<li class="flex3">{{item.value5}}</li>
 					<li class="flex3">{{item.value6}}</li>
-					<li class="flex3">{{item.value7}}</li>
 				</ul>
 			</transition-group>
 		</div>
+   		<p class="erp-table-tip">
+			<span>Total Quantidade: 3000</span>
+		</p>
+		<p class='erp-dialog-button'>
+			<el-button type='success' round @click='submit'>{{$t('button["ok"]')}}</el-button>
+		</p>
     </el-dialog>
 </template>
 <script>
@@ -64,7 +68,7 @@
 		data() {
 			return {
 				value: 'value',
-				loading:false,
+				loading: false,
 				total: 10,
 				list: [{
 						value1: '1000103-00',
@@ -73,7 +77,6 @@
 						value4: 'Vermelho',
 						value5: '220V',
 						value6: '1',
-						value7: 'R$ 25,00',
 					},
 					{
 						value1: '1000103-00',
@@ -82,22 +85,21 @@
 						value4: 'Branco',
 						value5: '220V',
 						value6: '2',
-						value7: 'R$ 25,00',
-					},	{
+					}, {
 						value1: '1000103-00',
 						value2: '10001100-10',
 						value3: 'Headphone Bluetooth',
 						value4: 'Branco',
 						value5: '220V',
 						value6: '2',
-						value7: 'R$ 25,00',
 					},
-
 				]
 			}
 		},
 		methods: {
+			submit() {
 
+			}
 		}
 	}
 

@@ -3,6 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+@import './menu.css';
 * {
 	padding: 0;
 	margin: 0;
@@ -179,6 +180,8 @@ li {
 .table-icon {
 	display: flex;
 	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.5s;
 	> span {
 		width: 24px;
 		color: #000;
@@ -218,6 +221,11 @@ li {
 
 .erp-list {
 	width: 100%;
+	&:hover {
+		.table-icon {
+			opacity: 1;
+		}
+	}
 	ul {
 		width: 100%;
 		align-items: center;
@@ -249,7 +257,7 @@ li {
 		line-height: 48px;
 		transition: backgroundColor 1s;
 		li {
-			font-size: 16rem;
+			font-size: 15rem;
 			font-weight: bold;
 			color: #222;
 			white-space: nowrap;
@@ -298,6 +306,18 @@ li {
 
 /*通用搜索栏*/
 
+/*表格总计提示*/
+
+.erp-table-tip {
+	text-align: right;
+	margin: 12px 0;
+	> span {
+		margin-left: 20px;
+		font-size: 14px;
+		font-weight: bold
+	}
+}
+
 .erp-bar {
 	display: flex;
 	align-items: center;
@@ -311,13 +331,126 @@ li {
 			font-weight: bold;
 			margin-right: 12px
 		}
+		> div {
+			margin: 0px 12px;
+			> span {
+				font-size: 14rem;
+				font-weight: bold;
+				margin-right: 12px
+			}
+		}
 	}
+
+}
+
+.error-page {
+	div.el-dialog {
+		width: 760px;
+	}
+}
+
+.error-header {
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 15px;
+	position: relative;
+	text-align: center;
+	color: #000;
+	font-weight: bold; //		background-color: #eee;
+	font-size: 24rem;
+	margin: 0 6px;
+}
+
+.erp-dialog-item {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	padding: 20px 10px 12px 10px;
+	border: 2px solid #aaa;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap; //
+	> div {
+		flex: 1;
+		margin: 10px;
+		> p {
+			margin-bottom: 4px;
+			font-weight: bold;
+			font-size: 16px;
+		}
+		> .word {
+			margin-bottom: 4px;
+			font-weight: normal;
+			font-size: 14px;
+		}
+	}
+	.width30 {
+		max-width: 30%;
+		min-width: 25%;
+	}
+	.width40 {
+		max-width: 40%;
+		min-width: 40%;
+	}
+	.width20 {
+		max-width: 20%;
+		min-width: 20%;
+	}
+	.width15 {
+		max-width: 15%;
+		min-width: 15%;
+	}
+	.width4 {
+		max-width: 4%;
+		min-width: 4%;
+	}
+	.erp-dialog-head {
+		position: absolute;
+		left: 100px;
+		top: -24px;
+		background-color: #fff;
+		padding: 0 20px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+
+.just-start {
+	justify-content: flex-start
+}
+
+.erp-dialog-button {
+	text-align: right;
+}
+
+.error-content {
+	text-align: center;
+	padding: 15px 40px 0px 40px;
+	.error-message {
+		font-size: 18px;
+		color: #666;
+		font-weight: bold
+	}
+	.error-button {
+		margin-top: 20px;
+		.error-inner {
+			font-size: 14px;
+			padding: 4px 12px;
+		}
+	}
+}
+
+.filter-gray {
+	-webkit-filter: grayscale(100%);
+	/* Chrome, Safari, Opera */
+	filter: grayscale(100%);
 }
 
 /*--- 自定义框设置---*/
 
 div.el-dialog {
 	width: 960px;
+	margin-bottom: 50px;
 	/*一些特殊样式*/
 	.erp-dialog_title {
 		font-size: 20px;
@@ -327,76 +460,17 @@ div.el-dialog {
 	}
 	.el-dialog__body {
 		padding: 0 40px 24px 40px;
-		.erp-dialog-item {
-			margin-top: 20px;
-			margin-bottom: 30px;
-			padding: 20px 10px 12px 10px;
-			border: 2px solid #979797;
-			position: relative;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-wrap: wrap;//
-			> div {
-				flex: 1;
-				margin: 10px;
-				> p {
-					margin-bottom: 4px;
-					font-weight: bold;
-				}
-			}
-			.width30 {
-				max-width: 30%;
-				min-width: 25%;
-			}
-			.width40 {
-				max-width: 40%;
-				min-width: 40%;
-			}
-			.width20 {
-				max-width: 20%;
-				min-width: 20%;
-			}
-			.erp-dialog-head {
-				position: absolute;
-				left: 100px;
-				top: -24px;
-				background-color: #fff;
-				padding: 0 20px;
-				font-size: 16px;
-				font-weight: bold;
-			}
-		}
-		.just-start {
-			justify-content: flex-start
-		}
-		.erp-dialog-button {
-			text-align: right;
-		}
+
 	}
 }
 
+/*弹出框页脚设置*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.erp-dialog-checkbox {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	> label {
+		width: 180px;
+	}
+}

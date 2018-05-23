@@ -1,0 +1,113 @@
+{
+	"paging": {
+		"total": 1,
+		"offset": 0,
+		"limit": 1
+	},
+	"results": [
+			{
+				"metadata": {},
+				"operation_type": "regular_payment",
+				"fee_details": [
+					{
+						"amount": 0.16,
+						"fee_payer": "collector",
+						"type": "application_fee"
+					}, {
+						"amount": 0.16,
+						"fee_payer": "collector",
+						"type": "application_fee"
+					}],
+				"date_approved": "2018-03-23T23:25:44.000-04:00",
+				"payer": {
+					"identification": {
+						"number": "21887361000252",
+						"type": "CNPJ"
+					},
+					"phone": {
+						"number": "1132298904"
+					},
+					"nickname": "MEGAHARIBABA2",
+					"last_name": "Eireli - ME",
+					"id": 250779693,
+					"type": "registered",
+					"first_name": "Mike Tecnologia e Comercio"
+				},
+				"transaction_details": {
+					"total_paid_amount": 1,
+					"installment_amount": 0,
+					"net_received_amount": 0.84,
+					"overpaid_amount": 0
+				},
+				"external_reference": "1669002937",
+				"id": 3566099568,
+				"payment_type_id": "account_money",
+				"order": {
+					"id": "1669002937",
+					"type": "mercadolibre"
+				},
+				"application_id": "7098342686239412",
+				"status_detail": "accredited",
+				"additional_info": {
+					"items": [{
+							"quantity": "1",
+							"category_id": "MLB1506",
+							"id": "MLB996737018",
+							"title": "23423",
+							"unit_price": "1"
+						}
+]
+				},
+				"live_mode": true,
+				"
+				payer_id ":250779693,"
+				card ":{},"
+				status ":"
+				approved ","
+				transaction_amount_refunded ":0,"
+				transaction_amount ":1,"
+				description ":"
+				23423 ","
+				money_release_date ":"
+				2018 - 04 - 13 T23: 25: 44.000 - 04: 00 ","
+				collector ":{"
+				identification ":{"
+				number ":"
+				23619679878 ","
+				type ":"
+				CPF "},"
+				phone ":{"
+				number ":"
+				30905221 ","
+				area_code ":"
+				11 "},"
+				nickname ":"
+				MEGAHARIBABA ","
+				last_name ":"
+				e Comercio Eireli - ME ","
+				id ":241461054,"
+				first_name ":"
+				Mike Tecnologia "},"
+				refunds ":[],"
+				captured ":true,"
+				collector_id ":241461054,"
+				date_last_updated ":"
+				2018 - 03 - 23 T23: 25: 44.000 - 04: 00 ","
+				coupon_amount ":0,"
+				shipping_cost ":0,"
+				date_created ":"
+				2018 - 03 - 23 T23: 25: 42.000 - 04: 00 ","
+				acquirer_reconciliation ":[],"
+				payment_method_id ":"
+				account_money ","
+				binary_mode ":false,"
+				processing_mode ":"
+				aggregator ","
+				currency_id ":"
+				BRL ","
+				merchant_services ":{"
+				fraud_scoring ":false,"
+				fraud_manual_review ":false}
+			}
+	]
+}

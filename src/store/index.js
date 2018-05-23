@@ -10,7 +10,8 @@ import integral from './modules/integral'
 import sac from './modules/sac'
 import getters from './getters'
 import fornecedor from './modules/fornecedor'
-import rastreamento from './modules/rastreamento'//物流最终
+import rastreamento from './modules/rastreamento' //物流最终
+import all from './modules/all' //通用
 
 Vue.use(Vuex)
 
@@ -29,8 +30,8 @@ const store = new Vuex.Store({
 		expedic,
 		sac,
 		integral,
-		rastreamento
-		
+		rastreamento,
+		all
 	},
 	getters
 })
