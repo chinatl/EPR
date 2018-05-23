@@ -1,6 +1,8 @@
 <template>
     <div class='set_box'>
-        <p class='title'>Configurações Gerais</p>
+        <div class='erp-header'>
+            <h3>Configurações Gerais</h3>
+        </div>
         <p class='title subtitle'>Senha</p>
         <div class='message_box'>
             <p class='input_box'>
@@ -52,7 +54,7 @@
             <div class='module'>
                 <p class='m_title'>Mercado Livre</p>
                 <div class='img_box'>
-                <img :src="require('@/assets/img/mg.png')" alt="">
+                <img :src="require('@/assets/market/market-liver.png')" alt="">
                 </div>
                 <p class='m_text'>
                     <span>Clássico</span>
@@ -66,8 +68,8 @@
             </div>
             <div class='module'>
                 <p class='m_title'>Mercado Livre</p>
-                <div class='text'>
-                    B2W
+                <div class='img_box'>
+                    <img :src="require('@/assets/market/market-b2w.png')" alt="">
                 </div>
                 <p class='m_text'>
                     Comissão Mkt.
@@ -79,8 +81,8 @@
             </div>
             <div class='module'>
                 <p class='m_title'>Walmart</p>
-                <div class='text'>
-                    B2W
+                <div class='img_box'>
+                    <img :src="require('@/assets/market/market-b2w.png')" alt="">
                 </div>
                 <p class='m_text'>
                     Comissão Mkt.
@@ -105,9 +107,8 @@
 </script>
 <style rel='stylesheet/scss' lang='scss'>
     .set_box{
-         padding:20px;
         .title{
-           color:#808080;
+           color:#333333;
            font-size:20rem;
            padding-bottom:1%;
            border-bottom:1px solid #e0e0e0;
@@ -118,14 +119,14 @@
             padding-left:50px;
         }
         .message_box{
-            padding: 20px 100px 40px;
+            padding: 0px 100px 40px;
             border-bottom:1px solid #808080;
             .input_box{
                 display:flex;
-                height:60px;
-                padding-top:20px;
+                height:50px;
+                padding-top:10px;
                 .input_name{
-                    width:50%;
+                    width:30%;
                     border:none;
                     margin-right:10%;
                 }
@@ -145,10 +146,9 @@
                 }
                 .desc{
                     width:10px;
-                    height:10px;
+                    height:8px;
                     background:#808080;
                     border-radius:50%;
-                    
                     margin-right:20%;
                 }
                 .text{
@@ -161,12 +161,12 @@
             }
         }
         .module_box{
-            margin-top:50px;
+            margin-top:20px;
             padding: 20px 100px 60px;
             display:flex;
             .module{
                 width:230px;
-                height:210px;
+                height:260px;
                 padding: 20px;
                 border:1px solid #808080;
                 border-radius:10px;
@@ -177,19 +177,15 @@
                     text-align:center; 
                 }
                 .img_box{
-                    height:100px;
+                    height:150px;
                     padding-top:25px;
                     text-align:center;
+                    vertical-align:middle;
                     img{
                         width:100px;
                         height:60px;
+                        margin-top:20px;
                     }
-                }
-                .text{
-                     font-size:60rem;
-                     padding:25px 0 7px;
-                     color:#0aa1ed;
-                     text-align:center;
                 }
                 .m_text{
                     padding:0 20px;
