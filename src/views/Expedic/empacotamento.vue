@@ -17,16 +17,16 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<div>
-					<span>{{$t('expedic["Data"]')}}</span>
+				<div class="erp-right-item ">
+					<span>{{$t('select["Data"]')}}</span>
 					<el-select class='select Selecionar' size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
 						<el-option value='5' label='5'></el-option>
 						<el-option value='10' label='10'></el-option>
 						<el-option value='15' label='15'></el-option>
 					</el-select>
 				</div>
-				<div>
-					<span>{{$t('expedic["Período"]')}}</span>
+				<div class="erp-right-item ">
+					<span>{{$t('select["Período"]')}}</span>
 					<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
 					</el-date-picker>
 				</div>
@@ -35,13 +35,13 @@
         <div class="erp-list" v-loading='loading'>
 			<ul class="title">
 				<li class='flex1'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
-				<li>{{$t('expedic["Loja"]')}}</li>
-				<li>{{$t('expedic["Cód. do Pedido"]')}}</li>
-				<li class="flex5">{{$t('expedic["Cliente (Apelido)"]')}}</li>
-				<li>{{$t('expedic["Rastreio"]')}}</li>
-				<li>{{$t('expedic["Data de Pag"]')}}.</li>
-				<li class='flex3'>{{$t('expedic["Status"]')}}</li>
-				<li class='flex3'>{{$t('expedic["Operação"]')}}</li>
+				<li>{{$t('table["Loja"]')}}</li>
+				<li>{{$t('table["Cód. do Pedido"]')}}</li>
+				<li class="flex5">{{$t('table["Cliente (Apelido)"]')}}</li>
+				<li>{{$t('table["Rastreio"]')}}</li>
+				<li>{{$t('table["Data de Pag"]')}}</li>
+				<li class='flex3'>{{$t('table["Status"]')}}</li>
+				<li class='flex3'>{{$t('table["Operação"]')}}</li>
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<ul class="content" v-for='(item,index) in tableData' v-bind:key="index" @click='show_item(item)'>

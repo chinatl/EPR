@@ -16,17 +16,17 @@
 					style='width:250px'
 					placeholder='Código do Pedido / Nome ' v-model='value'></el-input>
 			</div>
-			<div class="">
-				<div>
-					<span>{{$t('expedic["Data"]')}}</span>
+			<div>
+				<div class="erp-right-item">
+					<span>{{$t('select["Data"]')}}</span>
 					<el-select class='select Selecionar' size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
 						<el-option value='5' label='5'></el-option>
 						<el-option value='10' label='10'></el-option>
 						<el-option value='15' label='15'></el-option>
 					</el-select>
 				</div>
-				<div>
-					<span>{{$t('expedic["Período"]')}}</span>
+				<div class="erp-right-item">
+					<span>{{$t('select["Período"]')}}</span>
 					<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
 					</el-date-picker>
 				</div>

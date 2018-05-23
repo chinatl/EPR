@@ -20,14 +20,18 @@ const cn = {
 		'Data de Empa': 'Data de Empa',
 		'Status': 'Status',
 		'Operação': 'Operação',
+		'Data de Pag': 'Data de Pag',
 	},
 	"button":{
 		"Empacotar":"Empacotar",
 		"ok":"Ok",
+		"Expedir Pedidos":"Expedir Pedidos",
 		"Relatório de Saída":"Relatório de Saída",//货品转化列表映射
 	},
 	"select":{
 		"Paginação":"Paginação",
+		"Data":"Data",
+		"Período":"Período",
 	},
 	"route": {
 		"主页": "dashboard",
