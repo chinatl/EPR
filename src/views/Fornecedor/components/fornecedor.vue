@@ -4,48 +4,48 @@
 			{{$t(`fornecedor["Editar Fornecedor"]`)}}
 		</div>
  		<div class='erp-dialog-item'>
-       		<div class="erp-dialog-head">{{$t('fornecedor["Identificação"]')}}</div>
+       		<div class="erp-dialog-head">{{$t('input["Identificação"]')}}</div>
        		<div>
-       			<p>{{$t('fornecedor["Nome de Contato"]')}}</p>
+       			<p>{{$t('input["Nome de Contato"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div>
-       			<p>{{$t('fornecedor["CNPJ/CPF"]')}}</p>
+       			<p>{{$t('input["CNPJ/CPF"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div>
-       			<p>{{$t('fornecedor["Razão Social (Opcional)"]')}}</p>
+       			<p>{{$t('input["Razão Social (Opcional)"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div>
-       			<p>{{$t('fornecedor["Nome Fantasic"]')}}</p>
+       			<p>{{$t('input["Nome Fantasic"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
         </div>
  		<div class='erp-dialog-item'>
-       		<div class="erp-dialog-head">{{$t('fornecedor["Endereço"]')}}</div>
+       		<div class="erp-dialog-head">{{$t('input["Endereço"]')}}</div>
        		<div class="width30">
-       			<p>{{$t('fornecedor["Logradouro"]')}}</p>
+       			<p>{{$t('input["Logradouro"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div class="width30">
-       			<p>{{$t('fornecedor["Número"]')}}</p>
+       			<p>{{$t('input["Número"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div  class="width30">
-       			<p>{{$t('fornecedor["Complemento"]')}}</p>
+       			<p>{{$t('input["Complemento"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
        		<div class="width30">
-       			<p>{{$t('fornecedor["Bairro"]')}}</p>
+       			<p>{{$t('input["Bairro"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div >
        		<div  class="width30">
-       			<p>{{$t('fornecedor["Cidade"]')}}</p>
+       			<p>{{$t('input["Cidade"]')}}</p>
        			<el-input type='text' size='small'></el-input>
        		</div>
 			<div class="width30">
-				<p>{{$t('fornecedor["Estado"]')}}</p>
+				<p>{{$t('input["Estado"]')}}</p>
 				<el-input type='text' size='small'></el-input>
 			</div>
         </div>

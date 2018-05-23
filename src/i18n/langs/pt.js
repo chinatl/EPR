@@ -22,16 +22,35 @@ const cn = {
 		'Operação': 'Operação',
 		'Data de Pag': 'Data de Pag',
 	},
-	"button":{
-		"Empacotar":"Empacotar",
-		"ok":"Ok",
-		"Expedir Pedidos":"Expedir Pedidos",
-		"Relatório de Saída":"Relatório de Saída",//货品转化列表映射
+	"button": {
+		"Empacotar": "Empacotar",
+		"ok": "Ok",
+		"Expedir Pedidos": "Expedir Pedidos",
+		"Relatório de Saída": "Relatório de Saída", //货品转化列表映射
 	},
-	"select":{
-		"Paginação":"Paginação",
-		"Data":"Data",
-		"Período":"Período",
+	"select": {
+		"Paginação": "Paginação",
+		"Data": "Data",
+		"Período": "Período",
+	},
+	"input": {
+		"Cliente": "Cliente",
+		"Telefone": "Telefone",
+		"Celular": "Celular",
+		"E-Mail": "E-Mail",
+		"CNPJ": "CNPJ",
+		"Endereço": "Endereço",
+		"Identificação": "Identificação",
+		"Nome de Contato": "Nome de Contato",
+		"CNPJ/CPF": "CNPJ/CPF",
+		"Razão Social (Opcional)": "Razão Social (Opcional)",
+		"Nome Fantasic": "Nome Fantasic",
+		"Logradouro": "Logradouro",
+		"Número": "Número",
+		"Complemento": "Complemento",
+		"Bairro": "Bairro",
+		"Cidade": "Cidade",
+		"Estado": "Estado"
 	},
 	"route": {
 		"主页": "dashboard",

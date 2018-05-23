@@ -1,33 +1,54 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const cn = {
 	"table": {
-		"table": {
-			"Nome Fantasia": "用户昵称 ",
-			"CNPJ/CPF": " 社会安全号码/证监会 ",
-			"Contato": " 接触 ",
-			"Telefone": " 电话 ",
-			"Operação": " 操作 ",
-			"Imagem": " 图像 ",
-			"Nome": " 名称 ",
-			"Variação": " 变化 ",
-			"Atributo": " 属性 ",
-			"Quantidade": " 数量 ",
-			"Valor": " 价值 ",
-			"Loja": " 商店 ",
-			"Cód. do Pedido": " 代码的请求。 ",
-			"Cliente (Apelido)": " 客户（姓氏） ",
-			"Rastreio": " 筛选 ",
-			"Data de Empa": " 分析日期 ",
-			"Status": "状态"
-		}
+		"Nome Fantasia": "花哨的名字 ",
+		"CNPJ/CPF": " 社会安全号码/证监会 ",
+		"Contato": " 接触 ",
+		"Telefone": " 电话 ",
+		"Operação": " 操作 ",
+		"Imagem": " 图像 ",
+		"Nome": " 名称 ",
+		"Variação": " 变化 ",
+		"Atributo": " 属性 ",
+		"Quantidade": " 数量 ",
+		"Valor": " 价值 ",
+		"Loja": " 商店 ",
+		"Cód. do Pedido": " 代码的请求。 ",
+		"Cliente (Apelido)": " 客户（姓氏） ",
+		"Rastreio": " 筛选 ",
+		"Data de Empa": " 分析日期 ",
+		"Status": " 现状 ",
+		"Data de Pag": " 日期值 "
 	},
 	"button": {
-		"Empacotar": "打包",
-		"ok": "ok",
-		"Relatório de Saída": "货品转化列表映射", //货品转化列表映射
+		"Empacotar": " 包装 ",
+		"ok": " 好吧 ",
+		"Expedir Pedidos": " 调度请求 ",
+		"Relatório de Saída": " 输出报告 "
 	},
 	"select": {
-		"Paginação": "页数",
+		"Paginação": " 分页 ",
+		"Data": " 日期 ",
+		"Período": " 期 "
+	},
+	"input": {
+		"Cliente": " 客户 ",
+		"Telefone": " 电话 ",
+		"Celular": " 手机 ",
+		"E-Mail": " 电子邮件 ",
+		"CNPJ": " 社会安全号码 ",
+		"Endereço": " 地址 ",
+		"Identificação": " 鉴定 ",
+		"Nome de Contato": " 联络人姓名 ",
+		"CNPJ/CPF": "CNPJ/CPF",
+		"Razão Social (Opcional)": " 社会原因（可选） ",
+		"Nome Fantasic": " 很棒的名字 ",
+		"Logradouro": " 庭院 ",
+		"Número": " 数 ",
+		"Complemento": " 补充 ",
+		"Bairro": " 邻域 ",
+		"Cidade": " 城市 ",
+		"Estado": " 状态"
 	},
 	"route": {
 		"主页": "主页",

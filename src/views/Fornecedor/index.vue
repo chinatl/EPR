@@ -3,7 +3,7 @@
 	  	<div class="erp-header">
             <h3>{{$t('fornecedor["Fornecedores"]')}}</h3>
             <div>
-                <el-button size='small' round type='danger' @click='$store.commit("TOGGLE_FORNECEDOR_MENU");'>{{$t('fornecedor["Novo Fornecedor"]')}}</el-button>
+                <el-button size='small' round type='danger' @click='$store.commit("TOGGLE_FORNECEDOR_MENU")'>{{$t('fornecedor["Novo Fornecedor"]')}}</el-button>
             </div>
         </div>
 		<div class='erp-bar'>
@@ -12,7 +12,7 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<span>{{$t('fornecedor["Paginação"]')}}</span>
+				<span>{{$t('select["Paginação"]')}}</span>
 				<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:100px;'>
 					<el-option value='5' label='5'></el-option>
 					<el-option value='10' label='10'></el-option>

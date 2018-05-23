@@ -128,14 +128,14 @@
 				</div>
 				<div class="erp-list" v-loading='loading'>
 					<ul class="title">
-						<li class="flex3">{{$t(`table["Imagem"]`)}}</li>
+						<li class="flex3">{{$t('table["Imagem"]')}}</li>
 						<li class="flex3">SKU</li>
-						<li class='flex5'>{{$t(`table["Nome"]`)}}</li>
-						<li class="flex3">{{$t(`table["Variação"]`)}}</li>
-						<li class="flex2">{{$t(`table["Atributo"]`)}}</li>
-						<li class="flex3">{{$t(`table["Quantidade"]`)}}</li>
-						<li class="flex2">{{$t(`table["Valor"]`)}}</li>
-						<li class="flex2">{{$t(`table["Operação"]`)}}</li>
+						<li class='flex5'>{{$t('table["Nome"]')}}</li>
+						<li class="flex3">{{$t('table["Variação"]')}}</li>
+						<li class="flex2">{{$t('table["Atributo"]')}}</li>
+						<li class="flex3">{{$t('table["Quantidade"]')}}</li>
+						<li class="flex2">{{$t('table["Valor"]')}}</li>
+						<li class="flex2">{{$t('table["Operação"]')}}</li>
 					</ul>
 					<transition-group name="fade" tag='div'>
 						<ul class="content" v-for='(item,index) in list' v-bind:key="index">

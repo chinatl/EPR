@@ -7,7 +7,7 @@
 		</div>
 		<div class='erp-dialog-item' style="padding:0px 0 10px 0;border:none;margin-top:10px;border-bottom:2px solid #999">
 			<div class="width20">
-				<p>{{$t('pedido["Cliente"]')}}:</p>
+				<p>{{$t('input["Cliente"]')}}:</p>
 				<p class="word">75.161.435/0001-17</p>
 			</div>
 			<div class="width15">
@@ -15,23 +15,23 @@
 				<p class="word">xxxxxx-xxx</p>
 			</div>
 			<div class="width15">
-				<p>{{$t('pedido["Telefone"]')}}</p>
+				<p>{{$t('input["Telefone"]')}}</p>
 				<p class='word'>(xx) xxxx-xxxx</p>
 			</div>
 			<div class="width15">
-				<p>{{$t('pedido["Celular"]')}}</p>
+				<p>{{$t('input["Celular"]')}}</p>
 				<p class="word">(xx) xxxx-xxxx</p>
 			</div>
 			<div class="width20">
-				<p>{{$t('pedido["E-Mail"]')}}</p>
+				<p>{{$t('input["E-Mail"]')}}</p>
 				<p class="word">contato@pmcell.com.br</p>
 			</div>
 			<div class="width20">
-				<p>{{$t('pedido["CNPJ"]')}}</p>
+				<p>{{$t('input["CNPJ"]')}}</p>
 				<p class="word">75.161.435/0001-17</p>
 			</div>
 			<div >
-				<p>{{$t('pedido["Endereço"]')}}</p>
+				<p>{{$t('input["Endereço"]')}}</p>
 				<p class="word">{{$t('pedido["Rua Comendador Abdo Schahim, 59 | São Paulo-SP, Centro | Próximo a Estação São Bento"]')}}</p>
 			</div>
 		</div>
