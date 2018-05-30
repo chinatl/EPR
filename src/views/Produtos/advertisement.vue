@@ -55,25 +55,18 @@
 			</div>
         </div>
         <div class="product-table">
-			<div class="carousel-item">
-				<div  v-for='item in [1,2,3,4,5,6,7,8,9,10]' class="my-item">
+			<div class="carousel-items" v-for='item in [1,2,3]'>
+				<div v-for='item in [1,2,3,4]' class="my-item">
 					<my-item :name='["b2w","mg"][Math.floor(Math.random()*2)]'></my-item>
 				</div>
 			</div>
-			<div class="product-pagination">
-				<el-pagination
-				  background
-				  layout="prev, pager, next"
-				  :page-size='20'
-				  :total="total">
-				</el-pagination>
-			</div>
 		</div>
-<my-market></my-market>
-<my-ml></my-ml>
-<my-unbind ></my-unbind>
-<my-del ></my-del>
-<my-entrada></my-entrada>
+		<pagination :total='total'></pagination>
+		<my-market></my-market>
+		<my-ml></my-ml>
+		<my-unbind ></my-unbind>
+		<my-del ></my-del>
+		<my-entrada></my-entrada>
 </div>
 </template>
 <script>
@@ -95,39 +88,33 @@
 		data() {
 			return {
 				v_switch: false,
-				total:15,
-				value:'',
+				total: 15,
+				value: '',
 				formInline: {
 					input: '',
 					number: 20,
 					numer1: ''
 				},
-				tableData: [{
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: '',
-				}, {
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: '',
-				}, {
-					name: '1000103-00',
-					address: 'Escova Alisadora',
-					Marca: 'Pmcell',
-					Estoque: '200',
-					sss: '',
-				}, ]
+				tableData: []
 			}
 		},
 		methods: {
 			handleSelectionChange(e) {
-				console.log(e)
+
 			},
-			change(e) {}
+			change(e) {
+
+			},
+			init() {
+				this.$post('seachMsgAdvert', {
+					userId: '123456'
+				}).then(res => {
+					this.tableData = res;
+				})
+			}
+		},
+		created() {
+			this.init()
 		}
 	}
 
@@ -139,17 +126,22 @@
 		align-items: center;
 		border-bottom: 1px solid #ccc;
 		padding-bottom: 10px;
-		.title{
-           font-size:20rem;
+		.title {
+			font-size: 20rem;
 		}
 	}
+
 	.table_font {
 		font-size: 16px
 	}
+
 	.advertisement {
-/*		padding: 20px; */
+		/*		padding: 20px; */
+		min-width: 1000px;
+		background-color: #fff
 	}
-/*
+
+	/*
 		div.el-table--enable-row-transition .el-table__body td {
 			padding: 0
 		}
@@ -157,7 +149,7 @@
 
 	/*--------------product-select------------*/
 
-	.advertisement-select{
+	.advertisement-select {
 		margin: 10px 0;
 		display: flex;
 		justify-content: space-between;
@@ -171,9 +163,20 @@
 			}
 		}
 	}
+
 	.product-table {
-		padding: 20px 0;
+		.carousel-items {
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			margin: 20px auto;
+			.my-item {
+			}
+		}
 	}
+
 	.el-form--inline {
 		display: flex;
 		justify-content: space-between;
@@ -185,21 +188,13 @@
 		top: 0
 	}
 
-	.carousel-item {
-		border-radius: 8px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-	}
+
+
 	.product-pagination {
 		text-align: right
 	}
 
-	.my-item {
-		width: 17%;
-		margin-bottom: 20px;
-	}
+
 
 	.el-table--enable-row-transition .el-table__body td {
 		padding: 20px 10px;

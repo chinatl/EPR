@@ -125,6 +125,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
 	.card-item {
+		width: 240px;
 		border-radius: 14px;
 		overflow: hidden;
 		.card-item-title {

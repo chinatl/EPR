@@ -3,11 +3,8 @@
         <div class='erp-header'>
             <h3>{{$t('sac["Auto Pós-Compra"]')}}<span class="else-con">*{{$t('sac["Mantemos as mensagens arquivados por 3 meses."]')}}</span></h3>
             <div>
-                <el-button size='small'type='primary' round style='float:right'>
-                <div @click='$store.commit("TOGGLE_TRAN_PLANE")'>
-                        <svg-icon icon-class='user' style='font-size:20px;'></svg-icon> 
-                        <span style='position:relative;top:-3px '>{{$t('sac["Auto Pós-Compra"]')}} </span>
-                </div>
+                <el-button size='small'type='primary' round style='float:right' @click='$store.commit("TOGGLE_TRAN_PLANE")'>
+					{{$t('button["Auto Pós-Compra"]')}}
                 </el-button>
             </div>        
         </div>

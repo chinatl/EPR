@@ -12,16 +12,8 @@
 		
 		<div class='erp-bar'>
 			<div class='erp-search-button'>
-				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value' style='width:120px'></el-input>
+				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
-			</div>
-			<div>
-				 <span>{{$t('pedido["Paginação"]')}}</span>
-                <el-select  size='small' v-model='pageSize' style='width:68px'>
-                    <el-option value='5' label='5'></el-option>
-                    <el-option value='10' label='10'></el-option>
-                    <el-option value='15' label='15'></el-option>
-                </el-select>
 			</div>
 			<div>
 				<span >Status</span>
@@ -82,10 +74,7 @@
 				</ul>
 			</transition-group>
 		</div>
-        <div class="erp-page">
-            <el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-            </el-pagination>
-        </div>
+        <pagination :total='total'></pagination>
          <my-detail></my-detail> 
          <my-order></my-order>
          <new-order></new-order>
@@ -95,20 +84,19 @@
 	import myDetail from './components/detail'
 	import myOrder from './components/order'
 	import newOrder from './components/new'
+	
 	export default {
 		components: {
 			myDetail,
 			myOrder,
-			newOrder
+			newOrder,
 		},
 		data() {
-
 			return {
+				total: 20,
 				loading: false,
 				value: '',
 				value7: '',
-				total: 10,
-				pageSize: '5',
 				show: false,
 				checkAll: false,
 				list: [{
@@ -147,6 +135,9 @@
 			}
 		},
 		methods: {
+			init(pageNo,pageSize) {
+				console.log(pageNo,pageSize)
+			},
 			row_click() {
 				this.$store.commit('TOGGLE_ORDER_ORDER');
 			},

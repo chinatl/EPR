@@ -1,19 +1,9 @@
 <template>
-    <el-dialog
-    :visible.sync="$store.state.expedic.show_detail"
-    >
+	<el-dialog
+	:visible.sync="$store.state.expedic.show_detail"
+	>
 		<div slot='title' class="erp-dialog_title">
 			{{$t('pedido["Informações do Pedido"]')}} | 123456789123
-		</div>
-		<div class='erp-bar'>
-			<div>
-				<span>{{$t('select["Paginação"]')}}</span>
-				<el-select class='select Selecionar' size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
-			</div>
 		</div>
 		<div class="erp-list" v-loading='loading'>
 			<ul class="title">
@@ -35,11 +25,8 @@
 				</ul>
 			</transition-group>
 		</div>
-  		<div class="erp-page">
-			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-			</el-pagination>
-		</div>
-    </el-dialog>
+		<pagination :total='total'></pagination>
+	</el-dialog>
 </template>
 <script>
 	export default {
@@ -79,6 +66,9 @@
 		methods: {
 			submit() {
 
+			},
+			init(){
+				console.log(1)
 			}
 		}
 	}

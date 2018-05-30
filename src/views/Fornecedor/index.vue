@@ -11,14 +11,6 @@
 				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
-			<div>
-				<span>{{$t('select["Paginação"]')}}</span>
-				<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:100px;'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
-			</div>
 		</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
@@ -43,10 +35,7 @@
 			</ul>
 		</transition-group>
 	</div>
-	<div class="erp-page">
-		<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-		</el-pagination>
-	</div>
+	<pagination :total='total'></pagination>
 	<my-fornecsdor></my-fornecsdor>
 	<my-del></my-del>
 </div>

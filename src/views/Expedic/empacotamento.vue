@@ -61,10 +61,7 @@
 				</ul>
 			</transition-group>
 		</div>
-		<div class="erp-page">
-			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-			</el-pagination>
-		</div>
+		<pagination :total='total'></pagination>
 		<my-order></my-order>
 		<my-details></my-details>
 		<a-list></a-list>
@@ -125,6 +122,9 @@ da etiqueta, Favor conferir no marketplace.'
 			}
 		},
 		methods: {
+			init(){
+				
+			},
 			show_item(item) {
 				this.$store.commit('TOOGLE_EXPEDIC_ALIST');
 			},

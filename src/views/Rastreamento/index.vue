@@ -9,14 +9,6 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
         	</div>
         	<div>
-        		<span>{{$t('rastreamento["Paginação"]')}} </span>
-				<el-select size='small' v-model='pageSize' placeholder='Selecionar' style='width:100px;'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
-        	</div>
-        	<div>
         		<div class="introduce-icon">
         			<img :src="require('@/assets/img/Rastreamento_06.gif')"  alt="">
         			<div>
@@ -88,7 +80,12 @@
 			</transition-group>
 		</div>
 		<div class="erp-page">
-			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
+			<el-pagination background
+		 	layout="total, sizes, prev, pager, next, jumper"
+		 	:page-size='20'
+			:total="total"
+			@size-change="handleSizeChange"
+			@current-change="handleCurrentChange">
 			</el-pagination>
 		</div>
 		<my-detail></my-detail>
@@ -142,6 +139,12 @@
 			}
 		},
 		methods: {
+			handleSizeChange(){
+				
+			},
+			handleCurrentChange(){
+				
+			},
 			show() {
 				this.isShow = true;
 			},

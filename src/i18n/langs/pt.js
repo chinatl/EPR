@@ -1,4 +1,4 @@
-import zhLocale from 'element-ui/lib/locale/lang/pt'
+import zhLocale from 'element-ui/lib/locale/lang/en'
 const cn = {
 	"table": {
 		'Nome Fantasia': 'Nome Fantasia',
@@ -20,12 +20,23 @@ const cn = {
 		'Data de Empa': 'Data de Empa',
 		'Status': 'Status',
 		'Operação': 'Operação',
+		'Lista de Operadores': 'Lista de Operadores',
+		'Grupo': 'Grupo',
+		'Acessos': 'Acessos',
+		'Operação': 'Operação',
 		'Data de Pag': 'Data de Pag',
 	},
 	"button": {
 		"Empacotar": "Empacotar",
+		"Adicionar operador": "Adicionar operador",
 		"ok": "Ok",
+		"Enviar": "Enviar",
+		"Alterar Plano": "Alterar Plano",
+		"Adicionar": "Adicionar",
+		"Criar Grupo": "Criar Grupo",
 		"Expedir Pedidos": "Expedir Pedidos",
+		"Realizar Pagamento": "Realizar Pagamento",
+		"Auto Pós-Compra": "Auto Pós-Compra",
 		"Relatório de Saída": "Relatório de Saída", //货品转化列表映射
 	},
 	"select": {
@@ -51,6 +62,17 @@ const cn = {
 		"Bairro": "Bairro",
 		"Cidade": "Cidade",
 		"Estado": "Estado"
+	},
+	"setting": {
+		"Senha": "Senha",
+		"Senha de Login": "Senha de Login",
+		"Telefone": "Telefone",
+		"Senha de Administração": "Senha de Administração",
+		"Lista de Operadores": "Lista de Operadores",
+		"Taxa de Comissão": "Taxa de Comissão",
+		"Clássico": "Clássico",
+		"Premium": "Premium",
+		"Comissão Mkt": "Comissão Mkt",
 	},
 	"route": {
 		"主页": "dashboard",

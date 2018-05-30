@@ -9,14 +9,6 @@
 			<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 		</div>
 		<div>
-			<span>{{$t(`relatorios["Paginação"]`)}}</span>
-			<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:60px;'>
-				<el-option value='5' label='5'></el-option>
-				<el-option value='10' label='10'></el-option>
-				<el-option value='15' label='15'></el-option>
-			</el-select>
-		</div>
-		<div>
 			<span>{{$t(`relatorios["Ordernar por"]`)}}</span>
 			<el-select class='select Selecionar' size='small' v-model='value' placeholder='Selecionar' style='width:80px;'>
 				<el-option value='5' label='5'></el-option>
@@ -30,12 +22,14 @@
 			</el-date-picker>
 		</div>
 		<div>
-			<el-button type="success" size='small' round class="btn"><span class="text"><i class='el-icon-share'></i> {{$t(`relatorios["Exportar CSV"]`)}}</span></el-button>
+			<el-button type="success" size='small' round class="btn" @click='export_csv'><span class="text"><i class='el-icon-share'></i> {{$t(`relatorios["Exportar CSV"]`)}}</span></el-button>
 		</div>
 	</div>
 	<div class="erp-list" v-loading='loading'>
 		<ul class="title">
-				<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
+				<li class='flex1'><el-checkbox @change='all'
+				 :indeterminate="isIndeterminate"
+				  v-model="checkAll"></el-checkbox></li>
 				<li>{{$t(`relatorios["Imagem"]`)}}</li>
 				<li>SKU</li>
 				<li>{{$t(`relatorios["Nome"]`)}}</li>
@@ -45,7 +39,7 @@
 		</ul>
 		<transition-group name="fade" tag='div'>
 			<ul class="content" v-for='(item,index) in list' v-bind:key="index">
-				<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'  ></el-checkbox></li>
+				<li class='flex1'><el-checkbox v-model='item.checked' @change='choose($event,index)'></el-checkbox></li>
 				<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
 				<li>{{item.address}}</li>
 				<li>{{item.Marca}}</li>
@@ -55,13 +49,12 @@
 			</ul>
 		</transition-group>
 	</div>
-	<div class="erp-page">
-		<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-		</el-pagination>
-	</div>
+	<pagination :total='total'></pagination>
 </div>
 </template>
 <script>
+//	import  '@/utils/vendor'
+//	console.log(JSonToCSV)
 	export default {
 		data() {
 			return {
@@ -71,44 +64,51 @@
 				value7: '',
 				total: 10,
 				list: [],
-				checkAll:false
+				checkAll: false,
+				isIndeterminate: false
 			}
 		},
 		methods: {
 			render_icon() {
 				return <i class = 'el-icon-question'
-				style = 'color:#0aa1ed' > </i>
+				style = 'color:#0aa1ed' > < /i>
 			},
-			all(e){
-				console.log(e);
-				this.list.forEach(res=>res.checked = e )
+			all(val) {
+				this.list.forEach(res => {
+					res.checked = val;
+				});
 			},
-			choose(e,i){
-				if(e){
-					var flag = false;
-					this.list.forEach(res=>{
-						if(!res.checked){
-							flag = true;
-						}
-					});
-					this.checkAll = !flag;
-				}else {
-					var flag = true;
-					this.list.forEach(res=>{
-						if(!res.checked){
-							flag =false;
-						}
-					});
-					this.checkAll = flag;
+			init(){
+				
+			},
+			choose(e, i) {
+				var index = 0;
+				this.list.forEach(res => {
+					if (res.checked) {
+						index++
+					}
+				});
+				if (index === 0) {
+					this.checkAll = false;
+					this.isIndeterminate = false;
+				} else if (index === this.list.length) {
+					this.isIndeterminate = false;
+					this.checkAll = true;
+				} else {
+					this.isIndeterminate = true;
+					this.checkAll = false;
 				}
 			},
 			pickerOptions2() {
 
 			},
-			handleSelectionChange() {}
+			handleSelectionChange() {},
+			export_csv(){
+				JSonToCSV({data:this.list, title: '这里导出的标题', showLabel: true})
+			}
 		},
 		created() {
-				this.loading = false;
+			this.loading = false;
 			setTimeout(res => {
 				this.list = [{
 					name: '1000103-00',

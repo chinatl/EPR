@@ -1,63 +1,193 @@
-<el-menu class="navbar" mode="horizontal">
-	<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-	<!--    <breadcrumb></breadcrumb>-->
-	<div class="left-item">
-		<div class="times" v-show="!isShow">
-			<h3>{{$t(`layout["免费试用版"]`)}}</h3>
-			<h6 @click='open' style="text-decoration:underline;cursor:pointer;text-align:center">{{$t(`layout["更换套餐"]`)}}</h6>
-		</div>
-		<div class="times" v-show="isShow">
-			<h3>{{$t(`layout["04／22／2018年到期"]`)}}</h3>
-			<h6 @click='open' style="text-decoration: underline;cursor:pointer;text-align:center">{{$t(`layout["使用 Pagamento"]`)}}|$39.00</h6>
-		</div>
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IndexedDB</title>
+        <style type="text/css">
+            button {
+                padding: 6px 8px;
+            }
 
-		<div class="line"></div>
-		<div class="GRTIS">
-			<p class="p">{{$t(`layout["分享可获得1周免费"]`)}}</p>
-			<p class="button">
-				<el-button size='mini' type='primary'>
-					<div>
-						<img :src="require('@/assets/img/face.png')" alt="">
-						<span style="margin-left:4px">{{$t(`layout["分享"]`)}}</span>
-					</div>
-				</el-button>
-			</p>
-		</div>
-	</div>
-	<div class="right-item">
-		<button @click='select_lang'>切换语言</button>
-		<svg-icon icon-class='vc' style='font-size:24px;font-weight:bold'></svg-icon>
-		<svg-icon icon-class='hand' style='font-size:24px;font-weight:bold'></svg-icon>
-		<a class='link' target="_blank" href="https://www.youtube.com/channel/UC6AAQNUU67NcsB5mlPlABCg">
-      	<svg-icon icon-class='photo' style='font-size:24px;font-weight:bold'></svg-icon>
-      </a>
-		<svg-icon icon-class='naozhong' style='font-size:24px;font-weight:bold'></svg-icon>
-	</div>
-	<el-dropdown class="avatar-container" trigger="click">
-		<div class="avatar-wrapper">
-			<svg-icon icon-class='rentou' style='font-size:24px;font-weight:bold'></svg-icon>
-			<i class="el-icon-caret-bottom"></i>
-		</div>
-		<el-dropdown-menu class="user-dropdown" slot="dropdown">
-			<el-dropdown-item>
-				<div @click='user'>
-					<svg-icon icon-class='user' style='font-size:26px;'></svg-icon>{{$t(`layout["用户资料"]`)}}
-				</div>
-			</el-dropdown-item>
-			<el-dropdown-item divided>
-				<div @click='set'>
-					<span>
-					<svg-icon icon-class='set' style='font-size:26px;'></svg-icon>{{$t(`layout["配置"]`)}}
-				</span>
-				</div>
-			</el-dropdown-item>
-			<el-dropdown-item divided @click='logout'>
-				<div @click='logout'>
-					<span>
-						<svg-icon icon-class='enter' style='font-size:26px;'></svg-icon>{{$t(`layout["退出"]`)}}
-					</span>
-				</div>
-			</el-dropdown-item>
-		</el-dropdown-menu>
-	</el-dropdown>
-</el-menu>
+            td {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>爱好</th>
+        </tr>
+        <tr>
+            <td><input id="name" type="text"></td>
+            <td><input id="age" type="text"></td>
+            <td><input id="sex" type="text"></td>
+            <td><input id="hobby" type="text"></td>
+        </tr>
+    </table>
+    <button id="add">添加</button>
+    <br><br><br>
+    <p>通过key查找</p>
+    <input type="text" id="getValue">
+    <button id="get">查找</button>
+    <br><br><br>
+    <p>通过索引查找</p>
+    <select name="getByIndex" id="getByIndex">
+        <option value="ageIndex" selected="selected">年龄</option>
+        <option value="hobbyIndex">爱好</option>
+        <option value="nameIndex">姓名</option>
+        <option value="sexIndex">性别</option>
+    </select>
+    <input type="text" id="getIndex">
+    <button id="getByIndexBtn">查找通过索引</button>
+    <script type="text/javascript">
+
+        var myDB = {
+            name: '731815245@qq.com',
+            version: 2.1,
+            db: null
+        };
+        document.getElementById('add').onclick = () => {
+            var nameInput = document.getElementById('name').value || '默认张三'
+            var ageInput = document.getElementById('age').value || '默认20';
+            var sexInput = document.getElementById('sex').value || '默认男';
+            var hobbyInput = document.getElementById('hobby').value || '默认篮球';
+            var obj = {
+                name: nameInput,
+                age: ageInput,
+                sex: sexInput,
+                hobby: hobbyInput
+            };
+            indexdbHandle.addData('person',obj);
+        }
+        document.getElementById('get').onclick = () => {
+            var getValue = document.getElementById('getValue').value || '默认张三';
+            indexdbHandle.getDataByKey('person',getValue);
+        }
+        document.getElementById('getByIndexBtn').onclick = () => {
+            var getByIndex = document.getElementById('getByIndex').value;
+            var getIndex = document.getElementById('getIndex').value;
+            var indexes = {
+                index: getByIndex || 'nameIndex',
+                value: getIndex || '默认张三'
+            };
+            indexdbHandle.getDataByIndex('person',indexes);
+        }
+
+        class IndexdbHandle {
+            constructor(myDB) {
+                this.dbName = myDB.name;
+                this.dbVersion = myDB.version;
+                this.db = myDB.db;
+            }
+            // 打开数据库
+            openDB() {
+                var request = indexedDB.open(this.dbName, this.dbVersion);
+                console.log(request);
+                request.onerror = function (e) {
+                    console.log(e.currentTarget.error.message);
+                };
+                request.onsuccess = function (e) {
+                    myDB.db = e.target.result;
+                    console.log('成功打开DB');
+                };
+                request.onupgradeneeded = function (e) {
+                    var db = e.target.result;
+                    console.log('创建表');
+                    if (!db.objectStoreNames.contains('person')) {
+                        // 创建object store
+                        var store = db.createObjectStore('person', {keyPath: 'name'});
+                        // 创建索引
+                        store.createIndex('ageIndex','age',{unique:false});
+                        store.createIndex('nameIndex','name',{unique:true});
+                        store.createIndex('hobbyIndex','hobby',{unique:false});
+                        store.createIndex('sexIndex','sex',{unique:false});
+                    }
+                };
+            }
+            // 添加
+            addData(storName,data) {
+                var transaction = myDB.db.transaction(storName, 'readwrite');
+                var store = transaction.objectStore(storName);
+                store.add(data);
+                console.log('添加成功');
+            }
+            // 获取通过key
+            getDataByKey(storName,key) {
+                var transaction = myDB.db.transaction(storName,'readwrite');
+                var store = transaction.objectStore(storName);
+                var request = store.get(key);
+                request.onsuccess = (e) => {
+                    var person = e.target.result;
+                    if(!person){
+                        console.log('没有匹配的数据');
+                    }else{
+                        console.log(person);
+                    }
+                }
+            }
+            // 通过索引+游标查询
+            getDataByIndex(storName,indexes) {
+                var transaction = myDB.db.transaction(storName);
+                var store = transaction.objectStore(storName);
+                var index = store.index(indexes.index);
+                var request = index.openCursor(IDBKeyRange.only(indexes.value));
+                request.onsuccess = (e) => {
+                    var cursor = e.target.result;
+                    if(cursor){
+                        var person = cursor.value;
+                        console.log(person);
+                        cursor.continue();
+                    }else{
+                        console.log('没有了');
+                    }
+                }
+                /*index.get('默认20').onsuccess = (e) => {
+                    var person = e.target.result;
+                    console.log(person);
+                }*/
+            }
+            // 更新通过key
+            updateDataByKey(storName,key) {
+                var transaction = myDB.db.transaction(storName,'readwrite');
+                var store = transaction.objectStore(storName);
+                var request = store.get(key);
+                request.onsuccess = (e) => {
+                    var person = e.target.result;
+                    if(!person){
+                        console.log('没有匹配的数据');
+                    }else{
+                        person.age = 35;
+                        store.put(person);
+                    }
+                }
+            }
+            // 删除通过key
+            deleteDataByKey(storName,key) {
+                var transaction = myDB.db.transaction(storeName,'readwrite');
+                var store = transaction.objectStore(storeName);
+                store.delete(key);
+            }
+            // 清空object store
+            clearObjectStore(storeName) {
+                var transaction = myDB.db.transaction(storeName,'readwrite');
+                var store = transaction.objectStore(storeName);
+                store.clear();
+            }
+            // 关闭数据库
+            closeDB() {
+                myDB.db.close();
+            }
+            // 删除数据库
+            deleteDB() {
+                indexedDB.deleteDatabase(this.name);
+            }
+        }
+        var indexdbHandle = new IndexdbHandle(myDB);
+        indexdbHandle.openDB();
+    </script>
+    </body>
+    </html>

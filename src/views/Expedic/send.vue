@@ -54,10 +54,7 @@
 				</ul>
 			</transition-group>
 		</div>
-		<div class="erp-page">
-			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-			</el-pagination>
-		</div>
+		<pagination :total='total'></pagination>
 		<my-order></my-order>
 		<my-error 
 			title='Informação'
@@ -113,6 +110,9 @@
 			}
 		},
 		methods: {
+			init(){
+				
+			},
 			all(e) {
 				this.tableData.forEach(res => res.checked = e)
 			},

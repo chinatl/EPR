@@ -9,14 +9,6 @@
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<span>{{$t(`relatorios["Paginação"]`)}}</span>
-				<el-select class='select Selecionar' size='small' v-model='pageSize' style='width:60px;'>
-					<el-option value='5' label='5'></el-option>
-					<el-option value='10' label='10'></el-option>
-					<el-option value='15' label='15'></el-option>
-				</el-select>
-			</div>
-			<div>
 				<span>{{$t(`relatorios["Ordernar por"]`)}}</span>
 				<el-select class='select Selecionar' size='small' v-model='value' placeholder='Selecionar' style='width:80px;'>
 					<el-option value='5' label='5'></el-option>
@@ -55,10 +47,7 @@
 				</ul>
 			</transition-group>
 		</div>
-		<div class="erp-page">
-			<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-			</el-pagination>
-		</div>
+		<pagination :total='total'></pagination>
 	</div>
 </template>
 <script>

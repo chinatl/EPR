@@ -9,102 +9,52 @@
                 <el-button size='small' round type='danger'>{{$t(`product["新增产品"]`)}}</el-button>
             </div>
         </div>
-        <div class="product-select">
-            <div class="product-select-item">
-            	<div style='display:flex;align-items:center'>
-                    	<el-input v-model="form.user" size='small' placeholder='SKU / Nome / Marca/ ID do Anúncio' style='width:240px'></el-input>
-						<button class="procudt-btn"><i class="el-icon-search" style="color:#fff;font-size:14px"></i></button>
-			   </div>
-				<div  style='display:flex;align-items:center'>
-					<label for="" style="margin-right:20px;font-size:16rem">{{$t('product["Paginação"]')}}</label>	
-					<el-select v-model="form.number" style='width:80px' size='small'>
-						<el-option label="20" value="20"></el-option>
-						<el-option label="50" value="50"></el-option>
-						<el-option label="100" value="100"></el-option>
-						<el-option label="500" value="500"></el-option>
-					</el-select>
-				</div>
-            </div>
-        </div>
-        <div class="table-bgc">
-          <el-table
-			ref="multipleTable"
-			:data="tableData"
-			tooltip-effect="dark"
-			style="width: 100%"
-		 	stripe
-			@selection-change="handleSelectionChange">
-			 <el-table-column type="expand">
-			  <template slot-scope="props">
-				<el-carousel :interval="4000" :autoplay='false' @change='change($event)' trigger='click' height='404px'>
-					<el-carousel-item v-for="(item_list,i) in [1,2,3]"  :key='Math.random()'>
-						<div class="carousel-item">
-							<div  v-for='(item,index) in [1,2,3,4,5]' class="my-item" :key='Math.random()'>
-								<my-item :name='["b2w","mg","wrm","b2w","wrm"][index]'></my-item>
-							</div>
-						</div>
-					</el-carousel-item>
-				</el-carousel>
-			  </template>
-</el-table-column>
-<el-table-column type="selection" align='center' width="55">
-</el-table-column>
-<el-table-column align='center' :label='$t(`product["图片"]`)'>
-	<template slot-scope="prop">
-		<img :src="require('@/assets/img/yashua.png')" class='table-img' />
-  </template>
-</el-table-column>
-<el-table-column prop='name' align='center' label="SKU">
-	<template slot-scope="scope">
-		<span class="table_font">{{scope.row.name}}</span>
-		</template>
-</el-table-column>
-<el-table-column prop='address' align='center' :label='$t(`product["名字"]`)'>
-	<template slot-scope="scope">
-		<span class="table_font">{{scope.row.address}}</span>
-		</template>
-</el-table-column>
-<el-table-column prop='Marca' align='center' :label='$t(`product["品牌"]`)'>
-	<template slot-scope="scope">
-		<span class="table_font">{{scope.row.Marca}}</span>
-		</template>
-</el-table-column>
-<el-table-column prop='Estoque' align='center' :label='$t(`product["Estoqu"]`)'>
-	<template slot-scope="scope">
-		<span class="table_font">{{scope.row.Estoque}}</span>
-		</template>
-</el-table-column>
-<el-table-column :label='$t(`product["Operação"]`)' align='center'>
-	<template slot-scope="scope">
-		<div class="table-icon">
-			<span>
-				<svg-icon icon-class='doc' ></svg-icon>
-			</span>
-			<span @click='$store.commit("TOGGLE_EDIT")'>
-				<svg-icon icon-class='edit' ></svg-icon>
-			</span>
-			<span >
-				<svg-icon icon-class='del' ></svg-icon>
-			</span>
+		<div class='erp-bar'>
+			<div class='erp-search-button'>
+				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
+				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
+			</div>
 		</div>
-  	</template>
-</el-table-column>
-
-</el-table>
-<div class="product-pagination" style="text-align:right;margin-top:20px">
-	<el-pagination background layout="prev, pager, next" :page-size='20' :total="total">
-	</el-pagination>
-</div>
-
-</div>
-<my-market></my-market>
-<my-ml></my-ml>
-<my-unbind></my-unbind>
-<my-del></my-del>
-<my-entrada></my-entrada>
-<my-edit></my-edit>
-
-</div>
+		<div class="erp-list" v-loading='loading'>
+			<ul class="title">
+				<li>{{$t(`relatorios["Imagem"]`)}}</li>
+				<li>SKU</li>
+				<li>{{$t(`relatorios["Nome"]`)}}</li>
+				<li>{{$t(`relatorios["Vendas"]`)}}</li>
+				<li>{{$t(`relatorios["Nota de Potencial"]`)}}</li>
+				<li>
+					{{$t(`table["Operação"]`)}}
+				</li>
+			</ul>
+			<transition-group name="fade" tag='div'>
+				<div v-for='(item,index) in tableData' v-bind:key="index" class="product-item">
+					<ul class="content" @click='current = index'>
+						<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
+						<li>{{item.name}}</li>
+						<li>{{item.address}}</li>
+						<li>{{item.Marca}}</li>
+						<li>{{item.Estoque}}</li>
+						<li>
+							<div class="table-icon">
+								<span><i class='el-icon-document' @click='$store.commit("TOGGLE_FORNECEDOR_MENU")'></i></span>
+								<span><i class='el-icon-edit-outline' @click='$store.commit("TOGGLE_DELETE")'></i></span>
+								<span><i class='el-icon-delete' @click='$store.commit("TOGGLE_DELETE")'></i></span>
+							</div>
+						</li>
+					</ul>
+					<div :class="current === index ? 'product-column': 'product-column current'">
+						
+					</div>
+				</div>
+			</transition-group>
+		</div>      	
+		<my-market></my-market>
+		<my-ml></my-ml>
+		<my-unbind></my-unbind>
+		<my-del></my-del>
+		<my-entrada></my-entrada>
+		<my-edit></my-edit>
+	</div>
 </template>
 <script>
 	import myMarket from './Product/market'
@@ -127,6 +77,7 @@
 		},
 		data() {
 			return {
+				current: 0,
 				loading: true,
 				total: 10,
 				v_switch: false,
@@ -159,6 +110,9 @@
 			}
 		},
 		methods: {
+			init() {
+
+			},
 			handleSelectionChange(e) {
 				console.log(e)
 			},
@@ -190,7 +144,7 @@
 	}
 
 	.product-table {
-		
+
 		margin-top: 10px;
 		.el-table--enable-row-transition .el-table__body td {
 			padding: 0;
@@ -208,6 +162,7 @@
 			padding: 20px;
 		}
 	}
+
 	/*--------------product-select------------*/
 
 	.product-select {
@@ -219,21 +174,16 @@
 		}
 	}
 
-	.el-form--inline {
-		display: flex;
-		justify-content: space-between;
-	}
+
 
 
 	.carousel-item {
 		border-radius: 8px;
 		display: flex;
-		justify-content: space-between;
-		align-items: center
+		align-items: center;
+		.my-item {
+			margin-right: 60px;
+		}
 	}
-	.my-item {
-		width: 18%;
-	}
-
 
 </style>

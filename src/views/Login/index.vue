@@ -220,7 +220,7 @@
 
 	.login-post .login-img>div {
 		margin: 15px;
-		width: 67px;
+/*		width: 67px;*/
 		border-radius: 8px;
 		cursor: pointer
 	}

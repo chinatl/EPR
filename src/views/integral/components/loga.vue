@@ -23,5 +23,17 @@
     </el-dialog>
 </template>
 <script>
-    
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		methods: {
+			submit() {
+
+			}
+		}
+	}
+
 </script>

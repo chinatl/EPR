@@ -18,13 +18,23 @@ const cn = {
 		"Rastreio": " 筛选 ",
 		"Data de Empa": " 分析日期 ",
 		"Status": " 现状 ",
-		"Data de Pag": " 日期值 "
+		"Lista de Operadores": " 经营者名单 ",
+		"Grupo": " 组 ",
+		"Acessos": " 访问 ",
+		"Data de Pag": " 日期 "
 	},
 	"button": {
 		"Empacotar": " 包装 ",
+		"Adicionar operador": " 添加操作 ",
 		"ok": " 好吧 ",
+		"Enviar": " 发送 ",
+		"Alterar Plano": " 更改计划 ",
+		"Realizar Pagamento": " 完成付款 ",
+		"Adicionar": " 添加 ",
+		"Criar Grupo": " 创建组 ",
 		"Expedir Pedidos": " 调度请求 ",
-		"Relatório de Saída": " 输出报告 "
+		"Relatório de Saída": " 输出报告 ",
+		"Auto Pós-Compra": "自动定价"
 	},
 	"select": {
 		"Paginação": " 分页 ",
@@ -40,7 +50,7 @@ const cn = {
 		"Endereço": " 地址 ",
 		"Identificação": " 鉴定 ",
 		"Nome de Contato": " 联络人姓名 ",
-		"CNPJ/CPF": "CNPJ/CPF",
+		"CNPJ/CPF": " 社会安全号码/证监会 ",
 		"Razão Social (Opcional)": " 社会原因（可选） ",
 		"Nome Fantasic": " 很棒的名字 ",
 		"Logradouro": " 庭院 ",
@@ -48,7 +58,18 @@ const cn = {
 		"Complemento": " 补充 ",
 		"Bairro": " 邻域 ",
 		"Cidade": " 城市 ",
-		"Estado": " 状态"
+		"Estado": " 状态 "
+	},
+	"setting": {
+		"Senha": " 密码 ",
+		"Senha de Login": " 登录密码 ",
+		"Telefone": " 电话 ",
+		"Senha de Administração": " 密码管理 ",
+		"Lista de Operadores": " 经营者名单 ",
+		"Taxa de Comissão": " 佣金率 ",
+		"Clássico": " 经典 ",
+		"Premium": " 保费 ",
+		"Comissão Mkt": " 市场委员会"
 	},
 	"route": {
 		"主页": "主页",

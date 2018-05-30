@@ -12,10 +12,13 @@
     		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
     		<div class="integral-item-footer">
     			<i class='el-icon-check'></i>
-                <span>{{$t('integral["Ativo"]')}}</span>
+                <a :href='`https://auth.mercadolibre.com.ar/authorization?response_type=${code}&client_id=${appId}`'>
+                	{{$t('integral["Ativo"]')}}
+				</a>
                 <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
     		</div>
     	</div>
+    	
     	<div>
     		<h6>Mercado Livre</h6>
     		<div class="integral-item-img">
@@ -151,6 +154,7 @@
 </div>
 </template>
 <script>
+	
 	import myConva from './components/conva'
 	import myWalmart from './components/walmart'
 	import myBw from './components/bw'
@@ -174,9 +178,27 @@
 		},
 		data() {
 			return {
-
+				appId: '',
+				code: '',
 			}
+		},
+		methods: {
+			submit() {}
+		},
+		created() {
+			this.$get('getCodeAndAppid').then(res => {
+				console.log(res)
+				this.appId = res.appId;
+				this.code = res.code;
+			}).catch(res => {
+				console.log(res);
+				console.log(res);
+				this.appId = res.appId;
+				this.code = res.code;
+				
+			})
 		}
+
 	}
 
 </script>
@@ -232,7 +254,7 @@
 					font-size: 18px;
 					cursor: pointer;
 					&:hover {
-/*						color: blue*/
+						/*						color: blue*/
 					}
 				}
 

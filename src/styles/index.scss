@@ -102,7 +102,7 @@ li {
 		font-size: 12px;
 	}
 	.introduce-icon {
-		padding: 0 30px;
+		padding: 0 15px;
 	}
 	.app-main {
 		margin: 30px 30px;
@@ -193,6 +193,7 @@ li {
 		align-items: center;
 		cursor: pointer;
 		margin: 0 6px;
+		background-color: #E8E8E8;
 		&:hover {
 			background-color: #DC044D;
 			color: #fff;
@@ -221,16 +222,16 @@ li {
 
 .erp-list {
 	width: 100%;
-	&:hover {
-		.table-icon {
-			opacity: 1;
-		}
-	}
 	ul {
 		width: 100%;
 		align-items: center;
 		display: flex;
 		text-align: center;
+		&:hover {
+			.table-icon {
+				opacity: 1;
+			}
+		}
 		li {
 			height: 100%;
 			flex: 4;
@@ -255,7 +256,7 @@ li {
 		background-color: #e8e8e8;
 		height: 48px;
 		line-height: 48px;
-		transition: backgroundColor 1s;
+
 		li {
 			font-size: 15rem;
 			font-weight: bold;
@@ -263,25 +264,77 @@ li {
 			white-space: nowrap;
 		}
 	}
-	> div > .content {
-		&:nth-of-type(odd) {
-			background-color: #fff;
+	> div {
+		.product-item {
+			.product-column {
+				height: 0px;
+				background-color: red;
+				transition: height 1s;
+			}
+			.current {
+				height: 400px;
+			}
+			&:nth-of-type(odd) {
+				.content {
+					background-color: #fff;
+					transition: backgroundColor 2s;
+				}
+			}
+			&:nth-of-type(even) {
+				.content {
+					background-color: #f2f2f2;
+					transition: backgroundColor 2s;
+				}
+			}
+			&:hover {
+				.content {
+					background-color: rgb(245, 247, 250);
+				}
+
+			}
+			.content {
+				height: 60px;
+				line-height: 60px;
+				li {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					white-space: nowrap;
+					font-size: 14rem;
+				}
+			}
 		}
-		&:nth-of-type(even) {
-			background-color: #f5f7fa;
+		.content {
+			&:nth-of-type(odd) {
+				background-color: #fff;
+				transition: backgroundColor 2s;
+			}
+			&:nth-of-type(even) {
+				background-color: #f2f2f2;
+				transition: backgroundColor 2s;
+			}
+			&:last-of-type {}
+			&:hover {
+				background-color: rgb(245, 247, 250);
+
+			}
+			height: 60px;
+			line-height: 60px;
+			li {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				white-space: nowrap;
+				font-size: 14rem;
+			}
 		}
-		&:last-of-type {}
-		&:hover {
-			background-color: #efefef;
-		}
-		height: 60px;
-		line-height: 60px;
-		li {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			white-space: nowrap;
-			font-size: 14rem;
+		.no-bgc {
+			&:nth-of-type(odd) {
+				background-color: transparent;
+			}
+			&:nth-of-type(even) {
+				background-color: transparent;
+			}
 		}
 	}
 }
@@ -299,8 +352,15 @@ li {
 	.el-input__inner {
 		border-radius: 4px 0 0 4px;
 	}
-	.el-icon-search {
+	i {
 		font-size: 16px;
+	}
+	.el-button--small {
+		padding: 8px;
+		border-radius: 0 4px 4px 0;
+		span {
+			font-size: 14px;
+		}
 	}
 }
 
