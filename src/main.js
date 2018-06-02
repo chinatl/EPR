@@ -34,6 +34,9 @@ import Icon from 'vue-awesome';
 Vue.component('icon', Icon)
 /*导入导出csv*/
 //import '@/utils/vendor'
+/*导入 md5*/
+import md5 from 'js-md5';
+Vue.prototype.$md5 = md5;
 
 Vue.config.productionTip = false
 

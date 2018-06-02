@@ -12,89 +12,98 @@
 		</div>
 	</div>
 	<div class="entrada-con">
-		<div class="entrada-h3">
-			<div :class=" current ? 'item' : 'item current'" @click='current=1'><span class="span">1</span>{{$t('product["Dados Gerais"]')}}</div>
-			<div :class=" !current ? 'item': 'item current'"  @click='current=0'><span class="span">2</span>{{$t('product["Video e Imagens"]')}}</div>
+		 <div class="menu menu--prospero">
+			<ul class="menu__list">
+				<li 
+					@click='change_nav(1)'
+					:class="current === 1 ? 'menu__item menu__item--current' : 'menu__item'" >
+					<a class="menu__link" >{{$t('product["Dados Gerais"]')}}</a>
+				</li>
+				<li 
+					@click='change_nav(2)'
+					:class="current === 2 ? 'menu__item menu__item--current' : 'menu__item'" >
+					<a class="menu__link">{{$t('product["Video e Imagens"]')}}</a>
+				</li>
+			</ul>
 		</div>
-		<div v-show='current'>
-			<div class="edit-form">
-				<p class="label">{{$t('product["Clonar"]')}}<i class="el-icon-star-on"></i></p>
-				<el-input placeholder='URL do anúncio Mercado Livre / ID do anúncio Mercado Livre / SKU B2W ' size='small' v-model='value'></el-input>
-			</div>
-			<div class="edit-form">
-				<p class="label">{{$t('product["Titulo"]')}}</p>
-				<el-input placeholder='Escova Alisadora Magic Hair' size='small' v-model='value'></el-input>
-			</div>
-			<div class="edit-item">
-				<div class="entrada-item-title">{{$t('product["Descrição"]')}}</div>
-				<div class="edit-input-item">
-					<div class="label"><label for="">{{$t('product["Marketplace"]')}}</label></div>
-					<div>
-						<el-select size='small' :model='form.a'>
-							<el-option value='1' label='Texto'></el-option>
-						</el-select>
-					</div>
-					<div class="edit-textarea">
-						<el-input
-						  type="textarea"
-						  :autosize='true'
-						  v-model="textarea3">
-						</el-input>
-					</div>
+		<div v-show='current === 1'>
+			<div class='erp-dialog-item  no-border '>
+				<div>
+					<p>
+				{{$t('product["Clonar"]')}}<i class="el-icon-star-on"></i>
+					</p>
+					<el-input type='text' size='small' placeholder='URL do anúncio Mercado Livre / ID do anúncio Mercado Livre / SKU B2W '></el-input>
 				</div>
 			</div>
-			<div class="edit-abled">
-				<div class="edit-form">
-					<p class="label">{{$t('product["Garantia"]')}}</p>
-					<el-input  v-model='Garantia' disabled size='small'></el-input>
-				</div>
-				<div class="edit-form">
-					<p class="label">{{$t('product["Categoria"]')}}</p>
-					<el-input  v-model='Categoria' disabled size='small' style='width:300px'></el-input>
-				</div>
-			</div>	
-			<div class="edit-item">
-				<div class="entrada-item-title">{{$t('product["Precificação"]')}}</div>
-				<div class="entrada-input-item1">
-					<div class="label"><label for="">{{$t('product["Exposição"]')}}</label></div>
-					<div>
-						<el-input size='small' v-model='form.a'></el-input>
-					</div>
-				</div>
-				<div class="entrada-input-item1">
-					<div class="label"><label for="">{{$t('product["Custo"]')}}</label></div>
-					<div>
-						<el-input size='small'v-model='form.Custo' palceholader='R$ 22,00' disabled></el-input>
-					</div>
-				</div>
-				<div class="entrada-input-item1">
-					<div class="label"><label for="">{{$t('product["Lucratividade"]')}}</label></div>
-					<div>
-						<el-input size='small' v-model='form.Lucratividade' disabled></el-input>
-					</div>
-				</div>
-				<div class="entrada-input-item1">
-					<div class="label"><label for="">{{$t('product["Preço de Venda"]')}}</label></div>
-					<div>
-						<el-input size='small' v-model='form.a' placeholder='R$ 22,00'></el-input>
-					</div>
-				</div>
-			</div>	
-			<div class="edit-item1">
-				<div class="entrada-item-title">{{$t('product["Frete"]')}}</div>
-				<div class="edit-checkbox">
-					<p><el-checkbox v-model="checked1"><span style='margin-left:20px'>{{$t('product["Frete Grátis"]')}}</span></el-checkbox></p>
-					<p><el-checkbox v-model="checked"><span style='margin-left:20px'>{{$t('product["Por conta do Cliente"]')}}</span></el-checkbox></p>
+			<div class='erp-dialog-item no-border'>
+				<div>
+					<p>
+				{{$t('product["Titulo"]')}}<i class="el-icon-star-on"></i>
+					</p>
+					<el-input type='text' size='small' placeholder='Escova Alisadora Magic Hair'></el-input>
 				</div>
 			</div>
-			<div class="entrada-btn">
-				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
+			<div class='erp-dialog-item'>
+				<div class="erp-dialog-head">{{$t('product["Descrição"]')}}</div>
+				<div>
+					<p>{{$t('input["Marketplace"]')}}</p>
+					<el-select size='small' v-model='form.a'>
+						<el-option value='1' label='Texto'></el-option>
+					</el-select>
+				</div>
+				<div class="width100" style='padding-right:20px;'>
+					<el-input
+					  type="textarea"
+					  :autosize='true'
+					  v-model="textarea3">
+					</el-input>
+				</div>
 			</div>
+			<div class='erp-dialog-item no-border'>
+				<div class="width30">
+					<p>{{$t('product["Garantia"]')}}</p>
+					<el-input  size='small'  v-model='Garantia' disabled></el-input>
+				</div>
+				<div class="width40">
+					<p>{{$t('product["Garantia"]')}}</p>
+					<el-input size='small'  v-model='Categoria' disabled></el-input>
+				</div>
+			</div>
+			<div class='erp-dialog-item'>
+				<div class="erp-dialog-head">{{$t('input["Precificação"]')}}</div>
+				<div>
+					<p>{{$t('input["Exposição"]')}}</p>
+					<el-input size='small' v-model='value'></el-input>
+				</div>
+				<div>
+					<p>{{$t('input["Custo"]')}}</p>
+					<el-input size='small' v-model='value' disabled></el-input>
+				</div>
+				<div>
+					<p>{{$t('input["Lucratividade"]')}}</p>
+					<el-input size='small' v-model='value'></el-input>
+				</div>
+				<div>
+					<p>{{$t('input["Preço de Venda"]')}}</p>
+					<el-input size='small' v-model='value'></el-input>
+				</div>
+			</div>
+			<div class='erp-dialog-item  flex-column'>
+				<div class="erp-dialog-head">{{$t('input["Frete"]')}}</div>
+				<div >
+				<el-checkbox v-model="checked1"><span style='margin-left:12px'>{{$t('product["Frete Grátis"]')}}</span></el-checkbox>
+				</div>
+				<div >
+				<el-checkbox v-model="checked"><span style='margin-left:12px'>{{$t('product["Por conta do Cliente"]')}}</span></el-checkbox></div>
+			</div>
+			<p class='erp-dialog-button'>
+				<el-button type='primary' round @click='submit'>{{$t('product["Concluir"]')}}</el-button>
+			</p>
 		</div>
-		<div v-show='!current'>
-			<div class="entrada-select">
-				<h3>{{$t('product["Produtos"]')}}</h3>
-				<div class="entrada-t">
+		<div v-show='current === 2'>
+			<div class='erp-dialog-item no-border'>
+				<div>
+					<p>{{$t('product["Produtos"]')}}</p>
 					<el-select v-model='select' style='width:400px' size='medium'>
 						<el-option value='1' label='Originais do anúncio'></el-option>
 						<el-option value='2' label='Minha imagens'></el-option>
@@ -125,36 +134,35 @@
 				  <div class="el-upload__text">{{$t('product["Principal"]')}}Arraste e solte sua imagem aqui ou c lique nesta área</div>
 				</el-upload>
 			</div>
-			<div class="edit-nav">
-				<ul class="nav-item">
-					<li>{{$t('product["Principal"]')}}</li>
-					<li>{{$t('product["Preto"]')}}</li>
-					<li>{{$t('product["Branco"]')}}</li>
-					<li>{{$t('product["Vermelho"]')}}</li>
-					<li>{{$t('product["Azul"]')}}</li>
+			<nav class="menu menu--ceres img_nav">
+				<ul class="menu__list">
+					<li :class="img_current === index ? 'menu__item menu__item--current' : 'menu__item' "
+					@click='check_img_nav(index)'
+					 v-for='(item,index) in nav_data'>
+						<a class="menu__link">{{item.title}}</a>
+					</li>
 				</ul>
+			</nav>
+			<div class="edit-nav">
 				<ul class="block-img">
-					<li v-for='(item,index) in img_list' @mouseenter='mouseenter(item.url)'>
+					<li v-for='(item,index) in nav_data[img_current].list' @mouseenter='mouseenter(item.url)'>
 						<img :src="item.url" alt="" class="item-img">
 						<i class="el-icon-close" @click='del(index)'></i>
 					</li>
 				</ul>
 			</div>
-			<div class="edit-item">
-				<div class="entrada-item-title">{{$t('product["Descrição"]')}}</div>
-				<div class="edit-input-item">
-				<div class="edit-form">
-					<p class="label">{{$t('product["Adicionar URL do Youtube"]')}}</p>
+			<div class="erp-dialog-item">
+				<div class="erp-dialog-head">{{$t('product["Descrição"]')}}</div>
+				<div>
+					<p>{{$t('product["Adicionar URL do Youtube"]')}}</p>
 					<el-input  v-model='form.a'  size='small'></el-input>
 				</div>
-				
-				</div>
 			</div>
-			<div class="entrada-btn part2">
-				<el-button type='primary' round @click='submit'><span class="span">{{$t('product["Concluir"]')}}</span></el-button>
-			</div>
-</div>
-</div>
+			<p class='erp-dialog-button'>
+				<el-button type='primary' round @click='submit'>{{$t('product["Concluir"]')}}</el-button>
+			</p>
+		</div>
+	</div>
 </el-dialog>
 </template>
 
@@ -163,18 +171,34 @@
 	export default {
 		data() {
 			return {
-				value:"value",
+				img_current:0,
+				current: 1,
+				nav_data: [{
+					title: this.$t('product["Principal"]'),
+					list: []
+				}, {
+					title: this.$t('product["Preto"]'),
+					list: []
+				}, {
+					title: this.$t('product["Branco"]'),
+					list: []
+				}, {
+					title: this.$t('product["Vermelho"]'),
+					list: []
+				}, {
+					title: this.$t('product["Azul"]'),
+					list: []
+				}, ],
 				fileList: [],
 				img_list: [],
 				img_src: '',
 				select: '2',
-				checked: true,
+				checked: false,
 				checked1: false,
 				Garantia: '3 Meses',
 				Categoria: 'Acessórios / GPS / Aparelhos / Outros',
 				value: '',
 				textarea3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui mi, gravida molestie convallis sed, sollicitudin in magna. Aliquam erat volutpat. Aliquam erat volutpat. Morbi porttitor, turpis vitae semper interdum, augue mi euismod mauris, a finibus ipsum nunc gravida lectus. Vestibulum sit amet lectus tristique, blandit tellus ac, tempus purus. Quisque suscipit dapibus ligula, nec rhoncus velit congue id. Nullam in tortor turpis. Donec nec convallis elit, id vulputate justo. Fusce eu tortor tristique, laoreet nisi quis, laoreet odio. Suspendisse potenti. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ultricies augue felis, ac cursus neque faucibus bibendum. Integer quis nibh lobortis, tempor elit sit amet, faucibus neque. Vivamus tincidunt quam ante, sit amet iaculis massa molestie vel.",
-				current: 1,
 				user: '',
 				form: {
 					a: '',
@@ -206,6 +230,10 @@
 			}
 		},
 		methods: {
+			change_nav(current) {
+				//				this.current = 0;
+				this.current = current;
+			},
 			mouseenter(src) {
 				this.img_src = src;
 			},
@@ -215,13 +243,21 @@
 					type: 'success'
 				});
 			},
+			check_img_nav(index){
+				this.img_current = index;
+				if(!this.nav_data[index].list.length){
+					this.img_src = ''
+				}else {
+					this.img_src = this.nav_data[this.img_current].list[0].url
+				}
+			},
 			changeImg(e, i) {
 				this.img_src = e.url;
-				this.img_list = i;
+				this.nav_data[this.img_current].list.push(e);
 			},
-			del(index){
-				this.img_list.splice(index,1);
-				if(this.img_list.length === 0){
+			del(index) {
+				this.nav_data[this.img_current].list.splice(index, 1);
+				if (this.nav_data[this.img_current].list.length === 0) {
 					this.img_src = ''
 				}
 			}
@@ -262,7 +298,7 @@
 			.edit-img {
 				max-height: 100%;
 				max-width: 100%;
-				
+
 			}
 			.text-edit {
 				p {
@@ -290,16 +326,11 @@
 		}
 	}
 
+	.img_nav {}
+
 	.edit-nav {
-		margin-top: 20px;
-		font-size: 20rem;
-		ul.nav-item {
-			overflow: hidden;
-			li {
-				float: left;
-				margin-right: 40px
-			}
-		}
+		margin-bottom: 40px;
+		font-size: 18rem;
 		.block-img {
 			overflow: hidden;
 			margin-top: 20px;
@@ -312,7 +343,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-/*				border: 1px solid #ccc;*/
+				/*				border: 1px solid #ccc;*/
 				position: relative;
 				.item-img {
 					max-width: 100%;

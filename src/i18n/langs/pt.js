@@ -25,9 +25,13 @@ const cn = {
 		'Acessos': 'Acessos',
 		'Operação': 'Operação',
 		'Data de Pag': 'Data de Pag',
+		'ID do Anúncio': 'ID do Anúncio',
+		'Título': 'Título',
+		'Vendas': 'Vendas',
 	},
 	"button": {
 		"Empacotar": "Empacotar",
+		"Iniciar importação": "Iniciar importação",
 		"Adicionar operador": "Adicionar operador",
 		"ok": "Ok",
 		"Enviar": "Enviar",
@@ -37,6 +41,8 @@ const cn = {
 		"Expedir Pedidos": "Expedir Pedidos",
 		"Realizar Pagamento": "Realizar Pagamento",
 		"Auto Pós-Compra": "Auto Pós-Compra",
+		"Clonar Loja": "Clonar Loja",
+		"Importar Anúncios": "Importar Anúncios",
 		"Relatório de Saída": "Relatório de Saída", //货品转化列表映射
 	},
 	"select": {
@@ -61,7 +67,18 @@ const cn = {
 		"Complemento": "Complemento",
 		"Bairro": "Bairro",
 		"Cidade": "Cidade",
-		"Estado": "Estado"
+		"Estado": "Estado",
+		"Status": "Status",
+		"Situação": "Situação",
+		"Marketplace": "Marketplace",
+		"Precificação": "Precificação",
+		"Exposição": "Exposição",
+		"Custo": "Custo",
+		"Preço de Venda": "Preço de Venda",
+		"Lucratividade": "Lucratividade",
+		"Frete": "Frete",
+		"nome": "nome",
+		"SKU": "SKU",
 	},
 	"setting": {
 		"Senha": "Senha",
@@ -115,9 +132,10 @@ const cn = {
 		"用户资料": "perfil",
 		"配置": "configurações",
 		"退出": "Sair",
-
+		"Operadores": "Operadores",
 	},
 	"product": {
+		"Selecione os anúncios que deseja": "Selecione os anúncios que deseja",
 		"产品管理": "Gerenciador de Produtos",
 		"广告管理": "Gerenciador de Produtos",
 		"属性库": "Variações Marketplaces-",

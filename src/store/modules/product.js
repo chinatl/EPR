@@ -6,6 +6,8 @@ const app = {
 		show_delete: false,
 		show_entrda: false,
 		show_edit: false,
+		show_auto_link: false,
+		show_fast_copy: false,
 	},
 	mutations: {
 		TOGGLE_ML: state => {
@@ -26,6 +28,13 @@ const app = {
 		TOGGLE_EDIT: state => {
 			state.show_edit = !state.show_edit
 		},
+		TOGGLE_AUTO_LINK: state => {
+			state.show_auto_link = !state.show_auto_link
+		},
+		TOGGLE_FAST_COPY: state => {
+			state.show_fast_copy = !state.show_fast_copy
+		},
+		
 	}
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
+ 	<navbar></navbar>
     <sidebar class="sidebar-container"></sidebar>
-    <div class="main-container">
-      <navbar></navbar>
+	<div class="main-container">
       <app-main></app-main>
       <my-change></my-change>
       <my-message></my-message><!--左边第一个弹出层-->

@@ -1,5 +1,6 @@
 <template>
     <div v-loading='loading'>
+       	<div class="erp-s"></div>
         <div class="erp-header">
             <h3>{{$t(`product["产品管理"]`)}}</h3>
             <div>
@@ -28,22 +29,33 @@
 			</ul>
 			<transition-group name="fade" tag='div'>
 				<div v-for='(item,index) in tableData' v-bind:key="index" class="product-item">
-					<ul class="content" @click='current = index'>
+					<ul class="content" @click='check(index)'>
 						<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
 						<li>{{item.name}}</li>
 						<li>{{item.address}}</li>
 						<li>{{item.Marca}}</li>
-						<li>{{item.Estoque}}</li>
+						<li>
+							{{item.Estoque}}
+							<span style='margin-left:8px'>
+								<svg-icon icon-class='sanseqiu' v-if='index%2'></svg-icon>
+								<svg-icon icon-class='sanseqiu1' v-else></svg-icon>
+							</span>
+						</li>
 						<li>
 							<div class="table-icon">
-								<span><i class='el-icon-document' @click='$store.commit("TOGGLE_FORNECEDOR_MENU")'></i></span>
-								<span><i class='el-icon-edit-outline' @click='$store.commit("TOGGLE_DELETE")'></i></span>
-								<span><i class='el-icon-delete' @click='$store.commit("TOGGLE_DELETE")'></i></span>
+								<span><i class='el-icon-document' @click.stop='$store.commit("TOGGLE_FORNECEDOR_MENU")'></i></span>
+								<span><i class='el-icon-edit-outline' @click.stop='$store.commit("TOGGLE_DELETE")'></i></span>
+								<span><i class='el-icon-delete' @click.stop='$store.commit("TOGGLE_DELETE")'></i></span>
 							</div>
 						</li>
 					</ul>
-					<div :class="current === index ? 'product-column': 'product-column current'">
-						
+					<div class="product-column" ref='ul'>
+					  	<swiper :options="swiperOption" style="margin-bottom: 1rem;">
+							<swiper-slide v-for="i in arr" :key='Math.random()'>
+       							<my-item :name='i.name'></my-item>
+       						</swiper-slide>
+        					<div class="swiper-pagination" slot="pagination"></div>
+      					</swiper>
 					</div>
 				</div>
 			</transition-group>
@@ -65,8 +77,17 @@
 	import myUnbind from './Components/unbind.vue'
 	import myDel from './Components/delete.vue'
 
+	import 'swiper/dist/css/swiper.css'
+
+	import {
+		swiper,
+		swiperSlide
+	} from 'vue-awesome-swiper'
+
 	export default {
 		components: {
+			swiper,
+			swiperSlide,
 			myMarket,
 			myMl,
 			myEntrada,
@@ -77,8 +98,36 @@
 		},
 		data() {
 			return {
+				value: '',
+				swiperOption: {
+					slidesPerView: 5,
+					spaceBetween: 50,
+					// init: false,
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true
+					},
+					breakpoints: {
+						1608: {
+							slidesPerView: 4,
+							spaceBetween: 40
+						},
+						1100: {
+							slidesPerView: 3,
+							spaceBetween: 30
+						},
+						640: {
+							slidesPerView: 2,
+							spaceBetween: 20
+						},
+						320: {
+							slidesPerView: 1,
+							spaceBetween: 10
+						}
+					}
+				},
 				current: 0,
-				loading: true,
+				loading: false,
 				total: 10,
 				v_switch: false,
 				ml_show: false,
@@ -88,6 +137,29 @@
 					number: 20,
 					numer1: ''
 				},
+				arr: [{
+					name: 'mg'
+				}, {
+					name: 'b2w'
+				}, {
+					name: 'b2w'
+				}, {
+					name: 'b2w'
+				}, {
+					name: 'b2w'
+				}, {
+					name: 'wrm'
+				}, {
+					name: 'wrm'
+				}, {
+					name: 'wrm'
+				}, {
+					name: 'wrm'
+				}, {
+					name: 'wrm'
+				}, {
+					name: 'mg'
+				}, ],
 				tableData: [{
 					name: '1000103-00',
 					address: 'Escova Alisadora',
@@ -113,6 +185,16 @@
 			init() {
 
 			},
+			check(index) {
+				//				this.current = index;
+				var ul = this.$refs.ul;
+				for (var i = 0; i < ul.length; i++) {
+					ul[i].style.height = '0px'
+				}
+				//				console.log(index)
+				ul[index].style.height = '380px'
+
+			},
 			handleSelectionChange(e) {
 				console.log(e)
 			},
@@ -122,9 +204,23 @@
 			},
 		},
 		created() {
-			setTimeout(res => {
-				this.loading = false;
-			}, 1000)
+			//			setTimeout(res => {
+			//				this.loading = false;
+			//			}, 1000)
+//			this.$get('login/language', {
+//				cs: 'CN'
+//			}).then(res => {
+//			}).catch(res => {
+//				this.$post('login/add', {
+////					userInfo_phone: '21321',
+//					userInfo_email: '21321',
+//					userInfo_id: '21321',
+//				}).then(res => {
+//					console.log(res)
+//				})
+//			})
+
+
 		}
 	}
 

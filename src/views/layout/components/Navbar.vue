@@ -140,6 +140,12 @@ Produtos estão sem estoque.</p>
 					<span>{{$t(`layout["用户资料"]`)}}</span>
 				</span>
 			</el-dropdown-item>
+			<el-dropdown-item>
+				<span @click='user' class="drop-icon">
+					<svg-icon icon-class='user'  style='font-size:24px'></svg-icon>
+					<span>{{$t(`layout["Operadores"]`)}}</span>
+				</span>
+			</el-dropdown-item>
 			<el-dropdown-item divided>
 				<span @click='set' class="drop-icon">
 					<svg-icon icon-class='set' style='font-size:18px'></svg-icon>
@@ -363,6 +369,9 @@ Produtos estão sem estoque.</p>
 	.navbar {
 		height: 60px;
 		border-radius: 0px !important;
+		position: fixed;
+		top: 0;
+		width: 100%;
 		.hamburger-container {
 			line-height: 58px;
 			height: 50px;

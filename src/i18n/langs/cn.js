@@ -21,10 +21,14 @@ const cn = {
 		"Lista de Operadores": " 经营者名单 ",
 		"Grupo": " 组 ",
 		"Acessos": " 访问 ",
-		"Data de Pag": " 日期 "
+		"Data de Pag": " 日期 ",
+		'ID do Anúncio': '广告的id',
+		'Título': '标题',
+		'Vendas': '销售',
 	},
 	"button": {
 		"Empacotar": " 包装 ",
+		"Iniciar importação": "启动输入",
 		"Adicionar operador": " 添加操作 ",
 		"ok": " 好吧 ",
 		"Enviar": " 发送 ",
@@ -34,7 +38,9 @@ const cn = {
 		"Criar Grupo": " 创建组 ",
 		"Expedir Pedidos": " 调度请求 ",
 		"Relatório de Saída": " 输出报告 ",
-		"Auto Pós-Compra": "自动定价"
+		"Auto Pós-Compra": "自动定价",
+		"Clonar Loja": "克隆店铺",
+		"Importar Anúncios": "导入广告"
 	},
 	"select": {
 		"Paginação": " 分页 ",
@@ -42,7 +48,7 @@ const cn = {
 		"Período": " 期 "
 	},
 	"input": {
-		"Cliente": " 客户 ",
+		"Cliente": "客户 ",
 		"Telefone": " 电话 ",
 		"Celular": " 手机 ",
 		"E-Mail": " 电子邮件 ",
@@ -58,7 +64,18 @@ const cn = {
 		"Complemento": " 补充 ",
 		"Bairro": " 邻域 ",
 		"Cidade": " 城市 ",
-		"Estado": " 状态 "
+		"Estado": " 状态 ",
+		"Status": " 现状 ",
+		"Situação": " 情况 ",
+		"Marketplace": " 市场 ",
+		"Precificação": " 定价 ",
+		"Exposição": " 曝光 ",
+		"Custo": " 成本 ",
+		"Preço de Venda": " 销售价格 ",
+		"Lucratividade": " 盈利能力 ",
+		"Frete": " 运费",
+		"nome": "nome",
+		"SKU": "SKU",
 	},
 	"setting": {
 		"Senha": " 密码 ",
@@ -97,6 +114,7 @@ const cn = {
 		"订单管理": "订单管理",
 		"打包": "打包",
 		"账号": "账号",
+
 	},
 
 	"login": {
@@ -118,15 +136,15 @@ const cn = {
 		"(在“今日”至2018年4月20日的价值差异上，将收取50美元的价值)": "(在“今日”至2018年4月20日的价值差异上，将收取50美元的价值)",
 		"修改": "修改",
 		"免费使用版": "免费使用版",
-
 		"用户资料": "用户资料",
 		"配置": "配置",
 		"退出": "退出",
-
+		"Operadores": "运营商",
 	},
 	"product": {
-		"产品管理": "产品经理 ",
-		"广告管理": " 产品经理 ",
+		"Selecione os anúncios que deseja": "选择您想要的广告。 ",
+		"产品管理": "产品管理",
+		"广告管理": " 广告管理",
 		"属性库": " 市场的变化。 ",
 		"开启快捷编辑": " 激活高级功能 ",
 		"入库": " 输入 ",

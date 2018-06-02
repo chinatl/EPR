@@ -4,29 +4,36 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './menu.css';
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box
-}
 
-body {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-	font-family: "微软雅黑", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-}
-
-html {
-	box-sizing: border-box;
-	background-color: #EDEDED
+@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('../font/Montserrat-Regular.eot');
+	src: url('../font/Montserrat-Regular.eot?#iefix')format('embedded-opentype'),
+	url('../font/Montserrat-Regular.woff')format('woff'),
+	url('../font/Montserrat-Regular.ttf')format('truetype'),
+	url('../font/Montserrat-Regular.svg#Montserrat-Regular')format('svg');
 }
 
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
 }
+
+
+html {
+	box-sizing: border-box;
+	background-color: #E9EEF4;
+}
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family: "Montserrat-Regular", '微软雅黑', sans-serif;
+}
+
 
 div:focus {
 	outline: none;
@@ -70,11 +77,10 @@ li {
 	body {
 		font-size: 12px;
 	}
-	.app-main {
-		margin: 10px 10px;
-		padding: 0px;
-		border-radius: 8px;
+	.main-container {
+		padding: 20px 40px
 	}
+
 }
 
 @media screen and (min-width:960px) and (max-width:1368px) {
@@ -84,13 +90,12 @@ li {
 	body {
 		font-size: 12px;
 	}
-	.app-main {
-		margin: 16px 16px;
-		padding: 20px;
-		border-radius: 12px;
-	}
+
 	.introduce-icon {
 		padding: 0 12px;
+	}
+	.main-container {
+		padding: 20px 40px
 	}
 }
 
@@ -104,26 +109,13 @@ li {
 	.introduce-icon {
 		padding: 0 15px;
 	}
-	.app-main {
-		margin: 30px 30px;
-		padding: 30px 40px;
-		border-radius: 16px;
-	} //	.app-main {
-	//		margin: 16px 16px;
-	//		padding: 20px;
-	//		border-radius: 12px;
-	//	}
+	.main-container {
+		padding: 20px 40px
+	}
+
 }
 
 //main-container全局样式
-.app-main {
-	min-height: 100%
-}
-
-.app-container {
-	padding: 20px;
-}
-
 /*通用样式*/
 
 .table-bgc {
@@ -207,7 +199,6 @@ li {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		font-family: '微软雅黑';
 	}
 }
 
@@ -268,12 +259,11 @@ li {
 		.product-item {
 			.product-column {
 				height: 0px;
-				background-color: red;
-				transition: height 1s;
+				margin-top: 10px; //				background-color: red;
+				transition: height 0.5s;
+				overflow: hidden;
 			}
-			.current {
-				height: 400px;
-			}
+
 			&:nth-of-type(odd) {
 				.content {
 					background-color: #fff;
@@ -449,8 +439,8 @@ li {
 		min-width: 25%;
 	}
 	.width40 {
-		max-width: 40%;
-		min-width: 40%;
+		max-width: 45%;
+		min-width: 45%;
 	}
 	.width20 {
 		max-width: 20%;
@@ -464,6 +454,10 @@ li {
 		max-width: 4%;
 		min-width: 4%;
 	}
+	.width100 {
+		min-width: 100%;
+	}
+
 	.erp-dialog-head {
 		position: absolute;
 		left: 100px;
@@ -475,8 +469,22 @@ li {
 	}
 }
 
+.no-border {
+	padding: 0px 0 10px 0;
+	border: none;
+	margin: 0px;
+	> div {
+		margin: 10px 0;
+	}
+}
+
 .just-start {
 	justify-content: flex-start
+}
+
+.flex-column {
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .erp-dialog-button {
@@ -517,6 +525,11 @@ div.el-dialog {
 		margin: 20px 20px 0 20px;
 		padding-bottom: 12px;
 		border-bottom: 2px solid #ccc;
+		.tips {
+			margin-left: 40px;
+			color: #000;
+			font-size: 14px;
+		}
 	}
 	.el-dialog__body {
 		padding: 0 40px 24px 40px;

@@ -28,7 +28,7 @@
 			<el-input size='mini' placeholder='Faixa' style='margin:0 10px'></el-input>
 		</div>
 		<div class="card-item-ranking">
-			<ul>
+			<ul class="product-item">
 				<li>
 					<span>1º</span>
 					<span>{{$t('product["Pmcell"]')}}</span>
@@ -72,7 +72,8 @@
 		data() {
 			return {
 				v_switch: false,
-				fullscreenLoading: false
+				fullscreenLoading: false,
+				value: ''
 			}
 		},
 		props: ['name'],
@@ -127,6 +128,7 @@
 	.card-item {
 		width: 240px;
 		border-radius: 14px;
+		float: left;
 		overflow: hidden;
 		.card-item-title {
 			display: flex;
@@ -203,13 +205,16 @@
 						text-decoration: underline;
 					}
 				}
-				ul li {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					margin-bottom: 8px;
-					font-size: 12rem;
-					font-weight: bold
+				.product-item {
+					display: block;
+					li {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						margin-bottom: 8px;
+						font-size: 12rem;
+						font-weight: bold
+					}
 				}
 			}
 			.card-item-icon {

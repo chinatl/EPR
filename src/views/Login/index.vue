@@ -38,12 +38,19 @@
            </div>
            <el-form  :model="register_form">
                 <el-form-item label="邮箱">
-                    <el-input v-model="register_form.name" maxlength='16'></el-input>
+                    <el-input v-model="register_form.name" maxlength='30'></el-input>
+                </el-form-item>
+                <el-form-item label="邮箱验证码">
+					<el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
+					<el-button type='success' @click='get_validate'>获取验证码</el-button>
+                </el-form-item> 
+			  	<el-form-item label="验证码">
+					<el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
                 </el-form-item>
                 <el-form-item label="账号密码">
                     <el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
-                </el-form-item>
-                <el-form-item label="账号密码">
+                </el-form-item> 
+				<el-form-item label="确认密码">
                     <el-input v-model="register_form.repwd" maxlength='16' type='password'></el-input>
                 </el-form-item>
                 <el-form-item align='center'>
@@ -57,6 +64,8 @@
 <script>
 	import MD5 from 'js-md5'
 	import waves from '@/directive/waves' // 水波纹指令
+	import {validateUrl} from '@/utils/validate' // 水波纹指令
+	console.log(validateUrl)
 	export default {
 		directives: {
 			waves
@@ -89,6 +98,18 @@
 			}
 		},
 		methods: {
+			get_validate(){
+				if(validateUrl(this.register_form.name)){
+					this.$get('user/getMail',{
+						email:this.register_form.name
+					})
+				}else {
+					this.$message({
+						$message:'邮箱格式不对',
+						type:'error'
+					})
+				}
+			},
 			login() {
 //				const loading = this.$loading({
 //					lock: true,
