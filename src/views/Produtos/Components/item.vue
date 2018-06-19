@@ -1,53 +1,70 @@
 <template>
 <div class="card-item" v-loading.fullscreen="fullscreenLoading">
-	<div class="card-item-title" :style="{backgroundColor: getBgc($props.name) }">
-		<img :src="require('@/assets/img/mg.png')" v-if='$props.name === "mg" '>
-		<img :src="require('@/assets/img/b2w.png')" v-if='$props.name === "b2w" '>
-		<img :src="require('@/assets/img/wrm.png')" v-if='$props.name === "wrm" '>
+	<div class="card-item-title">{{card_data.nickname}}<!--Escova Alisadora Magic...--></div>
+	<div class="card-item-con">
+		<div class="vendas">
+			<p class="p1">{{card_data.advertId}}</p>
+			<p class="p2">Vendas: <span class="big1275">{{card_data.sold_quantity}}</span></p>
+		</div>
 		<div class="line"></div>
-		<div class="intr" :style='{color: getColor($props.name)}'>
-			<p >
-				{{$props.name ==='mg'? 'MegaHaribaba' : 'Pmcell'}}
-			</p>
-			<p>MLB12345678</p>
-		</div>
+		<div class="card-item-price">R$ {{card_data.price}}</div>
 	</div>
-	<div class='card-item-body'>
-		<p class="hair">{{$t('product["Escova Alisadora Magic Hair"]')}}</p>
-		<div class="card-item-con">
-			<div class="vendas">
-				<p class="p1">{{$t('product["Vendas"]')}}</p>
-				<p class="p2">1275</p>
-			</div>
-			<div class="line"></div>
-			<div class="card-item-price">R$ 25,00</div>
-		</div>
-		<div class="card-item-sel">
-			<el-switch v-model='v_switch'></el-switch>
-			<el-input size='mini' placeholder='Preço Mínimo' style='margin:0 10px'></el-input>
-			<el-input size='mini' placeholder='Faixa' style='margin:0 10px'></el-input>
-		</div>
-		<div class="card-item-ranking">
-			<ul class="product-item">
-				<li>
-					<span>1º</span>
-					<span>{{$t('product["Pmcell"]')}}</span>
-					<span>R$ 26,00</span>
-				</li>
-				<li>
-					<span>2º</span>
-					<span>{{$t('product["Pmcell"]')}}</span>
-					<span>R$ 26,00</span>
-				</li>
-				<li>
-					<span>3º</span>
-					<span>{{$t('product["Pmcell"]')}}</span>
-					<span>R$ 26,00</span>
-				</li>
-			</ul>
-			<p class='ranking_more'><span @click='open_dialog($props.name)' class='ranking_more' v-if='$props.name !== "wrm"'>{{$t('product["Mais..."]')}}</span></p>
-		</div>
-		<div class="card-item-icon">
+	<div class="card-item-ranking">
+			<swiper :options="swiperOption">
+				<swiper-slide >
+					<div class="card-item-sel" >
+						<el-switch v-model='v_switch' size='small' :width='36'></el-switch>
+						<el-input size='mini' placeholder='Preço Mínimo' style='margin-right:4px;margin-left:10px'></el-input>
+						<el-input size='mini' placeholder='Faixa' style='width:100px'></el-input>
+					</div>
+					<ul class="product-item">
+						<li>
+							<span>1º</span>
+							<span>{{$t('product["Pmcell"]')}}</span>
+							<span>R$ 26,00</span>
+						</li>
+						<li>
+							<span>2º</span>
+							<span>{{$t('product["Pmcell"]')}}</span>
+							<span>R$ 26,00</span>
+						</li>
+						<li>
+							<span>3º</span>
+							<span>{{$t('product["Pmcell"]')}}</span>
+							<span>R$ 26,00</span>
+						</li>
+					</ul>
+				</swiper-slide>
+				<swiper-slide v-if='name === "mg" '>
+					<div class="card-item-sel">
+						<div class='erp-search-button'>
+							<el-input  size='small' placeholder='Nome / SKU' v-model='value'></el-input>
+							<button class="erp-btn"><i class="el-icon-plus"></i></button>
+						</div>
+					</div>
+					<ul class="add-product-item" >
+						<li>
+							<span>Escova</span>
+							<span>11º</span>
+							<span><i class="el-icon-close"></i></span>
+						</li>
+						<li>
+							<span>Escova</span>
+							<span>11º</span>
+							<span><i class="el-icon-close"></i></span>
+						</li>
+						<li>
+							<span>Escova</span>
+							<span>11º</span>
+							<span><i class="el-icon-close"></i></span>
+						</li>
+					</ul>
+				</swiper-slide>
+				<div class="swiper-pagination" slot="pagination"></div>
+			</swiper>
+			<p class='ranking_more'><span @click='open_dialog($props.name)' class='ranking_more' v-if='name !== "walmart"'>{{$t('product["Mais..."]')}}</span></p>
+	</div>
+	<div class="card-item-icon">
 			<div @click='pause'>
 				<svg-icon icon-class='pause' @click></svg-icon>
 			</div>
@@ -60,9 +77,19 @@
 			<div @click='$store.commit("TOGGLE_UNBIND")'>
 				<svg-icon icon-class='link'></svg-icon>
 			</div>
-			<div @click='$store.commit("TOGGLE_DELETE")'>
+			<div @click='$store.commit("TOGGLE_ALL_DEL")'>
 				<svg-icon icon-class='del' ></svg-icon>
 			</div>
+			<div @click='$store.commit("TOGGLE_ALL_DEL")' v-show='name==="mg"'>
+				<svg-icon icon-class='del' ></svg-icon>
+			</div>
+		</div>
+	<div class="card-mask" v-if='(name === "b2w" || name === "walmart") && (index%2-1)'>
+		<svg-icon icon-class='timer' v-if='name === "walmart"'></svg-icon>
+		<svg-icon icon-class='chacha' v-else></svg-icon>
+		<div>
+			<p>{{name === "walmart" ? "Aguardando":"Catalogação"}} </p>
+			<p>{{name === "b2w" ? "Negada":"Catalogação"}}  </p>
 		</div>
 	</div>
 </div>
@@ -71,13 +98,27 @@
 	export default {
 		data() {
 			return {
+				show: false,
 				v_switch: false,
 				fullscreenLoading: false,
-				value: ''
+				value: '',
+				swiperOption: {
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true
+					},
+				},
+				card_data:{}
 			}
 		},
-		props: ['name'],
+		props: ['name', "index","data"],
 		methods: {
+			agree_item(id) {
+				console.log(id)
+			},
+			cancae_item() {
+
+			},
 			pause() {
 				this.$confirm('此操作将永久停用该文件, 是否继续?', '提示', {
 					confirmButtonText: '确定',
@@ -95,24 +136,6 @@
 					});
 				});
 			},
-			getColor(name) {
-				if (name === 'b2w') {
-					return '#000'
-				} else if (name === 'mg') {
-					return '#000'
-				} else if (name === 'wrm') {
-					return '#fff'
-				}
-			},
-			getBgc(name) {
-				if (name === 'b2w') {
-					return '#52DDDA'
-				} else if (name === 'mg') {
-					return '#FBDE08'
-				} else if (name === 'wrm') {
-					return '#2B4EBF'
-				}
-			},
 			open_dialog(name) {
 				if (name === 'b2w') {
 					this.$store.commit("TOGGLE_MARKET");
@@ -120,126 +143,180 @@
 					this.$store.commit("TOGGLE_ML");
 				}
 			}
+		},
+		created() {
+			this.show = this.name === 'b2w';
+			this.card_data = this.data || {};
 		}
 	}
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
+	.swiper-pagination-bullet-active {
+		background-color: #00C1DE
+	}
+
 	.card-item {
 		width: 240px;
 		border-radius: 14px;
 		float: left;
 		overflow: hidden;
+		border: 1px solid #ccc;
+		border-radius: 14px;
+		position: relative;
 		.card-item-title {
+			text-align: center;
+			color: #666;
+			font-size: 16px;
+			margin: 20px 0 10px 0;
+			text-decoration: underline
+		}
+		.card-item-con {
+			margin: 10px 0;
+			padding: 0 16px;
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			padding: 15px 10px;
-			img {}
-			.line {
-				height: 40px;
-				width: 1px;
-				background-color: #aaa
+			color: #666;
+			.vendas {
+				p {
+					margin: 3px 0 6px 0;
+					text-align: center;
+				}
+				.p1 {
+					text-decoration: underline;
+				}
+				.p2 {
+					color: #999;
+					.big1275 {
+						font-size: 16px;
+					}
+				}
 			}
-			.intr p {
-				margin-bottom: 4px;
+			.line {
+				height: 36px;
+				width: 1px;
+				background-color: #666
+			}
+			.card-item-price {
+				padding: 4px 8px;
+				border: 1px solid #999;
+				font-size: 16rem;
 				font-weight: bold;
-				text-align: center;
-				font-size: 12rem;
+				color: #666
 			}
 		}
-		.card-item-body {
-			border: 1px solid #ccc;
-			border-radius: 0 0 14px 14px;
-			.hair {
-				text-align: center;
-				margin: 15px 0;
-				font-size: 12rem;
-				font-weight: bold
+		.card-item-sel {
+			padding: 0px 0px;
+			margin-bottom: 8px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			.el-input__inner {
+				padding-left: 6px;
+				padding-right: 6px;
 			}
-			.card-item-con {
-				margin: 10px 0;
-				padding: 0 12px;
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				.vendas {
-					p {
-						margin-bottom: 6px;
-						font-size: 17rem;
-						font-weight: bold;
-						text-align: center;
-					}
-					.p1 {
-						color: #40B4B1;
-					}
-					.p2 {}
-				}
-				.line {
-					height: 50px;
-					width: 2px;
-					background-color: #ccc
-				}
-				.card-item-price {
-					padding: 4px 6px;
-					border: 1px solid #ccc;
-					font-size: 16rem;
-					font-weight: bold;
+			.erp-search-button {
+				.erp-btn {
+					padding: 0px 0px 0px 7px;
+					border-radius: 0 4px 4px 0;
+					text-align: center;
 				}
 			}
-			.card-item-sel {
-				padding: 0px 15px;
-				display: flex;
-				justify-content: space-around;
-				align-items: center
+		}
+		.card-item-ranking {
+			padding: 0px 20px 10px;
+			ul {
+				padding-bottom: 20px;
 			}
-			.card-item-ranking {
-				padding: 20px 20px 10px;
-				.ranking_more {
-					font-size: 14rem;
-					height: 16px;
-					text-align: right;
-					cursor: pointer;
-					&:hover {
-						color: #40B4B1;
-						text-decoration: underline;
-					}
-				}
-				.product-item {
-					display: block;
-					li {
-						display: flex;
-						justify-content: space-between;
-						align-items: center;
-						margin-bottom: 8px;
-						font-size: 12rem;
-						font-weight: bold
-					}
+			.ranking_more {
+				font-size: 14rem;
+				height: 16px;
+				text-align: right;
+				cursor: pointer;
+				&:hover {
+					color: #40B4B1;
+					text-decoration: underline;
 				}
 			}
-			.card-item-icon {
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				padding: 0 10px 20px;
-				div {
-					width: 16%;
-					color: #000;
-					font-weight: bold;
-					background-color: #eee;
-					font-size: 24rem;
-					height: 40px;
+			.product-item {
+				display: block;
+				li {
 					display: flex;
-					justify-content: center;
+					justify-content: space-between;
 					align-items: center;
-					cursor: pointer;
-					&:hover {
-						background-color: #DC044D;
-						color: #fff;
+					margin-bottom: 8px;
+					font-size: 12rem;
+					color: #999;
+					padding: 6px 20px;
+					&:nth-of-type(1) {
+						color: #FF9A23
+					}
+					&:nth-of-type(even) {
+						background-color: #f5f5f6;
 					}
 				}
 			}
-
+			.add-product-item {
+				display: block;
+				li {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 8px;
+					font-size: 12rem;
+					color: #666;
+					padding: 6px 12px;
+					&:nth-of-type(even) {
+						background-color: #f5f5f6;
+						color: #999;
+					}
+				}
+			}
+		}
+		.card-item-icon {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 0 10px 20px;
+			div {
+				width: 16%;
+				color: #666;
+				font-weight: bold;
+				background-color: #eee;
+				font-size: 24rem;
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				&:hover {
+					background-color: #00C1DE;
+					color: #fff;
+				}
+			}
+		}
+		.card-mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, .5);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			z-index: 99;
+			.svg-icon {
+				font-size: 40px;
+				margin: 10px 0;
+			}
+			div {
+				font-size: 24px;
+				text-align: center;
+				color: #fff;
+			}
 		}
 	}
 

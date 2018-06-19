@@ -4,77 +4,65 @@
         <h3>{{$t('integral["Marketplaces"]')}}</h3>
     </div>
     <div class="integral-item">
-    	<div>
+    	<div v-for='item in mercado_livre_number' :class="item.isBind ? '' : 'filter-gray'">
     		<h6>Mercado Livre</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/market/market-liver.png')" alt="">
     		</div>
     		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
+    		<div class="integral-item-footer" v-if='item.isBind'>
     			<i class='el-icon-check'></i>
-                <a :href='`https://auth.mercadolibre.com.ar/authorization?response_type=${code}&client_id=${appId}`'>
+                <span>
                 	{{$t('integral["Ativo"]')}}
+				</span>
+                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    		<div class="integral-item-footer" v-else>
+    			 <a :href='`https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${appId}`'>
+                	{{$t('integral["Desativo"]')}}
 				</a>
-                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
     		</div>
-    	</div>
-    	
-    	<div>
-    		<h6>Mercado Livre</h6>
-    		<div class="integral-item-img">
-				<img :src="require('@/assets/market/market-liver.png')" alt="">
-    		</div>
-    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
-    			<i class='el-icon-check'></i>
-                <span>{{$t('integral["Ativo"]')}}</span>
-                <i class='el-icon-delete'  @click='$store.commit("TOGGLE_ALL_DEL")'></i>
-    		</div>
-    	</div>
-    	<div>
-    		<h6>Mercado Livre</h6>
-    		<div class="integral-item-img">
-				<img :src="require('@/assets/market/market-liver.png')" alt="">
-    		</div>
-    		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
-    			<i class='el-icon-check'></i>
-                <span>{{$t('integral["Ativo"]')}}</span>
-                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
-    		</div>
-    	</div>
-    	<div>
+    	</div>   
+    	<div v-for='item in b2w_number' :class="item.isBind ? '' : 'filter-gray'">
     		<h6>B2W</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/market/market-b2w.png')" alt="">
     		</div>
     		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
-    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_B2W")'></i>
+    		<div class="integral-item-footer"  v-if='item.isBind'>
+    			<i class='el-icon-check'></i>
                 <span>{{$t('integral["Ativo"]')}}</span>
-                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+                <i class='el-icon-delete' @click.stop='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    		<div class="integral-item-footer" @click='$store.commit("TOOGLE_INTEGRAL_B2W")' v-else>
+    			<span>{{$t('integral["Desativo"]')}}</span>
     		</div>
     	</div>   
-		<div class="filter-gray">
+		<div v-for='item in walmart_number' :class="item.isBind ? '' : 'filter-gray'">
     		<h6>Walmart</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/market/wmarket-woerma.png')" alt="">
     		</div>
     		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
-                <span @click='$store.commit("TOOGLE_INTEGRAL_WALMART")'>{{$t('integral["Desativo"]')}}</span>
+    		<div class="integral-item-footer" v-if='item.isBind'>
+                <i class='el-icon-check'></i>
+                <span >{{$t('integral["Desativo"]')}}</span>
+                <i class='el-icon-delete' @click.stop='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		</div>
+    		<div class="integral-item-footer" @click='$store.commit("TOOGLE_INTEGRAL_WALMART")' v-else>
+                <span >{{$t('integral["Desativo"]')}}</span>
     		</div>
     	</div> 
-		<div>
+		<div class="filter-gray">
     		<h6>CNOVA</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/market/market-m.png')" alt="">
     		</div>
     		<p class="integral-item-tip">{{$t('integral["MegaHaribaba"]')}}</p>
-    		<div class="integral-item-footer">
-    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_CONVA")'></i>
-                <span>{{$t('integral["Ativo"]')}}</span>
-                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>
+    		<div class="integral-item-footer"  @click='$store.commit("TOGGLE_ALL_INFO")'>
+<!--    			<i class='el-icon-check' @click='$store.commit("TOOGLE_INTEGRAL_CONVA")'></i>-->
+                <span>{{$t('integral["Desativo"]')}}</span>
+<!--                <i class='el-icon-delete' @click='$store.commit("TOGGLE_ALL_DEL")'></i>-->
     		</div>
     	</div>
     </div>
@@ -109,7 +97,7 @@
 		<h3>Transportadoras</h3>
 	</div>
 	<div class="integral-item">
-    	<div>
+    	<div class="filter-gray">
     		<h6>Correios</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/img/Correios.png')" alt="">
@@ -122,16 +110,6 @@
     		</div>
     	</div>
     	<div class="filter-gray">
-    		<h6>Jadlog</h6>
-    		<div class="integral-item-img">
-				<img :src="require('@/assets/img/jadlog.png')" alt="">
-    		</div>
-    		<p class="integral-item-tip"> </p>
-    		<div class="integral-item-footer">
-                <span @click='$store.commit("TOOGLE_INTEGRAL_JADLOG")'>{{$t('integral["Desativo"]')}}</span>
-    		</div>
-    	</div>
-    	<div class="filter-gray">
     		<h6>Braspress</h6>
     		<div class="integral-item-img">
 				<img :src="require('@/assets/img/bra.png')" alt="">
@@ -139,6 +117,16 @@
     		<p class="integral-item-tip"> </p>
     		<div class="integral-item-footer">
                 <span  @click='$store.commit("TOOGLE_INTEGRAL_BAR")'>{{$t('integral["Desativo"]')}}</span>
+    		</div>
+    	</div>
+    	<div class="filter-gray">
+    		<h6>Jadlog</h6>
+    		<div class="integral-item-img">
+				<img :src="require('@/assets/img/jadlog.png')" alt="">
+    		</div>
+    		<p class="integral-item-tip"> </p>
+    		<div class="integral-item-footer">
+                <span @click='$store.commit("TOOGLE_INTEGRAL_JADLOG")'>{{$t('integral["Desativo"]')}}</span>
     		</div>
     	</div>
 	</div>
@@ -150,11 +138,11 @@
     <my-tran></my-tran>
     <my-jadlog></my-jadlog>
     <my-bra></my-bra>
-    <my-del></my-del>
+    <erp-del message='Confirmar a remoção ?'></erp-del>
+    <erp-info message='Ainda EM aberto, por favor, Veja!' title='Info'></erp-info>
 </div>
 </template>
 <script>
-	
 	import myConva from './components/conva'
 	import myWalmart from './components/walmart'
 	import myBw from './components/bw'
@@ -163,7 +151,6 @@
 	import myTran from './components/transport'
 	import myJadlog from './components/jadlog'
 	import myBra from './components/braspress'
-	import myDel from '@/components/Del'
 	export default {
 		components: {
 			myConva,
@@ -174,28 +161,44 @@
 			myTran,
 			myJadlog,
 			myBra,
-			myDel
 		},
 		data() {
 			return {
 				appId: '',
-				code: '',
+				mercado_livre_number: [],
+				b2w_number: [],
+				walmart_number: [],
 			}
 		},
 		methods: {
 			submit() {}
 		},
 		created() {
-			this.$get('getCodeAndAppid').then(res => {
-				console.log(res)
-				this.appId = res.appId;
-				this.code = res.code;
+			this.$post('mercadoLive/getCodeAndAppid').then(res => {
+				this.appId = res.data.appId;
 			}).catch(res => {
-				console.log(res);
-				console.log(res);
-				this.appId = res.appId;
-				this.code = res.code;
-				
+
+			})
+			this.$get('sys/user/userPackage').then(res => {
+				var mercado_livre_number = Array.from(new Array(res.data.mercadoLivreNumber), (v, i) => {
+					return {
+						isBind: false
+					}
+				});
+				var b2w_number = Array.from(new Array(res.data.b2wNumber), (v, i) => {
+					return {
+						isBind: false
+					}
+				});
+				var walmart_number = Array.from(new Array(res.data.walmartNumber), (v, i) => {
+					return {
+						isBind: false
+					}
+				});
+
+				this.mercado_livre_number = mercado_livre_number;
+				this.b2w_number = b2w_number;
+				this.walmart_number = walmart_number;
 			})
 		}
 
@@ -241,6 +244,7 @@
 			.integral-item-footer {
 				width: 100%;
 				background-color: #13AFAD;
+				cursor: pointer;
 				display: flex;
 				padding: 16px 20px;
 				align-items: center;

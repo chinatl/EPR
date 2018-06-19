@@ -62,16 +62,21 @@ export const constantRouterMap = [
 		  path:'perfil',
 		  hidden:true,
 		  component:()=>
-			  import ('@/views/layout/components/perfil'),
+			  import ('@/views/Dashboard/perfil'),
 		  
 	  },
 	   {
 		  path:'setting',
 		  hidden:true,
 		  component:()=>
-			  import ('@/views/layout/components/setting'),
+			  import ('@/views/Dashboard/setting'),
+	  },
+	   {
+		  path:'operadores',
+		  hidden:true,
+		  component:()=>
+			  import ('@/views/Dashboard/operadores'),
 	  }
-
        ]
      },
 	{

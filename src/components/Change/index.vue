@@ -26,7 +26,7 @@
                </div>
                <div class="btn" >
 				 <transition name='fade'>
-					<el-button type='info' v-show='index == current'>CONTRATAR</el-button>
+					<el-button type='info' v-show='index == current' @click='bug_meal'>CONTRATAR</el-button>
 				 </transition>
                </div>
            </div>
@@ -46,65 +46,104 @@
 
 
 <script>
+	import qs from 'qs'
+	import {
+		param2Obj
+	} from '@/utils'
 	export default {
 		data() {
 			return {
-				checkbox:true,
+				checkbox: true,
 				centerDialogVisible: false,
 				current: 5,
-				data:[
-					{
-						title:'免费试用版',
-						label:'在Mercado Livre拥有3个管理账户',
-						p1:'Mercado Livre定价。',
-						p2:'分配一个关键字',
-						p3:'一键快速复制广告',
-						p4:'支持邮件',
-								
-					},{
-						title:'中级套餐',
-						label:'复制一个帐户信息的 mercado livre ',
-						p2:'para a sua em massa (1 vez por mês)',
-						p3:'在Mercado Livre拥有10个管理账户',
-						p4:'b2w， Mercado Livre定价。',
-						p5:'结合b2w，沃尔玛',
-						p6:'自由新增子账户',
-						p7:'市场（部分恢复）.',
-						p8:'支持邮件'
-					},	{
-						title:'高级套餐',
-						label:'Copiar anuncios de uma conta mercado livre ',
-						label:'复制一个帐户信息的 mercado livre ',
-						p2:'para a sua em massa (1 vez por mês)',
-						p3:'在Mercado Livre拥有10个管理账户',
-						p4:'b2w， Mercado Livre定价。',
-						p5:'结合b2w，沃尔玛',
-						p6:'自由新增子账户',
-						p7:'市场（部分恢复）.',
-						p8:'支持邮件'
-					}
-				]
+				data: [{
+					title: '免费试用版',
+					label: '在Mercado Livre拥有3个管理账户',
+					p1: 'Mercado Livre定价。',
+					p2: '分配一个关键字',
+					p3: '一键快速复制广告',
+					p4: '支持邮件',
+
+				}, {
+					title: '中级套餐',
+					label: '复制一个帐户信息的 mercado livre ',
+					p2: 'para a sua em massa (1 vez por mês)',
+					p3: '在Mercado Livre拥有10个管理账户',
+					p4: 'b2w， Mercado Livre定价。',
+					p5: '结合b2w，沃尔玛',
+					p6: '自由新增子账户',
+					p7: '市场（部分恢复）.',
+					p8: '支持邮件'
+				}, {
+					title: '高级套餐',
+					label: 'Copiar anuncios de uma conta mercado livre ',
+					label: '复制一个帐户信息的 mercado livre ',
+					p2: 'para a sua em massa (1 vez por mês)',
+					p3: '在Mercado Livre拥有10个管理账户',
+					p4: 'b2w， Mercado Livre定价。',
+					p5: '结合b2w，沃尔玛',
+					p6: '自由新增子账户',
+					p7: '市场（部分恢复）.',
+					p8: '支持邮件'
+				}]
 			}
 		},
 		methods: {
+			bug_meal() {
+				this.$post('payment/getPayDetail', {
+					"backUrl": window.location.href,
+//					"backUrl": 'https://47.90.211.253:8443/swagger-ui.html',
+//					"backUrl": 'http://192.168.0.108:8443/swagger-ui.html',
+//					"backUrl": 'http://localhost/index.html',
+					"currencyId": "BRL",
+					"endDate": "",
+					"frequency": 0,
+					"frequencyType": "",
+					"id": "",
+					"installments": 1,
+					"level": "0",
+					"mercadopagoId": "",
+					"payMentStatus": "",
+					"payerEmail": this.$store.getters.email,
+					"paymentCurrency": "",
+					"paymentMoney": 1,
+					"quantity": 1,
+					"startDate": "",
+					"title": "购买初级套餐",
+					"userId": this.$store.getters.userId
+				}).then(res => {
+					window.open(res.data.checkoutURL);
+				}).catch(res => {
+					console.log(res);
+				})
+			},
 			mouseenter(index) {
 				this.current = index;
-				
 			},
 			mouseleave(index) {
 				this.current = 5;
 			},
-			change(){
-				
+			change() {
+
+			}
+		},
+		created() {
+			var obj = param2Obj(window.location.href);
+			if (obj.collection_id && obj.preference_id && obj.merchant_order_id && obj.collection_status) {
+				this.$post('payment/paymentApproved', obj).then(res => {
+					console.log(res)
+				})
 			}
 		}
 	}
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
 	.tips {
-		padding-left:20px
+		padding-left: 20px
 	}
+
 	.ms-content {
 		border-top: 2px solid #ccc;
 		padding: 20px 10px;
@@ -125,7 +164,7 @@
 						color: #fff;
 						background-color: #1AA758;
 						border-color: #1AA758;
-						transition:opacity 0.5s linear;
+						transition: opacity 0.5s linear;
 					}
 				}
 			}
@@ -141,9 +180,9 @@
 					padding: 10px;
 				}
 				p {
-					display:inline-block;
-					width:80%;
-					height:24px;
+					display: inline-block;
+					width: 80%;
+					height: 24px;
 					margin-bottom: 3px;
 					font-size: 5rem
 				}
@@ -159,11 +198,11 @@
 					}
 				}
 				.btn {
-					height:40px;
-					margin-top: 10px;	
+					height: 40px;
+					margin-top: 10px;
 				}
 			}
-		}	
+		}
 	}
 
 </style>

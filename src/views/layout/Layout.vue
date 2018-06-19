@@ -6,10 +6,9 @@
       <app-main></app-main>
       <my-change></my-change>
       <my-message></my-message><!--左边第一个弹出层-->
-      
    
    <!-- 功能限制通知 -->
-	   <div class="error-page">
+		<div class="error-page">
 			<el-dialog
 				:visible.sync="limit_function"
 				  center
@@ -48,8 +47,6 @@
 		Navbar,
 		Sidebar,
 		AppMain,
-		myPerfil,
-		mySetting,
 		myMessage,
 	} from '@/views/layout/components'
 	import myChange from '@/components/Change'
@@ -61,14 +58,12 @@
 			Sidebar,
 			AppMain,
 			myChange,
-			myPerfil,
-			mySetting,
 			myMessage
 		},
 		data() {
 			return {
-				limit_power: true,
-				limit_function: true,
+				limit_power: false,
+				limit_function: false,
 			}
 		},
 		methods: {

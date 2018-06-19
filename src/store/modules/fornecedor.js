@@ -1,7 +1,22 @@
 const app = {
 	state: {
-		show_menu: false
-
+		show_menu: false,
+		form: {
+			"bairro": "",
+			"celular": "",
+			"cidade": "",
+			"cnpj": "",
+			"complemento": "",
+			"estado": "",
+			"fantasic": "",
+			"logradouro": "",
+			"nome": "",
+			"numero": "",
+			"social": "",
+			"supplierMail": "",
+//			"userId": ''
+		},
+		type: 'add'
 	},
 	mutations: {
 		TOGGLE_FORNECEDOR_MENU: state => {
@@ -9,7 +24,7 @@ const app = {
 		}
 	},
 	actions: {
-
+		
 	}
 }
 export default app

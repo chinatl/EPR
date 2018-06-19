@@ -34,3 +34,13 @@ export function validatAlphabets(str) {
 	return reg.test(str)
 }
 
+/*社会供应商*/ //21.887.361/0001-71
+export function validataShehui(str) {
+	const reg = /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/
+	return reg.test(str)
+}
+export function validataNum(str) {
+	const reg = /^([1-9]\d*|0)(\.)?(\d*)$/;
+	return reg.test(str)
+}
+

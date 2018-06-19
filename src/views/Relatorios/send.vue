@@ -25,28 +25,28 @@
 				<el-button type="success" size='small' round class="btn"><span class="text"><i class='el-icon-share'></i>{{$t(`relatorios["Exportar CSV"]`)}} </span></el-button>
 			</div>
 		</div>
-	<div class="erp-list" v-loading='loading'>
-			<ul class="title">
-				<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
-				<li>{{$t(`relatorios["Imagem"]`)}}</li>
-				<li>SKU</li>
-				<li>{{$t(`relatorios["Nome"]`)}}</li>
-				<li>{{$t(`relatorios["Vendas"]`)}}</li>
-				<li>{{$t(`relatorios["Nota de Potencial"]`)}}</li>
-				<li></li>
-			</ul>
-			<transition-group name="fade" tag='div'>
-				<ul class="content" v-for='(item,index) in list' v-bind:key="index">
-					<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'></el-checkbox></li>
-					<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
-					<li>{{item.address}}</li>
-					<li>{{item.Marca}}</li>
-					<li>{{item.Estoque}}</li>
-					<li>{{item.sss}}</li>
-					<li>{{item.Marca}}</li>
+		<div class="erp-list" v-loading='loading'>
+				<ul class="title">
+					<li class='flex2'><el-checkbox v-model='checkAll' @change='all'></el-checkbox></li>
+					<li>{{$t(`relatorios["Imagem"]`)}}</li>
+					<li>SKU</li>
+					<li>{{$t(`relatorios["Nome"]`)}}</li>
+					<li>{{$t(`relatorios["Vendas"]`)}}</li>
+					<li>{{$t(`relatorios["Nota de Potencial"]`)}}</li>
+					<li></li>
 				</ul>
-		</transition-group>
-	</div>
+				<transition-group name="fade" tag='div'>
+					<ul class="content" v-for='(item,index) in list' v-bind:key="index">
+						<li class='flex2'><el-checkbox v-model='item.checked' @change='choose($event,index)'></el-checkbox></li>
+						<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
+						<li>{{item.address}}</li>
+						<li>{{item.Marca}}</li>
+						<li>{{item.Estoque}}</li>
+						<li>{{item.sss}}</li>
+						<li>{{item.Marca}}</li>
+					</ul>
+			</transition-group>
+		</div>
 		<pagination :total='total'></pagination>
 	</div>
 </template>

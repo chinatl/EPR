@@ -11,7 +11,9 @@ import sac from './modules/sac'
 import getters from './getters'
 import fornecedor from './modules/fornecedor'
 import rastreamento from './modules/rastreamento' //物流最终
+import dashboard from './modules/dashboard' //物流最终
 import all from './modules/all' //通用
+import attr from './modules/attr' //通用
 
 Vue.use(Vuex)
 
@@ -31,7 +33,9 @@ const store = new Vuex.Store({
 		sac,
 		integral,
 		rastreamento,
-		all
+		all,
+		attr,
+		dashboard
 	},
 	getters
 })

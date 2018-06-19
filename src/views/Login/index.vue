@@ -1,16 +1,16 @@
 <template>
-    <div class="ms-layout">
+    <div class="ms-layout" v-loading.fullscreen='full_loading'>
         <div class="ms-login">
             <div class="login-header">
                 <h3 class="HARI"><span class="blue">HARI</span>EXPRESS</h3>
                 <h3 class="solution">Solution All-in-one</h3>
             </div>
-            <el-form  :model="form">
-                <el-form-item :label='$t(`login["用户名"]`)'>
-                    <el-input v-model="form.name" maxlength='16'></el-input>
+            <el-form  :model="form" :rules="login_rule"  ref="login_form" status-icon >
+                <el-form-item :label='$t(`login["用户名"]`)' prop='username'>
+                    <el-input v-model="form.username" maxlength='32'></el-input>
                 </el-form-item>
-                <el-form-item :label='$t(`login["账号密码"]`)'>
-                    <el-input v-model="form.pwd" maxlength='16' type='password'></el-input>
+                <el-form-item :label='$t(`login["账号密码"]`)' prop='password'>
+                    <el-input v-model="form.password" type='password' @keyup.native.enter ='login' auto-complete="on" ></el-input>
                 </el-form-item>
             </el-form>
             <div class="login-remeber">
@@ -18,7 +18,7 @@
                  <router-link to='forget'>{{$t(`login["忘记密码"]`)}}</router-link>
             </div>
             <div class="login-post">
-                 <router-link to='/dashboard'><el-button type="success" round  v-waves >{{loginmsg}} </el-button></router-link>
+                 <el-button type="success" round  v-waves @click='login'>{{loginmsg}} </el-button>
                  <p>-----------&nbsp;&nbsp;Qu&nbsp;&nbsp;-------------</p>
                  <div class="login-img">
                      <div v-waves><img :src="require('@/assets/img/img1.png')" alt=""></div>
@@ -36,25 +36,24 @@
                 <h3 class="HARI"><span class="blue">HARI</span>EXPRESS</h3>
                 <h3 class="solution">Solution All-in-one</h3>
            </div>
-           <el-form  :model="register_form">
-                <el-form-item label="邮箱">
-                    <el-input v-model="register_form.name" maxlength='30'></el-input>
+           <el-form  :model="register_form" status-icon :rules="rules"  ref="registerForm">
+                <el-form-item label="邮箱" prop="email">
+                    <el-input v-model="register_form.email" maxlength='20'></el-input>
                 </el-form-item>
                 <el-form-item label="邮箱验证码">
-					<el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
-					<el-button type='success' @click='get_validate'>获取验证码</el-button>
+                	<div style="display:flex;width:100%">
+						<el-input v-model="register_form.mailVerification" maxlength='6' ></el-input>
+						<button :class='!isSend ? "erp-btn" : "erp-btn info"' @click.stop.prevent='get_validate'>{{email_message}}</button>
+                	</div>
                 </el-form-item> 
-			  	<el-form-item label="验证码">
-					<el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
-                </el-form-item>
-                <el-form-item label="账号密码">
-                    <el-input v-model="register_form.pwd" maxlength='16' type='password'></el-input>
+                <el-form-item label="账号密码" prop="password">
+                    <el-input v-model="register_form.password"  type='password' auto-complete="off"></el-input>
                 </el-form-item> 
-				<el-form-item label="确认密码">
-                    <el-input v-model="register_form.repwd" maxlength='16' type='password'></el-input>
+				<el-form-item label="确认密码" prop="repwd">
+                    <el-input v-model="register_form.repwd" type='password' auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item align='center'>
-                    <el-button type="primary" round >{{$t(`login["注册"]`)}}</el-button>
+                    <button class="erp-btn circle" @click.stop.prevent='register_submit'>{{$t(`login["注册"]`)}}</button>
                 </el-form-item>
             </el-form>
         </el-dialog>
@@ -64,71 +63,189 @@
 <script>
 	import MD5 from 'js-md5'
 	import waves from '@/directive/waves' // 水波纹指令
-	import {validateUrl} from '@/utils/validate' // 水波纹指令
-	console.log(validateUrl)
+	import {
+		validateUrl
+	} from '@/utils/validate' // 
 	export default {
 		directives: {
 			waves
 		},
 		data() {
+			var checkEmail = (rule, value, callback) => {
+				if (value === '') {
+					callback(new Error('请输入邮箱'));
+				} else {
+					if (!validateUrl(value)) {
+						callback(new Error('邮箱格式错误'));
+						return
+					}
+					callback();
+				}
+			}
+			var checkEmail_reg = (rule, value, callback) => {
+				if (value === '') {
+					callback(new Error('请输入邮箱'));
+				} else {
+					if (!validateUrl(value)) {
+						callback(new Error('邮箱格式错误'));
+						return
+					}
+					this.$post('user/selectUser?email=' + value).then(res => {
+						this.$message({
+							message: res.data,
+							type: 'success'
+						})
+						callback();
+					}).catch(res => {
+						callback(res.data);
+					})
+				}
+			}
+			var validatePass = (rule, value, callback) => {
+				if (value === '') {
+					callback(new Error('请输入密码'));
+				} else {
+					if (value.length < 8) {
+						callback(new Error('请输入8位数以上的密码'));
+					} else {
+						callback();
+					}
+				}
+			};
+			var validatePass2 = (rule, value, callback) => {
+				if (value === '') {
+					callback(new Error('请再次输入密码'));
+				} else if (value !== this.register_form.password) {
+					callback(new Error('两次输入密码不一致!'));
+				} else {
+					callback();
+				}
+			};
 			return {
+				full_loading: false,
+				rules: {
+					email: [{
+						validator: checkEmail_reg,
+						trigger: 'blur'
+					}],
+					password: [{
+						validator: validatePass,
+						trigger: 'blur'
+					}],
+					repwd: [{
+						validator: validatePass2,
+						trigger: 'change'
+					}]
+				},
+				login_rule: {
+					username: [{
+						validator: checkEmail,
+						trigger: 'blur'
+					}],
+					password: [{
+						validator: validatePass,
+						trigger: 'blur'
+					}],
+				},
+				isSend: false,
 				register_dialog: false,
 				loading: false,
 				checked: false,
-				register_form: {},
+				register_form: {
+					password: '',
+					email: ''
+				},
 				loginmsg: '登录',
 				form: {
-					name: '',
-					pwd: '',
+					username: '',
+					password: '',
 				},
-				rules: {
-					name: [{
-						min: 3,
-						max: 12,
-						message: '长度在 3 到 12 个字符',
-						trigger: 'blur'
-					}],
-					pwd: [{
-						min: 6,
-						max: 16,
-						message: '长度在 6 到 16 个字符',
-						trigger: 'blur'
-					}],
-				}
+				email_message: '获取验证码',
+				timer: null
 			}
 		},
 		methods: {
-			get_validate(){
-				if(validateUrl(this.register_form.name)){
-					this.$get('user/getMail',{
-						email:this.register_form.name
-					})
-				}else {
+			/*获取验证码*/
+			get_validate() {
+				if (this.isSend) {
 					this.$message({
-						$message:'邮箱格式不对',
-						type:'error'
+						message: '您已发送验证码，请稍后再发',
+						type: 'error'
+					})
+					return
+				}
+				if (validateUrl(this.register_form.email)) {
+					this.full_loading = true;
+					this.$get('user/mailVerification', {
+						email: this.register_form.email
+					}).then(res => {
+						clearInterval(this.timer);
+						this.full_loading = false;
+						this.$message({
+							message: res.data,
+							type: 'success'
+						});
+						this.isSend = true;
+						var a = 0;
+						this.timer = setInterval(res => {
+							a++;
+							this.email_message = (60 - a) + 's para reenviar';
+							if (a == 60) {
+								this.email_message = 'email_message';
+								this.isSend = false;
+								clearInterval(this.timer);
+							}
+						}, 1000)
+
+					}).catch(res => {
+						this.full_loading = false;
+					})
+				} else {
+					this.$message({
+						message: '邮箱格式错误',
+						type: 'error'
 					})
 				}
 			},
+			/*注册*/
+			register_submit() {
+				this.$refs.registerForm.validate((valid) => {
+					if (valid) {
+						this.full_loading = true;
+						this.$post(`user/registered/${this.$md5(this.register_form.password)}/${this.register_form.mailVerification}`, {
+							email: this.register_form.email
+						}).then(res => {
+							this.full_loading = false;
+							this.$store.commit("SET_USER", res.data);
+							this.$router.push({
+								path: '/dashboard/perfil'
+							})
+						}).catch(res => {
+							this.full_loading = false;
+						})
+					} else {
+						return false;
+					}
+				});
+			},
+			/*登陆*/
 			login() {
-//				const loading = this.$loading({
-//					lock: true,
-//					text: '登陆中',
-//					spinner: 'el-icon-loading',
-//					background: 'rgba(0, 0, 0, 0.7)'
-//				});
-				this.$router.push({
-					path: '/dashboard'
-				})
-//				setTimeout(res => {
-//
-//					this.$message({
-//						message: '恭喜您，登录成功',
-//						type: 'success'
-//					});
-//					loading.close();
-//				}, 2000)
-
+				this.$refs.login_form.validate((valid) => {
+					if (valid) {
+						this.full_loading = true;
+						this.$post(`sys/login/${this.form.username}/${this.$md5(this.form.password)}`).then(res => {
+							this.full_loading = false;
+							this.$store.commit("SET_USER", res.data);
+							this.$router.push({
+								path: '/dashboard/perfil'
+							})
+						}).catch(res => {
+							this.full_loading = false;
+						})
+					} else {
+						return false;
+					}
+				});
 			}
 		}
 	}
@@ -154,6 +271,10 @@
 
 	.ms-layout .el-dialog--center .el-dialog__body {
 		padding: 0px 30px 10px 30px;
+	}
+
+	.ms-layout .el-form-item {
+		margin-bottom: 12px;
 	}
 
 	/*登录头部*/
@@ -241,7 +362,7 @@
 
 	.login-post .login-img>div {
 		margin: 15px;
-/*		width: 67px;*/
+		/*		width: 67px;*/
 		border-radius: 8px;
 		cursor: pointer
 	}

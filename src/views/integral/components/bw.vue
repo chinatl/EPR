@@ -29,11 +29,11 @@
 		<div class='erp-dialog-item  no-border'>
 			<div class="width40">
 				<p>{{$t('integral["E-Mail"]')}}</p>
-				<el-input type='text' size='small'></el-input>
+				<el-input v-model='form.skyHubEmail' size='small'></el-input>
 			</div>
 			<div class="width40">
 				<p>{{$t('integral["Senha"]')}}</p>
-				<el-input type='text' size='small'></el-input>
+				<el-input v-model='form.skyHubPassword' size='small'></el-input>
 			</div>
 		</div>
 		<div class="erp-header">
@@ -44,11 +44,11 @@
 		<div class='erp-dialog-item  no-border'>
 			<div class="width40">
 				<p>{{$t('integral["Usuário"]')}}</p>
-				<el-input type='text' size='small'></el-input>
+				<el-input v-model='form.b2WUsername' size='small'></el-input>
 			</div>
 			<div class="width40">
 				<p>{{$t('integral["Senha"]')}}</p>
-				<el-input type='text' size='small'></el-input>
+				<el-input v-model='form.b2WPassword' size='small'></el-input>
 			</div>
 		</div>
 		<div class='erp-dialog-item just-start no-border '>
@@ -70,16 +70,48 @@
 				<el-input type='text' size='small'></el-input>
 			</div>
 		</div>
+   		<p class='erp-dialog-button'>
+			<button class="erp-btn" @click='submit'>{{$t('fornecedor["Salvar"]')}}</button>
+		</p>
     </el-dialog>
 </template>
 <script>
-    export default{
-        data(){
-            return{
-				shop:'1',
-                checked:false,
-				checked1:false
-            }
-        }
-    }
+	export default {
+		data() {
+			return {
+				shop: '1',
+				checked: false,
+				checked1: false,
+				form: {
+					skyHubPassword: '',
+					skyHubEmail: '',
+					b2WUsername: '',
+					b2WPassword: '',
+				}
+			}
+		},
+		methods: {
+			submit() {
+				this.$post('user/bindUser', {
+					skyHubEmail: this.form.skyHubEmail,
+					skyHubPassword: this.$crypto(this.form.skyHubPassword),
+					b2WUsername: this.form.b2WUsername,
+					b2WPassword: this.$crypto(this.form.b2WPassword),
+					password: this.$crypto(this.password),
+					userId: this.$store.state.user.userId
+				}).then(res => {
+					this.loading = false;
+					this.$store.commit("TOOGLE_INTEGRAL_B2W");
+					this.$message({
+						message: res.msg,
+						type: 'success',
+						duration: 4000
+					});
+				}).catch(res => {
+					this.loading = false;
+				})
+			}
+		}
+	}
+
 </script>

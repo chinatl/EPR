@@ -1,43 +1,46 @@
 <template>
-<div class="error-page">
 	<el-dialog
+	class='error-page'
 		:visible.sync="$store.state.all.show_del"
 		  center
+		:append-to-body = 'true'
 		>
-		<div slot='title' class="error-header">Atenção</div>
-		<div class="error-content">
-			<p class="error-message">Ao executar a ação de exclusão do produto, todos os anúncios</p>
-			<p class="error-message">ligados a ele serão desvínculados.</p>
-			<p class="error-button">
-				<el-button size='small' round type="primary" @click='agree'><span class="error-inner">{{$t('product["Sim"]')}}</span></el-button>
-				<el-button size='small' round type="info" @click='cancel'><span class="error-inner">{{$t('product["Não"]')}}</span></el-button>
-			</p>
-		</div>
+	<div slot='title' class="error-header">{{error_title}}</div>
+	<div class="error-content">
+		<p class="error-message" v-for='item in error_message'>{{item}}</p>
+		<p style="text-align:center">
+			<button class="erp-btn" @click='agree'><span class="error-inner">{{$t('product["Sim"]')}}</span></button>
+			<button class="erp-btn info" @click='cancel'><span class="error-inner">{{$t('product["Não"]')}}</span></button>
+		</p>
+	</div>
 	</el-dialog>
-</div>
 </template>
 <script>
 	export default {
+		name: 'erp_del',
 		data() {
 			return {
-				dialog: true,
+				error_title: '',
+				error_message: '',
 			}
 		},
+		props: ['message', 'title'],
 		methods: {
 			agree() {
-				this.$store.commit("TOGGLE_ALL_DEL");
-				this.$message({
-					message: '恭喜你，这是一条成功消息',
-					type: 'success'
-				});
+				this.$parent.agree_item(this.$store.getters.del_id);
 			},
 			cancel() {
-				this.$store.commit("TOGGLE_ALL_DEL");
-				this.$message({
-					message: '恭喜你，操作失败',
-					type: 'warning'
-				});
+				this.$parent.cancae_item();
 			}
+		},
+		created() {
+			this.error_title = this.title || 'Atenção'
+			if (typeof this.message === 'string') {
+				this.error_message = [this.message]
+			} else {
+				this.error_message = this.message
+			}
+
 		}
 	}
 

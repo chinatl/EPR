@@ -7,11 +7,11 @@
 
 @font-face {
 	font-family: 'Montserrat-Regular';
-	src: url('../font/Montserrat-Regular.eot');
-	src: url('../font/Montserrat-Regular.eot?#iefix')format('embedded-opentype'),
-	url('../font/Montserrat-Regular.woff')format('woff'),
-	url('../font/Montserrat-Regular.ttf')format('truetype'),
-	url('../font/Montserrat-Regular.svg#Montserrat-Regular')format('svg');
+	src: url('./../font/Montserrat-Regular.eot');
+	src: url('/static/font/Montserrat-Regular.eot?#iefix')format('embedded-opentype'),
+	url('./../font/Montserrat-Regular.woff')format('woff'),
+	url('./../font/Montserrat-Regular.ttf')format('truetype'),
+	url('./../font/Montserrat-Regular.svg#Montserrat-Regular')format('svg');
 }
 
 *,
@@ -27,6 +27,7 @@ html {
 	box-sizing: border-box;
 	background-color: #E9EEF4;
 }
+
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -78,7 +79,7 @@ li {
 		font-size: 12px;
 	}
 	.main-container {
-		padding: 20px 40px
+		padding: 20px 20px
 	}
 
 }
@@ -95,7 +96,7 @@ li {
 		padding: 0 12px;
 	}
 	.main-container {
-		padding: 20px 40px
+		padding: 20px 30px
 	}
 }
 
@@ -110,13 +111,159 @@ li {
 		padding: 0 15px;
 	}
 	.main-container {
-		padding: 20px 40px
+		padding: 20px 30px
 	}
 
 }
 
 //main-container全局样式
+/*新的头部按钮*/
+
+.erp-btn {
+	font-family: "Montserrat-Regular";
+	background-color: $buttonBgc;
+	color: $buttonColor;
+	padding: $buttonPadding;
+	outline: none;
+	border: none;
+	border-radius: $buttonRadius;
+	font-size: $buttonSize;
+	cursor: pointer;
+	white-space: nowrap;
+	height: 32px;
+	&:hover {
+		background-color: $buttonHover;
+		opacity: .8
+	}
+	&:active {
+		background-color: $buttonActive;
+		opacity: 1
+	}
+	i {
+		margin-right: 8px;
+	}
+	&.info {
+		background-color: $buttonInfoBgc;
+		color: $titleButton;
+		&:hover {
+			background-color: $buttonInfoHover;
+			opacity: .8
+		}
+		&:active {
+			background-color: $buttonInfoActive;
+			opacity: 1
+		}
+	}
+	&size16 {
+		font-size: 16rem;
+	}
+	&.circle {
+		border-radius: 50px;
+	}
+	&.status {
+		background-color: $status;
+		color: $buttonColor;
+		border-radius: 50px;
+		&:hover {
+			background-color: $status;
+			opacity: .8
+		}
+		&:active {
+			background-color: $status;
+			opacity: 1
+		}
+	}
+}
+
+/*新版的头部点击事件栏*/
+
+.erp-event-button {
+	background-color: #fff;
+	display: flex; //	justify-content: center;
+	align-items: center;
+	.erp-btn {
+		margin-right: 20px;
+	}
+}
+
+/*搜索框和按钮连在一起*/
+
+.erp-search-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.el-button--mini {
+		padding: 7px;
+		border-radius: 0 4px 4px 0;
+	}
+	.el-input__inner {
+		border-radius: 4px 0 0 4px;
+	}
+	i {
+		font-size: 16px;
+	}
+	.el-button--primary {
+		background-color: $buttonBgc;
+		border-color: $buttonBgc;
+	}
+	.el-button--primary:focus,
+	.el-button--primary:hover {
+		background-color: $buttonHover;
+		border-color: $buttonHover;
+	}
+	.el-button--primary {
+		background-color: $buttonActive;
+		border-color: $buttonActive;
+	}
+	.el-button--small {
+		padding: 8px;
+		border-radius: 0 4px 4px 0;
+		span {
+			font-size: 14px;
+		}
+	}
+}
+
 /*通用样式*/
+
+.fs14 {
+	font-size: 14rem;
+}
+
+
+
+/*新的头部条件搜索栏*/
+
+.erp-select-bar {
+	height: 70px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	> div {
+		display: flex;
+		align-items: center;
+		margin-right: 40px;
+		> span {
+			font-size: 16rem;
+			font-weight: bold;
+			margin-right: 12px;
+			white-space: nowrap;
+			color: #666;
+		}
+		.erp-btn {
+			margin-left: 12px;
+		}
+	}
+	&.space-between {
+		justify-content: space-between;
+		> div {
+			display: flex;
+			align-items: center;
+			margin: 0;
+		}
+	}
+}
 
 .table-bgc {
 	.has-gutter {
@@ -187,18 +334,13 @@ li {
 		margin: 0 6px;
 		background-color: #E8E8E8;
 		&:hover {
-			background-color: #DC044D;
+			background-color: $buttonBgc;
 			color: #fff;
 		}
-	}
-}
-
-.main_box {
-	.th_box {
-		margin: 20px 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		&.current {
+			background-color: $buttonBgc;
+			color: #fff;
+		}
 	}
 }
 
@@ -213,6 +355,7 @@ li {
 
 .erp-list {
 	width: 100%;
+	background-color: #fff;
 	ul {
 		width: 100%;
 		align-items: center;
@@ -244,18 +387,19 @@ li {
 		}
 	}
 	> .title {
-		background-color: #e8e8e8;
-		height: 48px;
-		line-height: 48px;
+		background-color: #F5F5F6;
+		height: 60px;
+		line-height: 60px;
 
 		li {
-			font-size: 15rem;
+			font-size: 16rem;
 			font-weight: bold;
 			color: #222;
 			white-space: nowrap;
 		}
 	}
 	> div {
+		min-height: 240px;
 		.product-item {
 			.product-column {
 				height: 0px;
@@ -278,13 +422,13 @@ li {
 			}
 			&:hover {
 				.content {
-					background-color: rgb(245, 247, 250);
+					background-color: #f9f9f9;
 				}
 
 			}
 			.content {
-				height: 60px;
-				line-height: 60px;
+				height: 48px;
+				line-height: 48px;
 				li {
 					display: flex;
 					justify-content: center;
@@ -305,11 +449,10 @@ li {
 			}
 			&:last-of-type {}
 			&:hover {
-				background-color: rgb(245, 247, 250);
-
+				background-color: #f9f9f9;
 			}
-			height: 60px;
-			line-height: 60px;
+			height: 48px;
+			line-height: 48px;
 			li {
 				display: flex;
 				justify-content: center;
@@ -329,30 +472,7 @@ li {
 	}
 }
 
-/*搜索框和按钮连在一起*/
 
-.erp-search-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	.el-button--mini {
-		padding: 7px;
-		border-radius: 0 4px 4px 0;
-	}
-	.el-input__inner {
-		border-radius: 4px 0 0 4px;
-	}
-	i {
-		font-size: 16px;
-	}
-	.el-button--small {
-		padding: 8px;
-		border-radius: 0 4px 4px 0;
-		span {
-			font-size: 14px;
-		}
-	}
-}
 
 /*通用搜索栏*/
 
@@ -424,9 +544,9 @@ li {
 		flex: 1;
 		margin: 10px;
 		> p {
-			margin-bottom: 4px;
-			font-weight: bold;
-			font-size: 16px;
+			margin-bottom: 8px; //			font-weight: bold;
+			color: #666;
+			font-size: 18rem;
 		}
 		> .word {
 			margin-bottom: 4px;
@@ -489,6 +609,7 @@ li {
 
 .erp-dialog-button {
 	text-align: right;
+	margin-top: 12px;
 }
 
 .error-content {
@@ -501,9 +622,12 @@ li {
 	}
 	.error-button {
 		margin-top: 20px;
-		.error-inner {
-			font-size: 14px;
-			padding: 4px 12px;
+		.erp-btn {
+			border-radius: 50px;
+			padding-left: 32px;
+			padding-right: 32px;
+			font-size: 16rem;
+			margin: 0 6px
 		}
 	}
 }
@@ -534,6 +658,12 @@ div.el-dialog {
 	.el-dialog__body {
 		padding: 0 40px 24px 40px;
 
+	}
+}
+
+.small-dialog {
+	div.el-dialog {
+		width: 760px;
 	}
 }
 

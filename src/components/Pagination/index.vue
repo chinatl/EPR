@@ -28,16 +28,15 @@
 			}
 		},
 		created() {
-			
+
 		},
 		methods: {
 			handleSizeChange(e) {
-				console.log(this.$parent)
-				this.$parent.init(this.pageNo,e);
+				this.$parent.init(e, this.pageNo);
 				this.pageSize = e;
 			},
 			handleCurrentChange(e) {
-				this.$parent.init(e,this.pageSize);
+				this.$parent.init(this.pageSize, e);
 				this.pageNo = e;
 			}
 		}

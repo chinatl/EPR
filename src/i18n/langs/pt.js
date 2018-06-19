@@ -28,8 +28,21 @@ const cn = {
 		'ID do Anúncio': 'ID do Anúncio',
 		'Título': 'Título',
 		'Vendas': 'Vendas',
+		"Módulo": "Módulo", //货品转化列表映射
+		"Descrição": "Descrição", //货品转化列表映射s
+		"Grupos": "Grupos", //货品转化列表映射s
+		"complemento": "complemento", //货品转化列表映射s
 	},
 	"button": {
+		"Novo Pedido": "Novo Pedido",
+		"Duplicar Pedido": "Duplicar Pedido",
+		"Emitir NF-e (Tiny)": "Emitir NF-e (Tiny)",
+		"Concluir": "Concluir",
+		"Entrada": "Entrada",
+		"Anúncios não vinculados": "Anúncios não vinculados",
+		"Novo Produto": "Novo Produto",
+		"Clonar Produtos  em Massa": "Clonar Produtos  em Massa",
+		"Conferência": "Conferência",
 		"Empacotar": "Empacotar",
 		"Iniciar importação": "Iniciar importação",
 		"Adicionar operador": "Adicionar operador",
@@ -44,6 +57,10 @@ const cn = {
 		"Clonar Loja": "Clonar Loja",
 		"Importar Anúncios": "Importar Anúncios",
 		"Relatório de Saída": "Relatório de Saída", //货品转化列表映射
+		"Adicionar Variação": "Adicionar Variação", //货品转化列表映射
+		"Adicione uma nova variação": "Adicione uma nova variação", //货品转化列表映射
+		"Criar Operador": "Criar Operador", //货品转化列表映射
+		"Salvar": "Salvar", //货品转化列表映射
 	},
 	"select": {
 		"Paginação": "Paginação",
@@ -79,6 +96,33 @@ const cn = {
 		"Frete": "Frete",
 		"nome": "nome",
 		"SKU": "SKU",
+		"Nova Senha": "Nova Senha",
+		"Confirmar Nova Senha": "Confirmar Nova Senha",
+		"Código de Verificação": "Código de Verificação",
+		"Senha Atua": "Senha Atua",
+		"Senha Atual": "Senha Atual",
+		"Adicionar Variação": "Adicionar Variação",
+		"Vinculação": "Vinculação",
+		"Voltagem": "Voltagem",
+		"Cor": "Cor",
+		"Duplicar": "Duplicar",
+		"Nome": "Nome",
+		"Descrição": "Descrição",
+		"Garantia": "Garantia",
+		"Estoque Inicial": "Estoque Inicial",
+		"Custo": "Custo",
+		"Especificação": "Especificação",
+		"Marca": "Marca",
+		"Custo": "Custo",
+		"EAN": "EAN",
+		"Medidas": "Medidas",
+		"Peso": "Peso",
+		"Comprimento": "Comprimento",
+		"Largura": "Largura",
+		"Altura": "Altura",
+		"Fiscal": "Fiscal",
+		"Origem": "Origem",
+		"Modelo": "Modelo",
 	},
 	"setting": {
 		"Senha": "Senha",
@@ -90,6 +134,13 @@ const cn = {
 		"Clássico": "Clássico",
 		"Premium": "Premium",
 		"Comissão Mkt": "Comissão Mkt",
+	},
+	"login": {
+		"用户名": "用户名",
+		"账号密码": "账号密码",
+		"记住密码": "记住密码",
+		"忘记密码": "忘记密码",
+		"注册": "注册",
 	},
 	"route": {
 		"主页": "dashboard",
@@ -253,8 +304,7 @@ const cn = {
 		'Reduzir em': 'Reduzir em',
 		'Adicionar Concorrente': 'Adicionar Concorrente',
 		'Vendedor': 'Vendedor',
-
-
+		'Preço + Frete': 'Preço + Frete',
 	},
 	"pedido": {
 		'Pedidos': 'Pedidos',

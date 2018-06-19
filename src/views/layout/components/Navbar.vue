@@ -1,8 +1,12 @@
 <template>
 <el-menu class="navbar" mode="horizontal">
-	<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
+<!--	<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>-->
 	<!--    <breadcrumb></breadcrumb>-->
 	<div class="left-item">
+		<div class='logo'>
+               <h3>HARIEXPRESS</h3>
+               <h3>Solution All-in-One</h3>
+	   	</div>
 		<div class="times" v-show="!isShow">
 			<h3>{{$t(`layout["免费试用版"]`)}}</h3>
 			<h6 @click='open' style="text-decoration:underline;cursor:pointer;text-align:center">{{$t(`layout["更换套餐"]`)}}</h6>
@@ -140,8 +144,8 @@ Produtos estão sem estoque.</p>
 					<span>{{$t(`layout["用户资料"]`)}}</span>
 				</span>
 			</el-dropdown-item>
-			<el-dropdown-item>
-				<span @click='user' class="drop-icon">
+			<el-dropdown-item divided>
+				<span @click='operadores' class="drop-icon">
 					<svg-icon icon-class='user'  style='font-size:24px'></svg-icon>
 					<span>{{$t(`layout["Operadores"]`)}}</span>
 				</span>
@@ -224,6 +228,11 @@ Produtos estão sem estoque.</p>
 					path: '/dashboard/setting'
 				});
 			},
+			operadores() {
+				this.$router.push({
+					path: '/dashboard/operadores'
+				});
+			},
 			logout() {
 				this.$router.push({
 					path: '/login'
@@ -279,6 +288,23 @@ Produtos estão sem estoque.</p>
 		/*    margin-left: 80px;*/
 		div {
 			float: left;
+		}
+		.logo {
+			margin-left: 20px;
+			height: $height60;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			h3 {
+				font-weight: normal;
+				&:nth-of-type(1) {
+					font-size: 19px;
+				}
+				&:nth-of-type(2) {
+					color: #eee
+				}
+			}
 		}
 		.times {
 			padding: 0 10px;
@@ -367,10 +393,13 @@ Produtos estão sem estoque.</p>
 	}
 
 	.navbar {
+		background-color: #2A2F32;
+		color: #fff;
 		height: 60px;
 		border-radius: 0px !important;
 		position: fixed;
 		top: 0;
+		z-index: 100;
 		width: 100%;
 		.hamburger-container {
 			line-height: 58px;
@@ -405,7 +434,7 @@ Produtos estão sem estoque.</p>
 					right: -16px;
 					bottom: 12px;
 					font-size: 14px;
-					color: #000;
+					color: #aaa;
 				}
 			}
 			.icon {

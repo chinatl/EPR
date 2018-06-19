@@ -1,21 +1,38 @@
 <template>
     <div v-loading='loading'>
-       	<div class="erp-s"></div>
-        <div class="erp-header">
-            <h3>{{$t(`product["产品管理"]`)}}</h3>
-            <div>
-                <el-button size='small' round type='primary'   icon="el-icon-edit">{{$t(`product["开启快捷编辑"]`)}}</el-button>
-                <el-button size='small' round type='info' @click='$store.commit("TOGGLE_ENTRDA")'>{{$t(`product["入库"]`)}}</el-button>
-                <el-button size='small' round type='success'  icon="el-icon-star-on">{{$t(`product["复制店铺"]`)}}</el-button>
-                <el-button size='small' round type='danger'>{{$t(`product["新增产品"]`)}}</el-button>
-            </div>
-        </div>
-		<div class='erp-bar'>
-			<div class='erp-search-button'>
-				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
+       	<div class="erp-event-button">
+			<el-popover
+			  placement="bottom"
+			  width="200"
+			  v-model="manager_visible">
+			  <div class='erp-search-button'>
+				<el-input type='password' size='small' placeholder='Inserir senha' v-model='value'></el-input>
+				<el-button size='mini' type='primary' @click='check_manager'><i class="el-icon-check"></i></el-button>
+				</div>
+				<button class="erp-btn" 
+				slot="reference"
+			  	@click="manager_visible = true">{{$t(`button["Conferência"]`)}}</button>
+			</el-popover>
+       		<button class="erp-btn"
+       		@click='$store.commit("TOGGLE_ENTRDA")'>{{$t(`button["Entrada"]`)}}</button>
+       		<button class="erp-btn" @click='$store.commit("TOGGLE_FAST_COPY")'><i class="el-icon-star-on"></i>{{$t(`button["Clonar Produtos  em Massa"]`)}}</button>
+       		<button class="erp-btn" @click='$store.commit("TOGGLE_NEW_PRODUCT")'>{{$t(`button["Novo Produto"]`)}}</button>
+       	</div>
+       	<div class="erp-select-bar space-between">
+       		<div class='erp-search-button'>
+				<el-input type='text' size='small' placeholder='SKU / Nome / Marca/ ID do Anúncio' v-model='value'></el-input>
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
-		</div>
+      		<div>
+      			<span v-if='show_manager'>Estoque Inicial </span>
+      			<el-input-number v-model="num8" size='small'
+				 v-if='show_manager'
+			  	controls-position="right" @change.stop="handleChange" :min="1" :max="10"></el-input-number>
+      			<button class='erp-btn' v-if='show_manager'
+      			@click='$store.commit("TOGGLE_TONG_YI")'>Aplicar em Massa</button>
+      			<button class="erp-btn info">{{$t(`button["Anúncios não vinculados"]`)}}</button>
+      		</div>
+       	</div>
 		<div class="erp-list" v-loading='loading'>
 			<ul class="title">
 				<li>{{$t(`relatorios["Imagem"]`)}}</li>
@@ -27,7 +44,7 @@
 					{{$t(`table["Operação"]`)}}
 				</li>
 			</ul>
-			<transition-group name="fade" tag='div'>
+			<div>
 				<div v-for='(item,index) in tableData' v-bind:key="index" class="product-item">
 					<ul class="content" @click='check(index)'>
 						<li><img :src="require('@/assets/img/yashua.png')" class='table-img'></li>
@@ -35,11 +52,14 @@
 						<li>{{item.address}}</li>
 						<li>{{item.Marca}}</li>
 						<li>
-							{{item.Estoque}}
-							<span style='margin-left:8px'>
-								<svg-icon icon-class='sanseqiu' v-if='index%2'></svg-icon>
-								<svg-icon icon-class='sanseqiu1' v-else></svg-icon>
+							<span v-if='!show_manager'>
+								{{item.Estoque}}
+								<span style='margin-left:8px'>
+									<svg-icon icon-class='sanseqiu' v-if='index%2'></svg-icon>
+									<svg-icon icon-class='sanseqiu1' v-else></svg-icon>
+								</span>
 							</span>
+							<el-input-number v-model="num8" size='small' controls-position="right" @change="handleChange" :min="1" :max="10" v-else></el-input-number>
 						</li>
 						<li>
 							<div class="table-icon">
@@ -50,22 +70,55 @@
 						</li>
 					</ul>
 					<div class="product-column" ref='ul'>
-					  	<swiper :options="swiperOption" style="margin-bottom: 1rem;">
-							<swiper-slide v-for="i in arr" :key='Math.random()'>
-       							<my-item :name='i.name'></my-item>
-       						</swiper-slide>
-        					<div class="swiper-pagination" slot="pagination"></div>
-      					</swiper>
+						<div class="swiper-list-gezi">
+							<div class="left-sider">
+        						<svg-icon icon-class='mg'></svg-icon>
+        						<span>Mercado Livre</span>
+        					</div>
+							<swiper :options="swiperOption" style="margin-bottom: 1rem;">
+								<swiper-slide v-for="item in live_arr" :key='Math.random()'>
+									<my-item name='mg' :index='index' :data="item"></my-item>
+								</swiper-slide>
+								<div class="swiper-pagination" slot="pagination"></div>
+							</swiper>
+						</div>
+						<div class="swiper-list-gezi">
+							<div class="left-sider walmart">
+								<svg-icon icon-class='walmart'></svg-icon>
+								<span>Walmart</span>
+							</div>
+							<swiper :options="swiperOption" style="margin-bottom: 1rem;">
+								<swiper-slide v-for="item in walmart_arr" :key='Math.random()'>
+										<my-item name='walmart' :index='index' :data="item"></my-item>
+								</swiper-slide>
+								<div class="swiper-pagination" slot="pagination"></div>
+							</swiper>
+						</div>
+						<div class="swiper-list-gezi">
+							<div class="left-sider b2w">
+								<img :src="require('@/assets/img/b2w.png')" alt="">
+								<span>Americanas</span>
+							</div>
+							<swiper :options="swiperOption" style="margin-bottom: 1rem;">
+								<swiper-slide v-for="item in b2w_arr" :key='Math.random()'>
+										<my-item name='b2w' :index='index' :data="item"></my-item>
+								</swiper-slide>
+								<div class="swiper-pagination" slot="pagination"></div>
+							</swiper>
+						</div>
 					</div>
 				</div>
-			</transition-group>
-		</div>      	
+			</div>
+		</div>
 		<my-market></my-market>
 		<my-ml></my-ml>
 		<my-unbind></my-unbind>
 		<my-del></my-del>
-		<my-entrada></my-entrada>
+		<my-entrada></my-entrada><!--入库-->
 		<my-edit></my-edit>
+		<tong-yi></tong-yi><!--库存高级功能-->
+		<fast-copy></fast-copy><!--快速复制-->
+		<new-product></new-product><!--新建一个产品-->
 	</div>
 </template>
 <script>
@@ -76,28 +129,28 @@
 	import myItem from './Components/item.vue'
 	import myUnbind from './Components/unbind.vue'
 	import myDel from './Components/delete.vue'
-
-	import 'swiper/dist/css/swiper.css'
-
-	import {
-		swiper,
-		swiperSlide
-	} from 'vue-awesome-swiper'
+	import tongYi from './Product/tongyi'
+	import fastCopy from './Product/fastcopy.vue'
+	import newProduct from './Product/new_product.vue'
 
 	export default {
 		components: {
-			swiper,
-			swiperSlide,
 			myMarket,
 			myMl,
 			myEntrada,
 			myItem,
 			myUnbind,
 			myDel,
-			myEdit
+			myEdit,
+			fastCopy,
+			tongYi,
+			newProduct
 		},
 		data() {
 			return {
+				show_manager: false,
+				num8: '',
+				manager_visible: false, //库存管理高级功能
 				value: '',
 				swiperOption: {
 					slidesPerView: 5,
@@ -178,22 +231,39 @@
 					Marca: 'Pmcell',
 					Estoque: '200',
 					sss: '',
-				}, ]
+				}, ],
+				b2w_arr: [],
+				live_arr: [],
+				walmart_arr: [],
 			}
 		},
 		methods: {
+			check_manager() {
+				this.show_manager = true;
+				this.manager_visible = false;
+			},
+			handleChange(e) {
+				console.log(e)
+			},
 			init() {
 
 			},
 			check(index) {
-				//				this.current = index;
 				var ul = this.$refs.ul;
+				var flag = ul[index].style.height == '' || ul[index].style.height == '0px' ? false : true;
 				for (var i = 0; i < ul.length; i++) {
-					ul[i].style.height = '0px'
+					ul[i].style.height = '0px';
+					ul[i].querySelectorAll('.left-sider').forEach(res => {
+						res.style.opacity = 0
+					})
+					ul[i].style.overflow = '';
 				}
-				//				console.log(index)
-				ul[index].style.height = '380px'
-
+				ul[index].style.height = flag ? '0px' : '999px';
+				ul[index].style.overflow = flag ? 'hidden' : 'unset';
+				ul[index].querySelectorAll('.left-sider').forEach(res => {
+					res.style.opacity = flag ? 0 : 1
+				})
+				//				ul[index].style.overflow =  flag ? 'hidden' : 'visible';
 			},
 			handleSelectionChange(e) {
 				console.log(e)
@@ -202,30 +272,104 @@
 			ae() {
 				this.ml_show = true;
 			},
+			/*初始化 'Mercado Livre' 列表*/
+			init_live(title = '', advertId = '') {
+				this.$post('mercadoLive/seachMsgAdvertbycondition', {
+					userId: this.$store.getters.userId,
+					terrace: 'Mercado Livre',
+					status: this.status,
+					title: title,
+					advertId: advertId
+				}).then(res => {
+					this.live_arr = res.data.length < 12 ? res.data : res.data.slice(0, 12);
+				})
+			},
+			/*初始化 B2W 列表*/
+			init_b2w(title = '', advertId = '') {
+				this.$post('mercadoLive/seachMsgAdvertbycondition', {
+					userId: this.$store.getters.userId,
+					terrace: 'B2W',
+					status: this.status,
+					title: title,
+					advertId: advertId
+				}).then(res => {
+					this.b2w_arr = res.data.length < 12 ? res.data : res.data.slice(0, 12);
+				})
+			},
+			/*初始化 Walmart 列表*/
+			init_walmart(title = '', advertId = '') {
+				this.$post('mercadoLive/seachMsgAdvertbycondition', {
+					userId: this.$store.getters.userId,
+					terrace: 'Walmart',
+					status: this.status,
+					title: title,
+					advertId: advertId
+				}).then(res => {
+					this.walmart_arr = res.data.length < 12 ? res.data : res.data.slice(0, 12);
+				})
+			},
+			/*筛选状态*/
+			change_status() {
+
+			}
 		},
 		created() {
-			//			setTimeout(res => {
-			//				this.loading = false;
-			//			}, 1000)
-//			this.$get('login/language', {
-//				cs: 'CN'
-//			}).then(res => {
-//			}).catch(res => {
-//				this.$post('login/add', {
-////					userInfo_phone: '21321',
-//					userInfo_email: '21321',
-//					userInfo_id: '21321',
-//				}).then(res => {
-//					console.log(res)
-//				})
-//			})
-
-
+			this.init_b2w();
+			this.init_walmart();
+			this.init_live();
 		}
 	}
 
 </script>
 <style rel="stylesheet/scss" lang="scss">
+	.swiper-list-gezi {
+		border-radius: 8px;
+		margin-top: 10px;
+		min-height: 320px;
+		position: relative;
+		.left-sider {
+			position: absolute;
+			top: 300px;
+			left: -50px;
+			width: 300px;
+			transform: rotate(-90deg);
+			transform-origin: 0 0;
+			display: flex;
+			align-items: center;
+			background-color: #FFBC00;
+			padding: 0 20px;
+			justify-content: center;
+			height: 40px;
+			transition: opacity 1s;
+			&.walmart {
+				background-color: #1E457C;
+				.svg-icon {
+					font-size: 30px;
+				}
+
+			}
+			&.b2w {
+				background-color: #3DE2B3;
+				.svg-icon {
+					font-size: 30px;
+				}
+
+			}
+			.svg-icon {
+				font-size: 40px;
+			}
+			>span {
+				font-size: 24px;
+				color: #fff;
+				margin: 0 10px;
+			}
+		}
+		.carousel-items {
+			margin-right: 20px;
+			margin-bottom: 20px;
+		}
+	}
+
 	.procudt-btn {
 		width: 32px;
 		height: 32px;

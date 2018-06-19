@@ -12,8 +12,8 @@ module.exports = {
 		assetsPublicPath: '/',
 		proxyTable: {
 			'/': {
-				target: 'http://192.168.0.119:8443',
-				changeOrigin: true,
+				target: 'http://192.168.0.117:8443',//47.90.211.253
+//				changeOrigin: true,
 				//				pathRewrite: {
 				//					'^/api': '/api'
 				//				}
@@ -34,7 +34,7 @@ module.exports = {
 		// If true, eslint errors and warnings will also be shown in the error overlay
 		// in the browser.
 		showEslintErrorsInOverlay: false,
-
+		
 		/**
 		 * Source Maps
 		 */
@@ -57,7 +57,7 @@ module.exports = {
 
 	build: {
 		// Template for index.html
-		index: path.resolve(__dirname, '../dist/index.html'),
+		index: path.resolve(__dirname,'../dist/index.html'),
 
 		// Paths
 		assetsRoot: path.resolve(__dirname, '../dist'),

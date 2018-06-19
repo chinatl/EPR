@@ -1,19 +1,19 @@
 <template>
  <div>
       <scroll-bar>
+       	<div class="menu333" @click="toggleSideBar">
+       		<svg-icon icon-class='menu3'  :style='{"transform": "rotate("+(sidebar.opened ? 0 : 90) +"deg)","transition": "transform .3s"}'></svg-icon>
+<!--       		<hamburger class="hamburger-container"  ></hamburger>-->
+       	</div>
         <el-menu
           mode="vertical"
           :show-timeout="200"
           :default-active="$route.path"
           :collapse="isCollapse"
-          background-color="#2D2D2D"
+          background-color="#42485B"
           text-color="#fff"
           active-text-color="#409EFF"
         >
-           <div class='logo' v-show='!isCollapse'>
-               <h3>HARIEXPRESS</h3>
-               <h3>Solution All-in-One</h3>
-           </div>
           <sidebar-item :routes="routes"></sidebar-item>
         </el-menu>
       </scroll-bar>
@@ -21,38 +21,52 @@
 </template>
 
 <script>
-    import {
-        mapGetters
-    } from 'vuex'
-    import SidebarItem from './SidebarItem'
-    import ScrollBar from '@/components/ScrollBar'
+	import {
+		mapGetters
+	} from 'vuex'
+	import SidebarItem from './SidebarItem'
+	import ScrollBar from '@/components/ScrollBar'
+	import Hamburger from '@/components/Hamburger'
 
-    export default {
-        components: {
-            SidebarItem,
-            ScrollBar
-        },
-        computed: {
-            ...mapGetters([
-                'sidebar'
-            ]),
-            routes() {
-                return this.$router.options.routes
-            },
-            isCollapse() {
-                return !this.sidebar.opened
-            }
-        }
-    }
+	export default {
+		components: {
+			SidebarItem,
+			ScrollBar,
+			Hamburger
+		},
+		computed: {
+			...mapGetters([
+				'sidebar'
+			]),
+			routes() {
+				return this.$router.options.routes
+			},
+			isCollapse() {
+				return !this.sidebar.opened
+			}
+		},
+		methods: {
+			showSlider() {
+
+			},
+			toggleSideBar() {
+				this.$store.dispatch('ToggleSideBar')
+			},
+		}
+	}
 
 </script>
 
 <style>
-    .logo {
-        font-size: 14px;
-        color: #fff;
-        padding: 10px;
-        white-space: nowrap
-    }
+	.menu333 {
+		background-color: #4A5064;
+		color: #e4e4e4;
+		padding: 12px 0;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		padding-left: 7px;
+		cursor: pointer;
+	}
 
 </style>

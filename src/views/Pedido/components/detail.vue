@@ -66,6 +66,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped="true">
 	$titleheight:60px;
+	$cosWidth:10px;
 	.transport-header {
 		margin: 20px 0;
 		display: flex;
@@ -73,34 +74,49 @@
 		align-items: center;
 		>div {
 			height: $titleheight;
-			border-radius: 80px;
-			width: 250px;
+			width: 160px;
 			text-align: center;
-			background-color: #e0e0e0;
+			background-color: #e8e8e8;
+			color: #666;
 			line-height: $titleheight;
 			font-size: 20rem;
 			position: relative;
-			&:nth-of-type(3) {
-				z-index: 1;
-				padding-left: 38px;
+			text-align: center;
+			margin: 0 20px;
+			&:before {
+				content: '';
+				height: $titleheight;
+				position: absolute;
+				left: -20px;
+				top: 0;
+				border-style: solid;
+				border-width: 30px $cosWidth;
+				border-color: transparent #e8e8e8 #e8e8e8 transparent;
+				display: inline-block;
 			}
-			&:nth-of-type(2) {
-				z-index: 2;
-
-				margin-right: -50px;
-				padding-left: 38px;
-			}
-			&:nth-of-type(1) {
-				z-index: 3;
-				margin-right: -50px;
+			&:after {
+				content: '';
+				height: $titleheight;
+				position: absolute;
+				right: -20px;
+				top: 0;
+				border-style: solid;
+				border-width: 30px $cosWidth;
+				border-color: #e8e8e8  transparent transparent #e8e8e8;
+				display: inline-block;
 			}
 			&.current {
 				color: #fff;
-				background-color: #40B4B1;
+				background-color: #00C1DE;
+				&:before {
+					border-color: transparent #00C1DE #00C1DE transparent;
+				}
+				&:after {
+					border-color: #00C1DE  transparent transparent #00C1DE;
+				}
 			}
 		}
 	}
-
 	.transport-text {
 		text-align: center;
 		>p {

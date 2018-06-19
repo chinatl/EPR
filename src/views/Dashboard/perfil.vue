@@ -1,0 +1,176 @@
+<template>
+    <div  v-loading='loading'>
+        <div class='erp-header'>
+            <h3>Perfil</h3>
+        </div>
+        <div class='erp-dialog-item' style="margin-top:30px">
+       		<div class="erp-dialog-head">{{$t('input["Identificação"]')}}</div>
+       		<div>
+       			<p>{{$t('input["Nome de Contato"]')}}</p>
+       			<el-input size='small' v-model='form.nome'></el-input>
+       		</div>
+       		<div>
+       			<p>{{$t('input["CNPJ/CPF"]')}}</p>
+       			<el-input  size='small' v-model='form.cnpj' @change='checkCNPJ'></el-input>
+       		</div>
+       		<div>
+       			<p>{{$t('input["Razão Social (Opcional)"]')}}</p>
+       			<el-input  size='small' v-model='form.social'></el-input>
+       		</div>
+       		<div>
+       			<p>Loja</p>
+       			<el-input size='small' v-model='form.loja'></el-input>
+       		</div>
+        </div>
+ 		<div class='erp-dialog-item'>
+       		<div class="erp-dialog-head">{{$t('fornecedor["Endereço"]')}}</div>
+       		<div class="width30">
+       			<p>{{$t('input["Logradouro"]')}}</p>
+       			<el-input  size='small' v-model='form.logradouro'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('input["Número"]')}}</p>
+       			<el-input  size='small' v-model='form.numero'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('input["Complemento"]')}}</p>
+       			<el-input  size='small' v-model='form.complemento'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('input["Bairro"]')}}</p>
+       			<el-input  size='small' v-model='form.bairro'></el-input>
+       		</div>
+       		<div  class="width30">
+       			<p>{{$t('input["Cidade"]')}}</p>
+       			<el-input  size='small' v-model='form.cidade'></el-input>
+       		</div>
+			<div class="width30">
+				<p>{{$t('input["Estado"]')}}</p>
+				<el-input  size='small' v-model='form.estado'></el-input>
+			</div>
+        </div>
+ 		<div class='erp-dialog-item just-start'>
+       		<div class="erp-dialog-head">{{$t('fornecedor["Contato"]')}}</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["E-Mail"]')}}</p>
+       			<el-input  size='small' v-model='email' :disabled='true'></el-input>
+       		</div>
+       		<div class="width30">
+       			<p>{{$t('fornecedor["Celular"]')}}</p>
+       			<el-input  size='small' v-model='form.celular' :disabled='type==="update"'></el-input>
+       		</div>
+        </div>
+        <p class='erp-dialog-button'>
+           	<button class="erp-btn" @click='submit'>{{$t('fornecedor["Salvar"]')}}</button>
+        </p>
+    </div>
+</template>
+<script>
+	import {
+		objectMerge
+	} from '@/utils'
+	import {
+		validataShehui
+	} from '@/utils/validate'
+	export default {
+		data() {
+			return {
+				form: {
+					"bairro": "",
+					"celular": "",
+					"cidade": "",
+					"cnpj": "",
+					"complemento": "",
+					"estado": "",
+					"loja": "",
+					"logradouro": "",
+					"nome": "",
+					"numero": "",
+					"social": "",
+				},
+				id: '',
+				loading: false,
+				type: 'add',
+				email: ''
+			}
+		},
+		created() {
+			this.init();
+			this.email = this.$store.getters.email;
+		},
+		methods: {
+			init() {
+				this.loading = true;
+				this.$get(`config/query/${this.$store.getters.userId}`).then(res => {
+					this.loading = false;
+					if (validataShehui(res.data.cnpj)) {
+						this.type = 'update';
+						this.id = res.data.id;
+						for (var k in this.form) {
+							this.form[k] = res.data[k]
+						}
+					} else {
+						this.type = 'add';
+					}
+
+				}).catch(res => {
+					this.loading = false;
+				})
+			},
+			submit() {
+				var form = this.form;
+				for (var k in form) {
+					if (!form[k]) {
+						this.$message({
+							message: 'place input your ' + k,
+							type: 'error'
+						});
+						return
+					}
+				}
+				if (!validataShehui(form.cnpj)) {
+					this.$message({
+						message: 'cnpj is not right',
+						type: 'error'
+					});
+					return
+				}
+				if (this.type === 'add') {
+					this.$post('config/save', form).then(res => {
+						this.$message({
+							message: res.data,
+							type: 'success'
+						});
+						this.loading = false;
+						this.init();
+					}).catch(res => {
+						this.loading = false;
+					})
+				} else {
+					this.$post('config/update', objectMerge({
+						id: this.id
+					}, form)).then(res => {
+						this.$message({
+							message: res.data,
+							type: 'success'
+						});
+						this.loading = false;
+					}).catch(res => {
+						this.loading = false;
+						this.init();
+					})
+				}
+			},
+			checkCNPJ(e) {
+				if (!validataShehui(e)) {
+					this.$message({
+						message: 'cnpj is not right',
+						type: 'error'
+					});
+					return
+				}
+			},
+		}
+	}
+
+</script>

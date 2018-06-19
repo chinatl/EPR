@@ -8,6 +8,8 @@ const app = {
 		show_edit: false,
 		show_auto_link: false,
 		show_fast_copy: false,
+		show_tong_yi: false,
+		show_new_product: false
 	},
 	mutations: {
 		TOGGLE_ML: state => {
@@ -34,7 +36,13 @@ const app = {
 		TOGGLE_FAST_COPY: state => {
 			state.show_fast_copy = !state.show_fast_copy
 		},
-		
+		TOGGLE_TONG_YI: state => {
+			state.show_tong_yi = !state.show_tong_yi
+		},
+		TOGGLE_NEW_PRODUCT: state => {
+			state.show_new_product = !state.show_new_product
+		}
+
 	}
 }
 

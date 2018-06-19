@@ -1,22 +1,21 @@
 <template>
     <div>
-       	<div class="erp-header">
-       		<h3>{{$t('pedido["Pedidos"]')}} <span class="else-con ">*{{$t('pedido["Mantemos as mensagens arquivados por 3 meses"]')}}.</span></h3>
-       		<div>
-		  		<el-button type='success' size='small' round @click='$store.commit("TOGGLE_ORDER_DETAIL")'>{{$t('pedido["Exportar Tiny"]')}}</el-button>
-            	<el-button type='danger' size='small' round 
-            	@click='$store.commit("TOGGLE_ORDER_NEWORDER")'
-            	>{{$t('pedido["Novo Pedido"]')}}</el-button>
-       		</div>
+		<div class="erp-event-button">
+       		<button class="erp-btn" @click='$store.commit("TOGGLE_ORDER_NEWORDER")'>{{$t(`button["Novo Pedido"]`)}}</button>
+       		<button class="erp-btn info"
+       		@click='$store.commit("TOGGLE_ORDER_ORDER")'
+       		>{{$t(`button["Duplicar Pedido"]`)}}</button>
+       		<button class="erp-btn info"
+       		@click='$store.commit("TOGGLE_ORDER_DETAIL")'
+       		>{{$t(`button["Emitir NF-e (Tiny)"]`)}}</button>
        	</div>
-		
 		<div class='erp-bar'>
 			<div class='erp-search-button'>
 				<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
 				<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
 			</div>
 			<div>
-				<span >Status</span>
+				<span>Status</span>
                 <el-select size='small' v-model='value' placeholder='Todos'  style='width:170px' >
 					<el-option value='1' :label='$t(`pedido["Todos"]`)'></el-option>
 					<el-option value='2' :label='$t(`pedido["Incluído"]`) + " (20)"'></el-option>
@@ -40,7 +39,7 @@
 				<el-option value='3' :label='$t(`pedido["Netshoes"]`)'></el-option>
 				</el-select>
 			</div>
-			<div >
+			<div>
 				<span>{{$t(`relatorios["Período"]`)}} </span>
 				<el-date-picker size='small' v-model="value7" type="daterange" align="right" unlink-panels range-separator=" " start-placeholder="1/12/2017" end-placeholder="30/12/2017" :picker-options="pickerOptions2" style='width:220px'>
 				</el-date-picker>

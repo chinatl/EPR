@@ -56,21 +56,19 @@
 		</div>
 		<pagination :total='total'></pagination>
 		<my-order></my-order>
-		<my-error 
+		<erp-del
 			title='Informação'
 			message='16  Pedidos foram expedidos.'
-		></my-error>
+		></erp-del>
 
 <!--		<inform></inform>-->
 	</div>
 </template>
 <script>
 	import myOrder from './components/order'
-	import myError from '@/components/Error' //删除提示
 	export default {
 		components: {
 			myOrder,
-			myError
 		},
 		data() {
 			return {

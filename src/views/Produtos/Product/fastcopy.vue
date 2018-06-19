@@ -100,8 +100,12 @@
 	export default {
 		data() {
 			return {
+				total:10,
+				checked:false,
 				shop:'1',
+				loading:false,
 				current: 1,
+				value:'',
 				user: '',
 				form: {
 					a: '',

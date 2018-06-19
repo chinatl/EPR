@@ -26,18 +26,16 @@
 				 <div class='erp-dialog-item no-border'>
 					<div >
 						<p>{{$t('input["SKU"]')}}</p>
-						<div class='erp-search-button'  style='width:200px'>
-							<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
-							<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
+						<div style='width:200px'>
+							<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value' readonly></el-input>
 						</div>
 					</div>
 				</div>
 				 <div class='erp-dialog-item no-border'>
 					<div>
 						<p>{{$t('input["nome"]')}}</p>
-						<div class='erp-search-button'  style='width:400px'>
-							<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value'></el-input>
-							<el-button size='mini' type='primary'><i class="el-icon-search"></i></el-button>
+						<div style='width:200px'>
+							<el-input type='text' size='small' placeholder='Nome / SKU' v-model='value' readonly></el-input>
 						</div>
 					</div>
 				</div>

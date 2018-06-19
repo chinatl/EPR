@@ -54,9 +54,9 @@
 					<li>R$ 25,00</li>
 					<li>
 						<div class="table-icon">
-							<span  @click='$store.commit("TOGGLE_SAC_MSG","#")'><b>#</b></span>
-							<span  @click='$store.commit("TOGGLE_SAC_MSG","@")'><b>@</b></span>
-							<span><i class='el-icon-delete' @click='$store.commit("TOGGLE_DELETE")'></i></span>
+							<span @click='$store.commit("TOGGLE_SAC_MSG","#")'><b>#</b></span>
+							<span @click='$store.commit("TOGGLE_SAC_MSG","@")'><b>@</b></span>
+							<span @click='$store.commit("TOGGLE_ALL_DEL",item.id)'><i class='el-icon-delete'></i></span>
 						</div>
 					</li>
 				</ul>
@@ -64,15 +64,14 @@
 		</div>      
 		<pagination :total='total'></pagination>
         <my-msg></my-msg>
-        <my-error></my-error>
+        <erp-del message='Confirmar a remoção ?' @ok='agree_item' @cancelar='cancae_item'></erp-del>
     </div>
 </template>
 <script>
 	import myMsg from './components/msg'
-	import myError from '@/components/Error'
 	export default {
 		components: {
-			myMsg,myError
+			myMsg,
 		},
 		data() {
 			return {
@@ -84,7 +83,12 @@
 			}
 		},
 		methods: {
+			agree_item() {
 
+			},
+			cancae_item() {
+
+			}
 		}
 	}
 
@@ -111,4 +115,5 @@
 		}
 
 	}
+
 </style>

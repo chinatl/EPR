@@ -65,16 +65,17 @@
 		<my-order></my-order>
 		<my-details></my-details>
 		<a-list></a-list>
-		<my-error
+		<erp-del
 			title='Erro'
 			message='Tivemos uma falha de comunicaçao na impressão 
 da etiqueta, Favor conferir no marketplace.'
-		></my-error>
+			@ok='agree'		
+			@cancelar='cancel'
+		></erp-del>
 	</div>
 </template>
 <script>
 	import myOrder from './components/order' //打包
-	import myError from '@/components/Error' //删除提示
 	import myDetails from './components/details' //给按钮添加 展示所有详情
 	import aList from './components/alist' //显示每条列表的详情
 	export default {
@@ -82,7 +83,6 @@ da etiqueta, Favor conferir no marketplace.'
 			aList,
 			myDetails,
 			myOrder,
-			myError
 		},
 		data() {
 			return {
@@ -122,8 +122,8 @@ da etiqueta, Favor conferir no marketplace.'
 			}
 		},
 		methods: {
-			init(){
-				
+			init() {
+
 			},
 			show_item(item) {
 				this.$store.commit('TOOGLE_EXPEDIC_ALIST');
@@ -150,10 +150,16 @@ da etiqueta, Favor conferir no marketplace.'
 					this.checkAll = flag;
 				}
 			},
-			pickerOptions2() {}
+			pickerOptions2() {},
+			agree() {
+				this.$store.commit('TOGGLE_ALL_DEL')
+			},
+			cancel() {
+				this.$store.commit('TOGGLE_ALL_DEL')
+			}
 		},
 		created() {
-			this.$store.commit('TOGGLE_ALL_ARROR')
+			this.$store.commit('TOGGLE_ALL_DEL')
 		}
 	}
 

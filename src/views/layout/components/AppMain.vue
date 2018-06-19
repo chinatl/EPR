@@ -20,8 +20,7 @@
 </script>
 <style>
 	.app-main {
-		
-		background-color: #fff
+		background-color: #fff;
+		padding: 20px 20px 
 	}
-
 </style>
